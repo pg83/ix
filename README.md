@@ -26,3 +26,5 @@ Goals:
 * serve as stalix foundation
 * as few binary seeds as possible
 * first-class support for darwin and linux
+
+Please don't crash our servers.
