@@ -444,8 +444,6 @@ bin/dropbear
 bin/dropbear/runit
 bin/weston
 bin/slurp
-bin/mingetty/runit
-bin/mingetty
 bin/git
 bin/git/2
 bin/git/go

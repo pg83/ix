@@ -1494,7 +1494,6 @@
 {"bin": "mii-tool", "ix_pkg_name": "bin/net/tools"}
 {"bin": "mim", "ix_pkg_name": "bin/busybox/ix"}
 {"bin": "minfo", "ix_pkg_name": "bin/mtools"}
-{"bin": "mingetty", "ix_pkg_name": "bin/mingetty"}
 {"bin": "mini_client", "ix_pkg_name": "bin/mbedtls/3"}
 {"bin": "minijail0", "ix_pkg_name": "bin/minijail"}
 {"bin": "minised", "ix_pkg_name": "bin/minised"}
