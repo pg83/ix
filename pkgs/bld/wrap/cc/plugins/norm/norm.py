@@ -13,8 +13,6 @@ def res_path(where, f):
         if os.path.isfile(p):
             return p
 
-    raise Exception(f'no {f} in {where}')
-
 def norm(cmd):
     l = []
     o = []
@@ -27,7 +25,12 @@ def norm(cmd):
 
     for x in o:
         if x.startswith('-l'):
-            yield res_path(l, 'lib' + x[2:] + '.a')
+            if rp := res_path(l, 'lib' + x[2:] + '.a'):
+                yield rp
+            elif rp := res_path(l, 'lib' + x[2:] + '.tbd'):
+                yield rp
+            else:
+                raise Exception(f'no {x} in {l}')
         elif x.endswith('.o'):
             yield os.path.abspath(x)
         elif x.endswith('.a'):
