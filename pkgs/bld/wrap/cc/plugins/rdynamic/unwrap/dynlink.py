@@ -62,6 +62,8 @@ def it_syms():
             pass
         elif '.' in s:
             pass
+        elif '@' in s:
+            pass
         elif s == 'main':
             pass
         else:
