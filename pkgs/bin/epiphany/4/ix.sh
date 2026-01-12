@@ -55,5 +55,4 @@ _ZNK6skjson11ObjectValue4findEPKc
 {% block gnome_tool %}
 bld/gnome
 bld/wrap/cc/plugins/gnome
-bld/wrap/cc/plugins/rdynamic/fake
 {% endblock %}
