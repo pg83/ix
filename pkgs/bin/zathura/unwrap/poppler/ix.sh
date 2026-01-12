@@ -1,5 +1,5 @@
 {% extends '//die/hub.sh' %}
 
 {% block run_deps %}
-bin/zathura/unwrap(pdf_plugin=poppler)
+bin/zathura/unwrap(pdf_plugin=pdf-poppler)
 {% endblock %}
