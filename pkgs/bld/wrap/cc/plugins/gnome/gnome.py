@@ -6,10 +6,10 @@ import json
 import hashlib
 import subprocess
 
-if os.environ.get('IX_STEP', '') == 'configure':
-    sys.exit(0)
-
 req = json.loads(sys.stdin.read())
+
+if req['step'] == 'configure':
+    sys.exit(0)
 
 if req['is_link_lib']:
     sys.exit(0)
@@ -78,7 +78,7 @@ def it_parts():
 
 cprog = '\n'.join(it_parts()).strip() + '\n'
 
-if os.environ.get('IX_VERBOSE'):
+if req['verbose']:
     print(cprog, file=sys.stderr)
 
 subprocess.check_output([os.environ['SELF'], '-o', temp, '-c', '-x', 'c', '-'], input=cprog.encode())

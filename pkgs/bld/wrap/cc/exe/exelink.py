@@ -5,9 +5,10 @@ import sys
 import json
 import subprocess
 
+step = os.environ.get('IX_STEP', '')
 verbose = os.environ.get('IX_VERBOSE')
 
-if os.environ.get('IX_STEP', '') == 'configure':
+if step == 'configure':
     pass
 elif verbose:
     print(f'LINK {sys.argv}', file=sys.stderr)
@@ -50,6 +51,8 @@ def it_plugins(cmd):
 def flt_args(cmd):
     req = {
         'cmd': cmd,
+        'step': step,
+        'verbose': verbose,
         'is_link_lib': is_link_lib(cmd),
     }
 

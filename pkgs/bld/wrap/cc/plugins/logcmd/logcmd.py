@@ -5,12 +5,13 @@ import sys
 import json
 import hashlib
 
-if os.environ.get('IX_STEP', '') == 'configure':
+data = sys.stdin.buffer.read()
+req = json.loads(data)
+
+if req['step'] == 'configure':
     sys.exit(0)
 
-data = sys.stdin.buffer.read()
-
-cmd = json.loads(data)['cmd']
+cmd = req['cmd']
 
 if '-o' in cmd:
     d = os.environ['tmp'] + '/lnk'

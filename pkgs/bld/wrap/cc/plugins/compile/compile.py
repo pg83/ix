@@ -6,7 +6,8 @@ import json
 import hashlib
 import subprocess
 
-verbose = os.environ.get('IX_VERBOSE')
+req = json.loads(sys.stdin.read())
+verbose = req['verbose']
 
 def is_src(x):
     if x.endswith('.c'):
@@ -50,5 +51,5 @@ def main(cmd):
             yield x
 
 print(json.dumps({
-    'cmd': list(main(json.loads(sys.stdin.read())['cmd'])),
+    'cmd': list(main(req['cmd'])),
 }))

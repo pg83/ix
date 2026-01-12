@@ -3,7 +3,8 @@ import sys
 import json
 import subprocess
 
-args = json.loads(sys.stdin.read())['cmd']
+req = json.loads(sys.stdin.read())
+args = req['cmd']
 
 def it_bins():
     for x in P.split(';'):
@@ -13,7 +14,7 @@ def it_bins():
             yield x
 
 def need_plugins():
-    if os.environ.get('IX_STEP', '') == 'configure':
+    if req['step'] == 'configure':
         return False
 
     if '-o' in args:
