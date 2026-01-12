@@ -14,6 +14,8 @@ bin/zathura/{{pdf_plugin}}
 
 {% block bld_tool %}
 bld/dlfcn
+bld/relink/
+bld/wrap/cc/plugins/logcmd
 {{super()}}
 {% endblock %}
 
@@ -45,17 +47,22 @@ djvu    zathura_plugin_${ver} djvu_zathura_plugin_${ver}
 {{pdf_plugin}}   zathura_plugin_${ver} {{pdf_plugin}}_zathura_plugin_${ver}
 EOF
 
-cc -o zathura stubs.c \
-    $(find . -name '*.o')          \
+relink zathura -- \
+    ${PWD}/stubs.c \
     ${lib_zathura_djvu}/mod/*.a    \
     ${lib_zathura_{{pdf_plugin}}}/mod/*.a \
     ${lib_zathura_cb}/mod/*.a \
     ${lib_zathura_ps}/mod/*.a
 {% endblock %}
 
+{% block build_flags %}
+{{super()}}
+wrap_cc
+wrap_rdynamic
+{% endblock %}
+
 {% block install %}
 {{super()}}
-cp ${tmp}/zathura ${out}/bin/
 mkdir -p ${out}/share/plugins
 echo > ${out}/share/plugins/{{pdf_plugin}}.plugin
 echo > ${out}/share/plugins/djvu.plugin

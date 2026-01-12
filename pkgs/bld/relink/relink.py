@@ -5,10 +5,14 @@ import sys
 import json
 import subprocess
 
-args, extra = sys.argv[1:].partition('--')
+args = sys.argv[1:]
+pos = args.index('--')
+args, extra = args[:pos], args[pos + 1:]
 
 def find_binary(b):
     for x in sorted(os.listdir(os.environ['tmp'])):
+        print(x, file=sys.stderr)
+
         if 'plg_logcmd' in x:
             with open(x) as f:
                 rec = json.loads(f.read())
@@ -26,4 +30,4 @@ def find_binary(b):
 
 for x in args:
     rec = find_binary(x)
-    subprocess.check_call(rec['cmd'] + extra, env=rec['env'], pwd=rec['env']['PWD'])
+    subprocess.check_call(rec['cmd'] + extra, env=rec['env'], cwd=rec['env']['PWD'])
