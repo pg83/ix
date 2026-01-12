@@ -1,7 +1,6 @@
 {% extends '//bin/zathura/headers/ix.sh' %}
 
 {% block bld_libs %}
-lib/build/muldefs
 lib/magic
 lib/seccomp
 lib/sqlite/3
