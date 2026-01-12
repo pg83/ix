@@ -6,6 +6,9 @@ import json
 import hashlib
 import subprocess
 
+if os.environ.get('IX_STEP', '') == 'configure':
+    sys.exit(0)
+
 args = json.loads(sys.stdin.read())['cmd']
 
 if '-shared' in args:
@@ -16,7 +19,7 @@ temp = os.environ['tmp'] + f'/gnome_{uuid}.o'
 
 def it_linkable():
     for x in args:
-        if x.startswith('/'):
+        if os.environ['tmp'] not in x:
             pass
         elif x.endswith('.o'):
             yield x
