@@ -2,7 +2,6 @@
 
 {% block run_deps %}
 bld/gnome
-bld/wrap/cc/plugins/norm
 bld/wrap/cc/plugins/gnome
 bld/wrap/cc/plugins/compile
 bld/wrap/cc/plugins/rdynamic

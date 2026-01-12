@@ -1,13 +1,6 @@
-{% extends '//die/gen.sh' %}
+{% extends '//die/hub.sh' %}
 
-{% block install %}
-mkdir ${out}/bin
-base64 -d << EOF > ${out}/bin/plg_10_rdynamic
-{% include 'dynlink.py/base64' %}
-EOF
-chmod +x ${out}/bin/*
-{% endblock %}
-
-{% block env %}
-export LDFLAGS="-L/PLUGIN:${out}/bin/plg_10_rdynamic \${LDFLAGS}"
+{% block run_deps %}
+bld/wrap/cc/plugins/norm
+bld/wrap/cc/plugins/rdynamic/unwrap
 {% endblock %}
