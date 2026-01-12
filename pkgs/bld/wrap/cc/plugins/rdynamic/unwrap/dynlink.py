@@ -4,7 +4,6 @@ import os
 import sys
 import json
 import shutil
-import hashlib
 import subprocess
 
 req = json.loads(sys.stdin.read())
@@ -24,8 +23,7 @@ def flt_args(args):
             yield x
 
 args = list(flt_args(req['cmd']))
-uuid = hashlib.md5(json.dumps(args).encode()).hexdigest()
-temp = os.environ['tmp'] + f'/dynlink_{uuid}.o'
+temp = os.environ['tmp'] + '/' + req['uuid'] + '.o'
 
 def is_local(x):
     return os.environ['tmp'] in os.path.abspath(x)

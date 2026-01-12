@@ -3,8 +3,10 @@
 import os
 import sys
 import json
+import hashlib
 import subprocess
 
+uuid = hashlib.md5(json.dumps(sys.argv[1:]).encode()).hexdigest()
 step = os.environ.get('IX_STEP', '')
 verbose = os.environ.get('IX_VERBOSE')
 
@@ -57,6 +59,8 @@ def flt_args(cmd):
     }
 
     for p in sorted(frozenset(it_plugins(cmd)), key=os.path.basename):
+        req['uuid'] = os.path.basename(p) + '_' + uuid
+
         if data := subprocess.check_output([p], input=json.dumps(req).encode()):
             req.update(json.loads(data.decode()))
 

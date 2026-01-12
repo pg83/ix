@@ -3,7 +3,6 @@
 import os
 import sys
 import json
-import hashlib
 import subprocess
 
 req = json.loads(sys.stdin.read())
@@ -15,8 +14,7 @@ if req['is_link_lib']:
     sys.exit(0)
 
 args = req['cmd']
-uuid = hashlib.md5(json.dumps(args).encode()).hexdigest()
-temp = os.environ['tmp'] + f'/gnome_{uuid}.o'
+temp = os.environ['tmp'] + '/' + req['uuid'] + '.o'
 
 def it_linkable():
     for x in args:
