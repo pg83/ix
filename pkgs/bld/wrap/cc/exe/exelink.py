@@ -66,6 +66,9 @@ res = flt_args(sys.argv[1:] + ['-L' + os.environ['tmp'] + '/lib'])
 cmd = res['cmd']
 
 if res['is_link_lib']:
+    if verbose:
+        print(f'LIBLINK {cmd}', file=sys.stderr)
+
     os.execvp('liblink', ['liblink'] + cmd)
 
 for x in ('-rdynamic', '-export-dynamic'):
