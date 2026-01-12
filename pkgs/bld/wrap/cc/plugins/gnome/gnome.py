@@ -9,11 +9,12 @@ import subprocess
 if os.environ.get('IX_STEP', '') == 'configure':
     sys.exit(0)
 
-args = json.loads(sys.stdin.read())['cmd']
+req = json.loads(sys.stdin.read())
 
-if '-shared' in args:
+if req['is_link_lib']:
     sys.exit(0)
 
+args = req['cmd']
 uuid = hashlib.md5(json.dumps(args).encode()).hexdigest()
 temp = os.environ['tmp'] + f'/gnome_{uuid}.o'
 

@@ -50,6 +50,7 @@ def it_plugins(cmd):
 def flt_args(cmd):
     req = {
         'cmd': cmd,
+        'is_link_lib': is_link_lib(cmd),
     }
 
     for p in sorted(frozenset(it_plugins(cmd)), key=os.path.basename):
@@ -57,13 +58,14 @@ def flt_args(cmd):
             req.update(json.loads(data.decode()))
 
             if verbose:
-                print(f'after {p}:\n' + json.dumps(req, indent=4), file=sys.stderr)
+                print(f'AFTER {p}:\n' + json.dumps(req, indent=4), file=sys.stderr)
 
-    return req['cmd']
+    return req
 
-cmd = flt_args(sys.argv[1:] + ['-L' + os.environ['tmp'] + '/lib'])
+res = flt_args(sys.argv[1:] + ['-L' + os.environ['tmp'] + '/lib'])
+cmd = res['cmd']
 
-if is_link_lib(cmd):
+if res['is_link_lib']:
     os.execvp('liblink', ['liblink'] + cmd)
 
 for x in ('-rdynamic', '-export-dynamic'):

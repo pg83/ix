@@ -4,8 +4,6 @@ import os
 import sys
 import json
 
-verbose = os.environ.get('IX_VERBOSE')
-
 def res_path(where, f):
     for x in where:
         p = os.path.join(x, f)
