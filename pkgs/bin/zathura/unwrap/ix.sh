@@ -16,8 +16,7 @@ lib/magic
 lib/seccomp
 lib/sqlite/3
 {% for x in self.plugins() | parse_list %}
-bin/zathura/{{x.replace('-', '/')}}(dl_lib={{x}})
-lib/dl/fix(dl_lib={{x.split('-')[-1]}},dl_symbols=zathura_plugin_{{self.ver().strip()}}={{x.split('-')[-1]}}_zathura_plugin_{{self.ver().strip()}})
+lib/dl/fix(dl_orig={{x}},dl_for=bin/zathura/{{x.replace('-', '/')}},dl_lib={{x.split('-')[-1]}},dl_symbols=zathura_plugin_{{self.ver().strip()}}={{x.split('-')[-1]}}_zathura_plugin_{{self.ver().strip()}})
 {% endfor %}
 {{super()}}
 {% endblock %}

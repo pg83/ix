@@ -26,6 +26,6 @@ plugindir=${out}/mod
 
 {% block install %}
 mkdir ${out}/lib
-cp ${tmp}/lib/lib{{dl_lib}}.a ${out}/lib/
+cp ${tmp}/lib/lib{{dl_orig}}.a ${out}/lib/
 patchns ${out}/lib/*.a {{basename}}_
 {% endblock %}
