@@ -3,22 +3,14 @@
 import os
 import sys
 import json
-import hashlib
 
-if os.environ.get('IX_STEP', '') == 'configure':
+req = json.loads(sys.stdin.read())
+
+if req['step'] == 'configure':
     sys.exit(0)
 
-data = sys.stdin.buffer.read()
+if '-o' in req['cmd']:
+    req['env'] = dict(os.environ.items())
 
-cmd = json.loads(data)['cmd']
-
-if '-o' in cmd:
-    d = os.environ['tmp'] + '/lnk'
-
-    try:
-        os.makedirs(d)
-    except Exception as e:
-        pass
-
-    with open(d + '/linkcmd_' + hashlib.md5(data).hexdigest(), 'wb') as f:
-        f.write(data)
+    with open(os.environ['tmp'] + '/' + req['uuid'], 'w') as f:
+        f.write(json.dumps(req, indent=4, sort_keys=True))

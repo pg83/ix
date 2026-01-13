@@ -7,6 +7,11 @@ lib/cairo
 lib/girara
 {% endblock %}
 
+{% block build_flags %}
+wrap_cc
+wrap_rdynamic
+{% endblock %}
+
 {% block bld_libs %}
 bin/zathura/headers
 {% endblock %}
@@ -20,11 +25,7 @@ plugindir=${out}/mod
 {% endblock %}
 
 {% block install %}
-{{super()}}
-patchns ${out}/mod/*.a {{basename}}_
-rm -r ${out}/share
-{% endblock %}
-
-{% block env %}
-export {{uniq_id}}=${out}
+mkdir ${out}/lib
+cp ${tmp}/lib/lib{{dl_orig}}.a ${out}/lib/
+patchns ${out}/lib/*.a {{basename}}_
 {% endblock %}

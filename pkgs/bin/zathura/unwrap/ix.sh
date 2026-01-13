@@ -1,19 +1,23 @@
 {% extends '//bin/zathura/headers/ix.sh' %}
 
+{% block ver %}
+6_7
+{% endblock %}
+
+{% block plugins %}
+cb
+ps
+djvu
+{{pdf_plugin}}
+{% endblock %}
+
 {% block bld_libs %}
-lib/build/muldefs
 lib/magic
 lib/seccomp
 lib/sqlite/3
-bin/zathura/cb
-bin/zathura/ps
-bin/zathura/djvu
-bin/zathura/{{pdf_plugin}}
-{{super()}}
-{% endblock %}
-
-{% block bld_tool %}
-bld/dlfcn
+{% for x in self.plugins() | parse_list %}
+lib/dl/fix(dl_orig={{x}},dl_for=bin/zathura/{{x.replace('-', '/')}},dl_lib={{x.split('-')[-1]}},dl_symbols=zathura_plugin_{{self.ver().strip()}}={{x.split('-')[-1]}}_zathura_plugin_{{self.ver().strip()}})
+{% endfor %}
 {{super()}}
 {% endblock %}
 
@@ -27,35 +31,11 @@ seccomp=disabled
 find . -type f | while read l; do
     sed -e 's|\.so|\.plugin|' -i ${l}
 done
-
 sed -e "s|plugindir = .*|plugindir = join_paths(datadir, 'plugins')|" -i meson.build
-{% endblock %}
-
-{% block build %}
-{{super()}}
-
-cd ${tmp}
-
-ver='6_7'
-
-dl_stubs << EOF >> stubs.c
-ps      zathura_plugin_${ver} ps_zathura_plugin_${ver}
-cb      zathura_plugin_${ver} cb_zathura_plugin_${ver}
-djvu    zathura_plugin_${ver} djvu_zathura_plugin_${ver}
-{{pdf_plugin}}   zathura_plugin_${ver} {{pdf_plugin}}_zathura_plugin_${ver}
-EOF
-
-cc -o zathura stubs.c \
-    $(find . -name '*.o')          \
-    ${lib_zathura_djvu}/mod/*.a    \
-    ${lib_zathura_{{pdf_plugin}}}/mod/*.a \
-    ${lib_zathura_cb}/mod/*.a \
-    ${lib_zathura_ps}/mod/*.a
 {% endblock %}
 
 {% block install %}
 {{super()}}
-cp ${tmp}/zathura ${out}/bin/
 mkdir -p ${out}/share/plugins
 echo > ${out}/share/plugins/{{pdf_plugin}}.plugin
 echo > ${out}/share/plugins/djvu.plugin

@@ -27,6 +27,11 @@ bld/glib
 bld/gettext
 {% endblock %}
 
+{% block build_flags %}
+wrap_cc
+wrap_rdynamic
+{% endblock %}
+
 {% block patch %}
 sed -e 's|.*export_dynamic.*||' -i meson.build
 {% endblock %}

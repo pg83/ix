@@ -3,20 +3,22 @@
 import os
 import sys
 import json
-import hashlib
 import subprocess
 
-args = json.loads(sys.stdin.read())['cmd']
+req = json.loads(sys.stdin.read())
 
-if '-shared' in args:
+if req['step'] == 'configure':
     sys.exit(0)
 
-uuid = hashlib.md5(json.dumps(args).encode()).hexdigest()
-temp = os.environ['tmp'] + f'/gnome_{uuid}.o'
+if req['is_link_lib']:
+    sys.exit(0)
+
+args = req['cmd']
+temp = os.environ['tmp'] + '/' + req['uuid'] + '.o'
 
 def it_linkable():
     for x in args:
-        if x.startswith('/'):
+        if os.environ['tmp'] not in x:
             pass
         elif x.endswith('.o'):
             yield x
@@ -74,7 +76,7 @@ def it_parts():
 
 cprog = '\n'.join(it_parts()).strip() + '\n'
 
-if os.environ.get('IX_VERBOSE'):
+if req['verbose']:
     print(cprog, file=sys.stderr)
 
 subprocess.check_output([os.environ['SELF'], '-o', temp, '-c', '-x', 'c', '-'], input=cprog.encode())

@@ -3,10 +3,10 @@
 import os
 import sys
 import json
-import hashlib
 import subprocess
 
-verbose = os.environ.get('IX_VERBOSE')
+req = json.loads(sys.stdin.read())
+verbose = req['verbose']
 
 def is_src(x):
     if x.endswith('.c'):
@@ -25,8 +25,7 @@ def flt_srcs(cmd):
 
 def compile_src(s, cmd):
     cmd = list(flt_srcs(cmd))
-    uid = hashlib.md5(json.dumps(cmd + [os.path.abspath(s)]).encode()).hexdigest()
-    tmp = os.environ['tmp'] + f'/norm_{uid}.o'
+    tmp = os.environ['tmp'] + '/' + req['uuid'] + '_' + os.path.basename(s).replace('.', '_') + '.o'
     cmd = cmd + ['-c', s, '-o', tmp]
 
     if verbose:
@@ -50,5 +49,5 @@ def main(cmd):
             yield x
 
 print(json.dumps({
-    'cmd': list(main(json.loads(sys.stdin.read())['cmd'])),
+    'cmd': list(main(req['cmd'])),
 }))

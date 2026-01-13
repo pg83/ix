@@ -4,10 +4,14 @@ import os
 import sys
 import json
 import shutil
-import hashlib
 import subprocess
 
-verbose = os.environ.get('IX_VERBOSE')
+req = json.loads(sys.stdin.read())
+
+if req['is_link_lib']:
+    sys.exit(0)
+
+verbose = req['verbose']
 
 def flt_args(args):
     for x in args:
@@ -18,13 +22,8 @@ def flt_args(args):
         else:
             yield x
 
-args = list(flt_args(json.loads(sys.stdin.read())['cmd']))
-
-if '-shared' in args:
-    sys.exit(0)
-
-uuid = hashlib.md5(json.dumps(args).encode()).hexdigest()
-temp = os.environ['tmp'] + f'/dynlink_{uuid}.o'
+args = list(flt_args(req['cmd']))
+temp = os.environ['tmp'] + '/' + req['uuid'] + '.o'
 
 def is_local(x):
     return os.environ['tmp'] in os.path.abspath(x)
@@ -71,6 +70,9 @@ def it_syms():
 
 dprog = '\n'.join(sorted(frozenset(it_syms())))
 cprog = subprocess.check_output(['dl_stubs'], input=dprog.encode())
+
+if verbose:
+    print(cprog, file=sys.stderr)
 
 subprocess.check_output([os.environ['SELF'].replace('/c++', '/cc'), '-fno-builtin', '-o', temp, '-c', '-x', 'c', '-'], input=cprog)
 

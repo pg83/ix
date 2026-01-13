@@ -3,11 +3,14 @@
 import os
 import sys
 import json
+import hashlib
 import subprocess
 
+uuid = hashlib.md5(json.dumps(sys.argv[1:]).encode()).hexdigest()
+step = os.environ.get('IX_STEP', '')
 verbose = os.environ.get('IX_VERBOSE')
 
-if os.environ.get('IX_STEP', '') == 'configure':
+if step == 'configure':
     pass
 elif verbose:
     print(f'LINK {sys.argv}', file=sys.stderr)
@@ -50,20 +53,29 @@ def it_plugins(cmd):
 def flt_args(cmd):
     req = {
         'cmd': cmd,
+        'step': step,
+        'verbose': verbose,
+        'is_link_lib': is_link_lib(cmd),
     }
 
     for p in sorted(frozenset(it_plugins(cmd)), key=os.path.basename):
+        req['uuid'] = os.path.basename(p) + '_' + uuid
+
         if data := subprocess.check_output([p], input=json.dumps(req).encode()):
             req.update(json.loads(data.decode()))
 
             if verbose:
-                print(f'after {p}:\n' + json.dumps(req, indent=4), file=sys.stderr)
+                print(f'AFTER {p}:\n' + json.dumps(req, indent=4), file=sys.stderr)
 
-    return req['cmd']
+    return req
 
-cmd = flt_args(sys.argv[1:] + ['-L' + os.environ['tmp'] + '/lib'])
+res = flt_args(sys.argv[1:] + ['-L' + os.environ['tmp'] + '/lib'])
+cmd = res['cmd']
 
-if is_link_lib(cmd):
+if res['is_link_lib']:
+    if verbose:
+        print(f'LIBLINK {cmd}', file=sys.stderr)
+
     os.execvp('liblink', ['liblink'] + cmd)
 
 for x in ('-rdynamic', '-export-dynamic'):

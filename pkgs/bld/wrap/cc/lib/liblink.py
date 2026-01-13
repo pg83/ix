@@ -6,9 +6,6 @@ import subprocess
 
 special = os.environ['tmp'] + '/lib/'
 
-if os.environ.get('IX_VERBOSE'):
-    print(f'LIBLINK {sys.argv}', file=sys.stderr)
-
 def flt_objs(argv):
     for x in argv:
         if x.endswith('.o'):

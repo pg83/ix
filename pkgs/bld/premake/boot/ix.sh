@@ -11,10 +11,6 @@ lib/linux/util
 -f Bootstrap.mak
 {% endblock %}
 
-{% block bld_tool %}
-bld/wrap/cc/plugins/rdynamic/fake
-{% endblock %}
-
 {% block make_target %}
 {% if linux %}
 linux
@@ -25,6 +21,7 @@ osx
 
 {% block build_flags %}
 wrap_cc
+wrap_rdynamic_fake
 {% endblock %}
 
 {% block install %}
