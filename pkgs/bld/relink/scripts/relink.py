@@ -10,12 +10,16 @@ pos = args.index('--')
 args, extra = args[:pos], args[pos + 1:]
 
 def find_binary(b):
-    for x in sorted(os.listdir(os.environ['tmp'])):
+    where = os.environ['tmp']
+
+    for x in sorted(os.listdir(where)):
         print(x, file=sys.stderr)
 
         if 'plg_logcmd' in x:
-            with open(x) as f:
+            with open(where + '/' + x) as f:
                 rec = json.loads(f.read())
+
+            print(rec, file=sys.stderr)
 
             cmd = rec['cmd']
 
