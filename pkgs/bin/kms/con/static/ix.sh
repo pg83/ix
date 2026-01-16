@@ -5,6 +5,13 @@
 {% block bld_tool %}
 {{super()}}
 bld/dlfcn
+bld/relink
+{% endblock %}
+
+{% block build_flags %}
+{{super()}}
+wrap_cc
+wrap_rdynamic
 {% endblock %}
 
 {% block patch %}
@@ -31,7 +38,8 @@ void kmscon_load_modules(void) {
 EOF
 {% endblock %}
 
-{% block postinstall %}
+{% block build %}
+{{super()}}
 cd ${tmp}/obj/src
 ls mod*.a | while read l; do
     mn=$(echo ${l} | sed -e 's|mod-||' | sed -e 's|\.a||')
@@ -39,8 +47,5 @@ ls mod*.a | while read l; do
     echo "mod-${mn} module ${mn}_module"
 done | dl_stubs > stubs.c
 cat stubs.c
-cc -o kmscon1 stubs.c $(find kmscon.p -type f -name '*.o') $(find -type f -name '*.a')
-rm -rf ${out}/bin
-mkdir ${out}/bin
-cp kmscon1 ${out}/bin/kmscon
+relink kmscon -- ${PWD}/stubs.c
 {% endblock %}
