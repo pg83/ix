@@ -9,10 +9,10 @@ lib/shim/alloc
 lib/compiler_rt/builtins
 {% endblock %}
 
-{% block bld_tool %}
+{% block build %}
+>libxxhash.so.0
+>libxxhash.so.{{self.version().strip()}}
 {{super()}}
-bld/wrap/cc
-bld/rename/dynlib
 {% endblock %}
 
 {% block env %}
