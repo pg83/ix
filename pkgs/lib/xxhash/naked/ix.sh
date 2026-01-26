@@ -1,0 +1,17 @@
+{% extends '//lib/xxhash/t/ix.sh' %}
+
+{% block bld_libs %}
+lib/shim/alloc
+lib/c++/dispatch
+{% endblock %}
+
+{% block bld_tool %}
+{{super()}}
+bld/wrap/cc
+bld/rename/dynlib
+{% endblock %}
+
+{% block env %}
+{{super()}}
+export COFLAGS="--with-xxhash=${out} --with-libxxhash-prefix=${out} \${COFLAGS}"
+{% endblock %}

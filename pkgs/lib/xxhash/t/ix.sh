@@ -13,10 +13,6 @@ https://github.com/Cyan4973/xxHash/archive/refs/tags/v{{self.version().strip()}}
 aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80
 {% endblock %}
 
-{% block lib_deps %}
-lib/c++/dispatch
-{% endblock %}
-
 {% block build_flags %}
 wrap_cc
 wrap_rdynamic

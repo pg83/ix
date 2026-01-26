@@ -2,5 +2,5 @@
 
 {% block bld_libs %}
 lib/c
-{{super()}}
+lib/c++
 {% endblock %}

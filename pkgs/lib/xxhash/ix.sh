@@ -1,17 +1,6 @@
-{% extends 't/ix.sh' %}
+{% extends '//die/hub.sh' %}
 
-{% block bld_libs %}
-{{super()}}
-lib/shim/alloc
-{% endblock %}
-
-{% block bld_tool %}
-{{super()}}
-bld/wrap/cc
-bld/rename/dynlib
-{% endblock %}
-
-{% block env %}
-{{super()}}
-export COFLAGS="--with-xxhash=${out} --with-libxxhash-prefix=${out} \${COFLAGS}"
+{% block lib_deps %}
+lib/c
+lib/xxhash/naked
 {% endblock %}
