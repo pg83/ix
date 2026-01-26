@@ -8,6 +8,7 @@
 #include <std/sys/types.h>
 
 #include <std/lib/smap.h>
+#include <std/lib/list.h>
 #include <std/lib/stable.h>
 #include <std/lib/singleton.h>
 
@@ -48,15 +49,11 @@ namespace {
         OutBuf(singleton<Dbg>()) << X << endL << finI; \
     }
 
-    static inline StringView sv(const char* s) noexcept {
-        return StringView((const u8*)s, strlen(s));
-    }
-
     struct IfaceHandle {
         virtual void* lookup(StringView s) const noexcept = 0;
     };
 
-    struct Handle: public IfaceHandle, public StringTable {
+    struct Handle: public IntrusiveNode, public IfaceHandle, public StringTable {
         void* lookup(StringView s) const noexcept override {
             if (auto it = find(s); it) {
                 DBG(StringView(u8"found ") << s);
@@ -70,18 +67,18 @@ namespace {
         }
     };
 
-    struct Handles: public IfaceHandle, public StringMap<Handle> {
+    struct Handles: public IfaceHandle, public StringMap<Handle>, public IntrusiveList {
         // default handle lookup
         void* lookup(StringView s) const noexcept override {
-            /*
-            for (const auto& it : *this) {
-                if (auto res = it.second.lookup(s); res) {
+            for (auto cur = front(); cur != end(); cur = cur->next) {
+                DBG(StringView(u8"cur ") << (size_t)cur);
+                if (auto res = ((Handle*)cur)->lookup(s); res) {
                     DBG(StringView(u8"found global ") << s);
 
                     return res;
                 }
             }
-            */
+
             DBG(StringView(u8"not found global ") << s);
 
             return nullptr;
@@ -104,7 +101,11 @@ namespace {
         inline void registar(StringView lib, StringView symbol, void* ptr) noexcept {
             DBG(StringView(u8"register ") << lib << StringView(u8", ") << symbol);
 
-            (*this)[lib].set(symbol, ptr);
+            auto& hndl = (*this)[lib];
+
+            hndl.set(symbol, ptr);
+            hndl.remove();
+            pushBack(&hndl);
         }
 
         static inline Handles* instance() noexcept {
@@ -174,7 +175,7 @@ extern "C" void* stub_dlsym(void* handle, const char* symbol) {
     lastError();
 
     if (handle) {
-        if (auto ret = ((IfaceHandle*)handle)->lookup(sv(symbol)); ret) {
+        if (auto ret = ((IfaceHandle*)handle)->lookup(symbol); ret) {
             return ret;
         }
     }
@@ -187,7 +188,7 @@ extern "C" void* stub_dlsym(void* handle, const char* symbol) {
 extern "C" void* stub_dlopen(const char* filename, int mode) {
     lastError();
 
-    DBG(StringView(u8"dlopen ") << filename << StringView(u8" ") << mode);
+    DBG(StringView(u8"dlopen ") << StringView(filename) << StringView(u8" ") << mode);
 
     if (!filename) {
         filename = "";
@@ -197,11 +198,11 @@ extern "C" void* stub_dlopen(const char* filename, int mode) {
         return Handles::instance();
     }
 
-    if (auto res = Handles::instance()->findHandle(sv(filename)); res) {
+    if (auto res = Handles::instance()->findHandle(filename); res) {
         return res;
     }
 
-    if (auto res = Handles::instance()->findHandle(calcName(sv(filename))); res) {
+    if (auto res = Handles::instance()->findHandle(calcName(filename)); res) {
         return res;
     }
 
@@ -221,7 +222,7 @@ extern "C" char* stub_dlerror(void) {
 }
 
 extern "C" void stub_dlregister(const char* lib, const char* symbol, void* ptr) {
-    Handles::instance()->registar(sv(lib), sv(symbol), ptr);
+    Handles::instance()->registar(lib, symbol, ptr);
 }
 
 extern "C" int stub_dladdr(const void* /*addr*/, Dl_info* /*info*/) {

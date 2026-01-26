@@ -14,11 +14,7 @@ aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80
 {% endblock %}
 
 {% block lib_deps %}
-lib/c
-{% endblock %}
-
-{% block bld_libs %}
-lib/c++
+lib/c++/dispatch
 {% endblock %}
 
 {% block build_flags %}

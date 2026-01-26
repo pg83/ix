@@ -1,13 +1,11 @@
 {% extends '//die/c/make.sh' %}
 
 {% block fetch %}
-https://github.com/pg83/std/archive/refs/tags/1.tar.gz
-688a0c4d6e724545c4ead18f117579c8783ba9e62862a603ef4f3d5f6a9a1f58
+https://github.com/pg83/std/archive/refs/tags/2.tar.gz
+a1fa236c731f4b75444d30f9a88a7b7bd1696510e893beba5787cbd4ace19590
 {% endblock %}
 
 {% block lib_deps %}
-lib/c
-lib/c++
 lib/xxhash
 {% endblock %}
 
@@ -22,4 +20,8 @@ done
 find . -type f -name '*.h' | while read l; do
     cp ${l} ${out}/include/${l}
 done
+{% endblock %}
+
+{% block make_target %}
+std/libstd.a
 {% endblock %}
