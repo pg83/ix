@@ -7,6 +7,7 @@ a1fa236c731f4b75444d30f9a88a7b7bd1696510e893beba5787cbd4ace19590
 
 {% block lib_deps %}
 lib/xxhash
+lib/c++/dispatch
 {% endblock %}
 
 {% block install %}
