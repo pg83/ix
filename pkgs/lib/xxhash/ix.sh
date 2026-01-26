@@ -6,6 +6,7 @@ lib/c/naked
 
 {% block bld_libs %}
 lib/shim/alloc
+lib/compiler_rt/builtins
 {% endblock %}
 
 {% block bld_tool %}
