@@ -1,8 +1,8 @@
 {% extends '//lib/dlfcn/t/ix.sh' %}
 
 {% block lib_deps %}
+lib/std
 {{super()}}
-lib/std/naked
 {% endblock %}
 
 {% block step_unpack %}
