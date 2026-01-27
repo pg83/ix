@@ -1,12 +1,12 @@
 {% extends '//die/c/make.sh' %}
 
 {% block fetch %}
-https://github.com/pg83/std/archive/refs/tags/2.tar.gz
-a1fa236c731f4b75444d30f9a88a7b7bd1696510e893beba5787cbd4ace19590
+https://github.com/pg83/std/archive/refs/tags/3.tar.gz
+898cf6f64bba412eb2a4861b48dac407503808ab008677ed7394765e4a736ec0
 {% endblock %}
 
 {% block lib_deps %}
-lib/xxhash
+lib/rapidhash
 lib/c++/dispatch
 {% endblock %}
 

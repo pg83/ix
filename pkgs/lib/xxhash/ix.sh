@@ -1,7 +1,7 @@
 {% extends '//lib/xxhash/t/ix.sh' %}
 
 {% block lib_deps %}
-lib/c/naked
+lib/c
 {% endblock %}
 
 {% block bld_libs %}
