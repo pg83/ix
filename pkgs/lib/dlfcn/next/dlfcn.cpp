@@ -53,7 +53,7 @@ namespace {
         virtual void* lookup(StringView s) const noexcept = 0;
     };
 
-    struct Handle: public IntrusiveNode, public IfaceHandle, public StringTable {
+    struct Handle: public IfaceHandle, public StringTable, public IntrusiveNode {
         void* lookup(StringView s) const noexcept override {
             if (auto it = find(s); it) {
                 DBG(StringView(u8"found ") << s);
