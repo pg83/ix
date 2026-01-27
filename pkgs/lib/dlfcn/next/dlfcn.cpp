@@ -71,7 +71,6 @@ namespace {
         // default handle lookup
         void* lookup(StringView s) const noexcept override {
             for (auto cur = front(); cur != end(); cur = cur->next) {
-                DBG(StringView(u8"cur ") << (size_t)cur);
                 if (auto res = ((Handle*)cur)->lookup(s); res) {
                     DBG(StringView(u8"found global ") << s);
 
@@ -101,11 +100,14 @@ namespace {
         inline void registar(StringView lib, StringView symbol, void* ptr) noexcept {
             DBG(StringView(u8"register ") << lib << StringView(u8", ") << symbol);
 
-            auto& hndl = (*this)[lib];
+            auto* hndl = find(lib);
 
-            hndl.set(symbol, ptr);
-            hndl.remove();
-            pushBack(&hndl);
+            if (!hndl) {
+                hndl = insert(lib);
+                pushBack(hndl);
+            }
+
+            hndl->set(symbol, ptr);
         }
 
         static inline Handles* instance() noexcept {
@@ -141,13 +143,16 @@ namespace {
         return r;
     }
 
-    static inline DynString cutPrefix(const DynString& s, const StringView& prefix) {
-        /*
-        if (s.size() > prefix.size()) {
-            if (s.substr(0, prefix.size()) == prefix) {
-                return s.substr(prefix.size());
+    static inline StringView substr(StringView s, size_t f, size_t t) noexcept {
+        return StringView(s.data() + f, t - f);
+    }
+
+    static inline DynString cutPrefix(const DynString& s, StringView prefix) {
+        if (s.length() > prefix.length()) {
+            if (substr(s, 0, prefix.length()) == prefix) {
+                return substr(s, prefix.length(), s.length());
             }
-        }*/
+        }
 
         return s;
     }
@@ -188,7 +193,7 @@ extern "C" void* stub_dlsym(void* handle, const char* symbol) {
 extern "C" void* stub_dlopen(const char* filename, int mode) {
     lastError();
 
-    DBG(StringView(u8"dlopen ") << StringView(filename) << StringView(u8" ") << mode);
+    DBG(StringView("dlopen ") << StringView(filename) << StringView(" ") << mode);
 
     if (!filename) {
         filename = "";
