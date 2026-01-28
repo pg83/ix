@@ -1,4 +1,4 @@
-{% extends '//die/c/meson.sh' %}
+{% extends '//die/c/cmake.sh' %}
 
 {% block pkg_name %}
 libdwarf
