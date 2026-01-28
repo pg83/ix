@@ -6,8 +6,11 @@ https://github.com/pg83/std/archive/refs/tags/3.tar.gz
 {% endblock %}
 
 {% block lib_deps %}
-lib/rapidhash
 lib/c++/dispatch
+{% endblock %}
+
+{% block bld_libs %}
+lib/rapidhash
 {% endblock %}
 
 {% block install %}
