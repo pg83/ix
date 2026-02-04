@@ -8,9 +8,4 @@ ENABLE_NCURSES=OFF
 ENABLE_HEADLESS=ON
 {% endblock %}
 
-{% block install %}
-{{super()}}
-cd ${out}/bin
-mv weechat weechat-headless
-rm -rf ${out}/share
-{% endblock %}
+{% block bin %}weechat-headless{% endblock %}

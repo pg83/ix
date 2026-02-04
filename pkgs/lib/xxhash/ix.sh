@@ -1,9 +1,18 @@
-{% extends 't/ix.sh' %}
+{% extends '//lib/xxhash/t/ix.sh' %}
 
-{% block bld_tool %}
+{% block lib_deps %}
+lib/c
+{% endblock %}
+
+{% block bld_libs %}
+lib/shim/alloc
+lib/compiler_rt/builtins
+{% endblock %}
+
+{% block build %}
+>libxxhash.so.0
+>libxxhash.so.{{self.version().strip()}}
 {{super()}}
-bld/wrap/cc
-bld/rename/dynlib
 {% endblock %}
 
 {% block env %}

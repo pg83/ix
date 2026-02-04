@@ -1,7 +1,6 @@
 {% extends '//die/hub.sh' %}
 
 {% block run_deps %}
-bld/dlfcn
 bld/python
 bld/kuroko
 bld/wrap/cc/drv

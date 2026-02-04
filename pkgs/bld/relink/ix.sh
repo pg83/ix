@@ -1,9 +1,6 @@
-{% extends '//die/gen.sh' %}
+{% extends '//die/hub.sh' %}
 
-{% block install %}
-mkdir ${out}/bin
-base64 -d << EOF >> ${out}/bin/relink
-{% include 'relink.py/base64' %}
-EOF
-chmod +x ${out}/bin/*
+{% block run_deps %}
+bld/relink/scripts
+bld/wrap/cc/plugins/logcmd
 {% endblock %}

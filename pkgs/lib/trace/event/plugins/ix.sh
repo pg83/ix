@@ -1,5 +1,10 @@
 {% extends '//lib/trace/event/ix.sh' %}
 
+{% block bld_tool %}
+{{super()}}
+bld/dlfcn
+{% endblock %}
+
 {% block patch %}
 {{super()}}
 sed -e 's| -D ||' -i plugins/Makefile
