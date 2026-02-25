@@ -59,7 +59,7 @@ namespace {
     }
 
     struct Proc {
-        pid_t pid = 0;
+        pid_t pid;
         ProcID md5;
 
         inline Proc(ProcID m, Buffer& pathBuf)
@@ -180,6 +180,7 @@ namespace {
 
                 if (pids.find(pid) == nullptr) {
                     ++stale;
+
                     kill(pid, SIGKILL);
 
                     sysE << StringView(u8"stale pid ")
