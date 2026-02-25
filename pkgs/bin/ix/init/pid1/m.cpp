@@ -1,62 +1,57 @@
-#include <map>
-#include <set>
-#include <string>
-#include <vector>
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <stdexcept>
-#include <exception>
-#include <filesystem>
+#include <std/sys/fs.h>
+#include <std/sys/fd.h>
+#include <std/ios/sys.h>
+#include <std/map/map.h>
+#include <std/str/view.h>
+#include <std/str/hash.h>
+#include <std/sys/throw.h>
+#include <std/ios/in_fd.h>
+#include <std/ios/in_mem.h>
+#include <std/lib/vector.h>
+#include <std/lib/buffer.h>
+#include <std/str/builder.h>
 
 #include <time.h>
+#include <fcntl.h>
 #include <spawn.h>
 #include <signal.h>
 #include <unistd.h>
 #include <sys/wait.h>
 
-#include <xxhash.h>
+using namespace Std;
 
 namespace {
-    static void log0(const std::string& s) {
-        write(2, s.c_str(), s.length());
-    }
+    static Buffer readf(StringView path) {
+        Buffer pathBuf(path);
 
-    static void log(const std::string& s) {
-        log0(s + "\n");
-    }
+        int rawFd = ::open(pathBuf.cStr(), O_RDONLY);
 
-    static inline std::string readf(const std::string& path) {
-        std::ostringstream buf;
-        std::ifstream input(path);
-
-        if (!input) {
-            throw std::runtime_error("can not open " + path);
+        if (rawFd < 0) {
+            Errno().raise(StringBuilder() << StringView(u8"can not open ") << path);
         }
 
-        buf << input.rdbuf();
+        ScopedFD fd(rawFd);
+        StringBuilder buf;
 
-        return buf.str();
+        FDInput(fd).sendTo(buf);
+
+        return buf;
     }
 
-    static std::string currentException() {
+    static StringView currentException() {
         try {
             throw;
-        } catch (const std::exception& e) {
-            return e.what();
+        } catch (Exception& e) {
+            return e.description();
         }
 
-        return "unknown error";
+        return StringView(u8"unknown error");
     }
 
-    static auto shash(const std::string& s) {
-        return XXH64(s.c_str(), s.length(), 0);
-    }
+    using ProcID = u64;
 
-    using ui128 = std::pair<uint64_t, uint64_t>;
-
-    static ui128 fhash(const std::string& p) {
-        return std::make_pair(shash(p), shash(readf(p)));
+    static ProcID fhash(StringView p) {
+        return p.hash64() ^ StringView(readf(p)).hash64();
     }
 
     static auto wait_pid() {
@@ -68,14 +63,16 @@ namespace {
     struct Proc {
         pid_t pid;
 
-        Proc(const std::string& p) {
+        Proc(StringView p) {
+            Buffer pathBuf(p);
+
             char* cmd[] = {
-                (char*)p.c_str(),
+                pathBuf.cStr(),
                 0,
             };
 
             if (posix_spawnp(&pid, cmd[0], 0, 0, cmd, 0)) {
-                throw std::runtime_error("can not spawn " + p);
+                Errno().raise(StringBuilder() << StringView(u8"can not spawn ") << p);
             }
         }
 
@@ -84,19 +81,17 @@ namespace {
         }
     };
 
-    using ProcID = ui128;
-
     struct Context {
-        const std::string where;
-        std::map<ProcID, std::shared_ptr<Proc>> running;
-        std::map<pid_t, ProcID> pids;
+        Buffer where;
+        Map<ProcID, Proc> running;
+        Map<pid_t, ProcID> pids;
 
-        Context(const std::string& where_)
+        inline Context(StringView where_)
             : where(where_)
         {
         }
 
-        void run() {
+        inline void run() {
             while (true) {
                 try {
                     do {
@@ -105,7 +100,7 @@ namespace {
                         usleep(10000);
                     } while (getpid() == 1 && killStale() > 0);
                 } catch (...) {
-                    log("step error " + currentException());
+                    sysE << StringView(u8"step error ") << currentException() << endL << flsH;
                 }
 
                 sleep(1);
@@ -113,64 +108,66 @@ namespace {
         }
 
         void step() {
-            std::set<ProcID> cur;
+            Map<ProcID, bool> cur;
 
-            for (const auto& entry : std::filesystem::directory_iterator(where)) {
-                auto p = entry.path().string() + "/run";
+            StringBuilder pb;
+
+            listDir(StringView(where), [&](TPathInfo info) {
+                if (!info.isDir) {
+                    return;
+                }
+
+                pb.reset();
+
+                StringView p(pb << where << StringView(u8"/") << info.item << StringView(u8"/run"));
 
                 try {
                     auto md5 = fhash(p);
 
-                    if (auto it = running.find(md5); it == running.end()) {
-                        auto proc = std::make_shared<Proc>(p);
-
-                        // assume will not throw
-                        pids[proc->pid] = md5;
-                        running[md5] = proc;
+                    if (running.find(md5) == nullptr) {
+                        pids[running.insert(md5, p)->pid] = md5;
                     }
 
-                    cur.insert(md5);
+                    cur[md5] = true;
                 } catch (...) {
-                    log("skip " + p + ": " + currentException());
+                    sysE << StringView(u8"skip ") << p << StringView(u8": ") << currentException() << endL << flsH;
                 }
-            }
+            });
 
-            for (auto& item : running) {
-                auto md5 = item.first;
-                auto proc = item.second;
-
-                if (cur.find(md5) == cur.end()) {
-                    proc->terminate();
+            running.visit([&](ProcID md5, Proc& proc) {
+                if (cur.find(md5) == nullptr) {
+                    proc.terminate();
                 }
-            }
+            });
         }
 
         void waitPending() {
             for (auto pid = wait_pid(); pid > 0; pid = wait_pid()) {
-                if (auto it = pids.find(pid); it != pids.end()) {
-                    running.erase(it->second);
-                    pids.erase(it);
-                    log("complete " + std::to_string(pid));
+                if (auto procId = pids.find(pid); procId) {
+                    running.erase(*procId);
+                    pids.erase(pid);
+                    sysE << StringView(u8"complete ") << pid << endL << flsH;
                 } else {
-                    log("unknown pid " + std::to_string(pid));
+                    sysE << StringView(u8"unknown pid ") << pid << endL << flsH;
                 }
             }
         }
 
         unsigned int killStale() {
+            Buffer childs = readf(StringView(u8"/proc/1/task/1/children"));
+            MemoryInput input(childs.data(), childs.length());
+
             unsigned int stale = 0;
-            auto childs = readf("/proc/1/task/1/children");
 
-            std::stringstream ss(childs);
-            std::string item;
+            Buffer line;
 
-            while (std::getline(ss, item, ' ')) {
-                auto pid = std::stol(item);
+            while ((line.reset(), input.readTo(line, ' '), line.length())) {
+                auto pid = (pid_t)StringView(line).stol();
 
-                if (pids.find(pid) == pids.end()) {
+                if (pids.find(pid) == nullptr) {
                     ++stale;
-                    log("stale pid " + std::to_string(pid));
                     kill(pid, SIGKILL);
+                    sysE << StringView(u8"stale pid ") << pid << endL << flsH;
                 }
             }
 
@@ -180,5 +177,5 @@ namespace {
 }
 
 int main() {
-    Context("/etc/services").run();
+    Context(StringView(u8"/etc/services")).run();
 }

@@ -1,8 +1,8 @@
 {% extends '//die/c/make.sh' %}
 
 {% block fetch %}
-https://github.com/pg83/std/archive/refs/tags/3.tar.gz
-898cf6f64bba412eb2a4861b48dac407503808ab008677ed7394765e4a736ec0
+https://github.com/pg83/std/archive/refs/tags/4.tar.gz
+7f171f6bea09a70618c500a3399d82ba7c35894081392cb30e6af8f862e6ffd1
 {% endblock %}
 
 {% block lib_deps %}
