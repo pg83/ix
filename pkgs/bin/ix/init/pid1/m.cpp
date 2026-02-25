@@ -1,9 +1,9 @@
 #include <std/sys/fs.h>
 #include <std/sys/fd.h>
 #include <std/ios/sys.h>
-#include <std/map/map.h>
 #include <std/str/view.h>
 #include <std/str/hash.h>
+#include <std/sym/i_map.h>
 #include <std/sys/throw.h>
 #include <std/ios/in_fd.h>
 #include <std/ios/in_mem.h>
@@ -61,35 +61,31 @@ namespace {
     }
 
     struct Proc {
-        pid_t pid;
+        pid_t pid = 0;
+        ProcID md5;
 
-        Proc(StringView p) {
-            Buffer pathBuf(p);
-
+        inline Proc(ProcID m, Buffer& pathBuf)
+            : md5(m)
+        {
             char* cmd[] = {
                 pathBuf.cStr(),
                 0,
             };
 
             if (posix_spawnp(&pid, cmd[0], 0, 0, cmd, 0)) {
-                Errno().raise(StringBuilder() << StringView(u8"can not spawn ") << p);
+                Errno().raise(StringBuilder() << StringView(u8"can not spawn ") << pathBuf);
             }
         }
 
-        void terminate() {
+        inline void terminate() {
             kill(pid, SIGTERM);
         }
     };
 
     struct Context {
-        Buffer where;
-        Map<ProcID, Proc> running;
-        Map<pid_t, ProcID> pids;
-
-        inline Context(StringView where_)
-            : where(where_)
-        {
-        }
+        const Buffer where;
+        IntMap<Proc> running;
+        IntMap<ProcID> pids;
 
         inline void run() {
             while (true) {
@@ -100,7 +96,10 @@ namespace {
                         usleep(10000);
                     } while (getpid() == 1 && killStale() > 0);
                 } catch (...) {
-                    sysE << StringView(u8"step error ") << currentException() << endL << flsH;
+                    sysE << StringView(u8"step error ")
+                         << currentException()
+                         << endL
+                         << flsH;
                 }
 
                 sleep(1);
@@ -108,34 +107,42 @@ namespace {
         }
 
         void step() {
-            Map<ProcID, bool> cur;
+            IntMap<bool> cur;
 
             StringBuilder pb;
 
-            listDir(StringView(where), [&](TPathInfo info) {
+            listDir(where, [&](TPathInfo info) {
                 if (!info.isDir) {
                     return;
                 }
 
                 pb.reset();
 
-                StringView p(pb << where << StringView(u8"/") << info.item << StringView(u8"/run"));
+                pb << where
+                   << StringView(u8"/")
+                   << info.item
+                   << StringView(u8"/run");
 
                 try {
-                    auto md5 = fhash(p);
+                    auto md5 = fhash(pb);
 
-                    if (running.find(md5) == nullptr) {
-                        pids[running.insert(md5, p)->pid] = md5;
+                    if (!running.find(md5)) {
+                        pids[running.insert(md5, md5, pb)->pid] = md5;
                     }
 
                     cur[md5] = true;
                 } catch (...) {
-                    sysE << StringView(u8"skip ") << p << StringView(u8": ") << currentException() << endL << flsH;
+                    sysE << StringView(u8"skip ")
+                         << StringView(pb)
+                         << StringView(u8": ")
+                         << currentException()
+                         << endL
+                         << flsH;
                 }
             });
 
-            running.visit([&](ProcID md5, Proc& proc) {
-                if (cur.find(md5) == nullptr) {
+            running.visit([&](Proc& proc) {
+                if (cur.find(proc.md5) == nullptr) {
                     proc.terminate();
                 }
             });
@@ -146,9 +153,16 @@ namespace {
                 if (auto procId = pids.find(pid); procId) {
                     running.erase(*procId);
                     pids.erase(pid);
-                    sysE << StringView(u8"complete ") << pid << endL << flsH;
+
+                    sysE << StringView(u8"complete ")
+                         << pid
+                         << endL
+                         << flsH;
                 } else {
-                    sysE << StringView(u8"unknown pid ") << pid << endL << flsH;
+                    sysE << StringView(u8"unknown pid ")
+                         << pid
+                         << endL
+                         << flsH;
                 }
             }
         }
@@ -167,7 +181,11 @@ namespace {
                 if (pids.find(pid) == nullptr) {
                     ++stale;
                     kill(pid, SIGKILL);
-                    sysE << StringView(u8"stale pid ") << pid << endL << flsH;
+
+                    sysE << StringView(u8"stale pid ")
+                         << pid
+                         << endL
+                         << flsH;
                 }
             }
 
@@ -177,5 +195,7 @@ namespace {
 }
 
 int main() {
-    Context(StringView(u8"/etc/services")).run();
+    Context{
+        .where = StringView(u8"/etc/services"),
+    }.run();
 }
