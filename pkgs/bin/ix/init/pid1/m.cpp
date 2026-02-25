@@ -21,10 +21,8 @@
 using namespace Std;
 
 namespace {
-    static Buffer readf(StringView path) {
-        Buffer pathBuf(path);
-
-        int rawFd = ::open(pathBuf.cStr(), O_RDONLY);
+    static Buffer readf(Buffer& path) {
+        int rawFd = ::open(path.cStr(), O_RDONLY);
 
         if (rawFd < 0) {
             Errno().raise(StringBuilder() << StringView(u8"can not open ") << path);
@@ -50,8 +48,8 @@ namespace {
 
     using ProcID = u64;
 
-    static ProcID fhash(StringView p) {
-        return p.hash64() ^ StringView(readf(p)).hash64();
+    static ProcID fhash(Buffer& p) {
+        return StringView(p).hash64() ^ StringView(readf(p)).hash64();
     }
 
     static auto wait_pid() {
@@ -142,7 +140,7 @@ namespace {
             });
 
             running.visit([&](Proc& proc) {
-                if (cur.find(proc.md5) == nullptr) {
+                if (!cur.find(proc.md5)) {
                     proc.terminate();
                 }
             });
@@ -168,7 +166,9 @@ namespace {
         }
 
         unsigned int killStale() {
-            Buffer childs = readf(StringView(u8"/proc/1/task/1/children"));
+            static Buffer path = StringView(u8"/proc/1/task/1/children");
+
+            Buffer childs = readf(path);
             MemoryInput input(childs.data(), childs.length());
 
             unsigned int stale = 0;
