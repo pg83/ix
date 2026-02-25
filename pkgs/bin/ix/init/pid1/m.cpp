@@ -90,7 +90,7 @@ namespace {
         void step() {
             IntMap<bool> cur;
 
-            StringBuilder pb;
+            static StringBuilder pb;
 
             listDir(where, [&](TPathInfo info) {
                 if (!info.isDir) {
