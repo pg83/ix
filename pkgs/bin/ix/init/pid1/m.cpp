@@ -21,18 +21,15 @@
 using namespace Std;
 
 namespace {
-    static Buffer readf(Buffer& path) {
-        Buffer res;
-
-        readFileContent(path, res);
-
-        return res;
-    }
-
     using ProcID = u64;
 
     static ProcID fhash(Buffer& p) {
-        return StringView(p).hash64() ^ StringView(readf(p)).hash64();
+        static Buffer buf;
+
+        buf.reset();
+        readFileContent(p, buf);
+
+        return StringView(p).hash64() ^ StringView(buf).hash64();
     }
 
     static auto wait_pid() {
@@ -90,12 +87,12 @@ namespace {
         void step() {
             IntMap<bool> cur;
 
-            static StringBuilder pb;
-
             listDir(where, [&](TPathInfo info) {
                 if (!info.isDir) {
                     return;
                 }
+
+                static StringBuilder pb;
 
                 pb.reset();
 
@@ -149,14 +146,16 @@ namespace {
         }
 
         unsigned int killStale() {
+            static Buffer line;
+            static Buffer childs;
             static Buffer path = StringView(u8"/proc/1/task/1/children");
 
-            Buffer childs = readf(path);
+            childs.reset();
+            readFileContent(path, childs);
+
             MemoryInput input(childs.data(), childs.length());
 
             unsigned int stale = 0;
-
-            Buffer line;
 
             while ((line.reset(), input.readTo(line, ' '), line.length())) {
                 auto pid = (pid_t)StringView(line).stol();
