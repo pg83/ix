@@ -10,9 +10,9 @@
 #include <std/lib/vector.h>
 #include <std/lib/buffer.h>
 #include <std/str/builder.h>
+#include <std/ios/fs_utils.h>
 
 #include <time.h>
-#include <fcntl.h>
 #include <spawn.h>
 #include <signal.h>
 #include <unistd.h>
@@ -22,28 +22,11 @@ using namespace Std;
 
 namespace {
     static Buffer readf(Buffer& path) {
-        int rawFd = ::open(path.cStr(), O_RDONLY);
+        Buffer res;
 
-        if (rawFd < 0) {
-            Errno().raise(StringBuilder() << StringView(u8"can not open ") << path);
-        }
+        readFileContent(path, res);
 
-        ScopedFD fd(rawFd);
-        StringBuilder buf;
-
-        FDInput(fd).sendTo(buf);
-
-        return buf;
-    }
-
-    static StringView currentException() {
-        try {
-            throw;
-        } catch (Exception& e) {
-            return e.description();
-        }
-
-        return StringView(u8"unknown error");
+        return res;
     }
 
     using ProcID = u64;
@@ -95,7 +78,7 @@ namespace {
                     } while (getpid() == 1 && killStale() > 0);
                 } catch (...) {
                     sysE << StringView(u8"step error ")
-                         << currentException()
+                         << Exception::current()
                          << endL
                          << flsH;
                 }
@@ -133,7 +116,7 @@ namespace {
                     sysE << StringView(u8"skip ")
                          << StringView(pb)
                          << StringView(u8": ")
-                         << currentException()
+                         << Exception::current()
                          << endL
                          << flsH;
                 }
