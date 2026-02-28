@@ -1,9 +1,9 @@
 #include <std/sys/fs.h>
 #include <std/sys/fd.h>
 #include <std/ios/sys.h>
-#include <std/map/map.h>
 #include <std/str/view.h>
 #include <std/str/hash.h>
+#include <std/sym/i_map.h>
 #include <std/sys/throw.h>
 #include <std/ios/in_fd.h>
 #include <std/ios/in_mem.h>
@@ -48,9 +48,12 @@ namespace {
     }
 
     struct Proc {
+        ProcID md5;
         pid_t pid;
 
-        Proc(Buffer& p) {
+        Proc(ProcID m, Buffer& p)
+            : md5(m)
+        {
             char* cmd[] = {
                 p.cStr(),
                 0,
@@ -68,8 +71,8 @@ namespace {
 
     struct Context {
         Buffer where;
-        Map<ProcID, Proc> running;
-        Map<pid_t, ProcID> pids;
+        IntMap<Proc> running;
+        IntMap<ProcID> pids;
 
         inline void run() {
             while (true) {
@@ -80,7 +83,10 @@ namespace {
                         usleep(10000);
                     } while (getpid() == 1 && killStale() > 0);
                 } catch (...) {
-                    er() << StringView(u8"step error ") << Exception::current() << endL << flsH;
+                    er() << StringView(u8"step error ")
+                         << Exception::current()
+                         << endL
+                         << flsH;
                 }
 
                 sleep(1);
@@ -88,7 +94,7 @@ namespace {
         }
 
         void step() {
-            Map<ProcID, bool> cur;
+            IntMap<bool> cur;
 
             StringBuilder pb;
 
@@ -108,7 +114,7 @@ namespace {
                     auto md5 = fhash(pb);
 
                     if (!running.find(md5)) {
-                        pids[running.insert(md5, pb)->pid] = md5;
+                        pids[running.insert(md5, md5, pb)->pid] = md5;
                     }
 
                     cur[md5] = true;
@@ -122,8 +128,8 @@ namespace {
                 }
             });
 
-            running.visit([&](ProcID md5, Proc& proc) {
-                if (cur.find(md5) == nullptr) {
+            running.visit([&](Proc& proc) {
+                if (cur.find(proc.md5) == nullptr) {
                     proc.terminate();
                 }
             });
