@@ -152,15 +152,13 @@ namespace {
         }
 
         unsigned int killStale() {
-            Buffer path = StringView(u8"/proc/1/task/1/children");
-            Buffer childs = readf(path);
+            Buffer line = StringView(u8"/proc/1/task/1/children");
+            Buffer childs = readf(line);
             MemoryInput input(childs.data(), childs.length());
 
             unsigned int stale = 0;
 
-            Buffer line;
-
-            while ((line.reset(), input.readTo(line, ' '), line.length())) {
+            while (line.reset(), input.readTo(line, ' ')) {
                 auto pid = (pid_t)StringView(line).stou();
 
                 if (!pids.find(pid)) {
