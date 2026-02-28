@@ -21,7 +21,7 @@
 using namespace Std;
 
 namespace {
-    static inline auto& er() {
+    static inline auto& e() {
         static auto res = new sysE;
 
         return *res;
@@ -80,7 +80,10 @@ namespace {
                         usleep(10000);
                     } while (getpid() == 1 && killStale() > 0);
                 } catch (...) {
-                    er() << StringView(u8"step error ") << Exception::current() << endL << flsH;
+                    e() << StringView(u8"step error ")
+                        << Exception::current()
+                        << endL
+                        << flsH;
                 }
 
                 sleep(1);
@@ -113,12 +116,12 @@ namespace {
 
                     cur[md5] = true;
                 } catch (...) {
-                    er() << StringView(u8"skip ")
-                         << StringView(pb)
-                         << StringView(u8": ")
-                         << Exception::current()
-                         << endL
-                         << flsH;
+                    e() << StringView(u8"skip ")
+                        << StringView(pb)
+                        << StringView(u8": ")
+                        << Exception::current()
+                        << endL
+                        << flsH;
                 }
             });
 
@@ -135,15 +138,15 @@ namespace {
                     running.erase(*procId);
                     pids.erase(pid);
 
-                    er() << StringView(u8"complete ")
-                         << pid
-                         << endL
-                         << flsH;
+                    e() << StringView(u8"complete ")
+                        << pid
+                        << endL
+                        << flsH;
                 } else {
-                    er() << StringView(u8"unknown pid ")
-                         << pid
-                         << endL
-                         << flsH;
+                    e() << StringView(u8"unknown pid ")
+                        << pid
+                        << endL
+                        << flsH;
                 }
             }
         }
@@ -165,10 +168,10 @@ namespace {
 
                     kill(pid, SIGKILL);
 
-                    er() << StringView(u8"stale pid ")
-                         << pid
-                         << endL
-                         << flsH;
+                    e() << StringView(u8"stale pid ")
+                        << pid
+                        << endL
+                        << flsH;
                 }
             }
 
