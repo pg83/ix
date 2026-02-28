@@ -21,6 +21,12 @@
 using namespace Std;
 
 namespace {
+    static inline auto& er() {
+        static auto res = new sysE;
+
+        return *res;
+    }
+
     static Buffer readf(Buffer& path) {
         Buffer buf;
 
@@ -74,7 +80,7 @@ namespace {
                         usleep(10000);
                     } while (getpid() == 1 && killStale() > 0);
                 } catch (...) {
-                    sysE << StringView(u8"step error ") << Exception::current() << endL << flsH;
+                    er() << StringView(u8"step error ") << Exception::current() << endL << flsH;
                 }
 
                 sleep(1);
@@ -107,7 +113,7 @@ namespace {
 
                     cur[md5] = true;
                 } catch (...) {
-                    sysE << StringView(u8"skip ")
+                    er() << StringView(u8"skip ")
                          << StringView(pb)
                          << StringView(u8": ")
                          << Exception::current()
@@ -129,12 +135,12 @@ namespace {
                     running.erase(*procId);
                     pids.erase(pid);
 
-                    sysE << StringView(u8"complete ")
+                    er() << StringView(u8"complete ")
                          << pid
                          << endL
                          << flsH;
                 } else {
-                    sysE << StringView(u8"unknown pid ")
+                    er() << StringView(u8"unknown pid ")
                          << pid
                          << endL
                          << flsH;
@@ -159,7 +165,7 @@ namespace {
 
                     kill(pid, SIGKILL);
 
-                    sysE << StringView(u8"stale pid ")
+                    er() << StringView(u8"stale pid ")
                          << pid
                          << endL
                          << flsH;
