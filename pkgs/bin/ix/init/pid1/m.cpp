@@ -152,7 +152,7 @@ namespace {
             Buffer line;
 
             while ((line.reset(), input.readTo(line, ' '), line.length())) {
-                auto pid = (pid_t)StringView(line).stol();
+                auto pid = (pid_t)StringView(line).stou();
 
                 if (!pids.find(pid)) {
                     ++stale;
