@@ -129,7 +129,7 @@ namespace {
             });
 
             running.visit([&](Proc& proc) {
-                if (cur.find(proc.md5) == nullptr) {
+                if (!cur.find(proc.md5)) {
                     proc.terminate();
                 }
             });
