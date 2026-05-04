@@ -16,11 +16,22 @@ except ImportError:
     from core.threads import to_thread
 
 
-def wrap_args(n, c, env):
+def detect_sandbox():
+    if sys.platform != 'linux':
+        return None
+
+    if not hasattr(os, 'unshare'):
+        return None
+
+    return shutil.which('mount')
+
+
+def wrap_args(n, env, mount_bin):
     out_dirs = n.get('out_dir', [])
     in_dirs = n.get('in_dir', [])
 
     args = [
+        f'mount={mount_bin}',
         f"tmpfs={'true' if n.get('tmpfs', True) else 'false'}",
         f"net={'true' if n.get('pool') == 'network' else 'false'}",
         f"tmp={env.get('tmp', '')}",
@@ -33,7 +44,7 @@ def wrap_args(n, c, env):
     return args
 
 
-def execute_cmd(c, n, mt, ix_binary):
+def execute_cmd(c, n, mt, ix_binary, mount_bin):
     env = cu.dict_dict_update(c.get('env', {}), {
         'make_thrs': str(mt),
         'IX_RANDOM': str(random.randint(0, 1000000000)),
@@ -48,15 +59,18 @@ def execute_cmd(c, n, mt, ix_binary):
 
     cl.log(f'ENTER {descr}', color='b')
 
-    wrapped = (
-        [sys.executable, ix_binary, 'exec']
-        + wrap_args(n, c, env)
-        + ['--']
-        + list(args)
-    )
+    if mount_bin:
+        full = (
+            [sys.executable, ix_binary, 'exec']
+            + wrap_args(n, env, mount_bin)
+            + ['--']
+            + list(args)
+        )
+    else:
+        full = list(args)
 
     try:
-        subprocess.run(wrapped, env=env, input=c.get('stdin', '').encode(), check=True)
+        subprocess.run(full, env=env, input=c.get('stdin', '').encode(), check=True)
     except subprocess.CalledProcessError:
         cl.log(f'ERROR {descr}', color='r')
         os.kill(0, signal.SIGKILL)
@@ -122,6 +136,16 @@ class Executor:
         self.mt = pools['threads']
         self.trash_dir = trash
         self.ix_binary = ix_binary
+        # One probe per graph: if Linux + os.unshare + a mount binary on
+        # the executor's PATH are all present, every cmd runs under
+        # `ix exec mount=<abs> ...`. Otherwise we don't wrap at all —
+        # cmds run directly with no sandbox.
+        self.mount_bin = detect_sandbox()
+
+        if self.mount_bin:
+            cl.log(f'sandbox: mount={self.mount_bin}', color='b')
+        else:
+            cl.log('sandbox: disabled (Linux/os.unshare/mount missing)', color='y')
 
     async def visit_lst(self, l):
         await gather(self.visit_node(self.o[n]) for n in l)
@@ -172,7 +196,7 @@ class Executor:
             self.prepare_dir(os.path.dirname(o))
 
         for c in iter_cmd(n):
-            execute_cmd(c, n, self.mt, self.ix_binary)
+            execute_cmd(c, n, self.mt, self.ix_binary, self.mount_bin)
 
         cu.sync()
 
