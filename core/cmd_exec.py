@@ -39,14 +39,21 @@ def log(msg):
     print(f'ix exec: {msg}', file=sys.stderr, flush=True)
 
 
-def is_light(out_dir):
+def is_light(out_dir, cmd0):
     # Bootstrap toolchain (bin/boot/*) and graphgen-synthesized helper
     # nodes (fetch via cmd_fetch → -url-, link via cmd_link → -lnk):
     # their cmd argv references absolute /ix/store paths (python, libc,
     # ix itself) that aren't in declared in_dirs, so a full shadow
-    # would hide them. Stay in light mode for these.
+    # would hide them.
+    #
+    # Plus any node whose cmd[0] is absolute (`/usr/bin/env`,
+    # `/ix/realm/...`): the standard wrapping is `["sh", "-s"]`, looked
+    # up via PATH = h_bin out_dirs (always inside the shadow). Absolute
+    # cmd[0] sidesteps that, signalling a node that wants the host's
+    # real fs.
     return (
-        '-bin-boot-' in out_dir
+        cmd0.startswith('/')
+        or '-bin-boot-' in out_dir
         or '-url-' in out_dir
         or out_dir.endswith('-lnk')
     )
@@ -116,7 +123,7 @@ def setup_shadow(mount_bin, in_dirs, out_dir, tmp):
     mount(mount_bin, '--bind', shadow, '/ix')
 
 
-def setup_sandbox(flags, in_dirs):
+def setup_sandbox(flags, in_dirs, cmd):
     mount_bin = flags['mount']
 
     # Capture uid/gid BEFORE unshare. After CLONE_NEWUSER and before
@@ -147,7 +154,7 @@ def setup_sandbox(flags, in_dirs):
     if flags['tmpfs'] != 'true':
         return
 
-    if is_light(flags['out']):
+    if is_light(flags['out'], cmd[0]):
         setup_tmpfs(mount_bin, flags['tmp'])
         return
 
@@ -162,6 +169,6 @@ def cli_exec(ctx):
         print('usage: ix exec [k=v ...] -- <cmd> [args...]', file=sys.stderr)
         sys.exit(2)
 
-    setup_sandbox(flags, in_dirs)
+    setup_sandbox(flags, in_dirs, cmd)
 
     os.execvp(cmd[0], cmd)
