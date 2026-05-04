@@ -16,7 +16,24 @@ except ImportError:
     from core.threads import to_thread
 
 
-def execute_cmd(c, mt, ix_binary):
+def wrap_args(n, c, env):
+    out_dirs = n.get('out_dir', [])
+    in_dirs = n.get('in_dir', [])
+
+    args = [
+        f"tmpfs={'true' if n.get('tmpfs', True) else 'false'}",
+        f"net={'true' if n.get('pool') == 'network' else 'false'}",
+        f"tmp={env.get('tmp', '')}",
+        f"out={out_dirs[0] if out_dirs else ''}",
+    ]
+
+    for d in in_dirs:
+        args.append(f'in={d}')
+
+    return args
+
+
+def execute_cmd(c, n, mt, ix_binary):
     env = cu.dict_dict_update(c.get('env', {}), {
         'make_thrs': str(mt),
         'IX_RANDOM': str(random.randint(0, 1000000000)),
@@ -31,7 +48,12 @@ def execute_cmd(c, mt, ix_binary):
 
     cl.log(f'ENTER {descr}', color='b')
 
-    wrapped = [sys.executable, ix_binary, 'exec', '--'] + list(args)
+    wrapped = (
+        [sys.executable, ix_binary, 'exec']
+        + wrap_args(n, c, env)
+        + ['--']
+        + list(args)
+    )
 
     try:
         subprocess.run(wrapped, env=env, input=c.get('stdin', '').encode(), check=True)
@@ -150,7 +172,7 @@ class Executor:
             self.prepare_dir(os.path.dirname(o))
 
         for c in iter_cmd(n):
-            execute_cmd(c, self.mt, self.ix_binary)
+            execute_cmd(c, n, self.mt, self.ix_binary)
 
         cu.sync()
 

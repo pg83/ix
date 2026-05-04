@@ -1,37 +1,96 @@
 import os
 import sys
+import subprocess
 
 
 # Best-effort sandbox wrapper used by the local executor (ce.execute_cmd
-# wraps every build cmd as `ix exec -- <real cmd>`). On Linux: unshare
-# user+mount+net namespaces so the cmd can't reach the network and any
-# stray mounts die with the ns. On other OSes: noop, just exec.
+# wraps every build cmd as `ix exec <flags> -- <real cmd>`). All sandbox
+# steps live behind the `--` separator; the inner cmd's argv is
+# untouched, so the IX node uid hash stays stable regardless of how this
+# wrapper evolves.
 #
-# Sandbox-related side effects (ns unshare, uid_map) MUST NOT change
-# the cmd's argv — argv feeds the IX node uid hash. Keep this transparent.
+# Argv shape (key=value, repeatable for `in`):
+#   tmpfs=true|false    mount tmpfs at the cmd's $tmp build dir
+#   net=true|false      keep network (true) or unshare CLONE_NEWNET
+#   tmp=<path>          build dir to tmpfs (typically /ix/build/<uid>)
+#   out=<path>          single out_dir; r/w window in shadow mode
+#   in=<path>           one declared in_dir; repeat per dep
+#
+# Decision tree:
+#   tmpfs=false                                       → unshare only
+#   tmpfs=true + out matches LIGHT_PREFIXES           → light: tmpfs $tmp
+#   tmpfs=true + non-light                            → full: shadow + tmpfs $tmp
+#
+# Shadow layout (full mode):
+#   ${tmp}/ix/store/<dep-udir>   bind-r/o each in=<dep-udir>
+#   ${tmp}/ix/store/<out-udir>   bind-r/w out=
+#   ${tmp}/ix/realm              bind-r/o /ix/realm (best effort)
+#   bind ${tmp}/ix → /ix (visible to cmd)
+#   tmpfs ${tmp}/ix/build/<own-uid> as the cmd's scratch
+#
+# Light prefixes match nodes whose cmd argv references absolute paths
+# under /ix/store that don't show up in declared in_dirs (fetch/link's
+# bootstrap python, bin/boot/* toolchain whose RPATH cycles store).
 
 
-def setup_sandbox():
-    if sys.platform != 'linux':
-        return
+def log(msg):
+    print(f'ix exec: {msg}', file=sys.stderr, flush=True)
 
+
+def is_light(out_dir):
+    # Bootstrap toolchain (bin/boot/*) and graphgen-synthesized helper
+    # nodes (fetch via cmd_fetch → -url-, link via cmd_link → -lnk):
+    # their cmd argv references absolute /ix/store paths (python, libc,
+    # ix itself) that aren't in declared in_dirs, so a full shadow
+    # would hide them. Stay in light mode for these.
+    return (
+        '-bin-boot-' in out_dir
+        or '-url-' in out_dir
+        or out_dir.endswith('-lnk')
+    )
+
+
+def parse_args(argv):
+    flags = {'tmpfs': 'false', 'net': 'true', 'tmp': '', 'out': ''}
+    in_dirs = []
+    rest = list(argv)
+
+    while rest and rest[0] != '--':
+        a = rest.pop(0)
+        k, _, v = a.partition('=')
+
+        if k == 'in':
+            in_dirs.append(v)
+        elif k in flags:
+            flags[k] = v
+        else:
+            log(f'unknown arg {a!r}')
+            sys.exit(2)
+
+    if rest and rest[0] == '--':
+        rest.pop(0)
+
+    return flags, in_dirs, rest
+
+
+def unshare(net):
     if not hasattr(os, 'unshare'):
-        return
+        return False
 
-    flags = 0
+    mask = getattr(os, 'CLONE_NEWUSER', 0) | getattr(os, 'CLONE_NEWNS', 0)
 
-    for name in ('CLONE_NEWUSER', 'CLONE_NEWNS', 'CLONE_NEWNET'):
-        flags |= getattr(os, name, 0)
+    if not net:
+        mask |= getattr(os, 'CLONE_NEWNET', 0)
 
-    if not flags:
-        return
+    if not mask:
+        return False
 
     try:
-        os.unshare(flags)
+        os.unshare(mask)
     except OSError as e:
-        print(f'ix exec: unshare failed ({e}), running unsandboxed', file=sys.stderr)
+        log(f'unshare failed ({e}); running unsandboxed')
 
-        return
+        return False
 
     uid = os.getuid()
     gid = os.getgid()
@@ -46,18 +105,84 @@ def setup_sandbox():
         with open('/proc/self/gid_map', 'w') as f:
             f.write(f'0 {gid} 1\n')
     except OSError as e:
-        print(f'ix exec: id_map failed ({e})', file=sys.stderr)
+        log(f'id_map failed ({e})')
+
+    subprocess.run(['mount', '--make-rprivate', '/'], check=False)
+
+    return True
+
+
+def mount(*args):
+    subprocess.run(['mount'] + list(args), check=True)
+
+
+def bind_ro(src, dst):
+    mount('--bind', src, dst)
+    mount('-o', 'remount,bind,ro', dst)
+
+
+def setup_tmpfs(tmp):
+    if not tmp:
+        return
+
+    os.makedirs(tmp, exist_ok=True)
+    mount('-t', 'tmpfs', 'tmpfs', tmp)
+
+
+def setup_shadow(in_dirs, out_dir, tmp):
+    if not tmp:
+        log('shadow requested but tmp= empty; falling back to light')
+        return
+
+    shadow = os.path.join(tmp, 'ix')
+    os.makedirs(shadow + '/store', exist_ok=True)
+    os.makedirs(shadow + '/build', exist_ok=True)
+
+    for d in in_dirs:
+        target = shadow + '/store/' + os.path.basename(d)
+        os.makedirs(target, exist_ok=True)
+        bind_ro(d, target)
+
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
+        target = shadow + '/store/' + os.path.basename(out_dir)
+        os.makedirs(target, exist_ok=True)
+        mount('--bind', out_dir, target)
+
+    if os.path.isdir('/ix/realm'):
+        target = shadow + '/realm'
+        os.makedirs(target, exist_ok=True)
+        bind_ro('/ix/realm', target)
+
+    mount('--bind', shadow, '/ix')
+
+
+def setup_sandbox(flags, in_dirs):
+    if sys.platform != 'linux':
+        return
+
+    if not unshare(flags['net'] == 'true'):
+        return
+
+    if flags['tmpfs'] != 'true':
+        return
+
+    if is_light(flags['out']):
+        setup_tmpfs(flags['tmp'])
+
+        return
+
+    setup_shadow(in_dirs, flags['out'], flags['tmp'])
+    setup_tmpfs(flags['tmp'])
 
 
 def cli_exec(ctx):
-    args = ctx['args']
+    flags, in_dirs, cmd = parse_args(ctx['args'])
 
-    if args and args[0] == '--':
-        args = args[1:]
-
-    if not args:
-        print('usage: ix exec [--] <cmd> [args...]', file=sys.stderr)
+    if not cmd:
+        print('usage: ix exec [k=v ...] -- <cmd> [args...]', file=sys.stderr)
         sys.exit(2)
 
-    setup_sandbox()
-    os.execvp(args[0], args)
+    setup_sandbox(flags, in_dirs)
+
+    os.execvp(cmd[0], cmd)
