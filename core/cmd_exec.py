@@ -73,41 +73,63 @@ def parse_args(argv):
     return flags, in_dirs, rest
 
 
+CLONE_NEWNS = 0x00020000
+CLONE_NEWUSER = 0x10000000
+CLONE_NEWNET = 0x40000000
+
+
+def write_file(path, data):
+    try:
+        with open(path, 'w') as f:
+            f.write(data)
+    except OSError as e:
+        log(f'{path} write failed ({e})')
+
+        return False
+
+    return True
+
+
 def unshare(net):
     if not hasattr(os, 'unshare'):
+        log('os.unshare missing; running unsandboxed')
+
         return False
 
-    mask = getattr(os, 'CLONE_NEWUSER', 0) | getattr(os, 'CLONE_NEWNS', 0)
+    # Capture uid/gid BEFORE unshare. After CLONE_NEWUSER and before
+    # uid_map is written, getuid() returns the overflow uid (65534),
+    # not our real uid — writing that into uid_map gets EPERM and
+    # leaves us as `nobody` inside the ns with no caps.
+    uid = os.getuid()
+    gid = os.getgid()
+
+    mask = CLONE_NEWUSER | CLONE_NEWNS
 
     if not net:
-        mask |= getattr(os, 'CLONE_NEWNET', 0)
-
-    if not mask:
-        return False
+        mask |= CLONE_NEWNET
 
     try:
         os.unshare(mask)
     except OSError as e:
-        log(f'unshare failed ({e}); running unsandboxed')
+        log(f'unshare(0x{mask:x}) failed ({e}); running unsandboxed')
 
         return False
 
-    uid = os.getuid()
-    gid = os.getgid()
+    if not write_file('/proc/self/setgroups', 'deny\n'):
+        return False
+
+    if not write_file('/proc/self/uid_map', f'0 {uid} 1\n'):
+        return False
+
+    if not write_file('/proc/self/gid_map', f'0 {gid} 1\n'):
+        return False
 
     try:
-        with open('/proc/self/setgroups', 'w') as f:
-            f.write('deny\n')
+        subprocess.run(['mount', '--make-rprivate', '/'], check=True)
+    except (FileNotFoundError, subprocess.CalledProcessError) as e:
+        log(f'make-rprivate failed ({e}); running unsandboxed')
 
-        with open('/proc/self/uid_map', 'w') as f:
-            f.write(f'0 {uid} 1\n')
-
-        with open('/proc/self/gid_map', 'w') as f:
-            f.write(f'0 {gid} 1\n')
-    except OSError as e:
-        log(f'id_map failed ({e})')
-
-    subprocess.run(['mount', '--make-rprivate', '/'], check=False)
+        return False
 
     return True
 
