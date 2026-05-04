@@ -54,6 +54,7 @@ def is_light(out_dir, cmd0):
     return (
         cmd0.startswith('/')
         or '-bin-boot-' in out_dir
+        or '-lib-boot-' in out_dir
         or '-url-' in out_dir
         or out_dir.endswith('-lnk')
     )
@@ -158,8 +159,14 @@ def setup_sandbox(flags, in_dirs, cmd):
         setup_tmpfs(mount_bin, flags['tmp'])
         return
 
-    setup_shadow(mount_bin, in_dirs, flags['out'], flags['tmp'])
+    # Tmpfs the build dir BEFORE setup_shadow's final `bind /ix → shadow`.
+    # /bin/mount is a symlink into /ix/store/<util-linux-uid>/bin/mount
+    # on stalix; after the bind, that target lives under a uid that may
+    # or may not be in declared in_dirs, and any further mount call
+    # ENOENTs on /bin/mount. setup_shadow's last op is the /ix bind, so
+    # everything else (including this tmpfs) runs first.
     setup_tmpfs(mount_bin, flags['tmp'])
+    setup_shadow(mount_bin, in_dirs, flags['out'], flags['tmp'])
 
 
 def cli_exec(ctx):
