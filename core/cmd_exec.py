@@ -11,23 +11,16 @@ import subprocess
 #
 # Argv shape (key=value, repeatable for `in`):
 #   mount=<abs>         absolute path to mount(8) (resolved by executor)
-#   tmpfs=true|false    mount tmpfs at the cmd's $tmp build dir
+#   tmpfs=true|false    enable shadow store setup
 #   net=true|false      keep network (true) or unshare CLONE_NEWNET
-#   tmp=<path>          build dir to tmpfs (typically /ix/build/<uid>)
+#   tmp=<path>          per-cmd build dir
 #   out=<path>          single out_dir; r/w window in shadow mode
 #   in=<path>           one declared in_dir; repeat per dep
 #
-# Decision tree:
-#   tmpfs=false                                   → unshare only
-#   tmpfs=true + out matches LIGHT_PREFIXES       → light: tmpfs $tmp
-#   tmpfs=true + non-light                        → full: shadow + tmpfs $tmp
-#
-# Shadow layout (full mode):
-#   ${tmp}/ix/store/<dep-udir>   bind-r/o each in=<dep-udir>
-#   ${tmp}/ix/store/<out-udir>   bind-r/w out=
-#   ${tmp}/ix/realm              bind-r/o /ix/realm (best effort)
-#   bind ${tmp}/ix → /ix (visible to cmd)
-#   tmpfs ${tmp}/ix/build/<own-uid> as the cmd's scratch
+# Shadow layout (tmpfs=true):
+#   <build_root>/.shadow/store/<dep-udir>   bind-r/o each in=<dep-udir>
+#   <build_root>/.shadow/store/<out-udir>   bind-r/w out=
+#   bind <build_root>/.shadow/store → <ix_root>/store
 
 
 CLONE_NEWNS = 0x00020000
@@ -37,27 +30,6 @@ CLONE_NEWNET = 0x40000000
 
 def log(msg):
     print(f'ix exec: {msg}', file=sys.stderr, flush=True)
-
-
-def is_light(out_dir, cmd0):
-    # Bootstrap toolchain (bin/boot/*) and graphgen-synthesized helper
-    # nodes (fetch via cmd_fetch → -url-, link via cmd_link → -lnk):
-    # their cmd argv references absolute /ix/store paths (python, libc,
-    # ix itself) that aren't in declared in_dirs, so a full shadow
-    # would hide them.
-    #
-    # Plus any node whose cmd[0] is absolute (`/usr/bin/env`,
-    # `/ix/realm/...`): the standard wrapping is `["sh", "-s"]`, looked
-    # up via PATH = h_bin out_dirs (always inside the shadow). Absolute
-    # cmd[0] sidesteps that, signalling a node that wants the host's
-    # real fs.
-    return (
-        cmd0.startswith('/')
-        or '-bin-boot-' in out_dir
-        or '-lib-boot-' in out_dir
-        or '-url-' in out_dir
-        or out_dir.endswith('-lnk')
-    )
 
 
 def parse_args(argv):
@@ -177,11 +149,6 @@ def setup_sandbox(flags, in_dirs, cmd):
 
     build_root = os.path.dirname(tmp)
     ix_root = os.path.dirname(build_root)
-
-    setup_tmpfs(mount_bin, build_root, ix_root)
-
-    if is_light(flags['out'], cmd[0]):
-        return
 
     setup_shadow(mount_bin, in_dirs, flags['out'], build_root, ix_root)
 

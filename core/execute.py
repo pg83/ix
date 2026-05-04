@@ -59,7 +59,7 @@ def execute_cmd(c, n, mt, ix_binary, mount_bin):
 
     cl.log(f'ENTER {descr}', color='b')
 
-    if mount_bin:
+    if mount_bin and n.get('isolate', True):
         full = (
             [sys.executable, ix_binary, 'exec']
             + wrap_args(n, env, mount_bin)
