@@ -110,7 +110,7 @@ def choice(b):
 class Ops:
     def __init__(self, cfg):
         self.cfg = cfg
-        self.assemble = choice('assemble')
+        self.assemble = choice('assemble_ng')
         self.bsdtar = choice('bsdtar')
 
         try:
@@ -147,6 +147,4 @@ class Ops:
         return '/ix/realm/boot/bin:/bin:/usr/bin:/usr/local/bin'
 
     def flags(self):
-        return {
-            'stalix': True,
-        }
+        return {}

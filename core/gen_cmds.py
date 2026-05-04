@@ -149,6 +149,7 @@ def iter_build_commands(self):
         'out_dir': [self.out_dir],
         'cmd': [CmdBuild(self).script(sb, src_dir)],
         'pool': 'network' if self.descr['net'] else self.descr['task_pool'],
+        'tmpfs': self.descr['tmpfs'],
     }
 
     if pred := self.descr['predict_outputs']:

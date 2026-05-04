@@ -1,4 +1,5 @@
 import os
+import sys
 import shutil
 import random
 import signal
@@ -15,7 +16,7 @@ except ImportError:
     from core.threads import to_thread
 
 
-def execute_cmd(c, mt):
+def execute_cmd(c, mt, ix_binary):
     env = cu.dict_dict_update(c.get('env', {}), {
         'make_thrs': str(mt),
         'IX_RANDOM': str(random.randint(0, 1000000000)),
@@ -30,8 +31,10 @@ def execute_cmd(c, mt):
 
     cl.log(f'ENTER {descr}', color='b')
 
+    wrapped = [sys.executable, ix_binary, 'exec', '--'] + list(args)
+
     try:
-        subprocess.run(args, env=env, input=c.get('stdin', '').encode(), check=True)
+        subprocess.run(wrapped, env=env, input=c.get('stdin', '').encode(), check=True)
     except subprocess.CalledProcessError:
         cl.log(f'ERROR {descr}', color='r')
         os.kill(0, signal.SIGKILL)
@@ -90,12 +93,13 @@ def group_by_out(nodes):
 
 
 class Executor:
-    def __init__(self, nodes, pools, trash):
+    def __init__(self, nodes, pools, trash, ix_binary):
         self.s = dict((k, asyncio.Semaphore(v)) for k, v in pools.items())
         self.o = group_by_out(nodes)
         self.l = []
         self.mt = pools['threads']
         self.trash_dir = trash
+        self.ix_binary = ix_binary
 
     async def visit_lst(self, l):
         await gather(self.visit_node(self.o[n]) for n in l)
@@ -146,7 +150,7 @@ class Executor:
             self.prepare_dir(os.path.dirname(o))
 
         for c in iter_cmd(n):
-            execute_cmd(c, self.mt)
+            execute_cmd(c, self.mt, self.ix_binary)
 
         cu.sync()
 
@@ -158,15 +162,15 @@ class Executor:
         cu.sync()
 
 
-async def arun(g, trash):
-    await Executor(g['nodes'], g['pools'], trash).visit_all(g['targets'])
+async def arun(g, trash, ix_binary):
+    await Executor(g['nodes'], g['pools'], trash, ix_binary).visit_all(g['targets'])
 
 
 def kill_all(*args):
     os.kill(0, signal.SIGKILL)
 
 
-def execute(g, trash):
+def execute(g, trash, ix_binary):
     try:
         cmd = [shutil.which('chrt'), '-i', '-p', '0', str(os.getpid())]
         subprocess.check_output(cmd, stderr=subprocess.STDOUT)
@@ -177,4 +181,4 @@ def execute(g, trash):
 
     signal.signal(signal.SIGINT, kill_all)
 
-    asyncio.run(arun(g, trash))
+    asyncio.run(arun(g, trash, ix_binary))

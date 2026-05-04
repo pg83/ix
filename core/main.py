@@ -20,6 +20,7 @@ CLIS = [
     ('core.cmd_misc', 'misc_extract', True),
     ('core.cmd_misc', 'misc_fetch', True),
     ('core.cmd_misc', 'misc_link', True),
+    ('core.cmd_exec', 'exec', True),
 ]
 
 
