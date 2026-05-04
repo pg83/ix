@@ -1,13 +1,13 @@
 import os
 import sys
+import shutil
 import subprocess
 
 
-# Best-effort sandbox wrapper used by the local executor (ce.execute_cmd
-# wraps every build cmd as `ix exec <flags> -- <real cmd>`). All sandbox
-# steps live behind the `--` separator; the inner cmd's argv is
-# untouched, so the IX node uid hash stays stable regardless of how this
-# wrapper evolves.
+# Sandbox wrapper used by the local executor (ce.execute_cmd wraps every
+# build cmd as `ix exec <flags> -- <real cmd>`). All sandbox steps live
+# behind the `--` separator; the inner cmd's argv is untouched, so the
+# IX node uid hash stays stable regardless of how this wrapper evolves.
 #
 # Argv shape (key=value, repeatable for `in`):
 #   tmpfs=true|false    mount tmpfs at the cmd's $tmp build dir
@@ -17,9 +17,10 @@ import subprocess
 #   in=<path>           one declared in_dir; repeat per dep
 #
 # Decision tree:
-#   tmpfs=false                                       → unshare only
-#   tmpfs=true + out matches LIGHT_PREFIXES           → light: tmpfs $tmp
-#   tmpfs=true + non-light                            → full: shadow + tmpfs $tmp
+#   no Linux / no os.unshare / no `mount` on PATH → run unsandboxed
+#   tmpfs=false                                   → unshare only
+#   tmpfs=true + out matches LIGHT_PREFIXES       → light: tmpfs $tmp
+#   tmpfs=true + non-light                        → full: shadow + tmpfs $tmp
 #
 # Shadow layout (full mode):
 #   ${tmp}/ix/store/<dep-udir>   bind-r/o each in=<dep-udir>
@@ -28,9 +29,15 @@ import subprocess
 #   bind ${tmp}/ix → /ix (visible to cmd)
 #   tmpfs ${tmp}/ix/build/<own-uid> as the cmd's scratch
 #
-# Light prefixes match nodes whose cmd argv references absolute paths
-# under /ix/store that don't show up in declared in_dirs (fetch/link's
-# bootstrap python, bin/boot/* toolchain whose RPATH cycles store).
+# Pre-flight checks gate sandboxing entirely; once we commit, every
+# step is fail-fast — an OSError from unshare/uid_map or non-zero from
+# mount aborts ix exec with a traceback rather than running half-
+# sandboxed with confusing follow-on errors.
+
+
+CLONE_NEWNS = 0x00020000
+CLONE_NEWUSER = 0x10000000
+CLONE_NEWNET = 0x40000000
 
 
 def log(msg):
@@ -73,62 +80,14 @@ def parse_args(argv):
     return flags, in_dirs, rest
 
 
-CLONE_NEWNS = 0x00020000
-CLONE_NEWUSER = 0x10000000
-CLONE_NEWNET = 0x40000000
-
-
-def write_file(path, data):
-    try:
-        with open(path, 'w') as f:
-            f.write(data)
-    except OSError as e:
-        log(f'{path} write failed ({e})')
-
+def can_sandbox():
+    if sys.platform != 'linux':
         return False
 
-    return True
-
-
-def unshare(net):
     if not hasattr(os, 'unshare'):
-        log('os.unshare missing; running unsandboxed')
-
         return False
 
-    # Capture uid/gid BEFORE unshare. After CLONE_NEWUSER and before
-    # uid_map is written, getuid() returns the overflow uid (65534),
-    # not our real uid — writing that into uid_map gets EPERM and
-    # leaves us as `nobody` inside the ns with no caps.
-    uid = os.getuid()
-    gid = os.getgid()
-
-    mask = CLONE_NEWUSER | CLONE_NEWNS
-
-    if not net:
-        mask |= CLONE_NEWNET
-
-    try:
-        os.unshare(mask)
-    except OSError as e:
-        log(f'unshare(0x{mask:x}) failed ({e}); running unsandboxed')
-
-        return False
-
-    if not write_file('/proc/self/setgroups', 'deny\n'):
-        return False
-
-    if not write_file('/proc/self/uid_map', f'0 {uid} 1\n'):
-        return False
-
-    if not write_file('/proc/self/gid_map', f'0 {gid} 1\n'):
-        return False
-
-    try:
-        subprocess.run(['mount', '--make-rprivate', '/'], check=True)
-    except (FileNotFoundError, subprocess.CalledProcessError) as e:
-        log(f'make-rprivate failed ({e}); running unsandboxed')
-
+    if not shutil.which('mount'):
         return False
 
     return True
@@ -152,10 +111,6 @@ def setup_tmpfs(tmp):
 
 
 def setup_shadow(in_dirs, out_dir, tmp):
-    if not tmp:
-        log('shadow requested but tmp= empty; falling back to light')
-        return
-
     shadow = os.path.join(tmp, 'ix')
     os.makedirs(shadow + '/store', exist_ok=True)
     os.makedirs(shadow + '/build', exist_ok=True)
@@ -180,18 +135,39 @@ def setup_shadow(in_dirs, out_dir, tmp):
 
 
 def setup_sandbox(flags, in_dirs):
-    if sys.platform != 'linux':
+    if not can_sandbox():
         return
 
-    if not unshare(flags['net'] == 'true'):
-        return
+    # Capture uid/gid BEFORE unshare. After CLONE_NEWUSER and before
+    # uid_map is written, getuid() returns the overflow uid (65534);
+    # writing that into uid_map gets EPERM and leaves us as `nobody`
+    # inside the ns with no caps.
+    uid = os.getuid()
+    gid = os.getgid()
+
+    mask = CLONE_NEWUSER | CLONE_NEWNS
+
+    if flags['net'] != 'true':
+        mask |= CLONE_NEWNET
+
+    os.unshare(mask)
+
+    with open('/proc/self/setgroups', 'w') as f:
+        f.write('deny\n')
+
+    with open('/proc/self/uid_map', 'w') as f:
+        f.write(f'0 {uid} 1\n')
+
+    with open('/proc/self/gid_map', 'w') as f:
+        f.write(f'0 {gid} 1\n')
+
+    mount('--make-rprivate', '/')
 
     if flags['tmpfs'] != 'true':
         return
 
     if is_light(flags['out']):
         setup_tmpfs(flags['tmp'])
-
         return
 
     setup_shadow(in_dirs, flags['out'], flags['tmp'])
