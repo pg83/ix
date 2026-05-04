@@ -11,13 +11,14 @@ import subprocess
 #
 # Argv shape (key=value, repeatable for `in`):
 #   mount=<abs>         absolute path to mount(8) (resolved by executor)
-#   tmpfs=true|false    enable shadow store setup
+#   isolate=true|false  if true, build shadow store from declared in/out
+#   tmpfs=true|false    if true, mount tmpfs over <build_root> first
 #   net=true|false      keep network (true) or unshare CLONE_NEWNET
-#   tmp=<path>          per-cmd build dir
+#   tmp=<path>          per-cmd build dir; required for tmpfs / shadow
 #   out=<path>          single out_dir; r/w window in shadow mode
 #   in=<path>           one declared in_dir; repeat per dep
 #
-# Shadow layout (tmpfs=true):
+# Shadow layout (isolate=true):
 #   <build_root>/.shadow/store/<dep-udir>   bind-r/o each in=<dep-udir>
 #   <build_root>/.shadow/store/<out-udir>   bind-r/w out=
 #   bind <build_root>/.shadow/store → <ix_root>/store
@@ -33,7 +34,7 @@ def log(msg):
 
 
 def parse_args(argv):
-    flags = {'mount': '', 'tmpfs': 'false', 'net': 'true', 'tmp': '', 'out': ''}
+    flags = {'mount': '', 'isolate': 'false', 'tmpfs': 'false', 'net': 'true', 'tmp': '', 'out': ''}
     in_dirs = []
     rest = list(argv)
 
@@ -65,17 +66,16 @@ def bind_ro(mount_bin, src, dst):
 
 
 def setup_tmpfs(mount_bin, build_root, ix_root):
-    # Tmpfs the WHOLE build dir, not the per-cmd $tmp. The cmd's
-    # build template runs `mv $tmp <ix_root>/trash` (fast_rm) early,
-    # which would fail with "Resource busy" if $tmp itself were the
-    # mountpoint. Mounting the parent makes $tmp a regular subdir on
-    # the tmpfs.
+    # Tmpfs build_root (parent of $tmp), not $tmp itself. The cmd's
+    # template runs fast_rm on $tmp, which falls back to `rm -rf` on
+    # mv failure; rmdir on a mountpoint returns EBUSY, so making $tmp
+    # the mountpoint breaks cleanup. With tmpfs on the parent, $tmp is
+    # a regular subdir on the tmpfs and fast_rm works.
     os.makedirs(build_root, exist_ok=True)
     mount(mount_bin, '-t', 'tmpfs', 'tmpfs', build_root)
 
-    # Bind <build_root>/.trash → <ix_root>/trash so the mv lands on
-    # the same tmpfs and the rename(2) succeeds. Pattern lifted from
-    # the old bld/tmpfs.sh wrapper.
+    # Bind <build_root>/.trash → <ix_root>/trash so fast_rm's mv lands
+    # on the same tmpfs and rename(2) succeeds.
     trash_inside = os.path.join(build_root, '.trash')
     os.makedirs(trash_inside)
 
@@ -139,9 +139,6 @@ def setup_sandbox(flags, in_dirs, cmd):
 
     mount(mount_bin, '--make-rprivate', '/')
 
-    if flags['tmpfs'] != 'true':
-        return
-
     tmp = flags['tmp']
 
     if not tmp:
@@ -150,7 +147,11 @@ def setup_sandbox(flags, in_dirs, cmd):
     build_root = os.path.dirname(tmp)
     ix_root = os.path.dirname(build_root)
 
-    setup_shadow(mount_bin, in_dirs, flags['out'], build_root, ix_root)
+    if flags['tmpfs'] == 'true':
+        setup_tmpfs(mount_bin, build_root, ix_root)
+
+    if flags['isolate'] == 'true':
+        setup_shadow(mount_bin, in_dirs, flags['out'], build_root, ix_root)
 
 
 def cli_exec(ctx):

@@ -32,8 +32,9 @@ def wrap_args(n, env, mount_bin):
 
     args = [
         f'mount={mount_bin}',
-        f"tmpfs={'true' if n.get('tmpfs', True) else 'false'}",
-        f"net={'true' if n.get('pool') == 'network' else 'false'}",
+        f"isolate={str(n['isolate']).lower()}",
+        f"tmpfs={str(n['tmpfs']).lower()}",
+        f"net={str(n['pool'] == 'network').lower()}",
         f"tmp={env.get('tmp', '')}",
         f"out={out_dirs[0] if out_dirs else ''}",
     ]
@@ -59,7 +60,7 @@ def execute_cmd(c, n, mt, ix_binary, mount_bin):
 
     cl.log(f'ENTER {descr}', color='b')
 
-    if mount_bin and n.get('isolate', True):
+    if mount_bin and (n['isolate'] or n['tmpfs']):
         full = (
             [sys.executable, ix_binary, 'exec']
             + wrap_args(n, env, mount_bin)

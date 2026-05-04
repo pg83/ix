@@ -93,6 +93,7 @@ def cmd_fetch(sb, url, cksum):
         'path': path,
         'pool': 'network',
         'isolate': False,
+        'tmpfs': False,
         'predict': [
             {
                 'path': path,
@@ -112,6 +113,7 @@ def cmd_link(sb, extra):
         'cmd': script,
         'pool': 'misc',
         'isolate': False,
+        'tmpfs': False,
     }
 
 
