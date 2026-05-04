@@ -92,36 +92,51 @@ def bind_ro(mount_bin, src, dst):
     mount(mount_bin, '-o', 'remount,bind,ro', dst)
 
 
-def setup_tmpfs(mount_bin, tmp):
-    if not tmp:
-        return
+def setup_tmpfs(mount_bin, build_root, ix_root):
+    # Tmpfs the WHOLE build dir, not the per-cmd $tmp. The cmd's
+    # build template runs `mv $tmp <ix_root>/trash` (fast_rm) early,
+    # which would fail with "Resource busy" if $tmp itself were the
+    # mountpoint. Mounting the parent makes $tmp a regular subdir on
+    # the tmpfs.
+    os.makedirs(build_root, exist_ok=True)
+    mount(mount_bin, '-t', 'tmpfs', 'tmpfs', build_root)
 
-    os.makedirs(tmp, exist_ok=True)
-    mount(mount_bin, '-t', 'tmpfs', 'tmpfs', tmp)
+    # Bind <build_root>/.trash → <ix_root>/trash so the mv lands on
+    # the same tmpfs and the rename(2) succeeds. Pattern lifted from
+    # the old bld/tmpfs.sh wrapper.
+    trash_inside = os.path.join(build_root, '.trash')
+    os.makedirs(trash_inside)
+
+    trash = os.path.join(ix_root, 'trash')
+    os.makedirs(trash, exist_ok=True)
+    mount(mount_bin, '--bind', trash_inside, trash)
 
 
-def setup_shadow(mount_bin, in_dirs, out_dir, tmp):
-    shadow = os.path.join(tmp, 'ix')
-    os.makedirs(shadow + '/store', exist_ok=True)
-    os.makedirs(shadow + '/build', exist_ok=True)
+def setup_shadow(mount_bin, in_dirs, out_dir, build_root, ix_root):
+    # Shadow <ix_root>/store with only declared in_dirs (r/o) plus the
+    # node's own out_dir (r/w). The shadow root sits at
+    # <build_root>/.shadow as a sibling of <uid>/ build subdirs so
+    # fast_rm of $tmp doesn't disturb it. /ix itself stays untouched —
+    # for the local executor ix_root is something like /home/pg/ix_root,
+    # not /ix; system tools under /ix/realm/boot/bin and the system
+    # /ix/store keep resolving normally.
+    real_store = os.path.join(ix_root, 'store')
+
+    shadow_store = os.path.join(build_root, '.shadow', 'store')
+    os.makedirs(shadow_store, exist_ok=True)
 
     for d in in_dirs:
-        target = shadow + '/store/' + os.path.basename(d)
+        target = os.path.join(shadow_store, os.path.basename(d))
         os.makedirs(target, exist_ok=True)
         bind_ro(mount_bin, d, target)
 
     if out_dir:
         os.makedirs(out_dir, exist_ok=True)
-        target = shadow + '/store/' + os.path.basename(out_dir)
+        target = os.path.join(shadow_store, os.path.basename(out_dir))
         os.makedirs(target, exist_ok=True)
         mount(mount_bin, '--bind', out_dir, target)
 
-    if os.path.isdir('/ix/realm'):
-        target = shadow + '/realm'
-        os.makedirs(target, exist_ok=True)
-        bind_ro(mount_bin, '/ix/realm', target)
-
-    mount(mount_bin, '--bind', shadow, '/ix')
+    mount(mount_bin, '--bind', shadow_store, real_store)
 
 
 def setup_sandbox(flags, in_dirs, cmd):
@@ -155,18 +170,20 @@ def setup_sandbox(flags, in_dirs, cmd):
     if flags['tmpfs'] != 'true':
         return
 
-    if is_light(flags['out'], cmd[0]):
-        setup_tmpfs(mount_bin, flags['tmp'])
+    tmp = flags['tmp']
+
+    if not tmp:
         return
 
-    # Tmpfs the build dir BEFORE setup_shadow's final `bind /ix → shadow`.
-    # /bin/mount is a symlink into /ix/store/<util-linux-uid>/bin/mount
-    # on stalix; after the bind, that target lives under a uid that may
-    # or may not be in declared in_dirs, and any further mount call
-    # ENOENTs on /bin/mount. setup_shadow's last op is the /ix bind, so
-    # everything else (including this tmpfs) runs first.
-    setup_tmpfs(mount_bin, flags['tmp'])
-    setup_shadow(mount_bin, in_dirs, flags['out'], flags['tmp'])
+    build_root = os.path.dirname(tmp)
+    ix_root = os.path.dirname(build_root)
+
+    setup_tmpfs(mount_bin, build_root, ix_root)
+
+    if is_light(flags['out'], cmd[0]):
+        return
+
+    setup_shadow(mount_bin, in_dirs, flags['out'], build_root, ix_root)
 
 
 def cli_exec(ctx):
