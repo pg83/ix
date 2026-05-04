@@ -17,9 +17,6 @@ except ImportError:
 
 
 def detect_sandbox():
-    if os.environ.get('IX_NO_SANDBOX'):
-        return None
-
     if sys.platform != 'linux':
         return None
 

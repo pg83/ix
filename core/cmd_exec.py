@@ -178,6 +178,11 @@ def setup_sandbox(flags, in_dirs, cmd):
     build_root = os.path.dirname(tmp)
     ix_root = os.path.dirname(build_root)
 
+    setup_tmpfs(mount_bin, build_root, ix_root)
+
+    if is_light(flags['out'], cmd[0]):
+        return
+
     setup_shadow(mount_bin, in_dirs, flags['out'], build_root, ix_root)
 
 
@@ -188,12 +193,6 @@ def cli_exec(ctx):
         print('usage: ix exec [k=v ...] -- <cmd> [args...]', file=sys.stderr)
         sys.exit(2)
 
-    # Light = "no sandbox at all". Bootstrap toolchain (bin/boot/*,
-    # lib/boot/*), graphgen-synthesized helpers (-url-/-lnk), and any
-    # node whose cmd[0] is absolute pull from absolute /ix/store paths
-    # and host realm symlinks that aren't in declared in_dirs — even
-    # bare unshare+uid_map breaks them, so just execvp through.
-    if not is_light(flags['out'], cmd[0]):
-        setup_sandbox(flags, in_dirs, cmd)
+    setup_sandbox(flags, in_dirs, cmd)
 
     os.execvp(cmd[0], cmd)

@@ -11,7 +11,6 @@ bld/boot/2/env
 
 {% block patch %}
 {% if linux %}
-
 >lib/fnmatch.c
 {% endif %}
 {% endblock %}
