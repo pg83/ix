@@ -38,9 +38,6 @@ class Ops:
     def link(self, sb, files, out):
         return self.misc_cmd(sb, 'link', out, *files)
 
-    def fix(self, sb, node):
-        return node
-
     @cu.cached_method
     def boot_path(self):
         return os.environ['PATH']

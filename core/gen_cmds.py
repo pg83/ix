@@ -12,7 +12,7 @@ class ScriptBuilder:
         return self.package.config
 
     def fix(self, rec):
-        return cs.replace_sentinel(self.config.ops.fix(self, rec))
+        return cs.replace_sentinel(rec)
 
     def cmd(self, args, env={}):
         try:
