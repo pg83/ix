@@ -56,7 +56,7 @@ def slots(t):
     return 1
 
 
-def build_graph(n):
+def build_graph(n, config):
     t = int(os.environ.get('IX_THREADS') or multiprocessing.cpu_count())
 
     res = {
@@ -69,6 +69,8 @@ def build_graph(n):
             'threads': t,
             'network': 16,
         },
+        'ix_root': config.ix_dir,
+        'trash_dir': config.trash_dir,
     }
 
     if t == 1:

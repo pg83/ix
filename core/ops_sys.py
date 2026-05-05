@@ -110,7 +110,7 @@ def choice(b):
 class Ops:
     def __init__(self, cfg):
         self.cfg = cfg
-        self.assemble = choice('assemble_ng')
+        self.assemble = os.environ.get('IX_ASSEMBLE') or choice('assemble')
         self.bsdtar = choice('bsdtar')
 
         try:

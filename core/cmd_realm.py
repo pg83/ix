@@ -45,7 +45,7 @@ def prepare(ctx, args, realize=True, assemble=True):
         # minus the realm node and its bld/realm toolchain.
         build_nodes = [d for n in realm_nodes for d in n.iter_all_runtime_depends()]
 
-    graph = cg.build_graph(build_nodes)
+    graph = cg.build_graph(build_nodes, mngr.config)
 
     if os.environ.get('IX_DUMP_GRAPH', ''):
         print(json.dumps(graph, indent=4, sort_keys=True))

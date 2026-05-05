@@ -132,14 +132,17 @@ def group_by_out(nodes):
 
 
 class Executor:
-    def __init__(self, nodes, pools, trash, ix_binary):
+    def __init__(self, g, ix_binary):
+        pools = g['pools']
         self.s = dict((k, asyncio.Semaphore(v)) for k, v in pools.items())
-        self.o = group_by_out(nodes)
+        self.o = group_by_out(g['nodes'])
         self.l = []
         self.mt = pools['threads']
-        self.trash_dir = trash
+        self.trash_dir = g['trash_dir']
         self.ix_binary = ix_binary
         self.mount_bin = detect_sandbox()
+
+        os.makedirs(self.trash_dir, exist_ok=True)
 
         if self.mount_bin:
             cl.log(f'sandbox: mount={self.mount_bin}', color='b')
@@ -206,15 +209,16 @@ class Executor:
         cu.sync()
 
 
-async def arun(g, trash, ix_binary):
-    await Executor(g['nodes'], g['pools'], trash, ix_binary).visit_all(g['targets'])
+async def arun(g, ix_binary):
+    asyncio.get_running_loop().add_signal_handler(signal.SIGINT, kill_all)
+    await Executor(g, ix_binary).visit_all(g['targets'])
 
 
 def kill_all(*args):
     os.kill(0, signal.SIGKILL)
 
 
-def execute(g, trash, ix_binary):
+def execute(g, ix_binary):
     try:
         cmd = [shutil.which('chrt'), '-i', '-p', '0', str(os.getpid())]
         subprocess.check_output(cmd, stderr=subprocess.STDOUT)
@@ -223,6 +227,4 @@ def execute(g, trash, ix_binary):
 
     os.setpgrp()
 
-    signal.signal(signal.SIGINT, kill_all)
-
-    asyncio.run(arun(g, trash, ix_binary))
+    asyncio.run(arun(g, ix_binary))
