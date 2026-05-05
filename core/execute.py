@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 import shutil
 import random
 import signal
@@ -26,27 +27,20 @@ def detect_sandbox():
     return shutil.which('mount')
 
 
-def wrap_args(n, env, mount_bin):
-    out_dirs = n.get('out_dir', [])
-    in_dirs = n.get('in_dir', [])
-
-    args = [
-        f'mount={mount_bin}',
-        f"isolate={str(n['isolate']).lower()}",
-        f"tmpfs={str(n['tmpfs']).lower()}",
-        f"net={str(n['pool'] == 'network').lower()}",
-        f"tmp={env.get('tmp', '')}",
-        f"out={out_dirs[0] if out_dirs else ''}",
-    ]
-
-    for d in in_dirs:
-        args.append(f'in={d}')
-
-    return args
+def move_to_trash(trash_dir, d):
+    try:
+        os.rename(d, os.path.join(trash_dir, str(random.random())))
+    except FileNotFoundError:
+        pass
+    except Exception:
+        try:
+            shutil.rmtree(d)
+        except FileNotFoundError:
+            pass
 
 
-def execute_cmd(c, n, mt, ix_binary, mount_bin):
-    env = cu.dict_dict_update(c.get('env', {}), {
+def execute_cmd(c, n, mt, ix_binary, mount_bin, trash_dir):
+    env = cu.dict_dict_update(c['env'], {
         'make_thrs': str(mt),
         'IX_RANDOM': str(random.randint(0, 1000000000)),
     })
@@ -60,20 +54,28 @@ def execute_cmd(c, n, mt, ix_binary, mount_bin):
 
     cl.log(f'ENTER {descr}', color='b')
 
-    if mount_bin and (n['isolate'] or n['tmpfs']):
-        full = (
-            [sys.executable, ix_binary, 'exec']
-            + wrap_args(n, env, mount_bin)
-            + ['--']
-            + list(args)
-        )
+    if mount_bin:
+        cfg = {
+            'mount': mount_bin,
+            'node': n,
+            'cmd': c,
+            'env': env,
+        }
+
+        full = [sys.executable, ix_binary, 'exec']
+        run_env = os.environ
+        run_input = json.dumps(cfg).encode()
     else:
         full = list(args)
+        run_env = env
+        run_input = c['stdin'].encode()
 
     try:
-        subprocess.run(full, env=env, input=c.get('stdin', '').encode(), check=True)
+        subprocess.run(full, env=run_env, input=run_input, check=True)
     except subprocess.CalledProcessError:
         cl.log(f'ERROR {descr}', color='r')
+        for d in n['out_dir']:
+            move_to_trash(trash_dir, d)
         os.kill(0, signal.SIGKILL)
     except Exception as e:
         raise ce.Error(f'{descr} failed', exception=e)
@@ -137,10 +139,6 @@ class Executor:
         self.mt = pools['threads']
         self.trash_dir = trash
         self.ix_binary = ix_binary
-        # One probe per graph: if Linux + os.unshare + a mount binary on
-        # the executor's PATH are all present, every cmd runs under
-        # `ix exec mount=<abs> ...`. Otherwise we don't wrap at all —
-        # cmds run directly with no sandbox.
         self.mount_bin = detect_sandbox()
 
         if self.mount_bin:
@@ -180,24 +178,23 @@ class Executor:
             await to_thread(self.execute_node, n)
 
     def prepare_dir(self, d):
-        try:
-            os.rename(d, os.path.join(self.trash_dir, str(random.random())))
-        except FileNotFoundError:
-            pass
-        except Exception:
-            try:
-                shutil.rmtree(d)
-            except FileNotFoundError:
-                pass
-
+        move_to_trash(self.trash_dir, d)
         os.makedirs(d, exist_ok=True)
 
     def execute_node(self, n):
-        for o in iter_out(n):
-            self.prepare_dir(os.path.dirname(o))
+        for d in n['out_dir']:
+            self.prepare_dir(d)
+
+        tmp = n['tmp']
+
+        if tmp:
+            self.prepare_dir(tmp)
 
         for c in iter_cmd(n):
-            execute_cmd(c, n, self.mt, self.ix_binary, self.mount_bin)
+            execute_cmd(c, n, self.mt, self.ix_binary, self.mount_bin, self.trash_dir)
+
+        if tmp:
+            move_to_trash(self.trash_dir, tmp)
 
         cu.sync()
 

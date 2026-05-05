@@ -1,26 +1,28 @@
 import os
 import sys
+import json
 import subprocess
 
 
-# Sandbox wrapper used by the local executor. ce.execute_cmd decides
-# once per graph whether to wrap; by the time we get here, the host is
-# known to support unshare + has a mount binary at the absolute path
-# passed via `mount=`. We commit and fail fast — any OSError from
-# unshare/uid_map or non-zero from mount aborts with a traceback.
+# Sandbox wrapper used by the local executor. The parent (execute.py)
+# always wraps the cmd via `ix exec` when a mount binary is available;
+# the full graph node + cmd dict is delivered as JSON on stdin. This
+# wrapper decides what to do based on node['isolate'] / node['tmpfs'],
+# sets up unshare + mounts, then forks a stdin-feeder and execve's the
+# inner cmd with cmd['env'] (PATH lookup uses the JSON's PATH, not the
+# wrapper's process environ).
 #
-# Argv shape (key=value, repeatable for `in`):
-#   mount=<abs>         absolute path to mount(8) (resolved by executor)
-#   isolate=true|false  if true, build shadow store from declared in/out
-#   tmpfs=true|false    if true, mount tmpfs over <build_root> first
-#   net=true|false      keep network (true) or unshare CLONE_NEWNET
-#   tmp=<path>          per-cmd build dir; required for tmpfs / shadow
-#   out=<path>          single out_dir; r/w window in shadow mode
-#   in=<path>           one declared in_dir; repeat per dep
+# stdin JSON shape:
+#   {
+#     "mount": "<abs path to mount(8)>",
+#     "node": <full graph node dict>,
+#     "cmd":  <one entry from node['cmd']>,
+#     "env":  <merged env for the inner cmd, includes make_thrs/IX_RANDOM>
+#   }
 #
-# Shadow layout (isolate=true):
-#   <build_root>/.shadow/store/<dep-udir>   bind-r/o each in=<dep-udir>
-#   <build_root>/.shadow/store/<out-udir>   bind-r/w out=
+# Shadow layout (node.isolate=true):
+#   <build_root>/.shadow/store/<dep-udir>   bind-r/o each in_dir
+#   <build_root>/.shadow/store/<out-udir>   bind-r/w out_dir
 #   bind <build_root>/.shadow/store → <ix_root>/store
 
 
@@ -31,29 +33,6 @@ CLONE_NEWNET = 0x40000000
 
 def log(msg):
     print(f'ix exec: {msg}', file=sys.stderr, flush=True)
-
-
-def parse_args(argv):
-    flags = {'mount': '', 'isolate': 'false', 'tmpfs': 'false', 'net': 'true', 'tmp': '', 'out': ''}
-    in_dirs = []
-    rest = list(argv)
-
-    while rest and rest[0] != '--':
-        a = rest.pop(0)
-        k, _, v = a.partition('=')
-
-        if k == 'in':
-            in_dirs.append(v)
-        elif k in flags:
-            flags[k] = v
-        else:
-            log(f'unknown arg {a!r}')
-            sys.exit(2)
-
-    if rest and rest[0] == '--':
-        rest.pop(0)
-
-    return flags, in_dirs, rest
 
 
 def mount(mount_bin, *args):
@@ -108,22 +87,25 @@ def setup_shadow(mount_bin, in_dirs, out_dir, build_root, ix_root):
         os.makedirs(target, exist_ok=True)
         mount(mount_bin, '--bind', out_dir, target)
 
-    mount(mount_bin, '--bind', shadow_store, real_store)
+    mount(mount_bin, '--rbind', shadow_store, real_store)
 
 
-def setup_sandbox(flags, in_dirs, cmd):
-    mount_bin = flags['mount']
+def setup_sandbox(cfg):
+    node = cfg['node']
+
+    if not (node['isolate'] or node['tmpfs']):
+        return
+
+    mount_bin = cfg['mount']
 
     # Capture uid/gid BEFORE unshare. After CLONE_NEWUSER and before
-    # uid_map is written, getuid() returns the overflow uid (65534);
-    # writing that into uid_map gets EPERM and leaves us as `nobody`
-    # inside the ns with no caps.
+    # uid_map is written, getuid() returns the overflow uid (65534).
     uid = os.getuid()
     gid = os.getgid()
 
     mask = CLONE_NEWUSER | CLONE_NEWNS
 
-    if flags['net'] != 'true':
+    if node['pool'] != 'network':
         mask |= CLONE_NEWNET
 
     os.unshare(mask)
@@ -139,28 +121,61 @@ def setup_sandbox(flags, in_dirs, cmd):
 
     mount(mount_bin, '--make-rprivate', '/')
 
-    tmp = flags['tmp']
-
-    if not tmp:
-        return
-
+    tmp = node['tmp']
     build_root = os.path.dirname(tmp)
     ix_root = os.path.dirname(build_root)
 
-    if flags['tmpfs'] == 'true':
+    if node['tmpfs']:
         setup_tmpfs(mount_bin, build_root, ix_root)
 
-    if flags['isolate'] == 'true':
-        setup_shadow(mount_bin, in_dirs, flags['out'], build_root, ix_root)
+    if node['isolate']:
+        out_dirs = node['out_dir']
+        out_dir = out_dirs[0] if out_dirs else ''
+        setup_shadow(mount_bin, node['in_dir'], out_dir, build_root, ix_root)
+
+
+def lookup_path(prog, path):
+    if '/' in prog:
+        return prog
+
+    for p in path.split(':'):
+        full = os.path.join(p, prog)
+
+        if os.path.isfile(full):
+            return full
+
+    raise FileNotFoundError(f'cannot find {prog!r} in PATH={path!r}')
+
+
+def feed_stdin(data):
+    r, w = os.pipe()
+
+    if os.fork() == 0:
+        os.close(r)
+
+        while data:
+            n = os.write(w, data)
+            data = data[n:]
+
+        os.close(w)
+        os._exit(0)
+
+    os.close(w)
+    os.dup2(r, 0)
+    os.close(r)
 
 
 def cli_exec(ctx):
-    flags, in_dirs, cmd = parse_args(ctx['args'])
+    cfg = json.load(sys.stdin)
 
-    if not cmd:
-        print('usage: ix exec [k=v ...] -- <cmd> [args...]', file=sys.stderr)
-        sys.exit(2)
+    setup_sandbox(cfg)
 
-    setup_sandbox(flags, in_dirs, cmd)
+    args = list(cfg['cmd']['args'])
+    env = cfg['env']
+    stdin = cfg['cmd']['stdin'].encode()
 
-    os.execvp(cmd[0], cmd)
+    feed_stdin(stdin)
+
+    prog = lookup_path(args[0], env.get('PATH', ''))
+
+    os.execve(prog, args, env)

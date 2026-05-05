@@ -88,12 +88,14 @@ def cmd_fetch(sb, url, cksum):
     path = os.path.join(odir, name)
 
     return {
+        'in_dir': [],
         'out_dir': [odir],
         'cmd': sb.config.ops.fetch(sb, url, path, cksum),
         'path': path,
         'pool': 'network',
         'isolate': False,
         'tmpfs': False,
+        'tmp': '',
         'predict': [
             {
                 'path': path,
@@ -114,6 +116,7 @@ def cmd_link(sb, extra):
         'pool': 'misc',
         'isolate': False,
         'tmpfs': False,
+        'tmp': '',
     }
 
 
@@ -155,6 +158,7 @@ def iter_build_commands(self):
         'pool': 'network' if self.descr['net'] else self.descr['task_pool'],
         'tmpfs': self.descr['tmpfs'],
         'isolate': self.descr['isolate'],
+        'tmp': self.config.build_dir + '/' + self.uid,
     }
 
     if pred := self.descr['predict_outputs']:
