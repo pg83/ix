@@ -912,7 +912,7 @@ bin/go/pass
 bin/shadowsocks/go/2
 bin/shadowsocks/libev
 bin/task
-bin/assemble
+bin/assemble/ng
 bin/duf
 bin/lf
 bin/lazygit
