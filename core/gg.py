@@ -37,6 +37,12 @@ def validate(nodes):
             if not n.get('predict', None):
                 raise Exception(f'invalid node {n}')
 
+        if n['isolate'] and not n['tmpfs']:
+            raise Exception(f'isolate=true without tmpfs=true is not supported: {n}')
+
+        if False and len(n['cmd']) > 1 and n['tmpfs']:
+            raise Exception(f'multi-cmd node must have tmpfs=false: {n}')
+
         yield n
 
 
