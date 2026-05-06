@@ -1,4 +1,5 @@
 import os
+import sys
 import itertools
 import multiprocessing
 
@@ -77,6 +78,8 @@ def build_graph(n, config):
         },
         'ix_root': config.ix_dir,
         'trash_dir': config.trash_dir,
+        'argv': list(sys.argv),
+        'git_rev': config.git_rev,
     }
 
     if t == 1:
