@@ -206,6 +206,7 @@ bin/btfs
 bin/tinc
 bin/yggdrasil/go
 bin/fire/jail
+bin/bubble/wrap
 bin/minio
 bin/dropbear/2024
 bin/nebula
