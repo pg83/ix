@@ -5,11 +5,11 @@ set/pg/llm/libs
 {% endblock %}
 
 {% block run_deps %}
-bin/sh
+bin/jq
 bin/gdb
 bin/sed
 bin/make
-bin/perf
+#bin/perf
 bin/patch
 bin/wirez
 bin/strace
@@ -30,5 +30,6 @@ bin/gawk/lite
 bin/file/host
 bin/grep/patched
 bin/grep/scripts
+bin/dash/lite/sh
 set/pg/llm/libs(kind=lib)
 {% endblock %}
