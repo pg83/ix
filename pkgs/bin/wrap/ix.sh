@@ -3,4 +3,5 @@
 {% block run_deps %}
 bin/wrap/scripts
 bin/python/14
+bin/jail
 {% endblock %}
