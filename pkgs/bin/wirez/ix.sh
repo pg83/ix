@@ -1,7 +1,7 @@
 {% extends '//die/go/build.sh' %}
 
 {% block go_url %}
-https://github.com/pg83/wirez/archive/refs/tags/3.tar.gz
+https://github.com/pg83/wirez/archive/refs/tags/4.tar.gz
 {% endblock %}
 
 {% block go_sha %}
