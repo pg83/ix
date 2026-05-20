@@ -3,5 +3,6 @@
 {% block run_deps %}
 bin/jail
 bin/wirez
+bin/subreaper
 bin/wrap/scripts
 {% endblock %}
