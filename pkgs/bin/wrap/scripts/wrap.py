@@ -4,6 +4,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+from string import Template
 
 
 def die(msg):
@@ -68,6 +69,19 @@ def load_json(path):
         die(f"wrap: failed to load {path}: {exc}")
 
 
+def expand_cfg_vars(value, env):
+    if isinstance(value, dict):
+        return {key: expand_cfg_vars(item, env) for key, item in value.items()}
+
+    if isinstance(value, list):
+        return [expand_cfg_vars(item, env) for item in value]
+
+    if isinstance(value, str):
+        return Template(value).safe_substitute(env)
+
+    return value
+
+
 def binary_cfg(root, name):
     out = {}
 
@@ -124,7 +138,7 @@ def load_cfg(name):
     if not isinstance(specific, dict):
         die(f"wrap: {path}: config for {name} must be an object")
 
-    return path, merge(common, specific)
+    return path, expand_cfg_vars(merge(common, specific), os.environ)
 
 
 def source_env(env, files):
