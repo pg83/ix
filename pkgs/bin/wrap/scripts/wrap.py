@@ -195,33 +195,34 @@ def enabled(cfg):
     return bool(cfg)
 
 
-def cfg_bin(cfg, default_name):
+def cfg_bin(cfg, default_name, env):
     if cfg is True:
-        return resolve_exec(default_name)
+        return resolve_exec(default_name, env)
     if isinstance(cfg, dict):
-        return resolve_exec(str(cfg.get("bin", default_name)))
-    return resolve_exec(default_name)
+        return resolve_exec(str(cfg.get("bin", default_name)), env)
+    return resolve_exec(default_name, env)
 
 
-def build_subreaper(cfg):
+def build_subreaper(cfg, env):
     if not enabled(cfg):
         return []
 
-    cmd = [cfg_bin(cfg, "subreaper")]
+    cmd = [cfg_bin(cfg, "subreaper", env)]
     if isinstance(cfg, dict):
         cmd.extend(str(x) for x in as_list(cfg.get("args")))
     return cmd
 
 
-def build_wirez(cfg):
+def build_wirez(cfg, env):
     if not enabled(cfg):
         return []
 
-    cmd = [cfg_bin(cfg, "wirez")]
+    cmd = [cfg_bin(cfg, "wirez", env)]
     if cfg is True:
+        cmd.append("-q")
         return cmd
 
-    if cfg.get("quiet"):
+    if cfg.get("quiet", True):
         cmd.append("-q")
 
     for value in as_list(cfg.get("forward")):
@@ -237,11 +238,11 @@ def build_wirez(cfg):
     return cmd
 
 
-def build_jail(cfg):
+def build_jail(cfg, env):
     if not enabled(cfg):
         return []
 
-    cmd = [cfg_bin(cfg, "jail")]
+    cmd = [cfg_bin(cfg, "jail", env)]
     if cfg is True:
         return cmd
 
@@ -285,6 +286,13 @@ def jail_cfg(cfg):
     return None
 
 
+def subreaper_cfg(cfg):
+    if "subreaper" in cfg:
+        return cfg.get("subreaper")
+
+    return True
+
+
 def parse_argv(argv):
     rest = list(argv)
     if not rest:
@@ -310,15 +318,15 @@ def main():
 
     jail = jail_cfg(cfg)
     if enabled(jail):
-        cmd = build_jail(jail) + ["--"] + cmd
+        cmd = build_jail(jail, env) + ["--"] + cmd
 
     wirez = wirez_cfg(cfg)
     if enabled(wirez):
-        cmd = build_wirez(wirez) + ["--"] + cmd
+        cmd = build_wirez(wirez, env) + ["--"] + cmd
 
-    subreaper_cfg = cfg.get("subreaper")
-    if enabled(subreaper_cfg):
-        cmd = build_subreaper(subreaper_cfg) + cmd
+    subreaper = subreaper_cfg(cfg)
+    if enabled(subreaper):
+        cmd = build_subreaper(subreaper, env) + cmd
 
     if cfg.get("debug") or env.get("WRAP_DEBUG") == "1":
         if settings_path:

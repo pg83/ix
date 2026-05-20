@@ -2,5 +2,6 @@
 
 {% block run_deps %}
 bin/jail
+bin/wirez
 bin/wrap/scripts
 {% endblock %}
