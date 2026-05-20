@@ -39,3 +39,8 @@ codex
 {% block cargo_tool %}
 bld/cargo/91
 {% endblock %}
+
+{% block install %}
+{{super()}}
+mv ${out}/bin/codex ${out}/bin/codex.exe
+{% endblock %}

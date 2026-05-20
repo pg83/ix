@@ -47,7 +47,6 @@ exec "\${d}/usr/lib/ld-linux-x86-64.so.2" \
 EOF
 
 chmod +x ${out}/bin/claude.exe
-ln -s claude.exe ${out}/bin/claude
 {% endblock %}
 
 {% block postinstall %}
