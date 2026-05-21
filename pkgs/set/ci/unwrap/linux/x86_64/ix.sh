@@ -411,6 +411,7 @@ bin/dbus/runit/scripts
 bin/dbus
 bin/dbus/session
 bin/patch/elf
+bin/glibc
 bin/dwl
 bin/cctools
 bin/syslog/ng
