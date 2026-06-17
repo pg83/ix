@@ -23,27 +23,7 @@ bin/patch/elf
 
 {% block install %}
 mkdir -p ${out}/bin
-
-install -Dm755 ${src}/claude ${out}/bin/claude.bin
-
-# the prebuilt binary is a 234MB non-PIE bun executable; patchelf can only
-# rewrite PT_INTERP safely when the new path is no longer than the original
-# (/lib64/ld-linux-x86-64.so.2, 27 chars) — a longer path forces a segment
-# relocation that corrupts it. /bin/ld-linux.so.2 (from bin/glibc in the
-# system realm) is short, so this is an in-place edit. running the binary
-# directly keeps /proc/self/exe == claude, so its self-spawns work.
-patchelf --set-interpreter /bin/ld-linux.so.2 ${out}/bin/claude.bin
-
-# thin wrapper: only sets the glibc search path, then execs the real binary
-# directly (NOT via ld.so), so the kernel execs claude and execPath is correct
-cat << EOF > ${out}/bin/claude.exe
-#!/usr/bin/env sh
-set -eu
-export LD_LIBRARY_PATH="/bin/usr/lib\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}"
-exec "${out}/bin/claude.bin" "\$@"
-EOF
-
-chmod +x ${out}/bin/claude.exe
+install -Dm755 ${src}/claude ${out}/bin/claude.exe
 {% endblock %}
 
 {% block postinstall %}
