@@ -98,6 +98,7 @@ bin/contour
 bin/nix
 bin/coreutils/9/6
 bin/inkscape
+bin/imway
 bin/gdb/16
 bin/ddc/util
 bin/ya/final
