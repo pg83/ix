@@ -43,7 +43,6 @@ bin/imway(stalix=1)
 set/pg/user/scripts
 bin/coreutils/uutils
 bin/minio/client/patched
-set/enclave
 {% endblock %}
 
 {% block run_data %}
