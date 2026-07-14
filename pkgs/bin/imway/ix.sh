@@ -28,6 +28,7 @@ lib/input
 lib/wayland
 lib/xkb/common
 lib/vulkan/loader
+lib/vulkan/drivers
 lib/vulkan/headers
 lib/wayland/protocols
 {% endblock %}
