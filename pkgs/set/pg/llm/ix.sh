@@ -1,9 +1,5 @@
 {% extends '//die/hub.sh' %}
 
-{% block liib_deps %}
-set/pg/llm/libs
-{% endblock %}
-
 {% block run_deps %}
 bin/jq
 bin/gdb
