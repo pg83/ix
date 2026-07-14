@@ -40,12 +40,11 @@ bin/quake/1/vk
 set/box/gnu/tools
 bin/python/frozen
 bin/brightnessctl
+bin/imway(stalix=1)
 set/pg/user/scripts
 bin/coreutils/uutils
 bin/telegram/desktop
 bin/minio/client/patched
-bin/imway(vulkan=amd/radv)
-bin/niri(opengl=mesa/aco,vulkan=mesa/aco)
 set/enclave
 {% endblock %}
 

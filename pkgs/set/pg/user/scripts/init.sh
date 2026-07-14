@@ -9,4 +9,4 @@ export XCURSOR_SIZE=48
 export QT_FONT_DPI=192
 export GTK_A11Y=none
 
-exec niri-session
+exec imway
