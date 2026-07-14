@@ -21,7 +21,7 @@ bin/psmisc
 bin/fuzzel
 bin/waybar
 bin/evince
-bin/im/play(opengl=mesa/aco,vulkan=mesa/aco)
+bin/im/play
 bin/openssl
 bin/sway/bg
 bin/iwd/ctl
@@ -30,7 +30,6 @@ bin/tcpdump
 bin/unbound
 bin/git/lfs
 bin/dns/masq
-bin/fheroes2
 bin/sing/box
 bin/xdg/open
 bin/tun2socks
@@ -43,7 +42,6 @@ bin/brightnessctl
 bin/imway(stalix=1)
 set/pg/user/scripts
 bin/coreutils/uutils
-bin/telegram/desktop
 bin/minio/client/patched
 set/enclave
 {% endblock %}

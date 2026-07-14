@@ -20,6 +20,6 @@ initrd=1
 set/pg/system({{self.sys_args().strip().replace('\n', ',')}})
 {% else %}
 # ix mut set/pg
-set/pg/user(opengl=angle,vulkan=amd/radv)
+set/pg/user(vulkan=amd/radv)
 {% endif %}
 {% endblock %}
