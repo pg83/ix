@@ -9,11 +9,11 @@ https://github.com/pg83/imway
 {% endblock %}
 
 {% block git_commit %}
-6a8a7cb1ef7f378307fa4eec2fb4e3642dfd1eb9
+47ffd4868485f448baef66458e1b0f59ef474b15
 {% endblock %}
 
 {% block git_sha %}
-f35a1cfad2a61d3801602d8e5bb081e4aa20d749c8efbec429004545faf6db87
+275475769bf327e8943d274a429906f5849eca8b62dbb8488a8388af5ea7a9be
 {% endblock %}
 
 {% block bld_libs %}
@@ -40,15 +40,12 @@ bld/wayland
 {% block patch %}
 {{super()}}
 sed -e '/enable_testing()/d' \
-    -e '/add_subdirectory(tests)/d' \
-    -e '/add_library(pgstd STATIC IMPORTED)/d' \
-    -e '/set_target_properties(pgstd PROPERTIES IMPORTED_LOCATION/d' \
-    -e 's|target_include_directories(pgstd INTERFACE.*|add_library(pgstd INTERFACE)\nfind_library(PGSTD_LIB std REQUIRED)\ntarget_link_libraries(pgstd INTERFACE ${PGSTD_LIB})|' \
+    -e '/add_subdirectory(dev\/tests)/d' \
     -i CMakeLists.txt
 {% endblock %}
 
 {% block cmake_flags %}
-STD_ROOT=ix
+IMWAY_USE_VENDORED_STD=OFF
 {% endblock %}
 
 {% block install %}
