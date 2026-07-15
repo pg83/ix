@@ -9,4 +9,8 @@ export XCURSOR_SIZE=48
 export QT_FONT_DPI=192
 export GTK_A11Y=none
 
+eval $(ssh-agent)
+
+ssh-add ~/.ssh/*
+
 exec imway --mode 3840x2160@120 --scale 2 --hdr 250 -- foot
