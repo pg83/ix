@@ -13,7 +13,9 @@ set/dev/cc
 set/dev/cc
 set/dev/go
 bin/bash/5
+bin/glslang
 bld/wayland
+bld/meson/4
 bin/python/14
 bin/coreutils
 bin/diffutils
