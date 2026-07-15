@@ -9,19 +9,20 @@ https://github.com/pg83/zutty
 {% endblock %}
 
 {% block git_commit %}
-ed5c793d60890ea24bf9f5fdac37a61b26c42b2c
+4bf79e7a079ebcfe6d356ad1cf0366f6334ed81f
 {% endblock %}
 
 {% block git_sha %}
-d7af42fc626673e560cc4d60e6e0ac02a7efa4b8a6befefe9c1f36b8765f7931
+31f014e5c59a0c4f19752672f727ccaffc0c978a84448ebaf890efb5d93e5b3c
 {% endblock %}
 
 {% block bld_libs %}
 lib/c
+lib/sdl/3
 lib/freetype
 lib/fontconfig
-lib/sdl/3
 lib/vulkan/loader
+lib/vulkan/drivers
 lib/vulkan/headers
 {% endblock %}
 
