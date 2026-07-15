@@ -7,6 +7,7 @@ lib/ev
 lib/drm
 lib/std
 lib/seat
+lib/lunasvg
 lib/udev
 lib/input
 lib/wayland
