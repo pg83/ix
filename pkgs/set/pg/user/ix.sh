@@ -8,8 +8,6 @@ bin/mc
 bin/git
 bin/mpv
 bin/ted
-bin/mako
-bin/grim
 bin/wget
 bin/curl
 bin/htop
@@ -17,13 +15,11 @@ bin/bash
 bin/less
 set/debug
 bin/wirez
+bin/zutty
 bin/psmisc
-bin/fuzzel
-bin/waybar
 bin/evince
 bin/im/play
 bin/openssl
-bin/sway/bg
 bin/iwd/ctl
 bin/swayimg
 bin/tcpdump
@@ -33,7 +29,6 @@ bin/dns/masq
 bin/sing/box
 bin/xdg/open
 bin/tun2socks
-bin/alacritty
 bin/fontconfig
 bin/quake/1/vk
 set/box/gnu/tools
