@@ -15,9 +15,11 @@ c038d34200234d071fae9345bc455e4a8f2f544ab60150765d7704e08f3dac01
 
 {% block lib_deps %}
 lib/c
-lib/opengl
 lib/wayland
 lib/xkb/common
+{% if opengl %}
+lib/opengl
+{% endif %}
 {% if vulkan %}
 lib/vulkan/loader
 lib/vulkan/headers
@@ -26,6 +28,15 @@ lib/vulkan/headers
 
 {% block bld_libs %}
 lib/kernel
+{% endblock %}
+
+{# glfw bundles its own wayland-protocol code and privatizes most of the
+   generated interface objects with a _glfw_ prefix — but the fractional-scale
+   manager interface leaks unprefixed and collides with a consumer that ships
+   its own copy (imway generates the same protocol). rename it private so glfw
+   stops exporting it. #}
+{% block c_rename_symbol %}
+wp_fractional_scale_manager_v1_interface
 {% endblock %}
 
 {% block bld_tool %}

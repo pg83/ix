@@ -19,5 +19,8 @@ lib/xkb/common
 lib/vulkan/loader
 lib/vulkan/drivers
 lib/vulkan/headers
+lib/glfw(vulkan=1)
+lib/glfw/deps
+lib/png
 lib/wayland/protocols
 {% endblock %}
