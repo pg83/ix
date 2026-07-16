@@ -13,4 +13,4 @@ eval $(ssh-agent)
 
 ssh-add ~/.ssh/*
 
-exec imway --mode 3840x2160@120 --scale 2 --hdr 250 -- foot
+exec imway-session --mode 3840x2160@120 --scale 2.5 --hdr 300 -- foot

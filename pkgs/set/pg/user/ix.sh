@@ -34,10 +34,10 @@ bin/quake/1/vk
 set/box/gnu/tools
 bin/python/frozen
 bin/brightnessctl
-bin/imway(stalix=1)
 set/pg/user/scripts
 bin/coreutils/uutils
 bin/minio/client/patched
+bin/imway/session(stalix=1)
 {% endblock %}
 
 {% block run_data %}
