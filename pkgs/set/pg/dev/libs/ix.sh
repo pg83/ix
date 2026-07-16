@@ -5,6 +5,7 @@ lib/c
 lib/c++
 lib/ev
 lib/drm
+lib/dbus
 lib/std
 lib/seat
 lib/udev
