@@ -24,6 +24,7 @@ bin/patch/elf
 {% block install %}
 mkdir -p ${out}/bin
 install -Dm755 ${src}/claude ${out}/bin/claude.exe
+patchelf --set-interpreter /bin/ld-linux.so.2 ${out}/bin/claude.exe
 {% endblock %}
 
 {% block postinstall %}
