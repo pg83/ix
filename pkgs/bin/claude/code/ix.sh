@@ -23,8 +23,17 @@ bin/patch/elf
 
 {% block install %}
 mkdir -p ${out}/bin
-install -Dm755 ${src}/claude ${out}/bin/claude.exe
-patchelf --set-interpreter /bin/ld-linux.so.2 ${out}/bin/claude.exe
+install -Dm755 ${src}/claude ${out}/bin/claude.bin
+patchelf --set-interpreter /bin/ld-linux.so.2 ${out}/bin/claude.bin
+
+cat << EOF > ${out}/bin/claude.exe
+#!/usr/bin/env sh
+set -eu
+export LD_LIBRARY_PATH="/bin/usr/lib\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}"
+exec "${out}/bin/claude.bin" "\$@"
+EOF
+
+chmod +x ${out}/bin/claude.exe
 {% endblock %}
 
 {% block postinstall %}
