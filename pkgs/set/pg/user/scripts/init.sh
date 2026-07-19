@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export PATH=/home/pg/monorepo/imway/build-boot:/ix/realm/pg/bin:/bin
+export PATH=/home/pg/monorepo/imway/build-boot:/home/pg/monorepo/imway:/ix/realm/pg/bin:/bin
 
 export XDG_SESSION_ID=$$
 export XDG_DATA_DIRS="/ix/realm/${USER}/share"
