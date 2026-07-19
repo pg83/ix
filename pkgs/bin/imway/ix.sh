@@ -1,4 +1,4 @@
-{% extends '//die/c/cmake.sh' %}
+{% extends '//die/c/pybuild.sh' %}
 
 {% block pkg_name %}
 imway
@@ -9,11 +9,15 @@ https://github.com/pg83/imway
 {% endblock %}
 
 {% block git_commit %}
-47ffd4868485f448baef66458e1b0f59ef474b15
+546860df07d6763d379c73d684649e5fd1cce71b
 {% endblock %}
 
 {% block git_sha %}
-275475769bf327e8943d274a429906f5849eca8b62dbb8488a8388af5ea7a9be
+6565eed4d527bbae969d744c740d49e1de0c875ca408599246386cc2cd74c338
+{% endblock %}
+
+{% block git_hook_1 %}
+git config submodule.third_party/libstd.url https://github.com/pg83/std.git
 {% endblock %}
 
 {% block bld_libs %}
@@ -21,11 +25,16 @@ lib/c
 lib/c++
 lib/ev
 lib/drm
+lib/png
 lib/std
+lib/glfw
+lib/dbus
 lib/seat
 lib/udev
 lib/input
+lib/sndio
 lib/wayland
+lib/lunasvg
 lib/xkb/common
 lib/vulkan/loader
 lib/vulkan/drivers
@@ -35,20 +44,10 @@ lib/wayland/protocols
 
 {% block bld_tool %}
 bld/wayland
-{% endblock %}
-
-{% block patch %}
-{{super()}}
-sed -e '/enable_testing()/d' \
-    -e '/add_subdirectory(dev\/tests)/d' \
-    -i CMakeLists.txt
-{% endblock %}
-
-{% block cmake_flags %}
-IMWAY_USE_VENDORED_STD=OFF
+bin/glslang
 {% endblock %}
 
 {% block install %}
 mkdir -p ${out}/bin
-cp {{ninja_build_dir}}/imway ${out}/bin/
+cp imway ${out}/bin/
 {% endblock %}
