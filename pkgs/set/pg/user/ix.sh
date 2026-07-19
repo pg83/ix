@@ -16,6 +16,7 @@ bin/less
 set/debug
 bin/wirez
 bin/zutty
+bin/imway
 bin/psmisc
 bin/evince
 bin/im/play
