@@ -18,9 +18,10 @@ ecc12242bb6b4b9030f5af6cd449b2cdb2590976d4e216032f2bc9bcb648209b
 
 {% block bld_libs %}
 lib/c
-lib/freetype
-lib/fontconfig
 lib/glfw
+lib/freetype
+lib/glfw/deps
+lib/fontconfig
 lib/vulkan/loader
 lib/vulkan/drivers
 lib/vulkan/headers
