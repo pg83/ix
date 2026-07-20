@@ -9,11 +9,11 @@ https://github.com/pg83/imway
 {% endblock %}
 
 {% block git_commit %}
-d22dd2a2a578a137602d356d268a8359faa6ff59
+c79af938aac9df94e12da85ece0f693dadbd6e6d
 {% endblock %}
 
 {% block git_sha %}
-08c716f6c4ea96d70f5ccc3f162ca13ebdd87422974b63588f0d34661da1d508
+e22bbb3fdccc08a2503adcb816f04400645ce5646090b1b3fe33bfd6d021e20c
 {% endblock %}
 
 {% block git_hook_1 %}
