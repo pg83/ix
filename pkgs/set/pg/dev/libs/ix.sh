@@ -17,6 +17,7 @@ lib/sndio
 lib/wayland
 lib/lunasvg
 lib/freetype
+lib/utf8/proc
 lib/glfw/deps
 lib/xkb/common
 lib/vulkan/loader
