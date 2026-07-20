@@ -9,17 +9,23 @@ https://github.com/pg83/zutty
 {% endblock %}
 
 {% block git_commit %}
-b94723248d63a092d1650b5884ed66fd5090dec6
+8e4bc99d94388503d43344dbd1dce72f522fd594
 {% endblock %}
 
 {% block git_sha %}
-f84c993274d3bcd70a15f7a0de96e6065e6fc3de517256481e7cd8253739e885
+2ba952b2c23dff16d93e08ae12e49db17102ff80111987a0ad7e06f10dcf476a
+{% endblock %}
+
+{% block git_hook_1 %}
+git config submodule.third_party/libstd.url https://github.com/pg83/std.git
 {% endblock %}
 
 {% block bld_libs %}
 lib/c
 lib/glfw
 lib/freetype
+lib/utf8/proc
+lib/linux/headers
 lib/glfw/deps
 lib/fontconfig
 lib/vulkan/loader
