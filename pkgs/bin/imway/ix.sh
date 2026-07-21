@@ -9,11 +9,11 @@ https://github.com/pg83/imway
 {% endblock %}
 
 {% block git_commit %}
-400c4cb0560681d89730a0de88f633c18f11b192
+f9567338a1e437f77c79ff289f967a8076bd1329
 {% endblock %}
 
 {% block git_sha %}
-027c4ec214c5c6b267f226f6defc41dfbe090f22e782f46db72aa25a9d672e95
+18472e55dd3b59cd62b9421cc0a248b63c9183114e5b1d0a01cc80d127965927
 {% endblock %}
 
 {% block git_hook_1 %}
@@ -33,6 +33,7 @@ lib/dbus
 lib/seat
 lib/udev
 lib/input
+lib/display/info
 lib/sndio
 lib/wayland
 lib/lunasvg
