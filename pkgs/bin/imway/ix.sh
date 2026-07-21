@@ -26,6 +26,7 @@ lib/c++
 lib/ev
 lib/drm
 lib/png
+lib/jxl
 lib/std
 lib/glfw
 lib/dbus
