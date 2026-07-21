@@ -42,6 +42,7 @@ bin/swayimg
 bin/tcpdump
 bin/unbound
 bin/git/lfs
+bld/wayland
 bin/rip/grep
 bin/etcd/ctl
 bin/dns/masq

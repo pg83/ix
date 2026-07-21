@@ -112,7 +112,7 @@ def cli_run(ctx):
         cmd = ['runner_entry', f'{r.path}/env'] + cmdl
         env = os.environ.copy()
         env['OLDPATH'] = env.get('PATH', '')
-        env['PATH'] = f'/nowhere:{r.path}/bin'
+        env['PATH'] = f'/nowhere:{r.path}/bin:{env["OLDPATH"]}'
         exe = shutil.which(cmd[0], path=env['PATH'])
 
         return os.execvpe(exe, cmd, env)
