@@ -22,6 +22,7 @@ bin/diffutils
 bin/findutils
 bin/gawk/lite
 bin/file/host
+bin/rip/grep
 bin/grep/patched
 bin/grep/scripts
 bin/dash/lite/sh
