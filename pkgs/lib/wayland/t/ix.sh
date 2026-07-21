@@ -5,12 +5,12 @@ wayland
 {% endblock %}
 
 {% block version %}
-1.24.0
+1.26.0
 {% endblock %}
 
 {% block fetch %}
 https://gitlab.freedesktop.org/wayland/wayland/-/archive/{{self.version().strip()}}/wayland-{{self.version().strip()}}.tar.bz2
-ef9224f1a8b6dbd3049a2e51a547abb7e89612414c192a4349f3c83c7f553672
+ebf5fff1c8b11c24ceec74ff3047aefdb07efee8ce09bf3b856975aba3540d15
 {% endblock %}
 
 {% block meson_flags %}
