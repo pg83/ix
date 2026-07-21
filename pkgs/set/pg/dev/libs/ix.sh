@@ -4,6 +4,7 @@
 lib/c
 lib/ev
 lib/c++
+lib/jxl
 lib/drm
 lib/png
 lib/std
