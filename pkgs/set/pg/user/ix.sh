@@ -56,6 +56,7 @@ bin/file/host
 bin/tun2socks
 bin/python/14
 bin/ip/route2
+bin/pkg/config
 bin/codex/wrap
 bin/fontconfig
 bin/quake/1/vk
