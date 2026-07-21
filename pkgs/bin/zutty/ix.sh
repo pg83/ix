@@ -9,11 +9,11 @@ https://github.com/pg83/zutty
 {% endblock %}
 
 {% block git_commit %}
-19a461884c0705b2bd7b27061fbb9a8e531442e2
+6fe8ecbfa5b7a14e46123fb18f3891f969f746e2
 {% endblock %}
 
 {% block git_sha %}
-f5eccd51f2bd4c7b8444987997fe21a195dcc320c364ef7eac4246fd411a3d30
+3236fcb96d20610b547893d9383cbc558d1457fe38fc5176fee92c17d88fd392
 {% endblock %}
 
 {% block git_hook_1 %}
