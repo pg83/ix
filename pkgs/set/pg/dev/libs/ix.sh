@@ -5,6 +5,7 @@ lib/c
 lib/ev
 lib/c++
 lib/jxl
+lib/lcms/2
 lib/drm
 lib/display/info
 lib/png
