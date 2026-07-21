@@ -6,6 +6,7 @@ lib/ev
 lib/c++
 lib/jxl
 lib/drm
+lib/display/info
 lib/png
 lib/std
 lib/glfw
