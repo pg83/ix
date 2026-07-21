@@ -56,6 +56,7 @@ bin/file/host
 bin/tun2socks
 bin/python/14
 bin/ip/route2
+bin/codex/wrap
 bin/fontconfig
 bin/quake/1/vk
 bin/grep/patched
@@ -64,6 +65,7 @@ set/box/gnu/tools
 bin/python/frozen
 bin/brightnessctl
 set/pg/user/scripts
+bin/claude/code/wrap
 bin/minio/client/patched
 bin/imway/session(stalix=1)
 {% endblock %}
