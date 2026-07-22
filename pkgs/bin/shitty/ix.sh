@@ -1,19 +1,23 @@
 {% extends '//die/c/pybuild.sh' %}
 
 {% block pkg_name %}
-zutty
+shitty
 {% endblock %}
 
 {% block git_repo %}
-https://github.com/pg83/zutty
+https://github.com/pg83/shitty
 {% endblock %}
 
 {% block git_commit %}
-8b64dae90ae5f138e2fbaf12a0686c2b445a6e87
+74d98246b2d5af573cbe3a6616215a981f115682
 {% endblock %}
 
 {% block git_sha %}
-bdc1890d2d57bf8ef0843a6eb7ad16c7916925b0b259a8b10516e36822e594e4
+0c08085cc429aec346d7cdc0babb7a9ebf3f1d8f5e9269820537d063d638b1cf
+{% endblock %}
+
+{% block pybuild_target %}
+zutty
 {% endblock %}
 
 {% block git_hook_1 %}

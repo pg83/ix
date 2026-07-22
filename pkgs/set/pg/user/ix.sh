@@ -23,7 +23,7 @@ bin/ninja
 bin/patch
 set/debug
 bin/wirez
-bin/zutty
+bin/shitty
 bin/imway
 bin/psmisc
 bin/evince
