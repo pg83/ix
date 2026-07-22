@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/ix/realm/pg/bin/bash
 
 export PATH=/home/pg/monorepo/imway:/ix/realm/pg/bin:/bin
 
@@ -14,4 +14,4 @@ eval $(ssh-agent)
 
 ssh-add ~/.ssh/*
 
-exec imway-session --mode 3840x2160@120 --scale 2.5 --hdr 300 -- zutty
+imway-session --mode 3840x2160@120 --scale 2.5 --hdr 300 >& ~/slog

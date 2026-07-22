@@ -9,6 +9,7 @@ lib/drm
 lib/png
 lib/mnl
 lib/std
+lib/curses
 lib/glfw
 lib/dbus
 lib/seat
