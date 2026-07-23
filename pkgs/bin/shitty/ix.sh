@@ -24,6 +24,12 @@ zutty
 git config submodule.third_party/libstd.url https://github.com/pg83/std.git
 {% endblock %}
 
+{% block patch %}
+patch -p1 << 'EOF'
+{% include 'fontconfig-face-index.patch' %}
+EOF
+{% endblock %}
+
 {% block bld_libs %}
 lib/c
 lib/glfw

@@ -1,0 +1,165 @@
+diff --git a/font.cpp b/font.cpp
+index 2758b1b..0c10f9e 100644
+--- a/font.cpp
++++ b/font.cpp
+@@ -29,2 +29,2 @@ using namespace stl;
+-Font::Font(const std::string& filename_)
+-    : filename(filename_)
++Font::Font(const FontFace& font_)
++    : font(font_)
+@@ -36,2 +36,2 @@ Font::Font(const std::string& filename_)
+-Font::Font(const std::string& filename_, const Font& priFont, Overlay_)
+-    : filename(filename_)
++Font::Font(const FontFace& font_, const Font& priFont, Overlay_)
++    : font(font_)
+@@ -50,2 +50,2 @@ Font::Font(const std::string& filename_, const Font& priFont, Overlay_)
+-Font::Font(const std::string& filename_, const Font& priFont, DoubleWidth_)
+-    : filename(filename_)
++Font::Font(const FontFace& font_, const Font& priFont, DoubleWidth_)
++    : font(font_)
+@@ -92,3 +92,4 @@ void Font::load() {
+-    logI << "Loading " << filename << " as " << (overlay ? "overlay" : (dwidth ? "double-width" : "primary")) << std::endl;
+-    if (FT_New_Face(ft, filename.c_str(), 0, &face)) {
+-        throw std::runtime_error(std::string("Failed to load font ") + filename);
++    logI << "Loading " << font.filename << " (face " << font.index << ") as "
++         << (overlay ? "overlay" : (dwidth ? "double-width" : "primary")) << std::endl;
++    if (FT_New_Face(ft, font.filename.c_str(), font.index, &face)) {
++        throw std::runtime_error(std::string("Failed to load font ") + font.filename);
+@@ -201 +202 @@ void Font::loadFixed(const FT_Face& face) {
+-            throw std::runtime_error(filename + ": size mismatch, expected px=" + std::to_string(px) + ", got: " + std::to_string(facesize.width));
++            throw std::runtime_error(font.filename + ": size mismatch, expected px=" + std::to_string(px) + ", got: " + std::to_string(facesize.width));
+@@ -204 +205 @@ void Font::loadFixed(const FT_Face& face) {
+-            throw std::runtime_error(filename + ": size mismatch, expected py=" + std::to_string(py) + ", got: " + std::to_string(facesize.height));
++            throw std::runtime_error(font.filename + ": size mismatch, expected py=" + std::to_string(py) + ", got: " + std::to_string(facesize.height));
+@@ -229 +230,7 @@ void Font::loadScaled(const FT_Face& face) {
+-    double tpy = tpx * face->height / face->max_advance_width + 1;
++    const FT_ULong widthCodepoint = dwidth ? 0x3000 : 'M';
++    if (FT_Get_Char_Index(face, widthCodepoint) != 0 &&
++        FT_Load_Char(face, widthCodepoint, FT_LOAD_DEFAULT) == 0 &&
++        face->glyph->advance.x > 0) {
++        tpx = face->glyph->advance.x / 64.0;
++    }
++    double tpy = opts.fontsize * (double)face->height / face->units_per_EM + 1;
+@@ -234 +241 @@ void Font::loadScaled(const FT_Face& face) {
+-        throw std::runtime_error(filename + ": scaled metric mismatch, expected " + std::to_string(px) + "x" + std::to_string(py) + ", got " + std::to_string(facePx) + "x" + std::to_string(facePy));
++        throw std::runtime_error(font.filename + ": scaled metric mismatch, expected " + std::to_string(px) + "x" + std::to_string(py) + ", got " + std::to_string(facePx) + "x" + std::to_string(facePy));
+@@ -237 +244 @@ void Font::loadScaled(const FT_Face& face) {
+-        throw std::runtime_error(filename + ": scaled baseline mismatch, expected " + std::to_string(baseline) + ", got " + std::to_string(faceBaseline));
++        throw std::runtime_error(font.filename + ": scaled baseline mismatch, expected " + std::to_string(baseline) + ", got " + std::to_string(faceBaseline));
+diff --git a/font.h b/font.h
+index 1285d7c..6f7f7b0 100644
+--- a/font.h
++++ b/font.h
+@@ -12,0 +13,2 @@
++#include "font_resolver.h"
++
+@@ -36 +38 @@ public:
+-    explicit Font(const std::string& filename);
++    explicit Font(const FontFace& font);
+@@ -48 +50 @@ public:
+-    Font(const std::string& filename, const Font& priFont, Overlay_);
++    Font(const FontFace& font, const Font& priFont, Overlay_);
+@@ -58 +60 @@ public:
+-    Font(const std::string& filename, const Font& priFont, DoubleWidth_);
++    Font(const FontFace& font, const Font& priFont, DoubleWidth_);
+@@ -102 +104 @@ private:
+-    std::string filename;
++    FontFace font;
+diff --git a/font_resolver.cpp b/font_resolver.cpp
+index 248f334..eab040d 100644
+--- a/font_resolver.cpp
++++ b/font_resolver.cpp
+@@ -19 +19 @@ namespace {
+-    std::string fontconfigFile(const std::string& family, int weight, int slant) {
++    FontFace fontconfigFace(const std::string& family, int weight, int slant) {
+@@ -21 +21 @@ namespace {
+-            return {};
++            return FontFace{};
+@@ -25 +25 @@ namespace {
+-            return {};
++            return FontFace{};
+@@ -36 +36 @@ namespace {
+-            return {};
++            return FontFace{};
+@@ -39 +39 @@ namespace {
+-        std::string path;
++        FontFace face;
+@@ -41 +41,2 @@ namespace {
+-            path = (const char*)(file);
++            face.filename = (const char*)(file);
++            FcPatternGetInteger(match, FC_INDEX, 0, &face.index);
+@@ -44 +45 @@ namespace {
+-        return path;
++        return face;
+@@ -50 +51 @@ FontVariants resolveFontconfig(const std::string& family) {
+-    variants.regular = fontconfigFile(family, FC_WEIGHT_REGULAR, FC_SLANT_ROMAN);
++    variants.regular = fontconfigFace(family, FC_WEIGHT_REGULAR, FC_SLANT_ROMAN);
+@@ -54,3 +55,3 @@ FontVariants resolveFontconfig(const std::string& family) {
+-    std::string path = fontconfigFile(family, FC_WEIGHT_BOLD, FC_SLANT_ROMAN);
+-    if (!path.empty() && path != variants.regular) {
+-        variants.bold = path;
++    FontFace face = fontconfigFace(family, FC_WEIGHT_BOLD, FC_SLANT_ROMAN);
++    if (!face.empty() && face != variants.regular) {
++        variants.bold = face;
+@@ -58,3 +59,3 @@ FontVariants resolveFontconfig(const std::string& family) {
+-    path = fontconfigFile(family, FC_WEIGHT_REGULAR, FC_SLANT_ITALIC);
+-    if (!path.empty() && path != variants.regular) {
+-        variants.italic = path;
++    face = fontconfigFace(family, FC_WEIGHT_REGULAR, FC_SLANT_ITALIC);
++    if (!face.empty() && face != variants.regular) {
++        variants.italic = face;
+@@ -62,3 +63,3 @@ FontVariants resolveFontconfig(const std::string& family) {
+-    path = fontconfigFile(family, FC_WEIGHT_BOLD, FC_SLANT_ITALIC);
+-    if (!path.empty() && path != variants.regular && path != variants.bold && path != variants.italic) {
+-        variants.boldItalic = path;
++    face = fontconfigFace(family, FC_WEIGHT_BOLD, FC_SLANT_ITALIC);
++    if (!face.empty() && face != variants.regular && face != variants.bold && face != variants.italic) {
++        variants.boldItalic = face;
+diff --git a/font_resolver.h b/font_resolver.h
+index 14fd6ba..c1bb069 100644
+--- a/font_resolver.h
++++ b/font_resolver.h
+@@ -4,0 +5,17 @@
++struct FontFace {
++    std::string filename;
++    int index = 0;
++
++    bool empty() const {
++        return filename.empty();
++    }
++
++    bool operator==(const FontFace& other) const {
++        return filename == other.filename && index == other.index;
++    }
++
++    bool operator!=(const FontFace& other) const {
++        return !(*this == other);
++    }
++};
++
+@@ -6,4 +23,4 @@ struct FontVariants {
+-    std::string regular;
+-    std::string bold;
+-    std::string italic;
+-    std::string boldItalic;
++    FontFace regular;
++    FontFace bold;
++    FontFace italic;
++    FontFace boldItalic;
+diff --git a/options.cpp b/options.cpp
+index 3a42e74..088a080 100644
+--- a/options.cpp
++++ b/options.cpp
+@@ -60 +60 @@ namespace {
+-        {"dwfont", OptionKind::SepArg, nullptr, "18x18ja", "Double-width font to use"},
++        {"dwfont", OptionKind::SepArg, nullptr, "Sarasa Term Slab CL", "Double-width font to use"},
+@@ -62 +62 @@ namespace {
+-        {"font", OptionKind::SepArg, nullptr, "monospace", "Font to use"},
++        {"font", OptionKind::SepArg, nullptr, "Sarasa Term Slab CL", "Font to use"},
+diff --git a/test_mode.cpp b/test_mode.cpp
+index 96fd854..912a132 100644
+--- a/test_mode.cpp
++++ b/test_mode.cpp
+@@ -875 +875 @@ int runTestMode(Composer& composer, TestModeInput& input, int controlFd, int arg
+-                const std::string encoded = variants.regular + '\0' + variants.bold + '\0' + variants.italic + '\0' + variants.boldItalic;
++                const std::string encoded = variants.regular.filename + '\0' + variants.bold.filename + '\0' + variants.italic.filename + '\0' + variants.boldItalic.filename;

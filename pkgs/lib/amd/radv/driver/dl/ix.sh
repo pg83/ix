@@ -16,5 +16,5 @@ radv_
 {% endblock %}
 
 {% block export_lib %}
-vulkan_swiftshader
+vulkan_radeon
 {% endblock %}
