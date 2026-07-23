@@ -1,0 +1,26 @@
+#include <tunables/global>
+
+profile ix-container flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+
+  network,
+  deny network alg,
+
+  capability sys_admin,
+  file,
+  mount options=(rprivate) -> /,
+  mount fstype=tmpfs options=(rw) tmpfs -> /ix/build/*/,
+  mount options=(bind) /ix/build/**/.trash/ -> /ix/trash/,
+  mount options=(bind) /ix/store/*/ -> /ix/build/**/.shadow/store/*/,
+  remount options=(bind,ro) /ix/build/**/.shadow/store/*/,
+  mount options=(rbind) /ix/build/**/.shadow/store/ -> /ix/store/,
+  userns create,
+
+  signal (receive) peer=unconfined,
+  signal (receive) peer=runc,
+  signal (receive) peer=dockerd,
+  signal (send,receive) peer=ix-container,
+
+  deny /sys/firmware/** rwklx,
+  deny /sys/kernel/security/** rwklx,
+}

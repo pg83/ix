@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+set -eu
+
+compiler=${0##*/}
+
+if [ "${compiler}" = gcc ]; then
+    exec /usr/bin/gcc -std=gnu17 -no-pie "$@"
+fi
+
+exec /usr/bin/g++ -no-pie "$@"
