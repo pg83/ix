@@ -5,12 +5,12 @@ qmmp
 {% endblock %}
 
 {% block version %}
-2.4.1
+2.4.2
 {% endblock %}
 
 {% block fetch %}
 https://downloads.sourceforge.net/project/qmmp-dev/qmmp/{{self.version().strip()[:3]}}/qmmp-{{self.version().strip()}}.tar.bz2
-5a0a6f1efcefe9cc4b1ff3ae4038493168baec0b12989ca116af2454098825ed
+8042f83a9ed810e170f7127e6eb53c6b29038dbf504a01c0867c19e5fd200e7d
 {% endblock %}
 
 {% block bld_libs %}
