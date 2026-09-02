@@ -1480,6 +1480,7 @@ https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.20.0.tar.gz
 https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.22.0.tar.gz
 https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.3.0.tar.gz
 https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.31.0.tar.gz
+https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.31.1.tar.gz
 https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.4.0.tar.gz
 https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.5.0.tar.gz
 https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.5.1.tar.gz
