@@ -1,22 +1,16 @@
-{% extends '//die/c/pybuild.sh' %}
+{% extends 't/ix.sh' %}
 
-{% block fetch %}
-https://github.com/pg83/solo/archive/refs/tags/7.tar.gz
-ec615f9ea0a5113988e751f9541c86efac3fb689e2c62500bef216bf9e8ad9e6
-{% endblock %}
-
-{% block std_box %}
-bin/python/12(intl_ver=no)
-bld/pkg/config
-{{super.super()}}
+{% block pybuild_target %}
+dlfcn
 {% endblock %}
 
 {% block lib_deps %}
 lib/c++/dispatch
 {% endblock %}
 
-{% block pybuild_target %}
-dlfcn
+{% block patch %}
+sed -e 's|    includes=\["$(B)/lib", \*musl_private_includes\],|    includes=["$(B)/lib"],\n    cflags=[f"-idirafter{path}" for path in musl_private_includes],|' \
+    -i build.py
 {% endblock %}
 
 {% block install %}

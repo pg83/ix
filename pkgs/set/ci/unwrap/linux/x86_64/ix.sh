@@ -100,6 +100,7 @@ bin/coreutils/9/6
 bin/inkscape
 bin/imway
 bin/shitty
+bin/solo
 bin/gdb/16
 bin/ddc/util
 bin/ya/final
@@ -411,7 +412,6 @@ bin/dbus/runit/scripts
 bin/dbus
 bin/dbus/session
 bin/patch/elf
-bin/glibc
 bin/dwl
 bin/cctools
 bin/syslog/ng
