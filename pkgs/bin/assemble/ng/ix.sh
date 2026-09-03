@@ -5,11 +5,11 @@ bin/go/lang/25
 {% endblock %}
 
 {% block go_url %}
-https://github.com/pg83/assemble/archive/refs/tags/6.tar.gz
+https://github.com/pg83/assemble/archive/refs/tags/7.tar.gz
 {% endblock %}
 
 {% block go_sha %}
-ca1485bd72a578e3c6d2ed8d14b437ad6572d8292f0c49bc8fd006dca43091fc
+98e869605efa698b72c0380952e6b4cf2656ca84bb537133675da5363fb55232
 {% endblock %}
 
 {% block go_bins %}
