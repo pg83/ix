@@ -4757,6 +4757,7 @@ https://github.com/pg83/gofra/archive/779b75695ff11b118b2a5c9e54c784afa1e0a3bb.t
 https://github.com/pg83/gofra/archive/bd5c2a44ce62d1cd36455c3eb55f8af2497383b6.tar.gz
 https://github.com/pg83/gorn/archive/c8358d7243ecf1f37febb28af7eeb408b1603f54.tar.gz
 https://github.com/pg83/gorn/archive/refs/tags/26.tar.gz
+https://github.com/pg83/gorn/archive/refs/tags/28.tar.gz
 https://github.com/pg83/heirloom/archive/a47c4acf9fb43b89f9fb0afdcf9008121d50d806.zip
 https://github.com/pg83/heirloom/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/jail/archive/7e71152ca3168f85e589e47198c994aadf7a8bc2.tar.gz
@@ -4764,6 +4765,7 @@ https://github.com/pg83/mdns2dns/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/11.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/28.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/29.tar.gz
+https://github.com/pg83/molot/archive/refs/tags/31.tar.gz
 https://github.com/pg83/ogorod/archive/ec846d0beb5a54296e6691a5a97ea3838f9e550b.tar.gz
 https://github.com/pg83/portal/archive/6b4069b1d1ed82c4d8a4b64054bf7fa719ead62e.zip
 https://github.com/pg83/portal/archive/refs/tags/1.tar.gz
@@ -5320,6 +5322,7 @@ https://github.com/simdjson/simdjson/archive/refs/tags/v4.0.6.tar.gz
 https://github.com/simdjson/simdjson/archive/refs/tags/v4.0.7.tar.gz
 https://github.com/simdjson/simdjson/archive/refs/tags/v4.2.1.tar.gz
 https://github.com/simdjson/simdjson/archive/refs/tags/v4.2.2.tar.gz
+https://github.com/simdjson/simdjson/archive/refs/tags/v4.6.10.tar.gz
 https://github.com/simdjson/simdjson/archive/refs/tags/v4.6.9.tar.gz
 https://github.com/simdutf/simdutf/archive/refs/tags/v7.4.0.tar.gz
 https://github.com/simdutf/simdutf/archive/refs/tags/v7.5.0.tar.gz
