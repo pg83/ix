@@ -5441,6 +5441,7 @@ https://github.com/strukturag/libde265/archive/refs/tags/v1.0.14.tar.gz
 https://github.com/strukturag/libde265/archive/refs/tags/v1.0.15.tar.gz
 https://github.com/strukturag/libde265/archive/refs/tags/v1.0.16.tar.gz
 https://github.com/strukturag/libde265/archive/refs/tags/v1.1.1.tar.gz
+https://github.com/strukturag/libde265/archive/refs/tags/v1.1.2.tar.gz
 https://github.com/strukturag/libheif/archive/refs/tags/v1.16.2.tar.gz
 https://github.com/strukturag/libheif/archive/refs/tags/v1.17.0.tar.gz
 https://github.com/strukturag/libheif/archive/refs/tags/v1.17.1.tar.gz
