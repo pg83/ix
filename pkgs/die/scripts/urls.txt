@@ -4742,6 +4742,7 @@ https://github.com/pciutils/pciutils/archive/refs/tags/v3.14.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.15.0.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/2.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/3.tar.gz
+https://github.com/pg83/assemble/archive/refs/tags/5.tar.gz
 https://github.com/pg83/bcrypt/archive/e8270a3fa761d9301199f828af90a67e2721c7a8.zip
 https://github.com/pg83/deya/archive/refs/tags/1.tar.gz
 https://github.com/pg83/dlopen/archive/refs/tags/v2.tar.gz
@@ -5157,6 +5158,7 @@ https://github.com/rrthomas/enchant/releases/download/v2.8.12/enchant-2.8.12.tar
 https://github.com/rrthomas/enchant/releases/download/v2.8.14/enchant-2.8.14.tar.gz
 https://github.com/rrthomas/enchant/releases/download/v2.8.15/enchant-2.8.15.tar.gz
 https://github.com/rrthomas/enchant/releases/download/v2.8.19/enchant-2.8.19.tar.gz
+https://github.com/rrthomas/enchant/releases/download/v2.8.21/enchant-2.8.21.tar.gz
 https://github.com/rrthomas/enchant/releases/download/v2.8.3/enchant-2.8.3.tar.gz
 https://github.com/rrthomas/enchant/releases/download/v2.8.4/enchant-2.8.4.tar.gz
 https://github.com/rrthomas/enchant/releases/download/v2.8.5/enchant-2.8.5.tar.gz
