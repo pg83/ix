@@ -4745,6 +4745,7 @@ https://github.com/pciutils/pciutils/archive/refs/tags/v3.15.0.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/2.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/3.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/5.tar.gz
+https://github.com/pg83/assemble/archive/refs/tags/7.tar.gz
 https://github.com/pg83/bcrypt/archive/e8270a3fa761d9301199f828af90a67e2721c7a8.zip
 https://github.com/pg83/deya/archive/refs/tags/1.tar.gz
 https://github.com/pg83/dlopen/archive/refs/tags/v2.tar.gz
@@ -4769,12 +4770,14 @@ https://github.com/pg83/molot/archive/refs/tags/11.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/28.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/29.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/31.tar.gz
+https://github.com/pg83/molot/archive/refs/tags/33.tar.gz
 https://github.com/pg83/ogorod/archive/ec846d0beb5a54296e6691a5a97ea3838f9e550b.tar.gz
 https://github.com/pg83/portal/archive/6b4069b1d1ed82c4d8a4b64054bf7fa719ead62e.zip
 https://github.com/pg83/portal/archive/refs/tags/1.tar.gz
 https://github.com/pg83/samogon/archive/refs/tags/7.tar.gz
 https://github.com/pg83/sbase/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/shutil/archive/refs/tags/v1.tar.gz
+https://github.com/pg83/solo/archive/refs/tags/10.tar.gz
 https://github.com/pg83/solo/archive/refs/tags/7.tar.gz
 https://github.com/pg83/ssh3/archive/068856ab41189b28ea8c93547d5e27356f882690.zip
 https://github.com/pg83/ssh3/archive/75d80cf4e6a372ffed22a2254f6e3d67373fdc61.zip
@@ -6975,6 +6978,7 @@ https://mupdf.com/downloads/archive/mupdf-1.26.7-source.tar.gz
 https://mupdf.com/downloads/archive/mupdf-1.26.8-source.tar.gz
 https://mupdf.com/downloads/archive/mupdf-1.27.0-source.tar.gz
 https://mupdf.com/downloads/archive/mupdf-1.28.3-source.tar.gz
+https://musl.libc.org/releases/musl-1.2.5.tar.gz
 https://nav.dl.sourceforge.net/project/sbcl/sbcl/2.2.1/sbcl-2.2.1-source.tar.bz2
 https://nav.dl.sourceforge.net/project/sbcl/sbcl/2.3.7/sbcl-2.3.7-source.tar.bz2
 https://nav.dl.sourceforge.net/project/sbcl/sbcl/2.3.9/sbcl-2.3.9-source.tar.bz2
@@ -7250,6 +7254,7 @@ https://www.7-zip.org/a/7z2500-src.tar.xz
 https://www.7-zip.org/a/7z2501-src.tar.xz
 https://www.7-zip.org/a/7z2600-src.tar.xz
 https://www.7-zip.org/a/7z2602-src.tar.xz
+https://www.7-zip.org/a/7z2603-src.tar.xz
 https://www.agner.org/optimize/asmlib.zip
 https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.10.tar.bz2
 https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.11.tar.bz2
