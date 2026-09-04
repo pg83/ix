@@ -4771,6 +4771,7 @@ https://github.com/pg83/molot/archive/refs/tags/28.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/29.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/31.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/33.tar.gz
+https://github.com/pg83/molot/archive/refs/tags/34.tar.gz
 https://github.com/pg83/ogorod/archive/ec846d0beb5a54296e6691a5a97ea3838f9e550b.tar.gz
 https://github.com/pg83/portal/archive/6b4069b1d1ed82c4d8a4b64054bf7fa719ead62e.zip
 https://github.com/pg83/portal/archive/refs/tags/1.tar.gz
@@ -7080,6 +7081,7 @@ https://secure.nic.cz/files/knot-dns/knot-3.5.1.tar.xz
 https://secure.nic.cz/files/knot-dns/knot-3.5.2.tar.xz
 https://secure.nic.cz/files/knot-dns/knot-3.5.3.tar.xz
 https://secure.nic.cz/files/knot-dns/knot-3.5.7.tar.xz
+https://secure.nic.cz/files/knot-dns/knot-3.5.8.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-5.6.0.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.4.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-6.0.10.tar.xz
