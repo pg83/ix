@@ -5,7 +5,7 @@ rclone
 {% endblock %}
 
 {% block version %}
-1.75.0
+1.75.1
 {% endblock %}
 
 {% block go_url %}
@@ -13,7 +13,7 @@ https://github.com/rclone/rclone/archive/refs/tags/v{{self.version().strip()}}.t
 {% endblock %}
 
 {% block go_sha %}
-feddfcb39fa13e9f55fd49183971a1ef6326aedaba0b0f9e115c7f877048fadd
+de470a175be813c1da57a48346a8f9506d1576fd319a322e8da6790b728719dc
 {% endblock %}
 
 {% block go_bins %}

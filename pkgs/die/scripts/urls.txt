@@ -5075,6 +5075,7 @@ https://github.com/raphamorim/rio/archive/refs/tags/v0.4.10.tar.gz
 https://github.com/raygard/wak/archive/dca8c09e9e20581330dd930b0219b07f431f2388.tar.gz
 https://github.com/rclone/rclone/archive/refs/tags/v1.73.4.tar.gz
 https://github.com/rclone/rclone/archive/refs/tags/v1.75.0.tar.gz
+https://github.com/rclone/rclone/archive/refs/tags/v1.75.1.tar.gz
 https://github.com/redis/hiredis/archive/refs/tags/v1.2.0.tar.gz
 https://github.com/redis/hiredis/archive/refs/tags/v1.3.0.tar.gz
 https://github.com/redis/hiredis/archive/refs/tags/v1.4.1.tar.gz
