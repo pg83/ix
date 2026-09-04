@@ -1,10 +1,10 @@
 {% extends '//lib/xml/2/t/ix.sh' %}
 
 {% block version %}
-2.15.3
+2.15.4
 {% endblock %}
 
 {% block fetch %}
 {{super()}}
-635685ed77c202daf4d20e1427f70ba75c15b8ed8093afec581c8a8022763202
+f3aed052def90ba322591841ebcc289a56edf925fb45c7ffa13307bacbbe01c5
 {% endblock %}

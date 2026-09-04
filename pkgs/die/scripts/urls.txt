@@ -6584,6 +6584,7 @@ https://gitlab.gnome.org/GNOME/libxml2/-/archive/v2.14.5/libxml2-v2.14.5.tar.bz2
 https://gitlab.gnome.org/GNOME/libxml2/-/archive/v2.15.0/libxml2-v2.15.0.tar.bz2
 https://gitlab.gnome.org/GNOME/libxml2/-/archive/v2.15.1/libxml2-v2.15.1.tar.bz2
 https://gitlab.gnome.org/GNOME/libxml2/-/archive/v2.15.3/libxml2-v2.15.3.tar.bz2
+https://gitlab.gnome.org/GNOME/libxml2/-/archive/v2.15.4/libxml2-v2.15.4.tar.bz2
 https://gitlab.gnome.org/GNOME/libxslt/-/archive/v1.1.38/libxslt-v1.1.38.tar.bz2
 https://gitlab.gnome.org/GNOME/libxslt/-/archive/v1.1.39/libxslt-v1.1.39.tar.bz2
 https://gitlab.gnome.org/GNOME/libxslt/-/archive/v1.1.40/libxslt-v1.1.40.tar.bz2
