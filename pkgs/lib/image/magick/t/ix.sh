@@ -5,12 +5,12 @@ ImageMagick
 {% endblock %}
 
 {% block version %}
-7.1.2.30
+7.1.2.31
 {% endblock %}
 
 {% block fetch %}
 https://ftp.icm.edu.pl/packages/ImageMagick/archive/releases/ImageMagick-{{self.version().strip() | field(0)}}.{{self.version().strip() | field(1)}}.{{self.version().strip() | field(2)}}-{{self.version().strip() | field(3)}}.tar.xz
-5711b1ae793e23e0540299faa81eb9b15fa5bfe24b0aeb2d37cf0a20151d2ed4
+894e3dfc3312151bba15ed1838e8066302940972d100a1727dfac5d16dd769e1
 {% endblock %}
 
 {% block lib_deps %}
