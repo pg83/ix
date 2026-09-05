@@ -2369,6 +2369,7 @@ https://github.com/artemsen/swayimg/archive/refs/tags/v4.3.tar.gz
 https://github.com/artemsen/swayimg/archive/refs/tags/v4.5.tar.gz
 https://github.com/artemsen/swayimg/archive/refs/tags/v4.6.tar.gz
 https://github.com/artemsen/swayimg/archive/refs/tags/v5.5.tar.gz
+https://github.com/artemsen/swayimg/archive/refs/tags/v5.6.tar.gz
 https://github.com/arvidn/libtorrent/releases/download/v2.0.10/libtorrent-rasterbar-2.0.10.tar.gz
 https://github.com/arvidn/libtorrent/releases/download/v2.0.11/libtorrent-rasterbar-2.0.11.tar.gz
 https://github.com/arvidn/libtorrent/releases/download/v2.0.9/libtorrent-rasterbar-2.0.9.tar.gz
