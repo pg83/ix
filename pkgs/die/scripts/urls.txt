@@ -4558,6 +4558,7 @@ https://github.com/netwide-assembler/nasm/archive/refs/tags/nasm-3.01.tar.gz
 https://github.com/netwide-assembler/nasm/archive/refs/tags/nasm-3.02.tar.gz
 https://github.com/newsboat/stfl/archive/bbb2404580e845df2556560112c8aefa27494d66.tar.gz
 https://github.com/nfs-ganesha/ntirpc/archive/refs/tags/v15.2.tar.gz
+https://github.com/nfs-ganesha/ntirpc/archive/refs/tags/v15.3.tar.gz
 https://github.com/nfs-ganesha/ntirpc/archive/refs/tags/v5.0.tar.gz
 https://github.com/nfs-ganesha/ntirpc/archive/refs/tags/v6.3.tar.gz
 https://github.com/nghttp2/nghttp2/archive/refs/tags/v1.56.0.tar.gz
