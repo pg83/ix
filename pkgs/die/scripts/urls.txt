@@ -3556,6 +3556,7 @@ https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.10.1.tar.gz
 https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.10.2.tar.gz
 https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.11.0.tar.gz
 https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.14.1.tar.gz
+https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.14.2.tar.gz
 https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.2.1.tar.gz
 https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.2.2.tar.gz
 https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.2.3.tar.gz
@@ -4778,6 +4779,7 @@ https://github.com/pg83/molot/archive/refs/tags/29.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/31.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/33.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/34.tar.gz
+https://github.com/pg83/molot/archive/refs/tags/35.tar.gz
 https://github.com/pg83/ogorod/archive/ec846d0beb5a54296e6691a5a97ea3838f9e550b.tar.gz
 https://github.com/pg83/portal/archive/6b4069b1d1ed82c4d8a4b64054bf7fa719ead62e.zip
 https://github.com/pg83/portal/archive/refs/tags/1.tar.gz
