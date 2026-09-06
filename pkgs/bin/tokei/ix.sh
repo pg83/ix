@@ -5,7 +5,7 @@ tokei
 {% endblock %}
 
 {% block version %}
-14.0.0
+15.0.0
 {% endblock %}
 
 {% block cargo_url %}
@@ -13,7 +13,7 @@ https://github.com/XAMPPRocky/tokei/archive/refs/tags/v{{self.version().strip()}
 {% endblock %}
 
 {% block cargo_sha %}
-3165031b0295f8c6410f3c7b6e5e70b19abb90d49a3cea282202d262d6d45a7b
+75728164c7eaf7b4b807e4e2832b04e5fe0269e2d494caeb0e7b1a63476358fc
 {% endblock %}
 
 {% block cargo_bins %}
