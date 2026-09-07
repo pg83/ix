@@ -26,9 +26,11 @@
 
 {% extends '//die/inline/program.sh' %}
 
+{# lib/c already carries lib/dlfcn; which implementation it resolves to is
+   decided by the libdlfcn_ver flag on the reference to this package —
+   bin/claude/solo passes elf — and rides down the whole closure. #}
 {% block lib_deps %}
 lib/c
-lib/dlfcn(libdlfcn_ver=elf)
 {% endblock %}
 
 {% block sources %}
