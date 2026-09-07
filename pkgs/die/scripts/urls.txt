@@ -2615,6 +2615,7 @@ https://github.com/cli/cli/archive/refs/tags/v2.83.0.tar.gz
 https://github.com/cli/cli/archive/refs/tags/v2.83.1.tar.gz
 https://github.com/cli/cli/archive/refs/tags/v2.83.2.tar.gz
 https://github.com/cli/cli/archive/refs/tags/v2.99.0.tar.gz
+https://github.com/cloudflare/cloudflared/archive/refs/tags/2026.8.3.tar.gz
 https://github.com/cmatsuoka/figlet/archive/refs/tags/2.2.5.tar.gz
 https://github.com/commonmark/cmark/archive/refs/tags/0.30.3.tar.gz
 https://github.com/commonmark/cmark/archive/refs/tags/0.31.1.tar.gz
@@ -3908,6 +3909,7 @@ https://github.com/kspalaiologos/bzip3/archive/refs/tags/1.5.0.tar.gz
 https://github.com/kspalaiologos/bzip3/archive/refs/tags/1.5.1.tar.gz
 https://github.com/kspalaiologos/bzip3/archive/refs/tags/1.5.2.tar.gz
 https://github.com/kspalaiologos/bzip3/archive/refs/tags/1.5.3.tar.gz
+https://github.com/kspalaiologos/bzip3/archive/refs/tags/1.5.4.tar.gz
 https://github.com/kuroko-lang/kuroko/archive/refs/tags/v1.3.1.tar.gz
 https://github.com/kuroko-lang/kuroko/archive/refs/tags/v1.4.0.tar.gz
 https://github.com/l4l/yofi/archive/refs/tags/0.2.2.tar.gz
@@ -4795,6 +4797,7 @@ https://github.com/pg83/samogon/archive/refs/tags/7.tar.gz
 https://github.com/pg83/sbase/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/shutil/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/solo/archive/refs/tags/10.tar.gz
+https://github.com/pg83/solo/archive/refs/tags/11.tar.gz
 https://github.com/pg83/solo/archive/refs/tags/7.tar.gz
 https://github.com/pg83/ssh3/archive/068856ab41189b28ea8c93547d5e27356f882690.zip
 https://github.com/pg83/ssh3/archive/75d80cf4e6a372ffed22a2254f6e3d67373fdc61.zip

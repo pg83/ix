@@ -5,12 +5,12 @@ bzip3
 {% endblock %}
 
 {% block version %}
-1.5.3
+1.5.4
 {% endblock %}
 
 {% block fetch %}
 https://github.com/kspalaiologos/bzip3/archive/refs/tags/{{self.version().strip()}}.tar.gz
-21eb292f70866d23ffa12fc3e4fae3fd5bb9a1341c01410dc6bbc5dd62cf2040
+c4ff6bfe4a8a9fed987a9de4d6a6f4025a991acec9559fae4853a9d99ca8d76a
 {% endblock %}
 
 {% block lib_deps %}
