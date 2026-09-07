@@ -63,6 +63,7 @@ bin/pkg/config
 bin/codex/wrap
 bin/fontconfig
 bin/quake/1/vk
+bin/cloudflared
 bin/grep/patched
 bin/grep/scripts
 set/box/gnu/tools
