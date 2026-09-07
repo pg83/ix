@@ -5192,6 +5192,7 @@ https://github.com/rrthomas/libpaper/releases/download/v2.2.5/libpaper-2.2.5.tar
 https://github.com/rrthomas/libpaper/releases/download/v2.2.6/libpaper-2.2.6.tar.gz
 https://github.com/rrthomas/libpaper/releases/download/v2.2.7/libpaper-2.2.7.tar.gz
 https://github.com/rrthomas/libpaper/releases/download/v2.2.8/libpaper-2.2.8.tar.gz
+https://github.com/rrthomas/libpaper/releases/download/v2.3.0/libpaper-2.3.0.tar.gz
 https://github.com/rs/curlie/archive/refs/tags/v1.6.9.tar.gz
 https://github.com/rs/curlie/archive/refs/tags/v1.8.1.tar.gz
 https://github.com/rs/curlie/archive/refs/tags/v1.8.2.tar.gz
