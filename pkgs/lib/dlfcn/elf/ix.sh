@@ -15,9 +15,15 @@ sed -e 's|    includes=\["$(B)/lib", \*musl_private_includes\],|    includes=["$
 
 {% block install %}
 mkdir -p ${out}/lib
+mkdir -p ${out}/lib/bin
 mkdir -p ${out}/include
 cp dlfcn ${out}/lib/libdlstub.a
 cp lib/dlfcn.h ${out}/include/
+# The packer that appends a program to a stub built against this loader.
+# It ships here so the container format can never disagree with the code
+# that reads it, and lands on PATH for anything with this in lib_deps.
+cp dev/solo_pack.py ${out}/lib/bin/solo-pack
+chmod +x ${out}/lib/bin/solo-pack
 {% endblock %}
 
 {% block env %}

@@ -4,13 +4,17 @@
 solo
 {% endblock %}
 
+{# Bundle support — soloBundleMain() and dev/solo_pack.py — landed after
+   tag 10, so this pin has to move before bin/*/solo can build. Replace the
+   placeholder with the sha256 of the release tarball. #}
+
 {% block version %}
-10
+11
 {% endblock %}
 
 {% block fetch %}
 https://github.com/pg83/solo/archive/refs/tags/{{self.version().strip()}}.tar.gz
-0c5a17948bcb6c5e59fa4c14ef812b2fc983636ae54b457c9adb545c947c666b
+FILL-IN-THE-SHA256-OF-THE-SOLO-11-RELEASE-TARBALL
 {% endblock %}
 
 {% block std_box %}
