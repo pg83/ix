@@ -2,37 +2,27 @@
    ELF loader and the glibc ABI bridge, and does nothing but hand control to
    the program appended to it.
 
-   This is where a bundle's shape is decided. Every lib/*/dl package listed
-   below registers the symbols of a statically linked library under a soname
-   through stub_dlregister(), and the loader consults that registry before it
-   looks at the bundle or at the machine — so a guest's DT_NEEDED on, say,
-   libwayland-client.so.0 is answered by the copy linked in here.
+   This is where a bundle's shape is decided. Every lib/<name>/dl package
+   listed below registers the symbols of a statically linked library under a
+   soname through stub_dlregister(), and the loader consults that registry
+   before it looks at the bundle or at the machine — so a guest's DT_NEEDED
+   on, say, libwayland-client.so.0 is answered by the copy linked in here.
 
    claude needs none of that: its whole closure is librt, libc, ld-linux,
-   libpthread, libdl, and libm, and the ABI bridge serves all six itself. The
-   lib_deps block is the one place to grow when a guest needs more. #}
+   libpthread, libdl, and libm, and the ABI bridge serves all six itself.
+   The lib_deps block is the one place to grow when a guest needs more.
 
-{# NOT YET RUNNABLE. The stub builds and the bundle is produced, but the
-   guest refuses to start:
-
-     the executable's TLS (27313 bytes, 16-byte alignment) cannot take the
-     ABI slot next to the thread pointer
-
-   A guest executable's local-exec offsets are burned into its instructions
-   relative to the thread pointer, so its TLS block has to end exactly
-   there, and the loader carves it out of a pad that must therefore be the
-   executable's only thread_local. This stub's PT_TLS is 1048656 bytes —
-   the 1 MiB pad plus 80 bytes of strays, alignment included:
-
-     _ZZN10__cxxabiv112_GLOBAL__N_19__globalsEvE10eh_globals   16  libc++abi
-     _ZN8tcmalloc14ThreadCachePtr9tls_data_E                    8  tcmalloc
-
-   solo's own binary links the same loader and comes out at exactly
-   1048576, so this is ix's runtime rather than anything in the loader.
-   The allocator is selectable — lib/c/alloc honours allocator= and
-   force_allocator= — so tcmalloc's eight bytes can go; libc++abi's
-   eh_globals needs its exception storage built against a pthread key
-   instead of a thread_local, which is an ix-side build change. #}
+   Two placement rules keep the result runnable. The TLS pad object from
+   lib/dlfcn/elf must sit adjacent to the thread pointer, where a guest
+   executable's local-exec offsets point: last on the x86-64 link line,
+   whose TLS grows down toward the pointer, first on aarch64, whose TLS
+   grows up — the setup_target/ld_flags blocks below put it there, after
+   every dependency's flags are assembled and before the compiler wrapper
+   bakes them, so no dependency order can unseat it. And the stub links at
+   1 GiB, out of the fixed addresses a non-PIE guest owns —
+   claude occupies 0x200000 through 0x11737000, ix's default non-PIE link
+   starts at 0x200000, and the small code model's 32-bit relocations allow
+   nothing past 4 GiB. #}
 
 {% extends '//die/inline/program.sh' %}
 
@@ -54,20 +44,19 @@ stub.c
 _GNU_SOURCE
 {% endblock %}
 
-{# A non-PIE guest owns its link-time addresses and nothing can relocate
-   it, so the stub must not be sitting in them. ix links binaries -static
-   and non-PIE, which puts this one at 0x200000 — exactly where claude
-   starts, and claude runs to 0x11737000.
-
-   1 GiB is as far out of the way as the small code model allows: its
-   R_X86_64_32 relocations cannot reach past 4 GiB, and moving the whole
-   closure to -mcmodel=large to buy more room is not worth it. That leaves
-   the guest everything below 1 GiB, against the 292 MiB claude occupies
-   today. A guest that outgrows that needs this raised, or needs ix to
-   grow a static-PIE mode — which is how solo's own binary sidesteps the
-   problem entirely. #}
 {% block ld_flags %}
+{% if x86_64 %}
 -Wl,--image-base=0x40000000
+{% else %}
+${SOLO_MUSL_TLS_OBJECT}
+{% endif %}
+{% endblock %}
+
+{% block setup_target %}
+{{super()}}
+{% if x86_64 %}
+export LDFLAGS="${LDFLAGS} ${SOLO_MUSL_TLS_OBJECT}"
+{% endif %}
 {% endblock %}
 
 {% block name %}
