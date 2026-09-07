@@ -29,7 +29,7 @@ bin/claude/solo/stub(kind=bin,libdlfcn_ver=elf)
 {% endblock %}
 
 {% block bld_tool %}
-bld/python
+bin/solo/pack
 {% endblock %}
 
 {% block install %}
