@@ -4759,6 +4759,7 @@ https://github.com/pg83/assemble/archive/refs/tags/2.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/3.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/5.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/7.tar.gz
+https://github.com/pg83/assemble/archive/refs/tags/8.tar.gz
 https://github.com/pg83/bcrypt/archive/e8270a3fa761d9301199f828af90a67e2721c7a8.zip
 https://github.com/pg83/deya/archive/refs/tags/1.tar.gz
 https://github.com/pg83/dlopen/archive/refs/tags/v2.tar.gz
@@ -4786,6 +4787,7 @@ https://github.com/pg83/molot/archive/refs/tags/31.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/33.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/34.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/35.tar.gz
+https://github.com/pg83/molot/archive/refs/tags/36.tar.gz
 https://github.com/pg83/ogorod/archive/ec846d0beb5a54296e6691a5a97ea3838f9e550b.tar.gz
 https://github.com/pg83/portal/archive/6b4069b1d1ed82c4d8a4b64054bf7fa719ead62e.zip
 https://github.com/pg83/portal/archive/refs/tags/1.tar.gz
@@ -5353,6 +5355,7 @@ https://github.com/simdutf/simdutf/archive/refs/tags/v7.4.0.tar.gz
 https://github.com/simdutf/simdutf/archive/refs/tags/v7.5.0.tar.gz
 https://github.com/simdutf/simdutf/archive/refs/tags/v7.7.0.tar.gz
 https://github.com/simdutf/simdutf/archive/refs/tags/v9.1.0.tar.gz
+https://github.com/simdutf/simdutf/archive/refs/tags/v9.1.1.tar.gz
 https://github.com/sivel/speedtest-cli/archive/refs/tags/v2.1.3.tar.gz
 https://github.com/skarnet/execline/archive/refs/tags/v2.9.4.0.tar.gz
 https://github.com/skarnet/execline/archive/refs/tags/v2.9.5.0.tar.gz
