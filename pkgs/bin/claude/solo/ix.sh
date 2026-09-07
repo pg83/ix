@@ -25,7 +25,7 @@ https://downloads.claude.ai/claude-code-releases/{{self.version().strip()}}/linu
 {% endblock %}
 
 {% block lib_deps %}
-bin/claude/solo/stub(kind=bin,libdlfcn_ver=elf)
+bin/claude/solo/stub(kind=bin,libdlfcn_ver=solo)
 {% endblock %}
 
 {% block bld_tool %}
