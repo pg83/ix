@@ -4216,6 +4216,7 @@ https://github.com/linux-nvme/nvme-cli/archive/refs/tags/v2.5.tar.gz
 https://github.com/linux-nvme/nvme-cli/archive/refs/tags/v2.6.tar.gz
 https://github.com/linux-nvme/nvme-cli/archive/refs/tags/v2.8.tar.gz
 https://github.com/linux-nvme/nvme-cli/archive/refs/tags/v2.9.1.tar.gz
+https://github.com/linux-nvme/nvme-cli/archive/refs/tags/v3.0.tar.gz
 https://github.com/linux-pam/linux-pam/archive/refs/tags/v1.5.3.tar.gz
 https://github.com/linux-pam/linux-pam/archive/refs/tags/v1.6.1.tar.gz
 https://github.com/linux-pam/linux-pam/archive/refs/tags/v1.7.0.tar.gz
