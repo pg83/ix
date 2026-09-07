@@ -1,4 +1,15 @@
-{% extends '//die/std/ix.sh' %}
+{# claude as a single file: the stub built next door, with the upstream
+   binary appended to it. No PT_INTERP rewriting and no LD_LIBRARY_PATH —
+   the stub stays the process's main executable, which is what keeps solo's
+   static TLS pad in place for the guest's own thread-local storage.
+
+   The stub arrives through lib_deps rather than bld_tool because only that
+   path keeps the target: bld deps are built for the host. kind=bin on the
+   reference overrides the kind=lib that lib_deps would otherwise impose,
+   and libdlfcn_ver=elf rides down the whole closure so every lib/dlfcn in
+   it resolves to solo's implementation rather than the default one. #}
+
+{% extends '//die/gen.sh' %}
 
 {% block pkg_name %}
 claude-code
@@ -13,29 +24,15 @@ https://downloads.claude.ai/claude-code-releases/{{self.version().strip()}}/linu
 98226474f802e3094d6a86c5ade8883c16206d0fcb5c400b7401c800063e99d7
 {% endblock %}
 
-{% block bld_tool %}
-bin/patch/elf
+{% block lib_deps %}
+bin/claude/code/stub(kind=bin,libdlfcn_ver=solo)
 {% endblock %}
 
-{% block step_unpack %}
-:
+{% block bld_tool %}
+bin/solo/pack
 {% endblock %}
 
 {% block install %}
 mkdir -p ${out}/bin
-install -Dm755 ${src}/claude ${out}/bin/claude.bin
-patchelf --set-interpreter /bin/solo ${out}/bin/claude.bin
-
-cat << EOF > ${out}/bin/claude.exe
-#!/usr/bin/env sh
-set -eu
-export LD_LIBRARY_PATH="/bin/usr/lib\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}"
-exec "${out}/bin/claude.bin" "\$@"
-EOF
-
-chmod +x ${out}/bin/claude.exe
-{% endblock %}
-
-{% block postinstall %}
-:
+solo-pack --stub ${CLAUDE_SOLO_STUB} --program claude=${src}/claude --output ${out}/bin/claude.exe --check
 {% endblock %}
