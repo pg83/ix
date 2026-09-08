@@ -511,6 +511,7 @@ https://dist.torproject.org/tor-0.4.8.19.tar.gz
 https://dist.torproject.org/tor-0.4.8.20.tar.gz
 https://dist.torproject.org/tor-0.4.8.21.tar.gz
 https://dist.torproject.org/tor-0.4.9.11.tar.gz
+https://dist.torproject.org/tor-0.4.9.12.tar.gz
 https://distfiles.gentoo.org/distfiles/79/libmetalink-0.1.3.tar.bz2
 https://distfiles.macports.org/bsdiff/bsdiff-4.3.tar.gz
 https://distfiles.macports.org/chmlib/chmlib-0.40.tar.bz2
@@ -4709,6 +4710,8 @@ https://github.com/openai/codex/releases/download/rust-v0.151.0/codex-code-mode-
 https://github.com/openai/codex/releases/download/rust-v0.151.0/codex-x86_64-unknown-linux-musl.tar.gz
 https://github.com/openai/codex/releases/download/rust-v0.152.1/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz
 https://github.com/openai/codex/releases/download/rust-v0.152.1/codex-x86_64-unknown-linux-musl.tar.gz
+https://github.com/openai/codex/releases/download/rust-v0.153.4/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz
+https://github.com/openai/codex/releases/download/rust-v0.153.4/codex-x86_64-unknown-linux-musl.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.10.0.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz
