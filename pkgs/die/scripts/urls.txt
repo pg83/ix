@@ -4876,6 +4876,7 @@ https://github.com/projectdiscovery/dnsx/archive/refs/tags/v1.2.2.tar.gz
 https://github.com/projectdiscovery/dnsx/archive/refs/tags/v1.2.3.tar.gz
 https://github.com/projectdiscovery/dnsx/archive/refs/tags/v1.3.1.tar.gz
 https://github.com/projectdiscovery/httpx/archive/refs/tags/v1.11.0.tar.gz
+https://github.com/projectdiscovery/httpx/archive/refs/tags/v1.12.0.tar.gz
 https://github.com/projectdiscovery/httpx/archive/refs/tags/v1.9.0.tar.gz
 https://github.com/projectdiscovery/nuclei/archive/refs/tags/v3.11.1.tar.gz
 https://github.com/projectdiscovery/nuclei/archive/refs/tags/v3.7.1.tar.gz
