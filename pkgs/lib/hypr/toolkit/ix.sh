@@ -5,12 +5,12 @@ hyprtoolkit
 {% endblock %}
 
 {% block version %}
-0.5.4
+0.6.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/hyprwm/hyprtoolkit/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-2fb59789f231c1c4e9154ceffc1e7524c0cae154807c0d57e6166806255b570f
+53c41be72af97d9ede274a63c9c1034c58726d862905763ed6e5a564ae42ba6b
 {% endblock %}
 
 {% block lib_deps %}
