@@ -3594,6 +3594,7 @@ https://github.com/ib/xarchiver/archive/refs/tags/0.5.4.25.tar.gz
 https://github.com/ib/xarchiver/archive/refs/tags/0.5.4.26.tar.gz
 https://github.com/ib/xarchiver/archive/refs/tags/0.5.4.27.tar.gz
 https://github.com/ibireme/yyjson/archive/refs/tags/0.12.0.tar.gz
+https://github.com/ibireme/yyjson/archive/refs/tags/0.13.0.tar.gz
 https://github.com/ihhub/fheroes2/archive/refs/tags/1.0.10.tar.gz
 https://github.com/ihhub/fheroes2/archive/refs/tags/1.0.11.tar.gz
 https://github.com/ihhub/fheroes2/archive/refs/tags/1.0.12.tar.gz
