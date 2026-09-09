@@ -6323,6 +6323,7 @@ https://gitlab.freedesktop.org/gstreamer/orc/-/archive/0.4.40/orc-0.4.40.tar.bz2
 https://gitlab.freedesktop.org/gstreamer/orc/-/archive/0.4.40/orc-0.4.41.tar.bz2
 https://gitlab.freedesktop.org/gstreamer/orc/-/archive/0.4.40/orc-0.4.42.tar.bz2
 https://gitlab.freedesktop.org/gstreamer/orc/-/archive/0.4.40/orc-0.4.43.tar.bz2
+https://gitlab.freedesktop.org/gstreamer/orc/-/archive/0.4.40/orc-0.4.44.tar.bz2
 https://gitlab.freedesktop.org/libdecor/libdecor/-/archive/0.2.0/libdecor-0.2.0.tar.bz2
 https://gitlab.freedesktop.org/libdecor/libdecor/-/archive/0.2.1/libdecor-0.2.1.tar.bz2
 https://gitlab.freedesktop.org/libdecor/libdecor/-/archive/0.2.2/libdecor-0.2.2.tar.bz2
