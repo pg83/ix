@@ -1703,6 +1703,7 @@ https://github.com/KDE/kcoreaddons/archive/refs/tags/v6.17.0.tar.gz
 https://github.com/KDE/kcoreaddons/archive/refs/tags/v6.18.0.tar.gz
 https://github.com/KDE/kcoreaddons/archive/refs/tags/v6.19.0.tar.gz
 https://github.com/KDE/kcoreaddons/archive/refs/tags/v6.29.0.tar.gz
+https://github.com/KDE/kcoreaddons/archive/refs/tags/v6.30.0.tar.gz
 https://github.com/KDE/kimageformats/archive/refs/tags/v5.112.0.tar.gz
 https://github.com/KDE/kimageformats/archive/refs/tags/v5.98.0.tar.gz
 https://github.com/KDE/kimageformats/archive/refs/tags/v6.13.0.tar.gz
