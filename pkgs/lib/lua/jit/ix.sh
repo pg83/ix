@@ -9,8 +9,8 @@ LuaJIT
 {% endblock %}
 
 {% block fetch %}
-https://github.com/LuaJIT/LuaJIT/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-8bb29d84f06eb23c7ea4aa4794dbb248ede9fcb23b6989cbef81dc79352afc97
+https://github.com/LuaJIT/LuaJIT/archive/0bf80b07b0672ce874feedcc777afe1b791ccb5a.tar.gz
+ecd9259c8beb062a9020775611815e419674641adbd195417eef2108454c9e16
 {% endblock %}
 
 {% block lib_deps %}
