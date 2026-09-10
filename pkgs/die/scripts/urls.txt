@@ -6392,6 +6392,7 @@ https://gitlab.freedesktop.org/upower/upower/-/archive/v1.90.7/upower-v1.90.7.ta
 https://gitlab.freedesktop.org/upower/upower/-/archive/v1.90.8/upower-v1.90.8.tar.bz2
 https://gitlab.freedesktop.org/upower/upower/-/archive/v1.90.9/upower-v1.90.9.tar.bz2
 https://gitlab.freedesktop.org/upower/upower/-/archive/v1.91.3/upower-v1.91.3.tar.bz2
+https://gitlab.freedesktop.org/upower/upower/-/archive/v1.91.4/upower-v1.91.4.tar.bz2
 https://gitlab.freedesktop.org/vyivel/libsfdo/-/archive/v0.1.3/libsfdo-v0.1.3.tar.bz2
 https://gitlab.freedesktop.org/vyivel/libsfdo/-/archive/v0.1.4/libsfdo-v0.1.4.tar.bz2
 https://gitlab.freedesktop.org/wayland/wayland-protocols/-/archive/1.32/wayland-protocols-1.32.tar.bz2
