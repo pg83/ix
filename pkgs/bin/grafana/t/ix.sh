@@ -13,7 +13,7 @@ https://github.com/grafana/grafana/archive/refs/tags/v{{self.version().strip()}}
 {% endblock %}
 
 {% block go_sha %}
-cc8f04f24b8c30768988e13de75c40e96022830495ceb1092b5d44f3cc431c82
+73cb33a524d5332a4a35c43990cb66ab3e00469d2d38258c080b0ad00945bc32
 {% endblock %}
 
 {% block go_tool %}
@@ -36,6 +36,19 @@ find . -type d -name testdata -prune -exec rm -rf {} +
 # Tests import from testdata/ — nuke them too so `go mod tidy` doesn't
 # try to resolve paths whose source just disappeared.
 find . -name '*_test.go' -delete
+# Fold every submodule's pins into the root first. `go mod tidy` walks
+# all packages in the module, so once the collapse makes submodule code
+# root code, their imports need versions — and with the submodule go.mod
+# already gone, tidy resolves them to whatever upstream published today.
+# That is what kept rotting the recorded hash: pkg/build pins
+# dagger.io/dagger v0.18.8 and gqlgen v0.17.73, and tidy was pulling
+# newer ones. Conflicting versions across submodules are fine, MVS picks
+# the max in tidy right after.
+find . -mindepth 2 -name go.mod | while read l; do
+    awk '/^require \(/{r=1;next} r&&/^\)/{r=0;next} r' "${l}" |
+        sed -n 's|^\t\([^ ]*\) \(v[^ ]*\).*|-require=\1@\2|p'
+    sed -n 's|^require \([^ ]*\) \(v[^ ]*\).*|-require=\1@\2|p' "${l}"
+done | sort -u | xargs -r -n 64 go mod edit
 find . -mindepth 2 -name go.mod -delete
 find . -mindepth 2 -name go.sum -delete
 rm -f go.work go.work.sum
