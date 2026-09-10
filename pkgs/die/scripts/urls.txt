@@ -3346,6 +3346,7 @@ https://github.com/gopasspw/gopass/archive/refs/tags/v1.15.18.tar.gz
 https://github.com/gopasspw/gopass/archive/refs/tags/v1.16.0.tar.gz
 https://github.com/gopasspw/gopass/archive/refs/tags/v1.16.1.tar.gz
 https://github.com/gopasspw/gopass/archive/refs/tags/v1.17.0.tar.gz
+https://github.com/gopasspw/gopass/archive/refs/tags/v1.17.1.tar.gz
 https://github.com/gpakosz/whereami/archive/ba364cd54fd431c76c045393b6522b4bff547f50.tar.gz
 https://github.com/gperftools/gperftools/archive/refs/tags/gperftools-2.10.tar.gz
 https://github.com/gperftools/gperftools/archive/refs/tags/gperftools-2.11.tar.gz
@@ -4790,6 +4791,7 @@ https://github.com/pg83/gofra/archive/bd5c2a44ce62d1cd36455c3eb55f8af2497383b6.t
 https://github.com/pg83/gorn/archive/c8358d7243ecf1f37febb28af7eeb408b1603f54.tar.gz
 https://github.com/pg83/gorn/archive/refs/tags/26.tar.gz
 https://github.com/pg83/gorn/archive/refs/tags/28.tar.gz
+https://github.com/pg83/gorn/archive/refs/tags/31.tar.gz
 https://github.com/pg83/heirloom/archive/a47c4acf9fb43b89f9fb0afdcf9008121d50d806.zip
 https://github.com/pg83/heirloom/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/jail/archive/7e71152ca3168f85e589e47198c994aadf7a8bc2.tar.gz
@@ -7033,6 +7035,7 @@ https://nav.dl.sourceforge.net/project/sbcl/sbcl/2.3.9/sbcl-2.3.9-source.tar.bz2
 https://nheko.im/nheko-reborn/coeurl/-/archive/v0.3.0/coeurl-v0.3.0.tar.bz2
 https://nheko.im/nheko-reborn/coeurl/-/archive/v0.3.1/coeurl-v0.3.1.tar.bz2
 https://nheko.im/nheko-reborn/coeurl/-/archive/v0.3.2/coeurl-v0.3.2.tar.bz2
+https://nim-lang.org/download/nim-2.2.12.tar.xz
 https://nmap.org/dist/nmap-7.93.tar.bz2
 https://nmap.org/dist/nmap-7.95.tar.bz2
 https://nmap.org/dist/nmap-7.96.tar.bz2
