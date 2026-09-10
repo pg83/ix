@@ -51,6 +51,8 @@
 
 {% block run_deps %}
 bin/nim
+bin/chawan
+bin/moe/nim
 #bin/jdk/7
 bin/fastjar
 bin/ollama

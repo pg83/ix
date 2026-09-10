@@ -2,6 +2,8 @@
 
 {% block run_deps %}
 bin/nim
+bin/chawan
+bin/moe/nim
 bin/iwd
 bin/gdb
 bin/git
