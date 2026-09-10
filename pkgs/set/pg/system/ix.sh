@@ -10,7 +10,6 @@ set/stalix
 set/pg/system/env
 set/pg/vpn
 bin/thingd
-set/pg/secrets
 bin/kernel/7/0
 bin/kernel/7/1
 bin/btrfs/progs
