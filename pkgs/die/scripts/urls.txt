@@ -622,6 +622,7 @@ https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocol
 https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.18.0.tar.xz
 https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.19.0.tar.xz
 https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.21.0.tar.xz
+https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.22.0.tar.xz
 https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.7.0.tar.xz
 https://download.netsurf-browser.org/libs/releases/libnsgif-0.2.1-src.tar.gz
 https://download.netsurf-browser.org/libs/releases/libnsgif-1.0.0-src.tar.gz
