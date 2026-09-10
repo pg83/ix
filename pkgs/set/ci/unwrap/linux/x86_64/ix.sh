@@ -51,6 +51,7 @@
 
 {% block run_deps %}
 bin/nim
+bin/hare
 bin/chawan
 bin/moe/nim
 #bin/jdk/7

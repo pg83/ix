@@ -3,6 +3,7 @@
 {% block run_deps %}
 bin/ix/fetcher
 bin/nim
+bin/hare
 bin/chawan
 bin/moe/nim
 bin/iwd
