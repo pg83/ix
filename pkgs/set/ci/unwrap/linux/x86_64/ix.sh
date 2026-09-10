@@ -50,6 +50,7 @@
 #}
 
 {% block run_deps %}
+bin/nim
 #bin/jdk/7
 bin/fastjar
 bin/ollama
