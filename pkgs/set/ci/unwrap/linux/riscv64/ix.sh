@@ -1,6 +1,7 @@
 {% extends '//die/hub.sh' %}
 
 {% block run_deps %}
+bin/ix/fetcher
 bin/nim
 bin/chawan
 bin/moe/nim

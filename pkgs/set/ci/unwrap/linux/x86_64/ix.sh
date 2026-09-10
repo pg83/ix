@@ -919,6 +919,7 @@ bin/shadowsocks/go/2
 bin/shadowsocks/libev
 bin/task
 bin/assemble/ng
+bin/ix/fetcher
 bin/duf
 bin/lf
 bin/lazygit

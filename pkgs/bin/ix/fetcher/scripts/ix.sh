@@ -2,17 +2,11 @@
 
 {% block install %}
 mkdir ${out}/bin
-cat << EOF > ${out}/bin/fetcher
-#!/usr/bin/env python3
-M = '''
+cat << 'EOF' > ${out}/bin/fetcher
+#!/usr/bin/env sh
+exec assemble fetch --mirrors '
 {% include '//die/scripts/mirrors.txt' %}
-'''
-P = '''
-{{fetcher_socks5_proxy}}
-'''
-EOF
-base64 -d << EOF >> ${out}/bin/fetcher
-{% include 'fetcher.py/base64' %}
+' --socks5 '{{fetcher_socks5_proxy}}' "$@"
 EOF
 chmod +x ${out}/bin/*
 {% endblock %}
