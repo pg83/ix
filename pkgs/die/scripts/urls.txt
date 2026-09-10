@@ -1255,6 +1255,7 @@ https://git.sr.ht/~adnano/wmenu/archive/0.1.4.tar.gz
 https://git.sr.ht/~adnano/wmenu/archive/0.1.6.tar.gz
 https://git.sr.ht/~adnano/wmenu/archive/0.1.7.tar.gz
 https://git.sr.ht/~adnano/wmenu/archive/0.1.8.tar.gz
+https://git.sr.ht/~bptato/chawan/archive/v0.4.4.tar.gz
 https://git.sr.ht/~brocellous/wlrctl/archive/v0.2.2.tar.gz
 https://git.sr.ht/~delthas/senpai/archive/v0.3.0.tar.gz
 https://git.sr.ht/~delthas/senpai/archive/v0.4.1.tar.gz
@@ -1850,6 +1851,7 @@ https://github.com/LibRaw/LibRaw/archive/refs/tags/0.21.5.tar.gz
 https://github.com/LibRaw/LibRaw/archive/refs/tags/0.22.0.tar.gz
 https://github.com/LibRaw/LibRaw/archive/refs/tags/0.22.2.tar.gz
 https://github.com/LouisBrunner/avahi2dns/archive/9349a6495ad4cafcd1d44e089b8ea2215165888e.zip
+https://github.com/LuaJIT/LuaJIT/archive/0bf80b07b0672ce874feedcc777afe1b791ccb5a.tar.gz
 https://github.com/LuaJIT/LuaJIT/archive/refs/tags/v2.0.5.tar.gz
 https://github.com/MariaDB/server.git
 https://github.com/Martchus/cpp-utilities/archive/refs/tags/v5.20.0.tar.gz
@@ -4775,6 +4777,7 @@ https://github.com/pg83/assemble/archive/refs/tags/3.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/5.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/7.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/8.tar.gz
+https://github.com/pg83/assemble/archive/refs/tags/9.tar.gz
 https://github.com/pg83/bcrypt/archive/e8270a3fa761d9301199f828af90a67e2721c7a8.zip
 https://github.com/pg83/deya/archive/refs/tags/1.tar.gz
 https://github.com/pg83/dlopen/archive/refs/tags/v2.tar.gz
@@ -7383,6 +7386,7 @@ https://www.crufty.net/ftp/pub/sjg/bmake-20250707.tar.gz
 https://www.crufty.net/ftp/pub/sjg/bmake-20250804.tar.gz
 https://www.crufty.net/ftp/pub/sjg/bmake-20251111.tar.gz
 https://www.crufty.net/ftp/pub/sjg/bmake-20260714.tar.gz
+https://www.crufty.net/ftp/pub/sjg/bmake-20260824.tar.gz
 https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz
 https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p18.tar.gz
 https://www.freedesktop.org/software/colord/releases/colord-1.4.6.tar.xz
