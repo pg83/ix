@@ -4730,6 +4730,8 @@ https://github.com/openai/codex/releases/download/rust-v0.152.1/codex-code-mode-
 https://github.com/openai/codex/releases/download/rust-v0.152.1/codex-x86_64-unknown-linux-musl.tar.gz
 https://github.com/openai/codex/releases/download/rust-v0.153.4/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz
 https://github.com/openai/codex/releases/download/rust-v0.153.4/codex-x86_64-unknown-linux-musl.tar.gz
+https://github.com/openai/codex/releases/download/rust-v0.154.0/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz
+https://github.com/openai/codex/releases/download/rust-v0.154.0/codex-x86_64-unknown-linux-musl.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.10.0.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz
@@ -6477,6 +6479,7 @@ https://gitlab.gnome.org/GNOME/glib-networking/-/archive/2.78.0/glib-networking-
 https://gitlab.gnome.org/GNOME/glib-networking/-/archive/2.78.1/glib-networking-2.78.1.tar.bz2
 https://gitlab.gnome.org/GNOME/glib-networking/-/archive/2.80.0/glib-networking-2.80.0.tar.bz2
 https://gitlab.gnome.org/GNOME/glib-networking/-/archive/2.80.1/glib-networking-2.80.1.tar.bz2
+https://gitlab.gnome.org/GNOME/glib-networking/-/archive/2.90.0/glib-networking-2.90.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-font-viewer/-/archive/44.0/gnome-font-viewer-44.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-font-viewer/-/archive/45.0/gnome-font-viewer-45.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-font-viewer/-/archive/48.0/gnome-font-viewer-48.0.tar.bz2
