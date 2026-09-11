@@ -4811,6 +4811,7 @@ https://github.com/pg83/heirloom/archive/a47c4acf9fb43b89f9fb0afdcf9008121d50d80
 https://github.com/pg83/heirloom/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/jail/archive/7e71152ca3168f85e589e47198c994aadf7a8bc2.tar.gz
 https://github.com/pg83/mdns2dns/archive/refs/tags/v1.tar.gz
+https://github.com/pg83/mesh/archive/refs/tags/4.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/11.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/28.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/29.tar.gz
@@ -6892,6 +6893,7 @@ https://lttng.org/files/urcu/userspace-rcu-0.15.3.tar.bz2
 https://lttng.org/files/urcu/userspace-rcu-0.15.4.tar.bz2
 https://lttng.org/files/urcu/userspace-rcu-0.15.5.tar.bz2
 https://lttng.org/files/urcu/userspace-rcu-0.15.6.tar.bz2
+https://lttng.org/files/urcu/userspace-rcu-0.15.7.tar.bz2
 https://luajit.org/download/LuaJIT-2.0.5.tar.gz
 https://memcached.org/files/memcached-1.6.21.tar.gz
 https://memcached.org/files/memcached-1.6.22.tar.gz
