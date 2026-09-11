@@ -215,6 +215,7 @@ bin/bubble/wrap
 bin/minio
 bin/dropbear/2024
 bin/nebula
+bin/mesh
 bin/mcelog
 bin/iperf
 bin/iperf/3
