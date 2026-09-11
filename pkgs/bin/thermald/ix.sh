@@ -5,12 +5,12 @@ thermal_daemon
 {% endblock %}
 
 {% block version %}
-2.5.12
+2.5.13
 {% endblock %}
 
 {% block fetch %}
 https://github.com/intel/thermal_daemon/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-f0698f8295b1c4f57673462e7c3a970d0fc328d56d80c0b9ab35644f5dbb72a9
+5456f60aed52e9a14f88dde9b2e2875e5e3d0cc3d1e7bf742d7ea4b22ff6a995
 {% endblock %}
 
 {% block bld_libs %}
