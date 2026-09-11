@@ -1,0 +1,132 @@
+{
+  "index": 64,
+  "endpoint": [
+    {
+      "proto": "udp",
+      "addr": "0.0.0.0",
+      "port": 8057
+    }
+  ],
+  "subnet": "192.168.104.0/24",
+  "tun": "mesh0",
+  "status": "/var/run/mesh/status.sock",
+  "registry": [
+    {
+      "index": 1,
+      "intip": "192.168.104.16",
+      "endpoint": [
+        {
+          "proto": "udp",
+          "addr": "10.0.0.64",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.65",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.66",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.67",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "192.168.103.16",
+          "port": 8057
+        }
+      ],
+      "pub": "fIEU6CaoMQlNjxzqKZvvy3UEy7GrcFl/yxXVhFUzrVk=",
+      "sig": "lxKONVDA917InLcgvpNGqh7BhZTSHo3F7iegq+voc3E="
+    },
+    {
+      "index": 2,
+      "intip": "192.168.104.17",
+      "endpoint": [
+        {
+          "proto": "udp",
+          "addr": "10.0.0.68",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.69",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.70",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.71",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "192.168.103.17",
+          "port": 8057
+        }
+      ],
+      "pub": "4HnPclKjymY0gVkUJ1n+oAUZYrkDXNJ1gpUlEERXZSo=",
+      "sig": "OSKM0UXw9/yl8KK4lpVE6CY0XFxgnPE6Z56XrC6dZrE="
+    },
+    {
+      "index": 3,
+      "intip": "192.168.104.18",
+      "endpoint": [
+        {
+          "proto": "udp",
+          "addr": "10.0.0.72",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.73",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.74",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.75",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "192.168.103.18",
+          "port": 8057
+        }
+      ],
+      "pub": "izzaa9S0BKUeGtLbkFX8cjwd+DeCC/nNr/SB6zordBE=",
+      "sig": "t7Mpmnyz+JKw413E7T62/wCGK/5an2CkYhIA9JEiktk="
+    },
+    {
+      "index": 64,
+      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2LO6DTXKzm7TDERJPj64WemRc6rrcAzNelywzTdGjH pg@stalix",
+      "intip": "192.168.104.64",
+      "endpoint": []
+    },
+    {
+      "index": 65,
+      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOR+Eb+hIcvatbPs/OtGW6cqcHIhGx5vrrxOelsDti09 pg@SamokhvlovsMini",
+      "intip": "192.168.104.65",
+      "endpoint": []
+    },
+    {
+      "index": 66,
+      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJXSN89veSBcurZJq1gZGynE/uzCj5a5J/1oFVi+YnqO pg@pg-osx",
+      "intip": "192.168.104.66",
+      "endpoint": []
+    }
+  ]
+}
