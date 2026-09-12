@@ -1685,6 +1685,7 @@ https://github.com/Juniper/libxo/archive/refs/tags/1.6.0.tar.gz
 https://github.com/Juniper/libxo/archive/refs/tags/1.7.3.tar.gz
 https://github.com/Juniper/libxo/archive/refs/tags/1.7.5.tar.gz
 https://github.com/Juniper/libxo/archive/refs/tags/2.0.0.tar.gz
+https://github.com/Juniper/libxo/archive/refs/tags/2.1.0.tar.gz
 https://github.com/KDAB/KDSingleApplication/archive/refs/tags/v1.0.0.tar.gz
 https://github.com/KDAB/KDSingleApplication/archive/refs/tags/v1.1.0.tar.gz
 https://github.com/KDAB/KDSingleApplication/archive/refs/tags/v1.2.0.tar.gz
