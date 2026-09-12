@@ -211,7 +211,6 @@ bin/fire/jail
 bin/bubble/wrap
 bin/minio
 bin/dropbear/2024
-bin/nebula
 bin/mcelog
 bin/iperf
 bin/iperf/3
