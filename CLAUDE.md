@@ -192,7 +192,7 @@ change a refine block, you must re-derive the sha (set to zeros and rebuild).
 - **Build tools from bld/, not bin/** — `bld/bison`, `bld/perl`, not `bin/bison/3/8`. `bin/` may trigger full source builds.
 - **`bld/auto/archive`** — add to `bld_tool` when `configure.ac` uses `AX_*` macros.
 - **`pip/PyYAML`, `pip/Mako`** — for python build deps in `bld_libs` (see mesa).
-- **Go multi-binary repos** — use `t/` template + per-binary packages + hub (see `bin/nebula/`).
+- **Go multi-binary repos** — use `t/` template + per-binary packages + hub.
 - **`step_unpack` for cd** — `step_unpack` runs in `{}` (cd persists), `step_patch` in `()` (cd lost).
 - **Bypass cmake FindPackage** — `wrap_cc` provides paths; sed away `find_package()` and set vars directly.
 - **Grep error tokens in repo** — unknown type/header? grep the repo first — often there's an existing recipe.

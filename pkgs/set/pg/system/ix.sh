@@ -14,7 +14,6 @@ bin/kernel/7/0
 bin/kernel/7/1
 bin/btrfs/progs
 set/pg/system/hosts
-set/pg/system/nebula
 set/pg/system/mesh
 set/pg/system/thingd
 set/pg/system/initrd

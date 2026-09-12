@@ -7,13 +7,13 @@
       "port": 8057
     }
   ],
-  "subnet": "192.168.104.0/24",
+  "subnet": "192.168.100.0/24",
   "tun": "mesh0",
   "status": "/var/run/mesh/status.sock",
   "registry": [
     {
       "index": 1,
-      "intip": "192.168.104.16",
+      "intip": "192.168.100.16",
       "endpoint": [
         {
           "proto": "udp",
@@ -45,7 +45,7 @@
     },
     {
       "index": 2,
-      "intip": "192.168.104.17",
+      "intip": "192.168.100.17",
       "endpoint": [
         {
           "proto": "udp",
@@ -77,7 +77,7 @@
     },
     {
       "index": 3,
-      "intip": "192.168.104.18",
+      "intip": "192.168.100.18",
       "endpoint": [
         {
           "proto": "udp",
@@ -110,19 +110,19 @@
     {
       "index": 64,
       "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2LO6DTXKzm7TDERJPj64WemRc6rrcAzNelywzTdGjH pg@stalix",
-      "intip": "192.168.104.64",
+      "intip": "192.168.100.64",
       "endpoint": []
     },
     {
       "index": 65,
       "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOR+Eb+hIcvatbPs/OtGW6cqcHIhGx5vrrxOelsDti09 pg@SamokhvlovsMini",
-      "intip": "192.168.104.65",
+      "intip": "192.168.100.65",
       "endpoint": []
     },
     {
       "index": 66,
       "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJXSN89veSBcurZJq1gZGynE/uzCj5a5J/1oFVi+YnqO pg@pg-osx",
-      "intip": "192.168.104.66",
+      "intip": "192.168.100.66",
       "endpoint": []
     }
   ]

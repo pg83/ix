@@ -10,6 +10,9 @@ bin/runsrv
 {% endblock %}
 
 {% block srv_command %}
+if [ -d /sys/class/net/mesh0 ]; then
+    ip -f inet addr flush dev mesh0
+fi
 exec mesh run -c ${out}/etc/mesh/config.json -key-file /home/pg/.ssh/home.key
 {% endblock %}
 

@@ -5427,14 +5427,6 @@ https://github.com/skvadrik/re2c/archive/refs/tags/4.1.tar.gz
 https://github.com/skvadrik/re2c/archive/refs/tags/4.2.tar.gz
 https://github.com/skvadrik/re2c/archive/refs/tags/4.3.tar.gz
 https://github.com/skvadrik/re2c/archive/refs/tags/4.6.tar.gz
-https://github.com/slackhq/nebula/archive/refs/tags/v1.10.0.tar.gz
-https://github.com/slackhq/nebula/archive/refs/tags/v1.11.1.tar.gz
-https://github.com/slackhq/nebula/archive/refs/tags/v1.8.2.tar.gz
-https://github.com/slackhq/nebula/archive/refs/tags/v1.9.0.tar.gz
-https://github.com/slackhq/nebula/archive/refs/tags/v1.9.1.tar.gz
-https://github.com/slackhq/nebula/archive/refs/tags/v1.9.5.tar.gz
-https://github.com/slackhq/nebula/archive/refs/tags/v1.9.6.tar.gz
-https://github.com/slackhq/nebula/archive/refs/tags/v1.9.7.tar.gz
 https://github.com/smuellerDD/jitterentropy-library/archive/refs/tags/v3.4.1.tar.gz
 https://github.com/smuellerDD/jitterentropy-library/archive/refs/tags/v3.6.0.tar.gz
 https://github.com/smuellerDD/jitterentropy-library/archive/refs/tags/v3.6.1.tar.gz
