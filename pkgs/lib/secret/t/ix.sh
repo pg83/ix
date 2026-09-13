@@ -23,6 +23,10 @@ lib/gcrypt
 bld/glib
 {% endblock %}
 
+{% block cpp_missing %}
+fcntl.h
+{% endblock %}
+
 {% block patch %}
 # The installed library is static too; give the test archive a distinct name.
 sed -e "s|libsecret_static = static_library('secret-|libsecret_static = static_library('secret-test-|" -i libsecret/meson.build
