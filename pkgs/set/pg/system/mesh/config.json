@@ -43,7 +43,8 @@
           "proto": "udp",
           "addr": "192.168.103.16",
           "port": 8057
-        }
+        },
+        {"proto": "wss", "addr": "lab1.homelab.cam", "port": 443, "path": "/mesh"}
       ],
       "pub": "fIEU6CaoMQlNjxzqKZvvy3UEy7GrcFl/yxXVhFUzrVk=",
       "name": "lab1"
@@ -76,7 +77,8 @@
           "proto": "udp",
           "addr": "192.168.103.17",
           "port": 8057
-        }
+        },
+        {"proto": "wss", "addr": "lab2.homelab.cam", "port": 443, "path": "/mesh"}
       ],
       "pub": "4HnPclKjymY0gVkUJ1n+oAUZYrkDXNJ1gpUlEERXZSo=",
       "name": "lab2"
@@ -109,7 +111,8 @@
           "proto": "udp",
           "addr": "192.168.103.18",
           "port": 8057
-        }
+        },
+        {"proto": "wss", "addr": "lab3.homelab.cam", "port": 443, "path": "/mesh"}
       ],
       "pub": "izzaa9S0BKUeGtLbkFX8cjwd+DeCC/nNr/SB6zordBE=",
       "name": "lab3"
