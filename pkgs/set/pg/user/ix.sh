@@ -35,6 +35,7 @@ bin/strace
 bin/ollama
 bin/logcli
 bin/bash/5
+bin/shitty
 bin/glslang
 bin/im/play
 bin/openssl
