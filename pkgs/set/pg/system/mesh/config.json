@@ -9,7 +9,6 @@
   ],
   "subnet": "192.168.100.0/24",
   "tun": "mesh0",
-  "status": "/var/run/mesh/status.sock",
   "registry": [
     {
       "index": 1,
@@ -41,7 +40,8 @@
           "port": 8057
         }
       ],
-      "pub": "fIEU6CaoMQlNjxzqKZvvy3UEy7GrcFl/yxXVhFUzrVk="
+      "pub": "fIEU6CaoMQlNjxzqKZvvy3UEy7GrcFl/yxXVhFUzrVk=",
+      "name": "lab1"
     },
     {
       "index": 2,
@@ -73,7 +73,8 @@
           "port": 8057
         }
       ],
-      "pub": "4HnPclKjymY0gVkUJ1n+oAUZYrkDXNJ1gpUlEERXZSo="
+      "pub": "4HnPclKjymY0gVkUJ1n+oAUZYrkDXNJ1gpUlEERXZSo=",
+      "name": "lab2"
     },
     {
       "index": 3,
@@ -105,25 +106,30 @@
           "port": 8057
         }
       ],
-      "pub": "izzaa9S0BKUeGtLbkFX8cjwd+DeCC/nNr/SB6zordBE="
+      "pub": "izzaa9S0BKUeGtLbkFX8cjwd+DeCC/nNr/SB6zordBE=",
+      "name": "lab3"
     },
     {
       "index": 64,
       "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2LO6DTXKzm7TDERJPj64WemRc6rrcAzNelywzTdGjH pg@stalix",
       "intip": "192.168.100.64",
-      "endpoint": []
+      "endpoint": [],
+      "name": "home"
     },
     {
       "index": 65,
       "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOR+Eb+hIcvatbPs/OtGW6cqcHIhGx5vrrxOelsDti09 pg@SamokhvlovsMini",
       "intip": "192.168.100.65",
-      "endpoint": []
+      "endpoint": [],
+      "name": "mini"
     },
     {
       "index": 66,
       "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJXSN89veSBcurZJq1gZGynE/uzCj5a5J/1oFVi+YnqO pg@pg-osx",
       "intip": "192.168.100.66",
-      "endpoint": []
+      "endpoint": [],
+      "name": "work"
     }
-  ]
+  ],
+  "control": "127.0.0.1:8058"
 }
