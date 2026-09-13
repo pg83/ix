@@ -21,12 +21,10 @@ mkdir -p \${TMPDIR}
 chmod 01777 \${TMPDIR}
 
 exec /bin/dropbear \
-    -e -E -F -P pid    \
-    {{dropbear_flags}} \
-    -r /etc/keys/dss   \
-    -r /etc/keys/rsa   \
-    -r /etc/keys/ecdsa \
-    -r /etc/keys/ed25519
+{% for key in (dropbear_keys or '/etc/keys/dss /etc/keys/rsa /etc/keys/ecdsa /etc/keys/ed25519') | parse_list %}
+    -r {{key}} \
+{% endfor %}
+    -e -E -F -P pid {{dropbear_flags}}
 EOF
 
 chmod +x run script
