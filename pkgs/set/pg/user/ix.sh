@@ -25,7 +25,6 @@ bin/ninja
 bin/patch
 set/debug
 bin/wirez
-bin/imway
 bin/shitty
 bin/psmisc
 bin/evince
