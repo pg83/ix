@@ -10,8 +10,8 @@ set/pg/system/env
 
 {% block srv_command %}
 set -eu
+. /etc/profile
 export PATH=/ix/realm/pg/bin:/ix/realm/system/bin:/bin
-. /ix/realm/system/etc/profile.d/ix_package_cache.sh
 sleep 60
 cd /home/pg/{{'ix' if pg_host == 'note' else 'monorepo/ix'}}
 git pull --ff-only
