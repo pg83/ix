@@ -114,27 +114,7 @@
       "pub": "izzaa9S0BKUeGtLbkFX8cjwd+DeCC/nNr/SB6zordBE=",
       "name": "lab3"
     },
-    {
-      "index": 64,
-      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2LO6DTXKzm7TDERJPj64WemRc6rrcAzNelywzTdGjH pg@stalix",
-      "intip": "192.168.100.64",
-      "endpoint": [],
-      "name": "home"
-    },
-    {
-      "index": 65,
-      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOR+Eb+hIcvatbPs/OtGW6cqcHIhGx5vrrxOelsDti09 pg@SamokhvlovsMini",
-      "intip": "192.168.100.65",
-      "endpoint": [],
-      "name": "mini"
-    },
-    {
-      "index": 66,
-      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJXSN89veSBcurZJq1gZGynE/uzCj5a5J/1oFVi+YnqO pg@pg-osx",
-      "intip": "192.168.100.66",
-      "endpoint": [],
-      "name": "work"
-    },
+{% if pg_host == 'note' %}
     {
       "index": 67,
       "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEPQ2JSZXM6trgJoh93LxFrVML/6IK7EyJ2UYeh2Bf+w note",
@@ -142,6 +122,15 @@
       "endpoint": [],
       "name": "note"
     }
+{% else %}
+    {
+      "index": 64,
+      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2LO6DTXKzm7TDERJPj64WemRc6rrcAzNelywzTdGjH pg@stalix",
+      "intip": "192.168.100.64",
+      "endpoint": [],
+      "name": "home"
+    }
+{% endif %}
   ],
   "control": "127.0.0.1:8058"
 }
