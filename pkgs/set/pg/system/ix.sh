@@ -24,6 +24,6 @@ set/pg/system/thingd
 {% if pg_host != 'note' %}
 set/pg/system/initrd
 {% endif %}
-bin/dropbear/runit(dropbear_flags=-p 192.168.100.{{67 if pg_host == 'note' else 64}}:22{% if pg_host == 'note' %} -s,dropbear_keys=/home/pg/k{% endif %})
+bin/dropbear/runit(dropbear_flags=-p 192.168.100.{{67 if pg_host == 'note' else 64}}:22{% if pg_host == 'note' %} -s{% endif %})
 etc/user/0(hash={{pg_hash}},user=pg,pubkey={{self.pg_pubkey().strip()}},login_shell=/ix/realm/pg/bin/bash)
 {% endblock %}
