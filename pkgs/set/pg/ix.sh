@@ -5,11 +5,15 @@ alsa_device=hw:1
 dev_mngr=fs
 failsafe=1
 kernel_boot_flags=amd_pstate=passive
+{% if pg_host == 'note' %}
+hostname=note
+{% else %}
 fetcher_socks5_proxy=127.0.0.1:1082;127.0.0.1:1083
+initrd=1
+{% endif %}
 curses=netbsd
 intl_ver=no
 libc_lite=1
-initrd=1
 {% endblock %}
 
 {% block run_deps %}

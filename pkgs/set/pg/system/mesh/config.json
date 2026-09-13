@@ -1,5 +1,5 @@
 {
-  "index": 64,
+  "index": {{67 if pg_host == 'note' else 64}},
   "endpoint": [
     {
       "proto": "udp",
@@ -134,6 +134,13 @@
       "intip": "192.168.100.66",
       "endpoint": [],
       "name": "work"
+    },
+    {
+      "index": 67,
+      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEPQ2JSZXM6trgJoh93LxFrVML/6IK7EyJ2UYeh2Bf+w note",
+      "intip": "192.168.100.67",
+      "endpoint": [],
+      "name": "note"
     }
   ],
   "control": "127.0.0.1:8058"
