@@ -1,11 +1,11 @@
 {% extends '//die/go/build.sh' %}
 
 {% block go_url %}
-https://github.com/pg83/mesh/archive/refs/tags/14.tar.gz
+https://github.com/pg83/mesh/archive/refs/tags/15.tar.gz
 {% endblock %}
 
 {% block go_sha %}
-aa81477b9ac673a1af997ee359b964ce8d343fe5d95e9bec41bd58cd820ab07b
+41c372a0a476773d503e3c148bf456622bb8a5c99dd0c73b608a7f78671d0405
 {% endblock %}
 
 {% block go_bins %}
