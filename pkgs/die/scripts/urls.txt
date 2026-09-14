@@ -1550,6 +1550,7 @@ https://github.com/GNOME/gsettings-desktop-schemas/archive/refs/tags/48.0.tar.gz
 https://github.com/GNOME/gsettings-desktop-schemas/archive/refs/tags/49.0.tar.gz
 https://github.com/GNOME/gsettings-desktop-schemas/archive/refs/tags/49.1.tar.gz
 https://github.com/GNOME/gsettings-desktop-schemas/archive/refs/tags/50.1.tar.gz
+https://github.com/GNOME/gsettings-desktop-schemas/archive/refs/tags/51.0.tar.gz
 https://github.com/GNOME/gthumb/archive/refs/tags/3.12.2.tar.gz
 https://github.com/GNOME/gtk-doc/archive/refs/tags/1.34.0.tar.gz
 https://github.com/GNOME/gtk-doc/archive/refs/tags/1.35.1.tar.gz
