@@ -4820,6 +4820,7 @@ https://github.com/pg83/heirloom/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/jail/archive/7e71152ca3168f85e589e47198c994aadf7a8bc2.tar.gz
 https://github.com/pg83/mdns2dns/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/13.tar.gz
+https://github.com/pg83/mesh/archive/refs/tags/14.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/4.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/6.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/11.tar.gz
@@ -6498,6 +6499,7 @@ https://gitlab.gnome.org/GNOME/gnome-font-viewer/-/archive/50.0/gnome-font-viewe
 https://gitlab.gnome.org/GNOME/gnome-keyring/-/archive/46.1/gnome-keyring-46.1.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-keyring/-/archive/48.0/gnome-keyring-48.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-keyring/-/archive/50.0/gnome-keyring-50.0.tar.bz2
+https://gitlab.gnome.org/GNOME/gnome-keyring/-/archive/51.0/gnome-keyring-51.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-terminal/-/archive/3.50.1/gnome-terminal-3.50.1.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-terminal/-/archive/3.54.0/gnome-terminal-3.54.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-text-editor/-/archive/44.0/gnome-text-editor-44.0.tar.bz2
