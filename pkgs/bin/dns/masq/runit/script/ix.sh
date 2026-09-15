@@ -16,6 +16,7 @@ exec subreaper /bin/dnsmasq \
     --clear-on-reload \
     --keep-in-foreground \
     --server=/local/127.0.0.1#5354 \
+    --server=/mesh/192.168.100.0 \
     --pid-file= \
     --log-facility=/proc/self/fd/1 \
     --conf-file=/var/run/resolvconf/dnsmasq_conf.conf \

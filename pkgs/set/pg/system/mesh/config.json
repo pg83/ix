@@ -14,6 +14,7 @@
   ],
   "subnet": "192.168.100.0/24",
   "tun": "mesh0",
+  "dns": true,
   "registry": [
     {
       "index": 1,
