@@ -16,6 +16,7 @@ https://github.com/hyprwm/hyprtoolkit/archive/refs/tags/v{{self.version().strip(
 {% block lib_deps %}
 lib/c
 lib/c++
+lib/abseil/cpp
 lib/gbm
 lib/cairo
 lib/pango

@@ -4826,6 +4826,7 @@ https://github.com/pg83/mesh/archive/refs/tags/13.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/14.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/23.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/25.tar.gz
+https://github.com/pg83/mesh/archive/refs/tags/30.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/4.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/6.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/11.tar.gz
