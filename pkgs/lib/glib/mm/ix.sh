@@ -18,3 +18,15 @@ lib/c
 lib/glib
 lib/sigc++/2
 {% endblock %}
+
+{% block patch %}
+# GLib 2.90 declares these final-type class typedefs itself.
+sed -i \
+    -e 's|^using GDBusActionGroup =.*|#include <gio/gio.h>|' \
+    -e '/^using GDBusActionGroupClass =/d' \
+    untracked/gio/giomm/dbusactiongroup.h
+sed -i \
+    -e 's|^using GEmblem =.*|#include <gio/gio.h>|' \
+    -e '/^using GEmblemClass =/d' \
+    untracked/gio/giomm/emblem.h
+{% endblock %}
