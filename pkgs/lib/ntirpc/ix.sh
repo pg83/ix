@@ -35,6 +35,9 @@ USE_MONITORING=OFF
 {% endblock %}
 
 {% block patch %}
+sed -e '/^SET(monitoring_SRCS/i if(USE_MONITORING)' \
+    -e '/^add_executable(rpcping/i endif(USE_MONITORING)' \
+    -i tests/CMakeLists.txt
 sed -e 's|.*pthread_mutexattr_settype.*||' -i ntirpc/reentrant.h
 sed -e 's|__FreeBSD__|__linux__|' -i ntirpc/rpc/rpcent.h
 sed -e 's|bits/endian.h|endian.h|' -i src/xdr_float.c
