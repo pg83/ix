@@ -31,11 +31,6 @@ __uint16_t=uint16_t
 LC_MEASUREMENT=0
 {% endblock %}
 
-{% block patch %}
-sed -e 's|= is_temp.*|= false;|' \
-    -i nvme-print.c
-{% endblock %}
-
 {% block install %}
 {{super()}}
 cd ${out}
