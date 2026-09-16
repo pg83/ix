@@ -34,6 +34,7 @@ bld/auto/archive
 
 {% block autoreconf %}
 export NO_CONFIGURE=1
+sed -i 's/^enable_doc=no$/enable_doc=yes/' autogen.sh
 {{super()}}
 {% endblock %}
 
