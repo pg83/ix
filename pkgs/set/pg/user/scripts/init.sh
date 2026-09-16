@@ -15,4 +15,4 @@ eval $(ssh-agent)
 
 ssh-add ~/.ssh/*
 
-imway-session --mode "${1:-3840x2160@120}" --scale 2.5 --hdr 300 >& ~/slog
+imway-session --mode "${1:-3840x2160@120}" --scale 2.5 --hdr 300 "${@:2}" >& ~/slog
