@@ -7,7 +7,7 @@ failsafe=1
 kernel_boot_flags=amd_pstate=passive
 {% if pg_host == 'note' %}
 hostname=note
-vt_1_session=su pg -c /ix/realm/pg/bin/init
+vt_1_session=su pg /ix/realm/pg/bin/init 2880x1800@120
 {% else %}
 fetcher_socks5_proxy=127.0.0.1:1082;127.0.0.1:1083
 initrd=1

@@ -21,7 +21,6 @@ bin/btrfs/progs
 set/pg/system/hosts
 set/pg/system/mesh
 set/pg/system/thingd
-set/pg/system/update
 {% if pg_host != 'note' %}
 set/pg/system/initrd
 {% endif %}
