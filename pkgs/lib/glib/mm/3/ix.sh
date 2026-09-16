@@ -5,12 +5,12 @@ glibmm
 {% endblock %}
 
 {% block version %}
-2.88.1
+2.90.0
 {% endblock %}
 
 {% block fetch %}
 https://download.gnome.org/sources/glibmm/{{self.version()[:4]}}/glibmm-{{self.version().strip()}}.tar.xz
-c139f962b1575c8827cd39d1ac21b7a367be3bda1409c0c7e21a29090f371506
+e2efa45643f16b9fea2d6299f2f403d672eaeacddf0ff7f8094e1af9b0f5980b
 {% endblock %}
 
 {% block lib_deps %}

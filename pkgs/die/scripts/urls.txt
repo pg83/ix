@@ -590,6 +590,7 @@ https://download.gnome.org/sources/glibmm/2.82/glibmm-2.82.0.tar.xz
 https://download.gnome.org/sources/glibmm/2.84/glibmm-2.84.0.tar.xz
 https://download.gnome.org/sources/glibmm/2.86/glibmm-2.86.0.tar.xz
 https://download.gnome.org/sources/glibmm/2.88/glibmm-2.88.1.tar.xz
+https://download.gnome.org/sources/glibmm/2.90/glibmm-2.90.0.tar.xz
 https://download.gnome.org/sources/gtk+/3.24/gtk%2B-3.24.37.tar.xz
 https://download.gnome.org/sources/gtk+/3.24/gtk%2B-3.24.39.tar.xz
 https://download.gnome.org/sources/gtk+/3.24/gtk%2B-3.24.40.tar.xz
