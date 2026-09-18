@@ -12,6 +12,7 @@ bld/python
 bld/fetch
 bld/extract
 bld/pzd/ser
+aux/ca/bundle
 {{super()}}
 {% endblock %}
 
@@ -44,6 +45,7 @@ extract 1 ../net/*
 test -f nimble.lock
 cp nimble.lock ${tmp}/nimble.lock
 export NIMBLE_DIR=${PWD}/vendored
+export SSL_CERT_FILE=${CA_BUNDLE}
 nimble --accept --useSystemNim --disableNimBinaries --nimbleDir:${NIMBLE_DIR} \
     install --depsOnly --cc:clang --clang.exe:cc --clang.linkerexe:cc
 nimble --accept --offline --useSystemNim --disableNimBinaries --nimbleDir:${NIMBLE_DIR} setup
