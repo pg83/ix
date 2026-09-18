@@ -1,0 +1,9 @@
+--- a/src/views/about.nim
++++ b/src/views/about.nim
+@@ -6,3 +6,3 @@ const
+-  date = staticExec("git show -s --format=\"%cd\" --date=format:\"%Y.%m.%d\"")
+-  hash = staticExec("git show -s --format=\"%h\"")
+-  link = "https://github.com/zedeus/nitter/commit/" & hash
++  date = "2026.09.18"
++  hash = "6cbe0d3"
++  link = "https://github.com/pg83/nitter/commit/" & hash
