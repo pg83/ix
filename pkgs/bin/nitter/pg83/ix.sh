@@ -1,18 +1,18 @@
 {% extends '//die/nim/build.sh' %}
 
 {% block pkg_name %}nitter{% endblock %}
-{% block version %}2026.09.18-6cbe0d3{% endblock %}
+{% block version %}1{% endblock %}
 
 {% block nim_url %}
-https://github.com/pg83/nitter/archive/6cbe0d3e92c9ada415cfa13af6de7956742832ed.tar.gz
+https://github.com/pg83/nitter/archive/refs/tags/1.tar.gz
 {% endblock %}
 
 {% block nim_src_sha %}
-d31621b3b135fc9a0ef856a27affc3cbc29327ba9dd2eeebc8af1ec41894322f
+f0f4679a412b2afa8bb627e41d61ee61dd91b70eba097884fc5a5a3b3b6d5ff3
 {% endblock %}
 
 {% block nim_sha %}
-20022a6e9e9307c03b23a680f3b74fb5e863f637f274841fa40b47392793f726
+35c134f61fa5e47c1e571998d9477a83cddb1c1d2dc6e094bf7241db80e4dd72
 {% endblock %}
 
 {% block bld_libs %}

@@ -5,5 +5,5 @@
 -  hash = staticExec("git show -s --format=\"%h\"")
 -  link = "https://github.com/zedeus/nitter/commit/" & hash
 +  date = "2026.09.18"
-+  hash = "6cbe0d3"
++  hash = "7f96046"
 +  link = "https://github.com/pg83/nitter/commit/" & hash
