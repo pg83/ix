@@ -46,6 +46,13 @@ test -f nimble.lock
 cp nimble.lock ${tmp}/nimble.lock
 export NIMBLE_DIR=${PWD}/vendored
 export SSL_CERT_FILE=${CA_BUNDLE}
+export XDG_CONFIG_HOME=${tmp}/nimble-config
+mkdir -p ${XDG_CONFIG_HOME}/nimble
+cat << EOF > ${XDG_CONFIG_HOME}/nimble/nimble.ini
+[PackageList]
+name = "Official"
+url = "https://raw.githubusercontent.com/nim-lang/packages/master/packages.json"
+EOF
 nimble --accept --useSystemNim --disableNimBinaries --nimbleDir:${NIMBLE_DIR} \
     install --depsOnly --cc:clang --clang.exe:cc --clang.linkerexe:cc
 nimble --accept --offline --useSystemNim --disableNimBinaries --nimbleDir:${NIMBLE_DIR} setup
