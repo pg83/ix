@@ -1,7 +1,7 @@
 {% extends '//die/c/make.sh' %}
 
 {% block version %}
-2026c
+2026d
 {% endblock %}
 
 {% block pkg_name %}
@@ -10,7 +10,7 @@ tzdb
 
 {% block fetch %}
 https://data.iana.org/time-zones/releases/tzdb-{{self.version().strip()}}.tar.lz
-427a11b1c5f2ebccad18f11650221c4f0465b4f1bb7f44dd02ff192d2808d944
+aab9e59f7b2530b0f98079f7c8645f2cdf59a2cd8992ca0ddfbbec0ec83b65de
 {% endblock %}
 
 {% block bld_libs %}

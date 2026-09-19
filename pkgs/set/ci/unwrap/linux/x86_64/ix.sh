@@ -50,6 +50,10 @@
 #}
 
 {% block run_deps %}
+bin/nim
+bin/hare
+bin/chawan
+bin/moe/nim
 #bin/jdk/7
 bin/fastjar
 bin/ollama
@@ -100,6 +104,7 @@ bin/coreutils/9/6
 bin/inkscape
 bin/imway
 bin/shitty
+bin/solo
 bin/gdb/16
 bin/ddc/util
 bin/ya/final
@@ -209,7 +214,7 @@ bin/fire/jail
 bin/bubble/wrap
 bin/minio
 bin/dropbear/2024
-bin/nebula
+bin/mesh
 bin/mcelog
 bin/iperf
 bin/iperf/3
@@ -411,7 +416,6 @@ bin/dbus/runit/scripts
 bin/dbus
 bin/dbus/session
 bin/patch/elf
-bin/glibc
 bin/dwl
 bin/cctools
 bin/syslog/ng
@@ -916,6 +920,7 @@ bin/shadowsocks/go/2
 bin/shadowsocks/libev
 bin/task
 bin/assemble/ng
+bin/ix/fetcher
 bin/duf
 bin/lf
 bin/lazygit

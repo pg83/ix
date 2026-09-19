@@ -1,0 +1,141 @@
+--- a/cmd/hare/arch.ha
++++ b/cmd/hare/arch.ha
+@@ -7,14 +7,14 @@
+ // equal the values in config.mk
+-def AARCH64_AS = "as";
+-def AARCH64_CC = "cc";
+-def AARCH64_LD = "ld";
+-def RISCV64_AS = "as";
+-def RISCV64_CC = "cc";
+-def RISCV64_LD = "ld";
+-def X86_64_AS  = "as";
+-def X86_64_CC  = "cc";
+-def X86_64_LD  = "ld";
++def AARCH64_AS = "clang";
++def AARCH64_CC = "clang";
++def AARCH64_LD = "ld.lld";
++def RISCV64_AS = "clang";
++def RISCV64_CC = "clang";
++def RISCV64_LD = "ld.lld";
++def X86_64_AS  = "clang";
++def X86_64_CC  = "clang";
++def X86_64_LD  = "ld.lld";
+ 
+ // TODO: implement cross compiling to other kernels (e.g. linux => freebsd)
+ // TODO: sysroots
+ const arches: [_]build::arch = [
+--- a/cmd/hare/build/util.ha
++++ b/cmd/hare/build/util.ha
+@@ -8,6 +8,7 @@
+ use hare::ast;
+ use hare::unparse;
+ use hash;
++use io;
+ use memio;
+ use os;
+ use path;
+@@ -83,6 +84,11 @@
+ 		append(flags, strings::dup(ctx.arch.qbe_name)!)!;
+ 		return flags;
+ 	case stage::O =>
++		append(flags, strings::dup("-c")!)!;
++		append(flags, strings::dup("-x")!)!;
++		append(flags, strings::dup("assembler")!)!;
++		append(flags, fmt::asprintf("--target={}-unknown-linux",
++				ctx.arch.name)!)!;
+ 		return flags;
+ 	case stage::BIN =>
+ 		for (let libdir .. ctx.libdirs) {
+@@ -243,8 +249,25 @@
+ 		append(args, get_cache(ctx, t.idx, stage::SSA)!)!;
+ 		yield [];
+ 	case stage::O =>
+-		append(args, get_cache(ctx, t.idx, stage::S)!)!;
+-		yield ctx.mods[t.idx].srcs.s;
++		// Clang assembles one input per object; GNU as accepts many.
++		// Preserve Hare's single assembly unit, including local labels.
++		let assembly = strings::concat(tmp, ".s")!;
++		let out = os::create(assembly, 0o644)!;
++		let generated = get_cache(ctx, t.idx, stage::S)!;
++		let inputs: []str = [];
++		append(inputs, generated)!;
++		append(inputs, ctx.mods[t.idx].srcs.s...)!;
++		for (let input .. inputs) {
++			let src = os::open(input)!;
++			io::copy(out, src)!;
++			io::close(src)!;
++			fmt::fprintln(out)!;
++		};
++		free(inputs);
++		free(generated);
++		io::close(out)!;
++		append(args, assembly)!;
++		yield [];
+ 	case stage::BIN =>
+ 		for (let i = 0z; i < len(ctx.mods); i += 1) {
+ 			let srcs = ctx.mods[i].srcs;
+--- a/cmd/hare/build/queue.ha
++++ b/cmd/hare/build/queue.ha
+@@ -143,3 +143,0 @@
+-	let args = get_args(ctx, tmp, flags, t);
+-	defer strings::freeall(args);
+-
+@@ -157,6 +154,9 @@
+ 		return true;
+ 	};
+ 
++	let args = get_args(ctx, tmp, flags, t);
++	defer strings::freeall(args);
++
+ 	switch (ctx.mode) {
+ 	case output::DEFAULT, output::SILENT => void;
+ 	case output::VERBOSE =>
+@@ -264,6 +264,11 @@
+ 	let tmp = strings::concat(out, ".tmp")!;
+ 	defer free(tmp);
+ 	os::rename(tmp, out)?;
++	if (t.kind == stage::O) {
++		let assembly = strings::concat(tmp, ".s")!;
++		defer free(assembly);
++		os::remove(assembly)?;
++	};
+ };
+ 
+ fn cleanup_ssa_task(ctx: *context, t: *task, out: str) (void | error) = {
+--- a/rt/+linux/hare.sc
++++ b/rt/+linux/hare.sc
+@@ -10,7 +10,9 @@
+ 		KEEP (*(.text))
+ 		*(.text.*)
+ 	} :text
+-	. = 0x80000000;
++	/* QBE's rv64 backend uses signed 32-bit absolute addresses.
++	 * Keep data below 2 GiB, as required by LLVM's R_RISCV_HI20. */
++	. = 0x40000000;
+ 	.data : {
+ 		KEEP (*(.data))
+ 		*(.data.*)
+--- a/makefiles/linux.x86_64.mk
++++ b/makefiles/linux.x86_64.mk
+@@ -14,3 +14,4 @@
+ $(HARECACHE)/rt.o: $(rt_s)
+ 	@printf 'AS\t%s\n' "$@"
+-	@$(AS) $(ASFLAGS) -o $@ $(rt_s)
++	@cat $(rt_s) > $(HARECACHE)/rt-combined.s
++	@$(AS) $(ASFLAGS) -o $@ $(HARECACHE)/rt-combined.s
+--- a/makefiles/linux.aarch64.mk
++++ b/makefiles/linux.aarch64.mk
+@@ -14,3 +14,4 @@
+ $(HARECACHE)/rt.o: $(rt_s)
+ 	@printf 'AS\t%s\n' "$@"
+-	@$(AS) $(ASFLAGS) -o $@ $(rt_s)
++	@cat $(rt_s) > $(HARECACHE)/rt-combined.s
++	@$(AS) $(ASFLAGS) -o $@ $(HARECACHE)/rt-combined.s
+--- a/makefiles/linux.riscv64.mk
++++ b/makefiles/linux.riscv64.mk
+@@ -14,3 +14,4 @@
+ $(HARECACHE)/rt.o: $(rt_s)
+ 	@printf 'AS\t%s\n' "$@"
+-	@$(AS) $(ASFLAGS) -o $@ $(rt_s)
++	@cat $(rt_s) > $(HARECACHE)/rt-combined.s
++	@$(AS) $(ASFLAGS) -o $@ $(HARECACHE)/rt-combined.s

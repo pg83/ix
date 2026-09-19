@@ -5,12 +5,12 @@ libpaper
 {% endblock %}
 
 {% block version %}
-2.2.8
+2.3.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/rrthomas/libpaper/releases/download/v{{self.version().strip()}}/libpaper-{{self.version().strip()}}.tar.gz
-1e330571690191874eca415ec76889dd11bab9887a2302d6a3665cd081c4d77b
+882b1c7636052fc9a318caa20292b35616b588824b70e7053018262b29b1409a
 {% endblock %}
 
 {% block conf_ver %}

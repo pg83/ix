@@ -4,7 +4,7 @@
 {% if not isfile('/bin/fetcher') %}
 bin/curl
 bld/python
-bin/ix/fetcher/scripts
+bld/fetch/bootstrap
 {% endif %}
 bld/fetch/scripts
 {% endblock %}

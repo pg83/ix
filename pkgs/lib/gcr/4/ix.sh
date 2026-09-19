@@ -5,12 +5,12 @@ gcr
 {% endblock %}
 
 {% block version %}
-4.4.0.1
+4.4.1
 {% endblock %}
 
 {% block fetch %}
 https://gitlab.gnome.org/GNOME/gcr/-/archive/{{self.version().strip()}}/gcr-{{self.version().strip()}}.tar.bz2
-886b7d1614b3fe109169d1ea20234fbc262eff2b36eb787fc0d2bf77cc368bc7
+e43a0302209dcac2a394590e9487c7acd49de1ddd8a17014a08fb989d0827e5d
 {% endblock %}
 
 {% block lib_deps %}

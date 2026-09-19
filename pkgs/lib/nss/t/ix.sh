@@ -57,4 +57,5 @@ cp -R ../dist/Debug/* ${out}/
 {% block patch %}
 sed -e 's|SECKEY_PQGParamsTemplate|SECKEY_PQGParamsTemplate_xxx|' -i cmd/certutil/keystuff.c
 sed -e 's|CERT_OidSeqTemplate|CERT_OidSeqTemplate_xxx|' -i cmd/certutil/certext.c
+sed -e 's|"$obj_dir/lib/pkgconfig/nspr.pc" 2>/dev/null)|"$obj_dir/lib/pkgconfig/nspr.pc" 2>/dev/null \|\| true)|' -i build.sh
 {% endblock %}

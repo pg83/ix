@@ -5,12 +5,12 @@ libcpuid
 {% endblock %}
 
 {% block version %}
-0.8.1
+0.8.2
 {% endblock %}
 
 {% block fetch %}
 https://github.com/anrieff/libcpuid/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-81f2f40da5d66b8220476e116cb40bca4e6a62c0d22bdeeb8e3856cf14607007
+f23e212e22ca22942cca87b18decdbce8a76d2b004c344a0789d0d26d14930d6
 {% endblock %}
 
 {% block lib_deps %}

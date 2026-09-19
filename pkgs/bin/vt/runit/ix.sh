@@ -7,5 +7,5 @@ bin/subreaper
 {% if enclave %}
 bin/ix/enclave
 {% endif %}
-bin/vt/runit/scripts(slot={{vt_slot}})
+bin/vt/runit/scripts(slot={{vt_slot}},session={{vt_session}})
 {% endblock %}

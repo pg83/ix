@@ -18,7 +18,7 @@ exec \
 {% else %}
     subreaper \
 {% endif %}
-    setsid openvt -c {{slot}} -f -e -- /bin/sh -c 'reset; clear; exec login -p'
+    setsid openvt -c {{slot}} -f -e -- /bin/sh -c 'reset; clear; exec {{session or 'login -p'}}'
 EOF
 
 cat << EOF > run

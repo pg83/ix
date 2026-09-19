@@ -1,0 +1,140 @@
+{
+  "index": {{67 if pg_host == 'note' else 64}},
+  "endpoint": [
+    {
+      "proto": "udp",
+      "addr": "0.0.0.0",
+      "port": 8057
+    },
+    {
+      "proto": "udp",
+      "addr": "::",
+      "port": 8057
+    }
+  ],
+  "subnet": "192.168.100.0/24",
+  "tun": "mesh0",
+  "dns": true,
+  "registry": [
+    {
+      "index": 1,
+      "intip": "192.168.100.16",
+      "endpoint": [
+        {
+          "proto": "udp",
+          "addr": "10.0.0.64",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.65",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.66",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.67",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "192.168.103.16",
+          "port": 8057
+        },
+        {"proto": "wss", "addr": "lab1.homelab.cam", "port": 443, "path": "/mesh"}
+      ],
+      "pub": "fIEU6CaoMQlNjxzqKZvvy3UEy7GrcFl/yxXVhFUzrVk=",
+      "name": "lab1"
+    },
+    {
+      "index": 2,
+      "intip": "192.168.100.17",
+      "endpoint": [
+        {
+          "proto": "udp",
+          "addr": "10.0.0.68",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.69",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.70",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.71",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "192.168.103.17",
+          "port": 8057
+        },
+        {"proto": "wss", "addr": "lab2.homelab.cam", "port": 443, "path": "/mesh"}
+      ],
+      "pub": "4HnPclKjymY0gVkUJ1n+oAUZYrkDXNJ1gpUlEERXZSo=",
+      "name": "lab2"
+    },
+    {
+      "index": 3,
+      "intip": "192.168.100.18",
+      "endpoint": [
+        {
+          "proto": "udp",
+          "addr": "10.0.0.72",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.73",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.74",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "10.0.0.75",
+          "port": 8057
+        },
+        {
+          "proto": "udp",
+          "addr": "192.168.103.18",
+          "port": 8057
+        },
+        {"proto": "wss", "addr": "lab3.homelab.cam", "port": 443, "path": "/mesh"}
+      ],
+      "pub": "izzaa9S0BKUeGtLbkFX8cjwd+DeCC/nNr/SB6zordBE=",
+      "name": "lab3"
+    },
+{% if pg_host == 'note' %}
+    {
+      "index": 67,
+      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEPQ2JSZXM6trgJoh93LxFrVML/6IK7EyJ2UYeh2Bf+w note",
+      "intip": "192.168.100.67",
+      "endpoint": [],
+      "name": "note"
+    }
+{% else %}
+    {
+      "index": 64,
+      "pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2LO6DTXKzm7TDERJPj64WemRc6rrcAzNelywzTdGjH pg@stalix",
+      "intip": "192.168.100.64",
+      "endpoint": [],
+      "name": "home"
+    }
+{% endif %}
+  ],
+  "control": "127.0.0.1:8058"
+}

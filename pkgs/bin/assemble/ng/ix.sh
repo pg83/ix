@@ -5,13 +5,19 @@ bin/go/lang/25
 {% endblock %}
 
 {% block go_url %}
-https://github.com/pg83/assemble/archive/refs/tags/3.tar.gz
+https://github.com/pg83/assemble/archive/refs/tags/9.tar.gz
 {% endblock %}
 
 {% block go_sha %}
-1f19984d4a774ee364144b48e82a7cddf362085be0c6773621c0c904dc02e90a
+5b2b0a55ad967901d3614079f43754b7822d9cbc5c237b47d6588a78bcb4e46a
 {% endblock %}
 
 {% block go_bins %}
 assemble
+{% endblock %}
+
+{% block step_setup %}
+{{super()}}
+export CGO_ENABLED=0
+export GO_EXTLINK_ENABLED=0
 {% endblock %}

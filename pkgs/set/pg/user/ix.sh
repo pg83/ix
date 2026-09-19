@@ -25,7 +25,6 @@ bin/ninja
 bin/patch
 set/debug
 bin/wirez
-bin/imway
 bin/shitty
 bin/psmisc
 bin/evince
@@ -36,6 +35,7 @@ bin/strace
 bin/ollama
 bin/logcli
 bin/bash/5
+bin/shitty
 bin/glslang
 bin/im/play
 bin/openssl
@@ -63,6 +63,7 @@ bin/pkg/config
 bin/codex/wrap
 bin/fontconfig
 bin/quake/1/vk
+bin/cloudflared
 bin/grep/patched
 bin/grep/scripts
 set/box/gnu/tools

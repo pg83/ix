@@ -8,16 +8,22 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDGZ3aEKhxpG9JHG3uso/gUuUKe9NzHOXKAenZIDiDq
 etc/tmpfs
 set/stalix
 set/pg/system/env
+{% if pg_host != 'note' %}
 set/pg/vpn
+{% endif %}
 bin/thingd
-set/pg/secrets
 bin/kernel/7/0
 bin/kernel/7/1
+{% if pg_host == 'note' %}
+bin/kernel/6/16
+{% endif %}
 bin/btrfs/progs
 set/pg/system/hosts
-set/pg/system/nebula
+set/pg/system/mesh
 set/pg/system/thingd
+{% if pg_host != 'note' %}
 set/pg/system/initrd
-bin/dropbear/runit(dropbear_flags=-p 0.0.0.0:22)
+{% endif %}
+bin/dropbear/runit(dropbear_flags=-p 192.168.100.{{67 if pg_host == 'note' else 64}}:22{% if pg_host == 'note' %} -s{% endif %})
 etc/user/0(hash={{pg_hash}},user=pg,pubkey={{self.pg_pubkey().strip()}},login_shell=/ix/realm/pg/bin/bash)
 {% endblock %}

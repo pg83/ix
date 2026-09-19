@@ -1,6 +1,11 @@
 {% extends '//die/hub.sh' %}
 
 {% block run_deps %}
+bin/ix/fetcher
+bin/nim
+bin/hare
+bin/chawan
+bin/moe/nim
 bin/iwd
 bin/gdb
 bin/git

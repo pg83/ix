@@ -9,7 +9,7 @@ musl
 {% endblock %}
 
 {% block fetch %}
-http://musl.libc.org/releases/musl-{{self.version().strip()}}.tar.gz
+https://musl.libc.org/releases/musl-{{self.version().strip()}}.tar.gz
 7a35eae33d5372a7c0da1188de798726f68825513b7ae3ebe97aaaa52114f039
 {% endblock %}
 

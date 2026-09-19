@@ -5,7 +5,7 @@ syncthing
 {% endblock %}
 
 {% block version %}
-2.1.3
+2.1.5
 {% endblock %}
 
 {% block go_url %}
@@ -13,7 +13,7 @@ https://github.com/syncthing/syncthing/releases/download/v{{self.version().strip
 {% endblock %}
 
 {% block go_sha %}
-5ce5143a392878077e9495758a14450dc8716221597fe8b0bfe873cbc16d5cb4
+d9e87148d1638125d66ae7156405e04d8539de4e1cb21494aae090040ebf7558
 {% endblock %}
 
 {% block unpack %}

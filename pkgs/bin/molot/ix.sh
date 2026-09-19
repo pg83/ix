@@ -5,11 +5,11 @@ bin/go/lang/25
 {% endblock %}
 
 {% block go_url %}
-https://github.com/pg83/molot/archive/refs/tags/29.tar.gz
+https://github.com/pg83/molot/archive/refs/tags/40.tar.gz
 {% endblock %}
 
 {% block go_sha %}
-a970ccbd8ddc8abccf2239c743915ce3941f3f964a2857d6ed4ac217a31d465f
+5558c10102cb9b07a75e41a9863ec4a0aed7f6ad19c11d0cee8f55ca17ee52dc
 {% endblock %}
 
 {% block go_bins %}

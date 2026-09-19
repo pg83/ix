@@ -92,4 +92,8 @@ class Ops:
         return '/ix/realm/boot/bin:/bin:/usr/bin:/usr/local/bin'
 
     def flags(self):
-        return cops.flags_from_env()
+        result = cops.flags_from_env()
+        # Stalix runtime paths are independent of executor sandboxing.
+        result.setdefault('stalix', '1')
+
+        return result

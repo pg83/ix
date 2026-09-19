@@ -5,12 +5,12 @@ xz
 {% endblock %}
 
 {% block version %}
-5.8.3
+5.8.4
 {% endblock %}
 
 {% block fetch %}
 https://github.com/tukaani-project/xz/releases/download/v{{self.version().strip()}}/xz-{{self.version().strip()}}.tar.gz
-3d3a1b973af218114f4f889bbaa2f4c037deaae0c8e815eec381c3d546b974a0
+0014c7886930454fe8bd4228665b51af55eeae560ea135c9c4cd33f55b2591d9
 {% endblock %}
 
 {% block lib_deps %}

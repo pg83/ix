@@ -5,12 +5,12 @@ swig
 {% endblock %}
 
 {% block version %}
-4.5.0
+4.5.1
 {% endblock %}
 
 {% block fetch %}
 http://prdownloads.sourceforge.net/swig/swig-{{self.version().strip()}}.tar.gz
-22ae0e887f8cca8031a325c67d005207653200b40e71edb3f88780e28e47d0ff
+7fec50b27deddab5455a9633780b6341eddfb96215a7619e93a76eb27178f653
 {% endblock %}
 
 {% block bld_libs %}

@@ -1699,7 +1699,7 @@ to `bld_tool`.
 
 ### Go packages with multiple binaries
 
-Use the `t/` template pattern (see `bin/nebula/` for reference):
+Use the `t/` template pattern shown below:
 
 ```
 bin/foo/t/ix.sh      # shared template: go_url, go_sha, go_tool
