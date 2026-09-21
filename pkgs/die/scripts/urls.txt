@@ -492,6 +492,7 @@ https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.114.tar.gz
 https://dbus.freedesktop.org/releases/dbus/dbus-1.14.10.tar.xz
 https://dbus.freedesktop.org/releases/dbus/dbus-1.16.0.tar.xz
 https://dbus.freedesktop.org/releases/dbus/dbus-1.16.2.tar.xz
+https://deb.debian.org/debian/pool/main/t/tor/tor_0.4.9.12.orig.tar.gz
 https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.7.tar.xz
 https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.8.tar.xz
 https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.9.tar.xz
@@ -1047,6 +1048,9 @@ https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz
 https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
 https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.20.0.tar.gz
 https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.21.0.tar.gz
+https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.gz
+https://ftp.gnu.org/gnu/libtool/libtool-2.4.7.tar.gz
+https://ftp.gnu.org/gnu/libtool/libtool-2.6.2.tar.gz
 https://ftp.gnu.org/gnu/libunistring/libunistring-1.1.tar.xz
 https://ftp.gnu.org/gnu/libunistring/libunistring-1.2.tar.xz
 https://ftp.gnu.org/gnu/libunistring/libunistring-1.3.tar.xz
@@ -7720,4 +7724,3 @@ https://www.x.org/releases/individual/proto/xorgproto-2024.1.tar.xz
 https://www.x.org/releases/individual/proto/xorgproto-2025.1.tar.xz
 https://www.zsh.org/pub/zsh-5.9.2.tar.xz
 https://www.zsh.org/pub/zsh-5.9.tar.xz
-

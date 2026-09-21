@@ -9,7 +9,7 @@ tor
 {% endblock %}
 
 {% block fetch %}
-https://dist.torproject.org/tor-{{self.version().strip()}}.tar.gz
+https://deb.debian.org/debian/pool/main/t/tor/tor_{{self.version().strip()}}.orig.tar.gz
 c0d307c9dcdaee4848a8ca53e9d6c4ec92823e4f30be12790b0fbddfc6515f5b
 {% endblock %}
 
