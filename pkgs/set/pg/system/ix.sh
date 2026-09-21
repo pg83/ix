@@ -19,6 +19,7 @@ bin/kernel/6/16
 {% endif %}
 bin/btrfs/progs
 set/pg/system/hosts
+set/pg/system/certs
 set/pg/system/mesh
 set/pg/system/thingd
 {% if pg_host != 'note' %}
