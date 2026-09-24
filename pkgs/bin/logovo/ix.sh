@@ -5,11 +5,11 @@ bin/go/lang/25
 {% endblock %}
 
 {% block go_url %}
-https://github.com/pg83/logovo/archive/refs/tags/1.tar.gz
+https://github.com/pg83/logovo/archive/refs/tags/2.tar.gz
 {% endblock %}
 
 {% block go_sha %}
-2f1122382946b72fe98ffd3438310309064d5677c8f7df91d7cd42f8872992bd
+b77c493e76cd4018a22c917829c68e736cdda1e35b8e7821266d9ec020f46cac
 {% endblock %}
 
 {% block go_bins %}
