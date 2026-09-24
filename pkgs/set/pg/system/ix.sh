@@ -22,6 +22,7 @@ set/pg/system/hosts
 set/pg/system/certs
 set/pg/system/mesh
 set/pg/system/thingd
+set/pg/system/logovo
 {% if pg_host != 'note' %}
 set/pg/system/initrd
 {% endif %}
