@@ -24,9 +24,11 @@ lib/linux/util
 --without-selinux
 {% endblock %}
 
-{# mount.nilfs2, umount.nilfs2, mkfs.nilfs2 and nilfs_cleanerd are hardwired to /sbin #}
+{# mount.nilfs2, umount.nilfs2, mkfs.nilfs2 and nilfs_cleanerd are hardwired to
+   /sbin, and nilfs_cleanerd.conf to /etc; both must land in the package #}
 {% block make_flags %}
 root_sbindir=${out}/sbin
+sysconfdir=${out}/etc
 {% endblock %}
 
 {% block install %}
