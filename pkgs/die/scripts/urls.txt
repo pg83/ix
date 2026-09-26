@@ -292,6 +292,7 @@ https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.8.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.16.10.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.16.11.tar.xz
+https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.16.12.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.16.7.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.16.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.17.1.tar.xz
@@ -2645,6 +2646,7 @@ https://github.com/cli/cli/archive/refs/tags/v2.83.1.tar.gz
 https://github.com/cli/cli/archive/refs/tags/v2.83.2.tar.gz
 https://github.com/cli/cli/archive/refs/tags/v2.99.0.tar.gz
 https://github.com/cloudflare/cloudflared/archive/refs/tags/2026.8.3.tar.gz
+https://github.com/cloudlena/s3manager/archive/refs/tags/v0.10.0.tar.gz
 https://github.com/cmatsuoka/figlet/archive/refs/tags/2.2.5.tar.gz
 https://github.com/commonmark/cmark/archive/refs/tags/0.30.3.tar.gz
 https://github.com/commonmark/cmark/archive/refs/tags/0.31.1.tar.gz
@@ -4752,6 +4754,8 @@ https://github.com/openai/codex/releases/download/rust-v0.153.4/codex-code-mode-
 https://github.com/openai/codex/releases/download/rust-v0.153.4/codex-x86_64-unknown-linux-musl.tar.gz
 https://github.com/openai/codex/releases/download/rust-v0.154.0/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz
 https://github.com/openai/codex/releases/download/rust-v0.154.0/codex-x86_64-unknown-linux-musl.tar.gz
+https://github.com/openai/codex/releases/download/rust-v0.155.1/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz
+https://github.com/openai/codex/releases/download/rust-v0.155.1/codex-x86_64-unknown-linux-musl.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.10.0.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz
 https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz
@@ -4800,6 +4804,7 @@ https://github.com/pciutils/pciutils/archive/refs/tags/v3.10.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.13.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.14.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.15.0.tar.gz
+https://github.com/pg83/assemble/archive/refs/tags/11.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/2.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/3.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/5.tar.gz
@@ -4823,15 +4828,18 @@ https://github.com/pg83/gorn/archive/c8358d7243ecf1f37febb28af7eeb408b1603f54.ta
 https://github.com/pg83/gorn/archive/refs/tags/26.tar.gz
 https://github.com/pg83/gorn/archive/refs/tags/28.tar.gz
 https://github.com/pg83/gorn/archive/refs/tags/31.tar.gz
+https://github.com/pg83/gorn/archive/refs/tags/37.tar.gz
 https://github.com/pg83/heirloom/archive/a47c4acf9fb43b89f9fb0afdcf9008121d50d806.zip
 https://github.com/pg83/heirloom/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/jail/archive/7e71152ca3168f85e589e47198c994aadf7a8bc2.tar.gz
+https://github.com/pg83/logovo/archive/refs/tags/7.tar.gz
 https://github.com/pg83/mdns2dns/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/13.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/14.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/23.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/25.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/30.tar.gz
+https://github.com/pg83/mesh/archive/refs/tags/33.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/4.tar.gz
 https://github.com/pg83/mesh/archive/refs/tags/6.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/11.tar.gz
@@ -4842,9 +4850,12 @@ https://github.com/pg83/molot/archive/refs/tags/33.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/34.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/35.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/36.tar.gz
+https://github.com/pg83/molot/archive/refs/tags/42.tar.gz
+https://github.com/pg83/nitter/archive/refs/tags/1.tar.gz
 https://github.com/pg83/ogorod/archive/ec846d0beb5a54296e6691a5a97ea3838f9e550b.tar.gz
 https://github.com/pg83/portal/archive/6b4069b1d1ed82c4d8a4b64054bf7fa719ead62e.zip
 https://github.com/pg83/portal/archive/refs/tags/1.tar.gz
+https://github.com/pg83/s3/archive/refs/tags/26.tar.gz
 https://github.com/pg83/samogon/archive/refs/tags/7.tar.gz
 https://github.com/pg83/sbase/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/shutil/archive/refs/tags/v1.tar.gz
@@ -7693,6 +7704,7 @@ https://www.sqlite.org/2025/sqlite-autoconf-3500200.tar.gz
 https://www.sqlite.org/2025/sqlite-autoconf-3500300.tar.gz
 https://www.sqlite.org/2025/sqlite-autoconf-3500400.tar.gz
 https://www.sqlite.org/2025/sqlite-autoconf-3510000.tar.gz
+https://www.stunnel.org/downloads/archive/5.x/stunnel-5.82.tar.gz
 https://www.stunnel.org/downloads/stunnel-5.70.tar.gz
 https://www.stunnel.org/downloads/stunnel-5.71.tar.gz
 https://www.stunnel.org/downloads/stunnel-5.72.tar.gz
@@ -7724,3 +7736,4 @@ https://www.x.org/releases/individual/proto/xorgproto-2024.1.tar.xz
 https://www.x.org/releases/individual/proto/xorgproto-2025.1.tar.xz
 https://www.zsh.org/pub/zsh-5.9.2.tar.xz
 https://www.zsh.org/pub/zsh-5.9.tar.xz
+
