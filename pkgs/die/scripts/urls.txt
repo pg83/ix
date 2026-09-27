@@ -7447,6 +7447,7 @@ https://www.crufty.net/ftp/pub/sjg/bmake-20250804.tar.gz
 https://www.crufty.net/ftp/pub/sjg/bmake-20251111.tar.gz
 https://www.crufty.net/ftp/pub/sjg/bmake-20260714.tar.gz
 https://www.crufty.net/ftp/pub/sjg/bmake-20260824.tar.gz
+https://www.crufty.net/ftp/pub/sjg/bmake-20260912.tar.gz
 https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz
 https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p18.tar.gz
 https://www.freedesktop.org/software/colord/releases/colord-1.4.6.tar.xz
