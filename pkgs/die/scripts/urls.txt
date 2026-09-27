@@ -607,6 +607,7 @@ https://download.gnome.org/sources/gtkmm/4.16/gtkmm-4.16.0.tar.xz
 https://download.gnome.org/sources/gtkmm/4.18/gtkmm-4.18.0.tar.xz
 https://download.gnome.org/sources/gtkmm/4.20/gtkmm-4.20.0.tar.xz
 https://download.gnome.org/sources/gtkmm/4.22/gtkmm-4.22.0.tar.xz
+https://download.gnome.org/sources/gtkmm/4.24/gtkmm-4.24.0.tar.xz
 https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.2.tar.xz
 https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.3.tar.xz
 https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.6.tar.xz
