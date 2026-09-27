@@ -6583,6 +6583,7 @@ https://gitlab.gnome.org/GNOME/gspell/-/archive/1.14.0/gspell-1.14.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gspell/-/archive/1.14.1/gspell-1.14.1.tar.bz2
 https://gitlab.gnome.org/GNOME/gspell/-/archive/1.14.2/gspell-1.14.2.tar.bz2
 https://gitlab.gnome.org/GNOME/gspell/-/archive/1.14.4/gspell-1.14.4.tar.bz2
+https://gitlab.gnome.org/GNOME/gspell/-/archive/1.14.5/gspell-1.14.5.tar.bz2
 https://gitlab.gnome.org/GNOME/gtk/-/archive/3.24.49/gtk-3.24.49.tar.bz2
 https://gitlab.gnome.org/GNOME/gtk/-/archive/4.12.1/gtk-4.12.1.tar.bz2
 https://gitlab.gnome.org/GNOME/gtk/-/archive/4.12.2/gtk-4.12.2.tar.bz2
