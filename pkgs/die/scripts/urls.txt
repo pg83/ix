@@ -445,6 +445,7 @@ https://codeberg.org/forgejo/forgejo/archive/v13.0.3.tar.gz
 https://codeberg.org/forgejo/forgejo/archive/v14.0.2.tar.gz
 https://codeberg.org/forgejo/forgejo/archive/v16.0.3.tar.gz
 https://codeberg.org/forgejo/forgejo/archive/v16.0.4.tar.gz
+https://codeberg.org/forgejo/forgejo/archive/v16.0.5.tar.gz
 https://codeberg.org/forgejo/forgejo/archive/v9.0.1.tar.gz
 https://codeberg.org/grisha/gumbo-parser/archive/0.12.0.tar.gz
 https://codeberg.org/grisha/gumbo-parser/archive/0.12.1.tar.gz
