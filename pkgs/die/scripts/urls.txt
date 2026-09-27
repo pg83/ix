@@ -2655,6 +2655,7 @@ https://github.com/commonmark/cmark/archive/refs/tags/0.30.3.tar.gz
 https://github.com/commonmark/cmark/archive/refs/tags/0.31.1.tar.gz
 https://github.com/commonmark/cmark/archive/refs/tags/0.31.2.tar.gz
 https://github.com/containers/bubblewrap/releases/download/v0.12.0/bubblewrap-0.12.0.tar.xz
+https://github.com/containers/bubblewrap/releases/download/v0.13.0/bubblewrap-0.13.0.tar.xz
 https://github.com/containers/crun/releases/download/1.9/crun-1.9.tar.xz
 https://github.com/contour-terminal/boxed-cpp/archive/refs/tags/v1.4.3.tar.gz
 https://github.com/contour-terminal/contour/archive/refs/tags/v0.6.1.7494.tar.gz
