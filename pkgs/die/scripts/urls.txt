@@ -4068,6 +4068,7 @@ https://github.com/libexpat/libexpat/archive/refs/tags/R_2_7_2.tar.gz
 https://github.com/libexpat/libexpat/archive/refs/tags/R_2_7_3.tar.gz
 https://github.com/libexpat/libexpat/archive/refs/tags/R_2_7_4.tar.gz
 https://github.com/libexpat/libexpat/archive/refs/tags/R_2_8_4.tar.gz
+https://github.com/libexpat/libexpat/archive/refs/tags/R_2_8_5.tar.gz
 https://github.com/libffi/libffi/archive/refs/tags/v3.4.4.tar.gz
 https://github.com/libffi/libffi/archive/refs/tags/v3.4.5.tar.gz
 https://github.com/libffi/libffi/archive/refs/tags/v3.4.6.tar.gz
