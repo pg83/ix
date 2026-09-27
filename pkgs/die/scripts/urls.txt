@@ -6567,6 +6567,7 @@ https://gitlab.gnome.org/GNOME/gnome-text-editor/-/archive/48.3/gnome-text-edito
 https://gitlab.gnome.org/GNOME/gnome-text-editor/-/archive/49.0/gnome-text-editor-49.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-text-editor/-/archive/49.1/gnome-text-editor-49.1.tar.bz2
 https://gitlab.gnome.org/GNOME/gnome-text-editor/-/archive/50.1/gnome-text-editor-50.1.tar.bz2
+https://gitlab.gnome.org/GNOME/gnome-text-editor/-/archive/51.0/gnome-text-editor-51.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gobject-introspection/-/archive/1.72.0/gobject-introspection-1.72.0.tar.bz2
 https://gitlab.gnome.org/GNOME/gobject-introspection/-/archive/1.78.1/gobject-introspection-1.78.1.tar.bz2
 https://gitlab.gnome.org/GNOME/gobject-introspection/-/archive/1.80.1/gobject-introspection-1.80.1.tar.bz2
