@@ -429,6 +429,7 @@ https://codeberg.org/dnkl/yambar/archive/1.11.0.tar.gz
 https://codeberg.org/dwl/dwl/archive/v0.6.tar.gz
 https://codeberg.org/dwl/dwl/archive/v0.7.tar.gz
 https://codeberg.org/dwl/dwl/archive/v0.8.tar.gz
+https://codeberg.org/dwl/dwl/archive/v0.9.tar.gz
 https://codeberg.org/emersion/libscfg/archive/v0.1.1.tar.gz
 https://codeberg.org/emersion/libscfg/archive/v0.2.0.tar.gz
 https://codeberg.org/forgejo/forgejo/archive/v10.0.3.tar.gz

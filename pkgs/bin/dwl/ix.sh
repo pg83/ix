@@ -1,7 +1,7 @@
 {% extends '//die/c/make.sh' %}
 
 {% block version %}
-0.8
+0.9
 {% endblock %}
 
 {% block pkg_name %}
@@ -10,7 +10,7 @@ dwl
 
 {% block fetch %}
 https://codeberg.org/dwl/dwl/archive/v{{self.version().strip()}}.tar.gz
-3080087e7f613bf6a350934231fd9ed478d04cd2a2f30da8a96cdf2066f59412
+635c1c352c32f2e69d7acf95053ed6178e8614b51485f221bae78255b0bf3e3d
 {% endblock %}
 
 {% block bld_libs %}
