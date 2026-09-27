@@ -5253,6 +5253,7 @@ https://github.com/rockdaboot/libpsl/releases/download/0.23.3/libpsl-0.23.3.tar.
 https://github.com/rockowitz/ddcutil/archive/refs/tags/v2.1.4.tar.gz
 https://github.com/rockowitz/ddcutil/archive/refs/tags/v2.2.7.tar.gz
 https://github.com/rockowitz/ddcutil/archive/refs/tags/v3.0.0.tar.gz
+https://github.com/rockowitz/ddcutil/archive/refs/tags/v3.0.2.tar.gz
 https://github.com/rpodgorny/unionfs-fuse/archive/refs/tags/v3.4.tar.gz
 https://github.com/rpodgorny/unionfs-fuse/archive/refs/tags/v3.6.tar.gz
 https://github.com/rpodgorny/unionfs-fuse/archive/refs/tags/v3.7.tar.gz
