@@ -25,10 +25,12 @@ wrap_rdynamic
 {% block bld_libs %}
 {{super()}}
 lib/ffi
-{# what ll2ctypes has to be able to resolve at translation time: plain
-   libc for most rffi externals, and the RPython runtime's own C for
-   the handful the untranslated interpreter actually calls #}
+{# what ll2ctypes has to be able to resolve at translation time: libc
+   for most rffi externals, the RPython runtime's own C for the ones
+   the untranslated interpreter calls, and the libraries named in the
+   ecis of the modules whose space initialisation touches them #}
 lib/c/dl
+lib/z/dl
 lib/pypy/syms/dl
 {% endblock %}
 

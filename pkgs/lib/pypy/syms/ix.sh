@@ -94,6 +94,11 @@ pypy/module/pyexpat/src/expat/random_dev_urandom.c
 {% endblock %}
 
 {% block build %}
+cat << 'IX_EXTERN_C' > ix_extern.c
+{{ix.load_file('extern.c')}}
+IX_EXTERN_C
+cc -c -o ix_extern.o ix_extern.c
+
 for x in {{self.pypy_sources() | parse_list | fjoin(' ')}}; do
     cc -c -o "$(basename ${x} .c).o" "${x}"
 done
