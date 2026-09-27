@@ -3463,6 +3463,7 @@ https://github.com/hpjansson/chafa/archive/refs/tags/1.16.2.tar.gz
 https://github.com/hpjansson/chafa/archive/refs/tags/1.18.0.tar.gz
 https://github.com/hpjansson/chafa/archive/refs/tags/1.18.1.tar.gz
 https://github.com/hpjansson/chafa/archive/refs/tags/1.18.2.tar.gz
+https://github.com/hpjansson/chafa/archive/refs/tags/1.18.3.tar.gz
 https://github.com/hramrach/lm-sensors/archive/refs/tags/V3-6-2.tar.gz
 https://github.com/htop-dev/htop/archive/refs/tags/3.2.2.tar.gz
 https://github.com/htop-dev/htop/archive/refs/tags/3.3.0.tar.gz
