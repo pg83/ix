@@ -3391,6 +3391,7 @@ https://github.com/gopasspw/gopass/archive/refs/tags/v1.16.0.tar.gz
 https://github.com/gopasspw/gopass/archive/refs/tags/v1.16.1.tar.gz
 https://github.com/gopasspw/gopass/archive/refs/tags/v1.17.0.tar.gz
 https://github.com/gopasspw/gopass/archive/refs/tags/v1.17.1.tar.gz
+https://github.com/gopasspw/gopass/archive/refs/tags/v1.17.3.tar.gz
 https://github.com/gpakosz/whereami/archive/ba364cd54fd431c76c045393b6522b4bff547f50.tar.gz
 https://github.com/gperftools/gperftools/archive/refs/tags/gperftools-2.10.tar.gz
 https://github.com/gperftools/gperftools/archive/refs/tags/gperftools-2.11.tar.gz
