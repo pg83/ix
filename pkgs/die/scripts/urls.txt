@@ -712,6 +712,7 @@ https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.0.t
 https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.1.tar.xz
 https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.2.tar.xz
 https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.7.tar.xz
+https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.8.tar.xz
 https://downloads.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz
 https://downloads.sourceforge.net/project/giflib/giflib-5.2.2.tar.gz
 https://downloads.sourceforge.net/project/gnu-efi/gnu-efi-3.0.15.tar.bz2
