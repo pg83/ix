@@ -6517,6 +6517,7 @@ https://gitlab.gnome.org/GNOME/console/-/archive/47.0/console-47.0.tar.bz2
 https://gitlab.gnome.org/GNOME/console/-/archive/48.0.1/console-48.0.1.tar.bz2
 https://gitlab.gnome.org/GNOME/console/-/archive/48.0/console-48.0.tar.bz2
 https://gitlab.gnome.org/GNOME/console/-/archive/50.0/console-50.0.tar.bz2
+https://gitlab.gnome.org/GNOME/console/-/archive/51.0/console-51.0.tar.bz2
 https://gitlab.gnome.org/GNOME/d-spy/-/archive/1.10.0/d-spy-1.10.0.tar.bz2
 https://gitlab.gnome.org/GNOME/d-spy/-/archive/1.9.0/d-spy-1.9.0.tar.bz2
 https://gitlab.gnome.org/GNOME/d-spy/-/archive/47.0/d-spy-47.0.tar.bz2
