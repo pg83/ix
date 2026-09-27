@@ -3510,6 +3510,7 @@ https://github.com/hughsie/libxmlb/archive/refs/tags/0.3.29.tar.gz
 https://github.com/hunspell/hunspell/archive/refs/tags/v1.7.1.tar.gz
 https://github.com/hunspell/hunspell/archive/refs/tags/v1.7.2.tar.gz
 https://github.com/hunspell/hunspell/archive/refs/tags/v1.7.3.tar.gz
+https://github.com/hunspell/hunspell/archive/refs/tags/v1.7.4.tar.gz
 https://github.com/hyperrealm/libconfig/archive/refs/tags/v1.7.3.tar.gz
 https://github.com/hyperrealm/libconfig/archive/refs/tags/v1.8.1.tar.gz
 https://github.com/hyperrealm/libconfig/archive/refs/tags/v1.8.2.tar.gz
