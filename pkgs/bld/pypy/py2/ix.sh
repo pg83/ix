@@ -12,9 +12,24 @@
 python2-pypy
 {% endblock %}
 
+{# ll2ctypes resolves translation-time external calls with ctypes. In a
+   static world CDLL of a freshly built .so cannot work, so the symbols
+   have to be reachable through the process-wide dl table instead:
+   wrap_rdynamic registers everything this binary links. #}
+{% block build_flags %}
+{{super()}}
+wrap_cc
+wrap_rdynamic
+{% endblock %}
+
 {% block bld_libs %}
 {{super()}}
 lib/ffi
+{# what ll2ctypes has to be able to resolve at translation time: plain
+   libc for most rffi externals, and the RPython runtime's own C for
+   the handful the untranslated interpreter actually calls #}
+lib/c/dl
+lib/pypy/syms/dl
 {% endblock %}
 
 {% block patch %}
