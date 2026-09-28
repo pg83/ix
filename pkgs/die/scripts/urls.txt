@@ -5236,6 +5236,7 @@ https://github.com/redis/redis/archive/refs/tags/8.0.1.tar.gz
 https://github.com/redis/redis/archive/refs/tags/8.0.2.tar.gz
 https://github.com/redis/redis/archive/refs/tags/8.0.3.tar.gz
 https://github.com/redis/redis/archive/refs/tags/8.10.1.tar.gz
+https://github.com/redis/redis/archive/refs/tags/8.10.2.tar.gz
 https://github.com/redis/redis/archive/refs/tags/8.2.0.tar.gz
 https://github.com/redis/redis/archive/refs/tags/8.2.1.tar.gz
 https://github.com/redis/redis/archive/refs/tags/8.2.2.tar.gz
