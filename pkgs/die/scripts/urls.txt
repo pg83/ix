@@ -6782,6 +6782,7 @@ https://gitlab.gnome.org/GNOME/libxslt/-/archive/v1.1.41/libxslt-v1.1.41.tar.bz2
 https://gitlab.gnome.org/GNOME/libxslt/-/archive/v1.1.42/libxslt-v1.1.42.tar.bz2
 https://gitlab.gnome.org/GNOME/libxslt/-/archive/v1.1.43/libxslt-v1.1.43.tar.bz2
 https://gitlab.gnome.org/GNOME/libxslt/-/archive/v1.1.45/libxslt-v1.1.45.tar.bz2
+https://gitlab.gnome.org/GNOME/ministream/-/archive/0.99.1/ministream-0.99.1.tar.bz2
 https://gitlab.gnome.org/GNOME/mutter/-/archive/44.beta/mutter-44.beta.tar.bz2
 https://gitlab.gnome.org/GNOME/mutter/-/archive/45.0/mutter-45.0.tar.bz2
 https://gitlab.gnome.org/GNOME/mutter/-/archive/47.beta/mutter-47.beta.tar.bz2

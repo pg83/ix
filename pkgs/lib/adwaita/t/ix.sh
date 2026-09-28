@@ -18,7 +18,7 @@ lib/c
 lib/glib
 lib/gtk/4
 lib/fribidi
-lib/app/stream
+lib/ministream
 {% endblock %}
 
 {% block bld_tool %}
