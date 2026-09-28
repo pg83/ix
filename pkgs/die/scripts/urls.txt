@@ -4259,6 +4259,7 @@ https://github.com/libuv/libuv/archive/refs/tags/v1.49.2.tar.gz
 https://github.com/libuv/libuv/archive/refs/tags/v1.50.0.tar.gz
 https://github.com/libuv/libuv/archive/refs/tags/v1.51.0.tar.gz
 https://github.com/libuv/libuv/archive/refs/tags/v1.52.1.tar.gz
+https://github.com/libuv/libuv/archive/refs/tags/v1.53.0.tar.gz
 https://github.com/libxmp/libxmp/archive/refs/tags/libxmp-4.6.0.tar.gz
 https://github.com/libxmp/libxmp/archive/refs/tags/libxmp-4.6.2.tar.gz
 https://github.com/libxmp/libxmp/archive/refs/tags/libxmp-4.6.3.tar.gz
