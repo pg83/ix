@@ -22,6 +22,10 @@ lib/openjph
 lib/deflate
 {% endblock %}
 
+{% block bld_libs %}
+lib/kernel
+{% endblock %}
+
 {% block cmake_flags %}
 OPENEXR_INSTALL_EXAMPLES=OFF
 {% endblock %}
