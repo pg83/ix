@@ -2109,6 +2109,7 @@ https://github.com/SagerNet/sing-box/archive/refs/tags/v1.12.4.tar.gz
 https://github.com/SagerNet/sing-box/archive/refs/tags/v1.12.8.tar.gz
 https://github.com/SagerNet/sing-box/archive/refs/tags/v1.12.9.tar.gz
 https://github.com/SagerNet/sing-box/archive/refs/tags/v1.14.0.tar.gz
+https://github.com/SagerNet/sing-box/archive/refs/tags/v1.14.2.tar.gz
 https://github.com/SagerNet/sing-box/archive/refs/tags/v1.9.6.tar.gz
 https://github.com/SagerNet/sing-box/archive/refs/tags/v1.9.7.tar.gz
 https://github.com/Samsung/rlottie/archive/refs/tags/v0.2.tar.gz
