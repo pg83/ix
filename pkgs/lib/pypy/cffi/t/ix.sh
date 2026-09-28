@@ -51,10 +51,35 @@ IX_EMIT
 
 pypy{{self.py_ver().strip()}} lib_pypy/ix_emit.py \
     lib_pypy/{{self.cffi_script().strip()}} \
+    {{self.cffi_module().strip()}} \
+    ${tmp}/{{self.cffi_module().strip()}}
+
+cat ${tmp}/{{self.cffi_module().strip()}}.deps
+
+{# set_source() carries the module's own include dirs and any C it
+   vendors alongside the generated file; the harness wrote both out #}
+IX_INC=""
+IX_OBJS="{{self.cffi_module().strip()}}.o"
+IX_N=0
+
+while read IX_KIND IX_PATH; do
+    if test "${IX_KIND}" = "INCLUDE"; then
+        IX_INC="${IX_INC} -I${IX_PATH}"
+    fi
+done < ${tmp}/{{self.cffi_module().strip()}}.deps
+
+cc ${IX_INC} -c -o {{self.cffi_module().strip()}}.o \
     ${tmp}/{{self.cffi_module().strip()}}.c
 
-cc -c -o {{self.cffi_module().strip()}}.o ${tmp}/{{self.cffi_module().strip()}}.c
-ar q lib{{self.cffi_module().strip()}}.a {{self.cffi_module().strip()}}.o
+while read IX_KIND IX_PATH; do
+    if test "${IX_KIND}" = "SOURCE"; then
+        IX_N=$((IX_N + 1))
+        cc ${IX_INC} -c -o "ix_vendored_${IX_N}.o" "${IX_PATH}"
+        IX_OBJS="${IX_OBJS} ix_vendored_${IX_N}.o"
+    fi
+done < ${tmp}/{{self.cffi_module().strip()}}.deps
+
+ar q lib{{self.cffi_module().strip()}}.a ${IX_OBJS}
 
 {# the entry point the importer will look for has to be in there #}
 llvm-nm --defined-only --extern-only lib{{self.cffi_module().strip()}}.a \

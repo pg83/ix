@@ -7,8 +7,14 @@ already knows how to hand that over: emit_c_code() writes the same
 source compile() would have built, with both entry points in it --
 PyInit_<name> and, under #ifdef PYPY_VERSION, _cffi_pypyinit_<name>.
 
-So: intercept set_source() to get hold of the FFI object the script
-built, stop it at compile(), and write the C out.
+So: watch set_source() for the FFI objects a script builds, turn
+compile() into a no-op so a script that probes by compiling still
+reaches the end, and write out the one that was asked for.
+
+set_source() also carries the rest of what the module needs to build:
+extra C files and include directories. Those go into a sidecar file
+rather than being spelled out again in the recipe, so a module that
+changes what it vendors does not need the recipe changed with it.
 """
 
 import os
@@ -16,40 +22,50 @@ import runpy
 import sys
 
 script = os.path.abspath(sys.argv[1])
-output = os.path.abspath(sys.argv[2])
+wanted = sys.argv[2]
+output = os.path.abspath(sys.argv[3])
 
 # the build scripts read neighbouring headers and sources by relative path
-os.chdir(os.path.dirname(script))
-sys.path.insert(0, os.path.dirname(script))
+here = os.path.dirname(script)
+os.chdir(here)
+sys.path.insert(0, here)
 
 import cffi
 
-captured = {}
+built = {}
 set_source = cffi.FFI.set_source
 
 
 def capture(self, module_name, *args, **kwargs):
-    captured['ffi'] = self
-    captured['name'] = module_name
+    built[module_name] = self
     return set_source(self, module_name, *args, **kwargs)
 
 
-def stop(self, *args, **kwargs):
-    raise SystemExit(0)
+def no_compile(self, *args, **kwargs):
+    # a script may compile to find out which library links, and then
+    # carry on with the answer; the first option is as good as any here
+    return ''
 
 
 cffi.FFI.set_source = capture
-cffi.FFI.compile = stop
+cffi.FFI.compile = no_compile
 
 sys.argv = [script]
+runpy.run_path(script, run_name='__main__')
 
-try:
-    runpy.run_path(script, run_name='__main__')
-except SystemExit:
-    pass
+if wanted not in built:
+    raise SystemExit('%s built %s, not %s' % (
+        script, sorted(built) or 'nothing', wanted))
 
-if 'ffi' not in captured:
-    raise SystemExit('%s never called set_source()' % (script,))
+ffi = built[wanted]
+ffi.emit_c_code(output + '.c')
 
-captured['ffi'].emit_c_code(output)
-print('emitted %s from %s' % (captured['name'], script))
+_, _, _, kwargs = ffi._assigned_source
+
+with open(output + '.deps', 'w') as deps:
+    for path in kwargs.get('sources', ()):
+        deps.write('SOURCE %s\n' % (os.path.join(here, path),))
+    for path in kwargs.get('include_dirs', ()):
+        deps.write('INCLUDE %s\n' % (os.path.join(here, path),))
+
+print('emitted %s from %s' % (wanted, script))
