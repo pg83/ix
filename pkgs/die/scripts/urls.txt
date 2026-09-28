@@ -3477,6 +3477,7 @@ https://github.com/hluk/CopyQ/archive/refs/tags/v9.1.0.tar.gz
 https://github.com/homeport/dyff/archive/refs/tags/v1.12.0.tar.gz
 https://github.com/homeport/dyff/archive/refs/tags/v1.9.4.tar.gz
 https://github.com/hoytech/lmdbxx/archive/refs/tags/1.0.0.tar.gz
+https://github.com/hoytech/lmdbxx/archive/refs/tags/1.0.2.tar.gz
 https://github.com/hpjansson/chafa/archive/refs/tags/1.12.4.tar.gz
 https://github.com/hpjansson/chafa/archive/refs/tags/1.14.0.tar.gz
 https://github.com/hpjansson/chafa/archive/refs/tags/1.14.1.tar.gz
