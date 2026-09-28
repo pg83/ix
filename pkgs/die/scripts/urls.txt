@@ -1374,6 +1374,7 @@ https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.5.ta
 https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.4.15.tar.gz
 https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.4.3.tar.gz
 https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.4.4.tar.gz
+https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.5.1.tar.gz
 https://github.com/AdguardTeam/dnsproxy/archive/refs/tags/v0.71.0.tar.gz
 https://github.com/AdguardTeam/dnsproxy/archive/refs/tags/v0.73.2.tar.gz
 https://github.com/AdguardTeam/dnsproxy/archive/refs/tags/v0.74.1.tar.gz
