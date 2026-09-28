@@ -454,6 +454,7 @@ https://codeberg.org/grisha/gumbo-parser/archive/0.13.0.tar.gz
 https://codeberg.org/grisha/gumbo-parser/archive/0.13.1.tar.gz
 https://codeberg.org/grisha/gumbo-parser/archive/0.13.2.tar.gz
 https://codeberg.org/grisha/gumbo-parser/archive/0.14.0.tar.gz
+https://codeberg.org/grisha/gumbo-parser/archive/0.14.1.tar.gz
 https://codeberg.org/mbunkus/mkvtoolnix/archive/release-101.0.tar.gz
 https://codeberg.org/mbunkus/mkvtoolnix/archive/release-102.0.tar.gz
 https://codeberg.org/mbunkus/mkvtoolnix/archive/release-91.0.tar.gz
