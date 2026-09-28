@@ -5,12 +5,12 @@ libheif
 {% endblock %}
 
 {% block version %}
-1.23.4
+1.23.5
 {% endblock %}
 
 {% block fetch %}
 https://github.com/strukturag/libheif/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-ce7739356637b7371dcc0ae876027f6f692de9c9ace8cd0e9ed8d79a01ea61fe
+3be49950c75d3fd9318ba775e8253248dd9e08c61ea955fca81b6b89c02d6b2b
 {% endblock %}
 
 {% block lib_deps %}
