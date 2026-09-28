@@ -7816,6 +7816,7 @@ https://www.tcpdump.org/release/libpcap-1.11.0.tar.gz
 https://www.tcpdump.org/release/tcpdump-4.99.4.tar.gz
 https://www.tcpdump.org/release/tcpdump-4.99.5.tar.gz
 https://www.tcpdump.org/release/tcpdump-4.99.6.tar.gz
+https://www.tcpdump.org/release/tcpdump-4.99.7.tar.gz
 https://www.thrysoee.dk/editline/libedit-20230827-3.1.tar.gz
 https://www.thrysoee.dk/editline/libedit-20240808-3.1.tar.gz
 https://www.thrysoee.dk/editline/libedit-20250104-3.1.tar.gz
