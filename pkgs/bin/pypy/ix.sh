@@ -85,6 +85,16 @@ sed -e 's|^\( *\)ver = space.unwrap(interp_pyexpat.get_expat_version(space))|\1v
     -i pypy/module/pyexpat/moduledef.py
 grep -n 'ver = ' pypy/module/pyexpat/moduledef.py
 
+{# The two-way string search helpers are annotated once with a plain
+   SomeString, and the JIT's late-stage annotation then reaches them
+   with can_be_None=True, which RPython refuses to widen into. The
+   needle is never None on any of these paths, so say so at the call
+   sites and the annotation stays put. Only -Ojit hits this. #}
+sed -e 's|^\( *\)cut1, period1 = _lex_search(needle, len_needle, False)|\1assert needle is not None\n\1cut1, period1 = _lex_search(needle, len_needle, False)|' \
+    -e 's|^\( *\)cut, period = _factorize(needle, len_needle)|\1assert needle is not None\n\1cut, period = _factorize(needle, len_needle)|' \
+    -i rpython/rlib/rstring.py
+grep -c 'assert needle is not None' rpython/rlib/rstring.py
+
 {# ll2ctypes builds the function's eci into a .so and dlopens it, which
    a static host python cannot do. Everything it needs is already in
    the translating process -- libc and the RPython runtime arrive
@@ -97,8 +107,10 @@ sed -e 's|^\( *\)libraries = eci.testonly_libraries + eci.libraries + eci.framew
 grep -n -A2 'libraries = eci.testonly_libraries' rpython/rtyper/lltypesystem/ll2ctypes.py
 {% endblock %}
 
+{# the JIT is the whole point of PyPy; without it the interpreter is
+   slower than CPython. Override to 2 for a quicker, plainer build. #}
 {% block pypy_opt %}
-2
+jit
 {% endblock %}
 
 {% block build %}

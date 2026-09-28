@@ -1029,6 +1029,7 @@ bin/pipes
 bin/warp
 bin/sync/thing
 bin/thingd
+bin/pypy
 bld/py/gobject
 bld/blueprint/compiler
 lib/gtk/layer/shell/4/dl(kind=lib)
