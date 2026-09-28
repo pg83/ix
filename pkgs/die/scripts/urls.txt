@@ -6159,6 +6159,7 @@ https://github.com/wolfSSL/wolfssl/archive/refs/tags/v5.8.0-stable.tar.gz
 https://github.com/wolfSSL/wolfssl/archive/refs/tags/v5.8.2-stable.tar.gz
 https://github.com/wolfSSL/wolfssl/archive/refs/tags/v5.8.4-stable.tar.gz
 https://github.com/wolfSSL/wolfssl/archive/refs/tags/v5.9.2-stable.tar.gz
+https://github.com/wolfSSL/wolfssl/archive/refs/tags/v5.9.4-stable.tar.gz
 https://github.com/wolfpld/tracy/archive/refs/tags/v0.10.tar.gz
 https://github.com/wolfpld/tracy/archive/refs/tags/v0.11.1.tar.gz
 https://github.com/wolfpld/tracy/archive/refs/tags/v0.12.0.tar.gz
