@@ -5394,6 +5394,7 @@ https://github.com/rzvncj/xCHM/archive/refs/tags/1.35.tar.gz
 https://github.com/rzvncj/xCHM/archive/refs/tags/1.36.tar.gz
 https://github.com/rzvncj/xCHM/archive/refs/tags/1.37.tar.gz
 https://github.com/rzvncj/xCHM/archive/refs/tags/1.39.tar.gz
+https://github.com/rzvncj/xCHM/archive/refs/tags/1.40.tar.gz
 https://github.com/s3fs-fuse/s3fs-fuse/archive/refs/tags/v1.94.tar.gz
 https://github.com/s3fs-fuse/s3fs-fuse/archive/refs/tags/v1.95.tar.gz
 https://github.com/s3fs-fuse/s3fs-fuse/archive/refs/tags/v1.97.tar.gz
