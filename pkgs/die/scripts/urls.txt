@@ -7708,6 +7708,7 @@ https://www.prevanders.net/libdwarf-2.1.0.tar.xz
 https://www.prevanders.net/libdwarf-2.2.0.tar.xz
 https://www.prevanders.net/libdwarf-2.3.0.tar.xz
 https://www.prevanders.net/libdwarf-2.3.2.tar.xz
+https://www.prevanders.net/libdwarf-2.3.3.tar.xz
 https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
 https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tar.xz
 https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tar.xz
