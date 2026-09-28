@@ -18,6 +18,7 @@ lib/c
 lib/z
 lib/lz4
 lib/popt
+lib/idn/2
 lib/zstd
 lib/xxhash
 lib/openssl
