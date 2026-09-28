@@ -5485,6 +5485,7 @@ https://github.com/simdjson/simdjson/archive/refs/tags/v4.0.7.tar.gz
 https://github.com/simdjson/simdjson/archive/refs/tags/v4.2.1.tar.gz
 https://github.com/simdjson/simdjson/archive/refs/tags/v4.2.2.tar.gz
 https://github.com/simdjson/simdjson/archive/refs/tags/v4.6.10.tar.gz
+https://github.com/simdjson/simdjson/archive/refs/tags/v4.6.11.tar.gz
 https://github.com/simdjson/simdjson/archive/refs/tags/v4.6.9.tar.gz
 https://github.com/simdutf/simdutf/archive/refs/tags/v7.4.0.tar.gz
 https://github.com/simdutf/simdutf/archive/refs/tags/v7.5.0.tar.gz
