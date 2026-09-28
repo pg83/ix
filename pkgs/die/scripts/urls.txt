@@ -4497,6 +4497,7 @@ https://github.com/microsoft/GSL/archive/refs/tags/v4.0.0.tar.gz
 https://github.com/microsoft/GSL/archive/refs/tags/v4.2.0.tar.gz
 https://github.com/microsoft/GSL/archive/refs/tags/v4.2.1.tar.gz
 https://github.com/microsoft/GSL/archive/refs/tags/v5.0.0.tar.gz
+https://github.com/microsoft/GSL/archive/refs/tags/v5.0.1.tar.gz
 https://github.com/microsoft/cascadia-code/archive/refs/tags/v2404.23.tar.gz
 https://github.com/microsoft/cascadia-code/archive/refs/tags/v2407.24.tar.gz
 https://github.com/microsoft/edit/archive/refs/tags/v1.2.0.tar.gz
