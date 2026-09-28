@@ -12,3 +12,10 @@ _cffi_pypyinit_{{self.cffi_module().strip()}}
 {% block export_lib %}
 {{self.cffi_module().strip()}}
 {% endblock %}
+
+{# the archive's symbols carry the module name in front of them, so
+   that two modules from one cdef do not collide; the registered name
+   stays the one cpyext looks up #}
+{% block export_prefix %}
+{{self.cffi_module().strip()}}_
+{% endblock %}

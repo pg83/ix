@@ -38,9 +38,9 @@ _resource_cffi
 _syslog_cffi
 _posixshmem_cffi
 _lzma_cffi
-_sha3_cffi
-_blake2b_cffi
-_blake2s_cffi
+_sha3._sha3_cffi
+_blake2._blake2b_cffi
+_blake2._blake2s_cffi
 _curses_cffi
 _sqlite3_cffi
 _pypy_openssl

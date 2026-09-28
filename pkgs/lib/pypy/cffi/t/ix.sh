@@ -26,6 +26,7 @@ wrap_cc
 
 {% block bld_tool %}
 bin/pypy/boot
+bld/librarian
 {% endblock %}
 
 {% block bld_libs %}
@@ -81,9 +82,17 @@ done < ${tmp}/{{self.cffi_module().strip()}}.deps
 
 ar q lib{{self.cffi_module().strip()}}.a ${IX_OBJS}
 
+{# Two modules built from one cdef emit the same helper names -- blake2
+   is one source with blake2b spelled blake2s, and the accessors cffi
+   generates from the shared cdef come out identical -- so everything
+   defined here gets the module's name in front of it. The /dl package
+   registers the entry point under the name the importer will ask for,
+   pointing at the renamed symbol. #}
+patchns lib{{self.cffi_module().strip()}}.a {{self.cffi_module().strip()}}_
+
 {# the entry point the importer will look for has to be in there #}
 llvm-nm --defined-only --extern-only lib{{self.cffi_module().strip()}}.a \
-    | grep _cffi_pypyinit_{{self.cffi_module().strip()}}
+    | grep {{self.cffi_module().strip()}}__cffi_pypyinit_{{self.cffi_module().strip()}}
 {% endblock %}
 
 {% block install %}

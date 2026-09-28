@@ -130,11 +130,15 @@ class _IXStaticExtensionFinder:
 
     @classmethod
     def find_spec(cls, fullname, path=None, target=None):
-        if path is not None or fullname not in cls._names:
+        if fullname not in cls._names:
             return None
+        # dlopen reduces the origin to its basename and cuts it at the
+        # first dot, so a module inside a package -- _sha3._sha3_cffi --
+        # has to be handed the last component alone
+        origin = fullname.rpartition('.')[2]
         return spec_from_file_location(
-            fullname, fullname,
-            loader=ExtensionFileLoader(fullname, fullname))
+            fullname, origin,
+            loader=ExtensionFileLoader(fullname, origin))
 IX_STATIC_EXT
 
 sed -e 's|^\( *\)sys.meta_path.append(PathFinder)|\1sys.meta_path.append(_IXStaticExtensionFinder)\n&|' \

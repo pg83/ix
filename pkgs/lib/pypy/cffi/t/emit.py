@@ -65,6 +65,13 @@ _, _, _, kwargs = ffi._assigned_source
 with open(output + '.deps', 'w') as deps:
     for path in kwargs.get('sources', ()):
         deps.write('SOURCE %s\n' % (os.path.join(here, path),))
+
+    # the script's own directory first: a module that vendors C puts
+    # the headers in a subdirectory and includes them by that path --
+    # _sha3 says "kcp/KeccakHash.h", _blake2 says "impl/blake2.h" --
+    # while set_source names the subdirectory itself
+    deps.write('INCLUDE %s\n' % (here,))
+
     for path in kwargs.get('include_dirs', ()):
         deps.write('INCLUDE %s\n' % (os.path.join(here, path),))
 
