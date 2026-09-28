@@ -820,6 +820,7 @@ https://downloads.sourceforge.net/project/sbcl/sbcl/2.5.7/sbcl-2.5.7-source.tar.
 https://downloads.sourceforge.net/project/sbcl/sbcl/2.5.8/sbcl-2.5.8-source.tar.bz2
 https://downloads.sourceforge.net/project/sbcl/sbcl/2.5.9/sbcl-2.5.9-source.tar.bz2
 https://downloads.sourceforge.net/project/sbcl/sbcl/2.6.8/sbcl-2.6.8-source.tar.bz2
+https://downloads.sourceforge.net/project/sbcl/sbcl/2.6.9/sbcl-2.6.9-source.tar.bz2
 https://downloads.sourceforge.net/project/scons/scons/4.10.0/SCons-4.10.0.tar.gz
 https://downloads.sourceforge.net/project/scons/scons/4.10.1/SCons-4.10.1.tar.gz
 https://downloads.sourceforge.net/project/scons/scons/4.11.1/SCons-4.11.1.tar.gz
