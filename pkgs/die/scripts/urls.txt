@@ -3793,6 +3793,7 @@ https://github.com/jedisct1/libsodium/archive/refs/tags/1.0.21-RELEASE.tar.gz
 https://github.com/jedisct1/libsodium/archive/refs/tags/1.0.22-RELEASE.tar.gz
 https://github.com/jemalloc/jemalloc/archive/refs/tags/5.3.0.tar.gz
 https://github.com/jemalloc/jemalloc/archive/refs/tags/5.3.1.tar.gz
+https://github.com/jemalloc/jemalloc/archive/refs/tags/5.4.0.tar.gz
 https://github.com/jeremy-rifkin/cpptrace/archive/refs/tags/v1.0.4.tar.gz
 https://github.com/jesseduffield/lazydocker/archive/refs/tags/v0.25.0.tar.gz
 https://github.com/jesseduffield/lazydocker/archive/refs/tags/v0.25.2.tar.gz
