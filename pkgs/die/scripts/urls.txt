@@ -7232,6 +7232,7 @@ https://secure.nic.cz/files/knot-dns/knot-3.5.2.tar.xz
 https://secure.nic.cz/files/knot-dns/knot-3.5.3.tar.xz
 https://secure.nic.cz/files/knot-dns/knot-3.5.7.tar.xz
 https://secure.nic.cz/files/knot-dns/knot-3.5.8.tar.xz
+https://secure.nic.cz/files/knot-dns/knot-3.6.0.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-5.6.0.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.4.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-6.0.10.tar.xz
