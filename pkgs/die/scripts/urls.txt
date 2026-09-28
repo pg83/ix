@@ -1686,6 +1686,7 @@ https://github.com/Genivia/ugrep/archive/refs/tags/v7.4.2.tar.gz
 https://github.com/Genivia/ugrep/archive/refs/tags/v7.4.3.tar.gz
 https://github.com/Genivia/ugrep/archive/refs/tags/v7.5.0.tar.gz
 https://github.com/Genivia/ugrep/archive/refs/tags/v7.8.4.tar.gz
+https://github.com/Genivia/ugrep/archive/refs/tags/v7.8.5.tar.gz
 https://github.com/GrapheneOS/hardened_malloc/archive/refs/tags/11.tar.gz
 https://github.com/GyulyVGC/sniffnet/archive/refs/tags/v1.3.2.tar.gz
 https://github.com/GyulyVGC/sniffnet/archive/refs/tags/v1.4.0.tar.gz
