@@ -1089,6 +1089,7 @@ https://ftp.gnu.org/gnu/nettle/nettle-3.9.1.tar.gz
 https://ftp.gnu.org/gnu/nettle/nettle-4.0.tar.gz
 https://ftp.gnu.org/gnu/parted/parted-3.6.tar.xz
 https://ftp.gnu.org/gnu/parted/parted-3.7.tar.xz
+https://ftp.gnu.org/gnu/parted/parted-3.8.tar.xz
 https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.xz
 https://ftp.gnu.org/gnu/patch/patch-2.8.tar.xz
 https://ftp.gnu.org/gnu/readline/readline-8.2-patches/readline82-001
