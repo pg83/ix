@@ -1933,6 +1933,7 @@ https://github.com/NLnetLabs/unbound/archive/refs/tags/release-1.23.1.tar.gz
 https://github.com/NLnetLabs/unbound/archive/refs/tags/release-1.24.0.tar.gz
 https://github.com/NLnetLabs/unbound/archive/refs/tags/release-1.24.1.tar.gz
 https://github.com/NLnetLabs/unbound/archive/refs/tags/release-1.26.0.tar.gz
+https://github.com/NLnetLabs/unbound/archive/refs/tags/release-1.26.1.tar.gz
 https://github.com/NOBLES5E/cproxy/archive/refs/tags/v4.1.6.post1.tar.gz
 https://github.com/NOBLES5E/cproxy/archive/refs/tags/v4.2.2.tar.gz
 https://github.com/NVIDIA/libglvnd/archive/refs/tags/v1.7.0.tar.gz
