@@ -1,11 +1,27 @@
-{% extends '//die/c/make.sh' %}
+{# wasi-libc, the C library behind every wasi32 target here.
+
+   Since wasi-sdk-26 the project builds with CMake, and the target is
+   chosen by TARGET_TRIPLE. The old wasm32-wasi spelling is still
+   accepted -- it means preview 1, the same as wasm32-wasip1 -- so the
+   variants keep the names their consumers key on.
+
+   Two of its cmake helpers reach for the network when a tool is not
+   found: bindings.cmake downloads wit-bindgen to regenerate headers,
+   and builtins.cmake fetches compiler-rt to link libc.so. Neither is
+   needed. The headers are committed, and the shared library is not
+   built at all in a static distribution; with BUILD_SHARED off the
+   copy of libc.so never enters the default target, and with it goes
+   the only consumer of the builtins download. compiler-rt reaches the
+   final link through lib/c/bare, next to this library, as before. #}
+
+{% extends '//die/c/cmake.sh' %}
 
 {% block pkg_name %}
 wasi-libc
 {% endblock %}
 
 {% block version %}
-25
+34
 {% endblock %}
 
 {% block git_repo %}
@@ -17,36 +33,27 @@ wasi-sdk-{{self.version().strip()}}
 {% endblock %}
 
 {% block git_sha %}
-4fad94464caa6fe4c78e599013eda224112999d6818ace32026b6da3ab636795
+1480f55766a91c98b1532700deee09a0e7f6ae8bf80cab3f895ea3bde28b9558
 {% endblock %}
 
-{% block bld_tool %}
-bld/bash
+{% block build_flags %}
+wrap_cc
 {% endblock %}
 
-{% block make_flags %}
-CC=${FREESTANDING_CLANG}
-AR=llvm-ar
-NM=llvm-nm
-EXTRA_CFLAGS="${EF}"
-INSTALL_DIR=${out}
+{% block cmake_flags %}
+BUILD_SHARED=OFF
+BINDINGS_TARGET=OFF
+{% block wasi_target %}
 {% endblock %}
-
-{% block setup_target_flags %}
-export EF="${CFLAGS} ${CPPFLAGS} -O2 -DNDEBUG"
-{% endblock %}
-
-{% block patch %}
-sed -e 's|finish: check-symbols||' -i Makefile
-{% endblock %}
-
-{% block build %}
-{{super()}}
-mkdir -p sysroot/share
 {% endblock %}
 
 {% block install %}
 {{super()}}
+{# the sysroot lands as include/<triple>/ and lib/<triple>/; the
+   headers stay under the triple, which is what consumers put on
+   -isystem, and the archives move up to where -L finds them. The
+   startup objects go into one archive so that -lcrt picks the right
+   one by the symbol it needs. #}
 cd ${out}
 mv lib/wasm* nlib
 rm -rf lib
