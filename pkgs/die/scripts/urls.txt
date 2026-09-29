@@ -6305,6 +6305,7 @@ https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.313.0.tar.gz
 https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.321.0.tar.gz
 https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.328.1.tar.gz
 https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz
+https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.363.0.tar.gz
 https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.1.3.tar.gz
 https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.1.4.tar.gz
 https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.1.5.tar.gz
