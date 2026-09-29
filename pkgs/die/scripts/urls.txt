@@ -4922,6 +4922,7 @@ https://github.com/pg83/molot/archive/refs/tags/35.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/36.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/42.tar.gz
 https://github.com/pg83/molot/archive/refs/tags/43.tar.gz
+https://github.com/pg83/molot/archive/refs/tags/44.tar.gz
 https://github.com/pg83/nitter/archive/refs/tags/1.tar.gz
 https://github.com/pg83/ogorod/archive/ec846d0beb5a54296e6691a5a97ea3838f9e550b.tar.gz
 https://github.com/pg83/portal/archive/6b4069b1d1ed82c4d8a4b64054bf7fa719ead62e.zip
@@ -6195,6 +6196,7 @@ https://github.com/ximion/appstream/archive/refs/tags/v1.0.5.tar.gz
 https://github.com/ximion/appstream/archive/refs/tags/v1.1.0.tar.gz
 https://github.com/ximion/appstream/archive/refs/tags/v1.1.1.tar.gz
 https://github.com/ximion/appstream/archive/refs/tags/v1.2.0.tar.gz
+https://github.com/ximion/appstream/archive/refs/tags/v1.2.1.tar.gz
 https://github.com/xiph/flac/archive/refs/tags/1.4.3.tar.gz
 https://github.com/xiph/flac/archive/refs/tags/1.5.0.tar.gz
 https://github.com/xiph/opus/archive/refs/tags/v1.4.tar.gz
