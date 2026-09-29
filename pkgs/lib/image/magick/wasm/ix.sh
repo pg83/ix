@@ -20,7 +20,7 @@ lib/image/magick
 {% block bld_tool %}
 bld/pkg/config
 bld/wasm/imports
-bld/wasm/decode
+bld/wasm/decode(jit=1)
 bin/convert
 {% endblock %}
 

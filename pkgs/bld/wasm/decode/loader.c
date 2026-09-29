@@ -19,8 +19,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "wasm_export.h"
+
+static double now_ms(void) {
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return ts.tv_sec * 1e3 + ts.tv_nsec / 1e6;
+}
 
 static uint8_t *slurp(const char *path, size_t *size) {
     FILE *f = fopen(path, "rb");
@@ -149,7 +156,14 @@ int main(int argc, char **argv) {
 
     char err[256];
 
-    if (!wasm_runtime_init()) {
+    // the fast JIT keeps its code in a cache of fixed size; the default
+    // 10 MB is less than this module's code
+    RuntimeInitArgs init_args;
+    memset(&init_args, 0, sizeof(init_args));
+    init_args.mem_alloc_type = Alloc_With_System_Allocator;
+    init_args.fast_jit_code_cache_size = 512u << 20;
+
+    if (!wasm_runtime_full_init(&init_args)) {
         fprintf(stderr, "wasm-decode: runtime init failed\n");
         return 4;
     }
@@ -172,7 +186,9 @@ int main(int argc, char **argv) {
     wasm_exec_env_t env = wasm_runtime_create_exec_env(inst, 16 << 20);
 
     struct decoded a;
+    double t0 = now_ms();
     int rc = decode_once(inst, env, img, img_len, name, &a);
+    double t1 = now_ms();
 
     if (rc) {
         return rc;
@@ -186,7 +202,11 @@ int main(int argc, char **argv) {
     // the same instance again: the second decode must see an initialized
     // module and produce the same pixels
     struct decoded b;
+    double t2 = now_ms();
     rc = decode_once(inst, env, img, img_len, name, &b);
+    double t3 = now_ms();
+
+    fprintf(stderr, "decode: first %.0f ms, second %.0f ms\n", t1 - t0, t3 - t2);
 
     if (rc) {
         fprintf(stderr, "wasm-decode: second decode in the same instance failed (%d)\n", rc);
