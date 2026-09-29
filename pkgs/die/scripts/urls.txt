@@ -5472,6 +5472,7 @@ https://github.com/shadow-maint/shadow/archive/refs/tags/4.17.3.tar.gz
 https://github.com/shadow-maint/shadow/archive/refs/tags/4.17.4.tar.gz
 https://github.com/shadow-maint/shadow/archive/refs/tags/4.18.0.tar.gz
 https://github.com/shadow-maint/shadow/archive/refs/tags/4.20.2.tar.gz
+https://github.com/shadow-maint/shadow/archive/refs/tags/4.20.3.tar.gz
 https://github.com/shadowsocks/go-shadowsocks2/archive/refs/tags/v0.1.5.tar.gz
 https://github.com/shadowsocks/ipset/archive/3ea7fe30adf4b39b27d932e5a70a2ddce4adb508.tar.gz
 https://github.com/shadowsocks/libbloom/archive/437e1add5a2b9a87797d8c648df7cf5f3ee155a8.tar.gz
