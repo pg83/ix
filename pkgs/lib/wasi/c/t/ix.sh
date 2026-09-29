@@ -61,6 +61,8 @@ mv nlib lib
 cd lib
 llvm-ar q libcrt.a *.o
 rm *.o
+{# the allocator comes from lib/c/alloc, as on every other target #}
+llvm-ar d libc.a dlmalloc.c.o
 {% endblock %}
 
 {% block env %}

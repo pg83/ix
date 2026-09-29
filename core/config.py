@@ -134,6 +134,17 @@ def get_raw_arch(n):
             'cmake_system_name': 'WASI', # wild guess
         }
 
+    if n == 'none':
+        # wasm32-none: the wasi ABI and libc, but no host behind the
+        # syscalls; lib/c answers them in-module and the result imports
+        # nothing (see lib/wasi/null)
+        return {
+            'os': 'wasi',
+            'kernel': 'none',
+            'obj_fmt': 'wasm',
+            'cmake_system_name': 'WASI',
+        }
+
     if n == 'freebsd':
         return {
             'os': 'freebsd',
