@@ -21,7 +21,7 @@ lib/image/magick
 bld/pkg/config
 bld/wasm/imports
 bld/wasm/decode(jit=1)
-bin/convert
+bld/magick
 {% endblock %}
 
 {% block unpack %}
@@ -149,4 +149,10 @@ test ${fail} = 0
 {% block install %}
 mkdir -p ${out}/share
 cp decode.wasm ${out}/share/
+{% endblock %}
+
+{# postinstall moves share/ to lib/aux/ for a lib package; the env is
+   written after that, so consumers get the final path #}
+{% block env %}
+export IX_IMAGE_MAGICK_DECODE_WASM="${out}/lib/aux/decode.wasm"
 {% endblock %}
