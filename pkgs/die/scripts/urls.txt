@@ -2071,6 +2071,7 @@ https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.46/pcre2-10.46.
 https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.47/pcre2-10.47.tar.bz2
 https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.47/pcre2-10.47.tar.gz
 https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.48/pcre2-10.48.tar.gz
+https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.49/pcre2-10.49.tar.gz
 https://github.com/PhilipHazel/pcre2/archive/refs/tags/pcre2-10.42.tar.gz
 https://github.com/PhilipHazel/pcre2/archive/refs/tags/pcre2-10.43.tar.gz
 https://github.com/PoomSmart/EmojiLibrary/releases/download/0.18.4/AppleColorEmoji-160px.ttf
