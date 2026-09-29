@@ -17,6 +17,12 @@ https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/{{self.version(
 bld/nasm
 {% endblock %}
 
+{% block bld_libs %}
+{% if wasi %}
+lib/shim/setjmp
+{% endif %}
+{% endblock %}
+
 {% block lib_deps %}
 lib/c
 {% endblock %}
