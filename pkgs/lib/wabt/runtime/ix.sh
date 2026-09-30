@@ -13,8 +13,11 @@
 
 {% extends '//die/c/ix.sh' %}
 
+{# simde: the C wasm2c generates for a module with v128 includes
+   <simde/wasm/simd128.h>; the consumers get it from here #}
 {% block lib_deps %}
 lib/c
+lib/simd/e
 {% endblock %}
 
 {% block bld_tool %}
