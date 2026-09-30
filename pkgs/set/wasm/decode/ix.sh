@@ -5,5 +5,5 @@
 
 {% block run_deps %}
 lib/image/magick/wasm(target=wasm32-none,kind=lib)
-lib/image/magick/wasm/c
+lib/image/magick/wasm/c(kind=lib)
 {% endblock %}

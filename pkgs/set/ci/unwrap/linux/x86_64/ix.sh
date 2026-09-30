@@ -1034,5 +1034,5 @@ bld/py/gobject
 bld/blueprint/compiler
 lib/gtk/layer/shell/4/dl(kind=lib)
 lib/gtk/layer/shell/4/gir
-lib/image/magick/wasm/c
+lib/image/magick/wasm/c(kind=lib)
 {% endblock %}
