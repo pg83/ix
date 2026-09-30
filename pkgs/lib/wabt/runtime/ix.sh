@@ -6,7 +6,10 @@
 
    The shape is the suite's: bounds checks in the generated code, not
    guard pages, so no signal handler is involved; the memory mapped so its
-   base never moves; the call depth counted instead of a stack guard. A
+   base never moves; the call depth counted instead of a stack guard. With
+   guard_pages=1 the checks leave the code: an access past the memory hits
+   a guard page and the runtime's SIGSEGV handler turns it into a trap,
+   and stack exhaustion is caught the same way instead of counted. A
    trap goes to trap_handler when one is named, a function the embedder
    defines that must not return (the suite throws from it); without one
    the runtime longjmps to wasm_rt_impl_try(). #}
@@ -26,9 +29,14 @@ bld/wabt
 
 {% block cpp_defines %}
 WASM_RT_USE_MMAP=1
+{% if guard_pages %}
+WASM_RT_MEMCHECK_GUARD_PAGES=1
+WASM_RT_MEMCHECK_BOUNDS_CHECK=0
+{% else %}
 WASM_RT_MEMCHECK_BOUNDS_CHECK=1
 WASM_RT_MEMCHECK_GUARD_PAGES=0
 WASM_RT_MAX_CALL_STACK_DEPTH=250
+{% endif %}
 {% if trap_handler %}
 WASM_RT_TRAP_HANDLER={{trap_handler}}
 {% endif %}
