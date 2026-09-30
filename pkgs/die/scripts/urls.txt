@@ -6388,6 +6388,7 @@ https://gitlab.com/lvmteam/lvm2/-/archive/v2_03_36/lvm2-v2_03_36.tar.bz2
 https://gitlab.com/lvmteam/lvm2/-/archive/v2_03_37/lvm2-v2_03_37.tar.bz2
 https://gitlab.com/lvmteam/lvm2/-/archive/v2_03_38/lvm2-v2_03_38.tar.bz2
 https://gitlab.com/lvmteam/lvm2/-/archive/v2_03_42/lvm2-v2_03_42.tar.bz2
+https://gitlab.com/lvmteam/lvm2/-/archive/v2_03_43/lvm2-v2_03_43.tar.bz2
 https://gitlab.com/mbunkus/mkvtoolnix/-/archive/release-79.0/mkvtoolnix-release-79.0.tar.bz2
 https://gitlab.com/mbunkus/mkvtoolnix/-/archive/release-80.0/mkvtoolnix-release-80.0.tar.bz2
 https://gitlab.com/mbunkus/mkvtoolnix/-/archive/release-81.0/mkvtoolnix-release-81.0.tar.bz2
