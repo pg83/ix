@@ -18,6 +18,12 @@ lib/c
 lib/c++
 {% endblock %}
 
+{% block bld_tool %}
+{% if linux %}
+bin/muslstack
+{% endif %}
+{% endblock %}
+
 {% block cmake_flags %}
 BUILD_TESTS=OFF
 ENABLE_WERROR=OFF
@@ -25,4 +31,15 @@ ENABLE_WERROR=OFF
 
 {% block build_flags %}
 wrap_cc
+{% endblock %}
+
+{% block install %}
+{{super()}}
+{% if linux %}
+{# binaryen's passes recurse deep in worker threads; musl's default thread
+   stack overflows on a module the size of ImageMagick #}
+for x in ${out}/bin/wasm-*; do
+    muslstack -s 8388608 ${x}
+done
+{% endif %}
 {% endblock %}

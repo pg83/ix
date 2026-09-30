@@ -19,6 +19,7 @@ lib/image/magick
 
 {% block bld_tool %}
 bld/pkg/config
+bld/wasm/opt
 bld/wasm/imports
 bld/wasm/decode(jit=1)
 bld/magick
@@ -45,7 +46,17 @@ ${CC} decode.c -o decode.wasm \
     -Wl,--export=decode \
     -Wl,--export=malloc \
     -Wl,--export=free \
-    -Wl,-z,stack-size=8388608
+    -Wl,-z,stack-size=8388608 \
+    --no-wasm-opt
+
+# binaryen's optimizer on the linked module: whole-program passes wasm-ld
+# has no equivalent of, identical-function folding among them. It reads
+# the module's target_features section and stays inside it. clang would
+# run wasm-opt -O2 by itself when it finds one in PATH; --no-wasm-opt
+# above keeps this the only pass.
+ls -la decode.wasm | awk '{print "linked:", $5}'
+wasm-opt -O3 decode.wasm -o decode.wasm
+ls -la decode.wasm | awk '{print "wasm-opt -O3:", $5}'
 
 wasm-imports --none decode.wasm
 
@@ -101,7 +112,19 @@ magick images/opaque.png images/plain.sgi;                               case_ s
 magick images/orig.png images/plain.miff;                                case_ miff plain.miff 0
 magick -seed 7 -size 1600x1200 plasma:fractal images/big.png;            case_ png-1600x1200 big.png 0
 
-# references: the host ImageMagick through the pipeline decode() applies
+# references: the host ImageMagick through the pipeline decode() applies.
+# The same ImageMagick build must agree to the bit; a different version or
+# quantum (the system's Q16 against our Q16-HDRI) rounds 16-bit data
+# differently, so then every case allows one step.
+vh="$(pkg-config --variable=includedir MagickWand-7.Q16HDRI)/MagickCore/version.h"
+ours="$(sed -n 's/^#define MagickLibVersionText *"\([^"]*\)".*/\1/p' "${vh}")$(sed -n 's/^#define MagickLibAddendum *"\([^"]*\)".*/\1/p' "${vh}") Q16-HDRI"
+host="$(magick -version | sed -n 's/^Version: ImageMagick \([^ ]*\) \([^ ]*\).*/\1 \2/p')"
+floor=0
+if [ "${host}" != "${ours}" ]; then
+    echo "reference ImageMagick ${host}, module ImageMagick ${ours}: tolerance floor 1"
+    floor=1
+fi
+
 while read name file tol; do
     src=${file}
     case ${name} in
@@ -125,6 +148,7 @@ fail=0
 
 while read name file tol; do
     set -- $(cat refs/${name}.dim)
+    [ "${tol}" -lt "${floor}" ] && tol=${floor}
     if out=$(wasm-decode decode.wasm ${file} $1 $2 ${tol} refs/${name}.rgba 2>&1); then
         echo "ok   ${name}: ${out}"
     else
