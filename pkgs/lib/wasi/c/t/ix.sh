@@ -36,13 +36,36 @@ wasi-sdk-{{self.version().strip()}}
 1480f55766a91c98b1532700deee09a0e7f6ae8bf80cab3f895ea3bde28b9558
 {% endblock %}
 
+{# the carrier of the ix build policy (opt, buildtype), as in lib/musl/t;
+   without it a wasi target sees no opt flags at all #}
+{% block lib_deps %}
+lib/build
+{% endblock %}
+
 {% block build_flags %}
 wrap_cc
+{% endblock %}
+
+{% block patch %}
+{# musl's exit.c and quick_exit.c alias __stdio_exit and __funcs_on_exit to
+   an unprototyped dummy(). On wasm an unprototyped definition takes the
+   varargs pointer, so the weak aliases get the signature (i32) -> void
+   while the real functions are () -> void. Without LTO the strong
+   definitions replace them silently; under ThinLTO wasm-ld sees both,
+   warns about the mismatch and crashes linking executables. #}
+sed -e 's/static void dummy()/static void dummy(void)/' \
+    -i libc-top-half/musl/src/exit/exit.c libc-top-half/musl/src/exit/quick_exit.c
 {% endblock %}
 
 {% block cmake_flags %}
 BUILD_SHARED=OFF
 BINDINGS_TARGET=OFF
+{# libc configures before any libc exists, so CMake cannot link its
+   compiler-id program and falls back to scanning the object; under LTO
+   that object is bitcode and the scan finds nothing. Tell CMake what the
+   compiler is instead of letting it guess. #}
+CMAKE_C_COMPILER_ID_RUN=1
+CMAKE_C_COMPILER_ID=Clang
 {% block wasi_target %}
 {% endblock %}
 {% endblock %}
