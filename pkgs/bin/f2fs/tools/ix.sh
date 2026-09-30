@@ -21,6 +21,23 @@ lib/e2fsprogs
 lib/bsd/overlay
 {% endblock %}
 
+{% block patch %}
+patch -p1 <<'EOF'
+--- a/tools/f2fs_io/f2fs_io.c
++++ b/tools/f2fs_io/f2fs_io.c
+@@ -22,7 +22,9 @@
+ #include <getopt.h>
+ #include <inttypes.h>
+ #include <limits.h>
++#include <linux/falloc.h>
+ #include <linux/fs.h>
++#include <linux/mman.h>
+ #include <signal.h>
+ #include <stdarg.h>
+ #include <sys/uio.h>
+EOF
+{% endblock %}
+
 {% block cpp_defines %}
 aligned_alloc=memalign
 {% endblock %}
