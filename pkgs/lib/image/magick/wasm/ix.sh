@@ -146,9 +146,12 @@ head -c 4096 /dev/urandom > bad/noise.bin
 
 fail=0
 
+if [ "${floor}" != 0 ]; then
+    awk -v f="${floor}" '{ if ($3 < f) $3 = f; print }' cases.txt > cases.floor && mv cases.floor cases.txt
+fi
+
 while read name file tol; do
     set -- $(cat refs/${name}.dim)
-    [ "${tol}" -lt "${floor}" ] && tol=${floor}
     if out=$(wasm-decode decode.wasm ${file} $1 $2 ${tol} refs/${name}.rgba 2>&1); then
         echo "ok   ${name}: ${out}"
     else
@@ -171,12 +174,18 @@ test ${fail} = 0
 {% endblock %}
 
 {% block install %}
-mkdir -p ${out}/share
+mkdir -p ${out}/share/tests
 cp decode.wasm ${out}/share/
+# the test corpus, for the harnesses that consume the module in other ways
+# (lib/image/magick/wasm/c runs the same matrix through wasm2c)
+cp cases.txt ${out}/share/tests/
+cp -R images refs bad ${out}/share/tests/
+ls bad | sed 's|^|bad/|' > ${out}/share/tests/bad.list
 {% endblock %}
 
 {# postinstall moves share/ to lib/aux/ for a lib package; the env is
    written after that, so consumers get the final path #}
 {% block env %}
 export IX_IMAGE_MAGICK_DECODE_WASM="${out}/lib/aux/decode.wasm"
+export IX_IMAGE_MAGICK_DECODE_TESTS="${out}/lib/aux/tests"
 {% endblock %}

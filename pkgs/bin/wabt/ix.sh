@@ -36,8 +36,12 @@ USE_SYSTEM_GTEST=ON
 {% endblock %}
 
 {# a bin package keeps no include/: the wasm2c runtime's public headers go
-   with the runtime's sources, where an embedder of the generated C looks #}
+   with the runtime's sources, which lib/wabt/runtime builds into a library #}
 {% block install %}
 {{super()}}
 mv ${out}/include/wasm-rt*.h ${out}/share/wabt/wasm2c/
+{% endblock %}
+
+{% block env %}
+export WABT_WASM2C_RUNTIME="${out}/share/wabt/wasm2c"
 {% endblock %}
