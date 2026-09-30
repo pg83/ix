@@ -14,8 +14,10 @@ lib/c
 lib/wabt/runtime(trap_handler=decodeTrapHandler)
 {% endblock %}
 
+{# a selector with its own target starts from empty flags: what the module
+   must share with this package is passed through by name #}
 {% block bld_data %}
-lib/image/magick/wasm(target=wasm32-none,kind=lib)
+lib/image/magick/wasm(target=wasm32-none,kind=lib,simd128={{simd128}})
 {% endblock %}
 
 {% block bld_tool %}

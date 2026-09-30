@@ -150,6 +150,11 @@ if [ "${floor}" != 0 ]; then
     awk -v f="${floor}" '{ if ($3 < f) $3 = f; print }' cases.txt > cases.floor && mv cases.floor cases.txt
 fi
 
+{% if simd128 %}
+# WAMR's fast JIT has no SIMD, so wasm-decode cannot run a v128 module;
+# the matrix runs through wasm2c in lib/image/magick/wasm/c instead, and
+# the corpus below is installed for it either way
+{% else %}
 while read name file tol; do
     set -- $(cat refs/${name}.dim)
     if out=$(wasm-decode decode.wasm ${file} $1 $2 ${tol} refs/${name}.rgba 2>&1); then
@@ -169,6 +174,7 @@ for f in bad/*; do
         *) echo "FAIL $(basename ${f}): loader exit ${rc} ${out}"; fail=1;;
     esac
 done
+{% endif %}
 
 test ${fail} = 0
 {% endblock %}
