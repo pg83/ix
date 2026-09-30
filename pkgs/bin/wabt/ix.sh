@@ -34,3 +34,10 @@ bld/python
 BUILD_TESTS=OFF
 USE_SYSTEM_GTEST=ON
 {% endblock %}
+
+{# a bin package keeps no include/: the wasm2c runtime's public headers go
+   with the runtime's sources, where an embedder of the generated C looks #}
+{% block install %}
+{{super()}}
+mv ${out}/include/wasm-rt*.h ${out}/share/wabt/wasm2c/
+{% endblock %}
