@@ -47,14 +47,16 @@ wrap_cc
 {% endblock %}
 
 {% block patch %}
-{# musl's exit.c and quick_exit.c alias __stdio_exit and __funcs_on_exit to
-   an unprototyped dummy(). On wasm an unprototyped definition takes the
-   varargs pointer, so the weak aliases get the signature (i32) -> void
-   while the real functions are () -> void. Without LTO the strong
-   definitions replace them silently; under ThinLTO wasm-ld sees both,
-   warns about the mismatch and crashes linking executables. #}
-sed -e 's/static void dummy()/static void dummy(void)/' \
-    -i libc-top-half/musl/src/exit/exit.c libc-top-half/musl/src/exit/quick_exit.c
+{# musl weak-aliases hooks such as __stdio_exit, __funcs_on_exit,
+   __testcancel or __acquire_ptc to an unprototyped dummy(). On wasm an
+   unprototyped definition takes the varargs pointer, so those weak
+   aliases get the signature (i32) -> void while the real functions are
+   () -> void. Without LTO the strong definitions replace them silently;
+   under ThinLTO wasm-ld sees both, warns about the mismatch and crashes
+   linking executables. Give every such dummy a prototype. #}
+grep -rlE 'static void dummy(_0)?\(\)' libc-top-half/musl/src | while read f; do
+    sed -E -e 's/static void dummy(_0)?\(\)/static void dummy\1(void)/' -i "${f}"
+done
 {% endblock %}
 
 {% block cmake_flags %}
