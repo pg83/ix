@@ -14,7 +14,9 @@ https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/{{self.version(
 {% endblock %}
 
 {% block bld_tool %}
+{% if x86_64 %}
 bld/nasm
+{% endif %}
 {% endblock %}
 
 {% block bld_libs %}
