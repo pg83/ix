@@ -82,5 +82,6 @@ sed -e 's|status=system(sanitize_command);|status=(-1);|' \
 --without-openexr
 --without-bzlib
 --without-zip
+--without-xml
 {% endif %}
 {% endblock %}
