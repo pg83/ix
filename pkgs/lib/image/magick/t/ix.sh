@@ -9,7 +9,7 @@ ImageMagick
 {% endblock %}
 
 {% block fetch %}
-https://ftp.icm.edu.pl/packages/ImageMagick/archive/releases/ImageMagick-{{self.version().strip() | field(0)}}.{{self.version().strip() | field(1)}}.{{self.version().strip() | field(2)}}-{{self.version().strip() | field(3)}}.tar.xz
+https://download.imagemagick.org/archive/releases/ImageMagick-{{self.version().strip() | field(0)}}.{{self.version().strip() | field(1)}}.{{self.version().strip() | field(2)}}-{{self.version().strip() | field(3)}}.tar.xz
 9f32b378f14e6a5357b5b901351ebe8d8c8b86e6b7a4299b3c95336ecfc92642
 {% endblock %}
 
