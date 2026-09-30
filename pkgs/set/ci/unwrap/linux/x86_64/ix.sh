@@ -1035,5 +1035,5 @@ bld/blueprint/compiler
 lib/gtk/layer/shell/4/dl(kind=lib)
 lib/gtk/layer/shell/4/gir
 lib/image/magick/wasm/c(kind=lib)
-lib/simd/e
+lib/simd/e(kind=lib)
 {% endblock %}
