@@ -5,12 +5,12 @@ f2fs-tools
 {% endblock %}
 
 {% block version %}
-1.16.0
+1.17.0
 {% endblock %}
 
 {% block fetch %}
 https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/f2fs-tools-{{self.version().strip()}}.tar.gz
-208c7a07e95383fbd7b466b5681590789dcb41f41bf197369c41a95383b57c5e
+1dbc89ada373b43cc9130b47ad3f575117583ca74715e952046c88a121a2a469
 {% endblock %}
 
 {% block bld_libs %}
