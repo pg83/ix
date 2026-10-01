@@ -6765,6 +6765,7 @@ https://gitlab.gnome.org/GNOME/libsoup/-/archive/3.6.1/libsoup-3.6.1.tar.bz2
 https://gitlab.gnome.org/GNOME/libsoup/-/archive/3.6.3/libsoup-3.6.3.tar.bz2
 https://gitlab.gnome.org/GNOME/libsoup/-/archive/3.6.5/libsoup-3.6.5.tar.bz2
 https://gitlab.gnome.org/GNOME/libsoup/-/archive/3.6.6/libsoup-3.6.6.tar.bz2
+https://gitlab.gnome.org/GNOME/libsoup/-/archive/3.8.0/libsoup-3.8.0.tar.bz2
 https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.0/libspelling-0.4.0.tar.bz2
 https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.1/libspelling-0.4.1.tar.bz2
 https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.10/libspelling-0.4.10.tar.bz2
