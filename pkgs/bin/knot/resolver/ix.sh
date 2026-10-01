@@ -24,6 +24,7 @@ lib/cap/ng
 lib/lua/jit
 lib/ng/http/2
 lib/protobuf/c
+lib/execinfo
 {% endblock %}
 
 {% block bld_tool %}
