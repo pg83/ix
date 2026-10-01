@@ -2252,6 +2252,7 @@ https://github.com/abseil/abseil-cpp/archive/refs/tags/20250814.0.tar.gz
 https://github.com/acpica/acpica/archive/refs/tags/20250807.tar.gz
 https://github.com/acpica/acpica/archive/refs/tags/20251212.tar.gz
 https://github.com/acpica/acpica/archive/refs/tags/20260408.tar.gz
+https://github.com/acpica/acpica/archive/refs/tags/20260930.tar.gz
 https://github.com/acpica/acpica/archive/refs/tags/R2025_04_04.tar.gz
 https://github.com/acpica/acpica/archive/refs/tags/version-20240827.tar.gz
 https://github.com/ada-url/ada/archive/refs/tags/v2.9.0.tar.gz
