@@ -7324,6 +7324,7 @@ https://secure.nic.cz/files/knot-resolver/knot-resolver-6.0.16.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-6.0.17.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-6.2.0.tar.xz
 https://secure.nic.cz/files/knot-resolver/knot-resolver-6.4.2.tar.xz
+https://secure.nic.cz/files/knot-resolver/knot-resolver-6.5.0.tar.xz
 https://security.appspot.com/downloads/vsftpd-3.0.5.tar.gz
 https://skarnet.org/software/execline/execline-2.8.2.0.tar.gz
 https://skarnet.org/software/mdevd/mdevd-0.1.5.1.tar.gz
