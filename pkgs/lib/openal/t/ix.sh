@@ -39,6 +39,14 @@ ALSOFT_DLOPEN=OFF
 ALSOFT_EXAMPLES=OFF
 {% endblock %}
 
+{% block cxx_flags %}
+{{super()}}
+{% if darwin %}
+-Wno-undef
+-Wno-elaborated-enum-base
+{% endif %}
+{% endblock %}
+
 {% block build_flags %}
 wrap_cc
 {% endblock %}
