@@ -49,6 +49,9 @@ def enrich(d):
     if 'arch' not in d:
         d['arch'] = d['gnu_arch']
 
+        if d['os'] == 'darwin':
+            d['arch'] = {'aarch64': 'arm64'}.get(d['arch'], d['arch'])
+
     if 'bits' not in d:
         kk = d.get('arch', '') + d.get('gnu_arch', '')
 
@@ -204,7 +207,7 @@ def get_raw_arch(n):
         }
 
     if n == 'arm64':
-        return du(a('darwin-aarch64'), {'arch': 'arm64'})
+        return a('darwin-aarch64')
 
     if n == 'aarch64':
         return {'gnu_arch': 'aarch64', 'family': 'arm'}
