@@ -3990,6 +3990,7 @@ https://github.com/knik0/faad2/archive/refs/tags/2.11.0.tar.gz
 https://github.com/knik0/faad2/archive/refs/tags/2.11.1.tar.gz
 https://github.com/knik0/faad2/archive/refs/tags/2.11.2.tar.gz
 https://github.com/knik0/faad2/archive/refs/tags/2.11.3.tar.gz
+https://github.com/knik0/faad2/archive/refs/tags/2.11.4.tar.gz
 https://github.com/kondrak/vkQuake2/archive/refs/tags/1.5.8.tar.gz
 https://github.com/koverstreet/bcachefs-tools/archive/refs/tags/v1.11.0.tar.gz
 https://github.com/koverstreet/bcachefs-tools/archive/refs/tags/v1.13.0.tar.gz
