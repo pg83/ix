@@ -70,6 +70,9 @@ CMAKE_BUILD_TYPE=Release
 BUILD_SHARED_LIBS=OFF
 BUILD_TESTING=OFF
 SITE=ix
+{% if darwin %}
+CMAKE_IGNORE_PREFIX_PATH="/opt/homebrew;/usr/local;/opt/local;/sw"
+{% endif %}
 {% if not boot %}
 UNIX=1
 __UNIX_PATHS_INCLUDED=1
