@@ -3504,6 +3504,7 @@ https://github.com/hluk/CopyQ/archive/refs/tags/v12.0.0.tar.gz
 https://github.com/hluk/CopyQ/archive/refs/tags/v12.0.1.tar.gz
 https://github.com/hluk/CopyQ/archive/refs/tags/v13.0.0.tar.gz
 https://github.com/hluk/CopyQ/archive/refs/tags/v16.0.0.tar.gz
+https://github.com/hluk/CopyQ/archive/refs/tags/v17.0.0.tar.gz
 https://github.com/hluk/CopyQ/archive/refs/tags/v7.0.0.tar.gz
 https://github.com/hluk/CopyQ/archive/refs/tags/v7.1.0.tar.gz
 https://github.com/hluk/CopyQ/archive/refs/tags/v9.1.0.tar.gz
