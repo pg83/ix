@@ -25,5 +25,6 @@ lib/curses
 lib/parted
 lib/e2fsprogs
 lib/device/mapper
+lib/nvme
 lib/shim/fake(lib_name=libconfig)
 {% endblock %}
