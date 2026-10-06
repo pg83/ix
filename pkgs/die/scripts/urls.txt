@@ -5414,6 +5414,7 @@ https://github.com/rui314/mold/archive/refs/tags/v2.40.3.tar.gz
 https://github.com/rui314/mold/archive/refs/tags/v2.40.4.tar.gz
 https://github.com/rui314/mold/archive/refs/tags/v2.42.0.tar.gz
 https://github.com/rui314/mold/archive/refs/tags/v2.42.1.tar.gz
+https://github.com/rui314/mold/archive/refs/tags/v3.0.0.tar.gz
 https://github.com/rust-lang/cargo/archive/refs/tags/0.80.0.tar.gz
 https://github.com/rust-lang/cargo/archive/refs/tags/0.83.0.tar.gz
 https://github.com/rust-lang/rust-bindgen/archive/refs/tags/v0.71.1.tar.gz
