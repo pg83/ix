@@ -2715,6 +2715,7 @@ https://github.com/contour-terminal/reflection-cpp/archive/refs/tags/v0.1.0.tar.
 https://github.com/contour-terminal/reflection-cpp/archive/refs/tags/v0.2.0.tar.gz
 https://github.com/contour-terminal/reflection-cpp/archive/refs/tags/v0.3.0.tar.gz
 https://github.com/contour-terminal/reflection-cpp/archive/refs/tags/v0.4.0.tar.gz
+https://github.com/contour-terminal/reflection-cpp/archive/refs/tags/v0.5.0.tar.gz
 https://github.com/cppfw/agg/archive/refs/tags/2.8.17.tar.gz
 https://github.com/cppfw/agg/archive/refs/tags/2.8.22.tar.gz
 https://github.com/cppfw/agg/archive/refs/tags/2.8.33.tar.gz
