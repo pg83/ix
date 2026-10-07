@@ -2661,6 +2661,7 @@ https://github.com/chmouel/gosmee/archive/refs/tags/v0.28.3.tar.gz
 https://github.com/chmouel/gosmee/archive/refs/tags/v0.29.0.tar.gz
 https://github.com/chmouel/gosmee/archive/refs/tags/v0.32.0.tar.gz
 https://github.com/chriskohlhoff/asio/archive/refs/tags/asio-1-32-0.tar.gz
+https://github.com/chromium/pdfium/archive/a84323421e94f484faca52dd9d027934eba42ab8.tar.gz
 https://github.com/cilium/pwru/archive/refs/tags/v1.0.4.tar.gz
 https://github.com/cilium/pwru/archive/refs/tags/v1.0.5.tar.gz
 https://github.com/cisco/libsrtp/archive/refs/tags/v1.6.0.tar.gz
@@ -3192,6 +3193,7 @@ https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.14.3.tar.gz
 https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.15.0.tar.gz
 https://github.com/freebsd/freebsd-src/archive/refs/tags/release/14.0.0.tar.gz
 https://github.com/freequaos/schedtool/archive/refs/tags/schedtool-1.3.0.tar.gz
+https://github.com/freetype/freetype/archive/fc9cc5038e05edceec3d0f605415540ac76163e9.tar.gz
 https://github.com/fribidi/fribidi/archive/refs/tags/v1.0.13.tar.gz
 https://github.com/fribidi/fribidi/archive/refs/tags/v1.0.14.tar.gz
 https://github.com/fribidi/fribidi/archive/refs/tags/v1.0.16.tar.gz
@@ -4116,6 +4118,7 @@ https://github.com/libbpf/libbpf/archive/refs/tags/v1.6.1.tar.gz
 https://github.com/libbpf/libbpf/archive/refs/tags/v1.6.2.tar.gz
 https://github.com/libbpf/libbpf/archive/refs/tags/v1.6.3.tar.gz
 https://github.com/libbpf/libbpf/archive/refs/tags/v1.7.0.tar.gz
+https://github.com/libbpf/libbpf/archive/refs/tags/v1.8.0.tar.gz
 https://github.com/libcgroup/libcgroup/releases/download/v2.0.2/libcgroup-2.0.2.tar.gz
 https://github.com/libcgroup/libcgroup/releases/download/v2.0.3/libcgroup-2.0.3.tar.gz
 https://github.com/libconfuse/libconfuse/archive/refs/tags/v3.3.tar.gz
