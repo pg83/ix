@@ -7067,6 +7067,7 @@ https://libzip.org/download/libzip-1.11.2.tar.xz
 https://libzip.org/download/libzip-1.11.3.tar.xz
 https://libzip.org/download/libzip-1.11.4.tar.xz
 https://libzip.org/download/libzip-1.11.tar.xz
+https://libzip.org/download/libzip-1.12.tar.xz
 https://lttng.org/files/urcu/userspace-rcu-0.14.0.tar.bz2
 https://lttng.org/files/urcu/userspace-rcu-0.14.1.tar.bz2
 https://lttng.org/files/urcu/userspace-rcu-0.15.2.tar.bz2
