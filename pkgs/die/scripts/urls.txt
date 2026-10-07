@@ -2802,6 +2802,7 @@ https://github.com/dino/dino/archive/refs/tags/v0.4.4.tar.gz
 https://github.com/dino/dino/archive/refs/tags/v0.5.0.tar.gz
 https://github.com/dino/dino/archive/refs/tags/v0.5.1.tar.gz
 https://github.com/direnv/direnv/archive/refs/tags/v2.37.1.tar.gz
+https://github.com/direnv/direnv/archive/refs/tags/v2.38.1.tar.gz
 https://github.com/djpohly/dwl/archive/refs/tags/v0.3.1.tar.gz
 https://github.com/dlbeer/quirc/archive/refs/tags/v1.2.tar.gz
 https://github.com/dlvhdr/gh-dash/archive/refs/tags/v4.25.2.tar.gz
