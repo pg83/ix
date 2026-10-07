@@ -1,0 +1,113 @@
+{# libmagic as one pure wasm module with the exports of magic.c: the MIME
+   type of bytes in memory, from the compiled magic database built into
+   the module.
+
+   Built for wasm32-none: the module imports nothing, and the build
+   proves it with wasm-imports. The build also runs the module: wasm-mime
+   on WAMR hands it files of known types, twice each in one instance,
+   which is how a host reuses it, and requires the type of each. #}
+
+{% extends '//die/c/ix.sh' %}
+
+{% block lib_deps %}
+lib/c
+lib/magic
+{% endblock %}
+
+{% block bld_tool %}
+bld/python
+bld/wasm/opt
+bld/wasm/imports
+bld/wasm/mime(jit=1)
+{% endblock %}
+
+{# the compiled database, from the host's build of the same file: its
+   loader checks the version and the record size against its own, which
+   the host and the module share #}
+{% block use_data %}
+aux/magic
+{% endblock %}
+
+{% block unpack %}
+mkdir src; cd src
+{% endblock %}
+
+{% block build %}
+cat << 'EOF' > magic.c
+{{ix.load_file('magic.c')}}
+EOF
+
+# the database as data of the module, octal escapes so no byte runs into
+# the next one; writable, as the library swaps bytes in place if it must
+python3 - "${MAGIC_DATA}" << 'EOF'
+import sys
+
+data = open(sys.argv[1], "rb").read()
+
+with open("magic_mgc.c", "w") as out:
+    out.write("unsigned char magic_mgc[%d] =\n" % len(data))
+    for i in range(0, len(data), 48):
+        out.write('"' + "".join("\\%03o" % b for b in data[i:i + 48]) + '"\n')
+    out.write(";\nunsigned int magic_mgc_len = %d;\n" % len(data))
+EOF
+
+# no entry: the host just calls the exports. magic_mime runs the static
+# constructors once per instance, on an instance's first call; because the
+# module references __wasm_call_ctors itself, wasm-ld does not wrap the
+# exports with a ctors/dtors pair per call.
+${CC} ${CPPFLAGS} ${CFLAGS} -c magic.c -o magic.o
+${CC} ${CPPFLAGS} ${CFLAGS} -c magic_mgc.c -o magic_mgc.o
+${CC} magic.o magic_mgc.o -o magic.wasm -lmagic ${LDFLAGS} \
+    -Wl,--no-entry \
+    -Wl,--export=malloc \
+    -Wl,--export=free \
+    -Wl,-z,stack-size=8388608 \
+    --no-wasm-opt
+
+# binaryen's optimizer on the linked module: whole-program passes wasm-ld
+# has no equivalent of. clang would run wasm-opt -O2 by itself when it
+# finds one in PATH; --no-wasm-opt above keeps this the only pass.
+ls -la magic.wasm | awk '{print "linked:", $5}'
+wasm-opt -O3 magic.wasm -o magic.wasm
+ls -la magic.wasm | awk '{print "wasm-opt -O3:", $5}'
+
+wasm-imports --none magic.wasm
+
+# files of known types, by their first bytes, and what the module must
+# say of each: what file 5.48 itself says of them (random bytes it is
+# happy to call ISO-8859 text, so the noise has control bytes in it)
+python3 - << 'EOF'
+samples = {
+    "png": (b"\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\0\x10\0\0\0\x10\x08\x06\0\0\0" + b"\0" * 64, "image/png"),
+    "jpeg": (b"\xff\xd8\xff\xe0\0\x10JFIF\0\x01\x01\0\0\x01\0\x01\0\0\xff\xdb" + b"\0" * 64, "image/jpeg"),
+    "gif": (b"GIF89a\x10\0\x10\0\x80\0\0" + b"\0" * 32, "image/gif"),
+    "pdf": (b"%PDF-1.4\n1 0 obj\n<< /Type /Catalog >>\nendobj\n%%EOF\n", "application/pdf"),
+    "djvu": (b"AT&TFORM\0\0\0\x20DJVUINFO\0\0\0\x0a" + b"\0" * 32, "image/vnd.djvu"),
+    "text": (b"hello, world\nline two\n", "text/plain"),
+    "empty": (b"", "application/x-empty"),
+    "noise": (bytes([0, 1, 2, 3, 255, 254, 128, 7, 0, 0, 9, 200] * 300), "application/octet-stream"),
+}
+
+with open("expected.txt", "w") as out:
+    for name, (data, mime) in samples.items():
+        open(name + ".bin", "wb").write(data)
+        out.write("%s %s\n" % (name, mime))
+EOF
+
+while read name mime; do
+    got=$(wasm-mime magic.wasm ${name}.bin)
+    echo "${name}: ${got}"
+    test "${got}" = "${mime}"
+done < expected.txt
+{% endblock %}
+
+{% block install %}
+mkdir -p ${out}/share
+cp magic.wasm ${out}/share/
+{% endblock %}
+
+{# postinstall moves share/ to lib/aux/ for a lib package; the env is
+   written after that, so consumers get the final path #}
+{% block env %}
+export IX_MAGIC_WASM="${out}/lib/aux/magic.wasm"
+{% endblock %}
