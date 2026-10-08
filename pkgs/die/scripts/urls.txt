@@ -4968,6 +4968,7 @@ https://github.com/pg83/portal/archive/refs/tags/1.tar.gz
 https://github.com/pg83/s3/archive/refs/tags/26.tar.gz
 https://github.com/pg83/s3/archive/refs/tags/27.tar.gz
 https://github.com/pg83/s3/archive/refs/tags/31.tar.gz
+https://github.com/pg83/s3/archive/refs/tags/32.tar.gz
 https://github.com/pg83/samogon/archive/refs/tags/7.tar.gz
 https://github.com/pg83/sbase/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/shutil/archive/refs/tags/v1.tar.gz
@@ -5867,6 +5868,7 @@ https://github.com/tldr-pages/tldr-c-client/archive/refs/tags/v1.5.0.tar.gz
 https://github.com/tldr-pages/tldr-c-client/archive/refs/tags/v1.6.1.tar.gz
 https://github.com/tmux/tmux/archive/refs/tags/3.5a.tar.gz
 https://github.com/tmux/tmux/archive/refs/tags/3.7c.tar.gz
+https://github.com/tmux/tmux/archive/refs/tags/3.8.tar.gz
 https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
 https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz
 https://github.com/tmux/tmux/releases/download/3.5/tmux-3.5.tar.gz
