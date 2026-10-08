@@ -102,7 +102,7 @@ bin/contour
 bin/nix
 bin/coreutils/9/6
 bin/inkscape
-bin/imway
+bin/im/shell
 bin/shitty
 bin/solo
 bin/gdb/16

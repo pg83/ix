@@ -5,19 +5,15 @@ imway
 {% endblock %}
 
 {% block git_repo %}
-https://github.com/pg83/imway
+https://github.com/impulse-desktop/shell
 {% endblock %}
 
 {% block git_commit %}
-2
+3
 {% endblock %}
 
 {% block git_sha %}
-45f4239fde3a7567c5686a7d275dc644213f16dcd216ff3da8c07a0b8c85ea16
-{% endblock %}
-
-{% block git_hook_1 %}
-git config submodule.third_party/libstd.url https://github.com/pg83/std.git
+f0f5158f1b4f8c785f43504b9e4b13f340b306c3479cf8ec5d980e7602746880
 {% endblock %}
 
 {% block bld_libs %}
@@ -28,12 +24,12 @@ lib/drm
 lib/png
 lib/jxl
 lib/std
-lib/glfw
 lib/dbus
 lib/seat
 lib/pam
 lib/udev
 lib/input
+lib/lcms/2
 lib/display/info
 lib/sndio
 lib/wayland

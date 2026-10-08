@@ -1,7 +1,7 @@
 {% extends '//die/hub.sh' %}
 
 {% block run_deps %}
-bin/imway
+bin/im/shell
 bin/dbus/session
-bin/imway/session/scripts
+bin/im/shell/session/scripts
 {% endblock %}

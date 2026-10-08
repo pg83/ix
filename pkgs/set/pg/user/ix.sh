@@ -72,7 +72,7 @@ bin/brightnessctl
 set/pg/user/scripts
 bin/claude/code/wrap
 bin/minio/client/patched
-bin/imway/session(stalix=1)
+bin/im/shell/session(stalix=1)
 {% endblock %}
 
 {% block run_data %}
