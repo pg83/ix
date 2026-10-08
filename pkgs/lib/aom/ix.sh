@@ -1,10 +1,29 @@
 {% extends 't/ix.sh' %}
 
+{# the decoder's error exit is a longjmp; on a single-shot sandbox that
+   is a trap, and the host drops the instance #}
+{% block bld_libs %}
+{{super()}}
+{% if wasi %}
+lib/shim/setjmp
+{% endif %}
+{% endblock %}
+
 {% block cmake_flags %}
 ENABLE_APPS=OFF
 ENABLE_TOOLS=OFF
 ENABLE_EXAMPLES=OFF
 {{super()}}
+{% if wasi %}
+# the sandbox: the AV1 decoder alone, on one thread, generic code with
+# no CPU to detect
+CONFIG_AV1_ENCODER=0
+CONFIG_MULTITHREAD=0
+CONFIG_RUNTIME_CPU_DETECT=0
+CONFIG_WEBM_IO=0
+CONFIG_LIBYUV=0
+AOM_TARGET_CPU=generic
+{% endif %}
 {% endblock %}
 
 {% block install %}

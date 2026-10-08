@@ -1,11 +1,12 @@
-{% extends 't/ix.sh' %}
+{# libheif, by platform: the sandbox's decoder on wasi, the plain one
+   elsewhere #}
 
-{% block cmake_flags %}
-WITH_EXAMPLES=OFF
-{{super()}}
-{% endblock %}
+{% extends '//die/hub.sh' %}
 
-{% block install %}
-{{super()}}
-sed -e 's|.*Libs.*stdc.*||' -i ${out}/lib/pkgconfig/libheif.pc
+{% block lib_deps %}
+{% if wasi %}
+lib/heif/wasi
+{% else %}
+lib/heif/common
+{% endif %}
 {% endblock %}

@@ -23,9 +23,9 @@ lib/webp
 lib/tiff
 lib/lcms/2
 lib/jpeg/open
+lib/heif
 {% if not wasi %}
 lib/raw
-lib/heif
 lib/openexr
 {% endif %}
 {% endblock %}
@@ -77,7 +77,6 @@ sed -e 's|status=system(sanitize_command);|status=(-1);|' \
 --without-x
 --without-fontconfig
 --without-freetype
---without-heic
 --without-raw
 --without-openexr
 --without-bzlib

@@ -98,6 +98,8 @@ magick images/opaque.png -orient RightTop images/orient.tif;             case_ t
 magick images/orig.png -quality 100 images/ll.jxl;                       case_ jxl-lossless ll.jxl 0
 magick images/opaque.png -quality 85 images/q85.jxl;                     case_ jxl q85.jxl 1
 magick images/opaque.png images/plain.jp2;                               case_ jpeg2000 plain.jp2 1
+magick images/opaque.png -quality 80 images/q80.avif;                    case_ avif q80.avif 1
+magick images/orig.png -quality 80 images/alpha.avif;                    case_ avif-alpha alpha.avif 1
 magick images/opaque.png images/plain.gif;                               case_ gif plain.gif 0
 magick images/opaque.png \( +clone -negate \) \( +clone -flop \) -delay 10 images/anim.gif
                                                                          case_ gif-animated anim.gif 0
@@ -135,7 +137,7 @@ while read name file tol; do
 done < cases.txt
 
 # broken inputs: must fail, must not hang or crash the loader
-for f in rgba.png q90.jpg ll.jxl q80.webp lzw.tif plain.jp2 plain.gif; do
+for f in rgba.png q90.jpg ll.jxl q80.webp lzw.tif plain.jp2 plain.gif q80.avif; do
     n=$(wc -c < images/${f})
     head -c $((n * 6 / 10)) images/${f} > bad/trunc-${f}
     cp images/${f} bad/mid-${f}
