@@ -9,11 +9,11 @@ https://github.com/impulse-desktop/suite
 {% endblock %}
 
 {% block git_commit %}
-2
+3
 {% endblock %}
 
 {% block git_sha %}
-557c96910fe038e3797cd5b6f60e2daf5360bccf4a69da4166f7c32f929ce77d
+fa59048f10dbfa675382ab0ba109bd7a351b83a60ad18dfb9bc59de62c4b1ec0
 {% endblock %}
 
 {% block pybuild_target %}
@@ -60,10 +60,5 @@ bin/glslang
 {% endblock %}
 
 {% block install %}
-mkdir -p ${out}/bin
-cp im ${out}/bin/
-cd ${out}/bin
-for x in screenshot view play read edit choose ui; do
-    ln -s im im${x}
-done
+sh dev/install.sh ${out}
 {% endblock %}
