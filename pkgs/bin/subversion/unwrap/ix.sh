@@ -29,7 +29,7 @@ lib/utf8/proc
 
 {% block bld_tool %}
 bld/python
-bin/libtool/prev
+bin/libtool
 bld/redir(from=python,to=python3)
 {% endblock %}
 
