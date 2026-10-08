@@ -11,6 +11,7 @@ bld/wasm/opt
 bld/wasm/imports
 bld/wasm/decode(jit=1)
 bld/magick
+bin/heif
 {% endblock %}
 
 {% block unpack %}
@@ -73,8 +74,8 @@ magick images/opaque.png -orient RightTop images/orient.tif;             case_ t
 magick images/orig.png -quality 100 images/ll.jxl;                       case_ jxl-lossless ll.jxl 0
 magick images/opaque.png -quality 85 images/q85.jxl;                     case_ jxl q85.jxl 1
 magick images/opaque.png images/plain.jp2;                               case_ jpeg2000 plain.jp2 1
-magick images/opaque.png -quality 80 images/q80.avif;                    case_ avif q80.avif 1
-magick images/orig.png -quality 80 images/alpha.avif;                    case_ avif-alpha alpha.avif 1
+heif-enc -A -q 80 -o images/q80.avif images/opaque.png > /dev/null;     case_ avif q80.avif 1
+heif-enc -A -q 80 -o images/alpha.avif images/orig.png > /dev/null;      case_ avif-alpha alpha.avif 1
 magick images/opaque.png images/plain.gif;                               case_ gif plain.gif 0
 magick images/opaque.png \( +clone -negate \) \( +clone -flop \) -delay 10 images/anim.gif
                                                                          case_ gif-animated anim.gif 0
@@ -102,6 +103,7 @@ while read name file tol; do
     src=${file}
     case ${name} in
         gif-animated) src="${file}[0]";;
+        avif*) heif-dec "${file}" refs/${name}.png > /dev/null; src=refs/${name}.png;;
     esac
     magick "${src}" -auto-orient -colorspace sRGB -depth 8 "rgba:refs/${name}.rgba"
     magick "${src}" -auto-orient -format '%w %h' info: > refs/${name}.dim

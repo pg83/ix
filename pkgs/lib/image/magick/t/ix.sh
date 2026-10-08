@@ -61,6 +61,15 @@ sed -e 's|#if defined(MAGICKCORE_POSIX_SUPPORT) \&\& !defined(__OS2__)|#if 0|' \
     -i MagickCore/utility.c
 sed -e 's|status=system(sanitize_command);|status=(-1);|' \
     -i MagickCore/delegate.c
+# no temporary files on wasi: the HEIC coder keeps the blob support every
+# coder starts with, which upstream clears to read the file by its name,
+# and reads the blob from memory while it is open
+sed -e '/entry->flags[\^]=CoderBlobSupportFlag;/d' \
+    -e '/ThrowReaderException(ImageError,"ImageTypeNotSupported");/{n;/CloseBlob(image);/d}' \
+    -e 's|error=heif_context_read_from_file(heif_context,image->filename,|error=heif_context_read_from_memory_without_copy(heif_context,GetBlobStreamData(image),(size_t) GetBlobSize(image),|' \
+    -i coders/heic.c
+grep -q "heif_context_read_from_memory_without_copy" coders/heic.c
+! grep -q "CoderBlobSupportFlag" coders/heic.c
 {% endif %}
 {% endblock %}
 
