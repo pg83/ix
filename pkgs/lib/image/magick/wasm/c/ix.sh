@@ -21,8 +21,6 @@ mkdir src; cd src
 wasm2c --version
 wasm2c "${IX_IMAGE_MAGICK_DECODE_WASM}" --module-name decode --num-outputs 16 -o decode.c
 
-# 170 MB of generated C: its warnings are the generator's, and debug info
-# for it would outweigh the library
 export CC CPPFLAGS CFLAGS
 ls decode_*.c | xargs -P "$(nproc)" -I{} sh -c '${CC} ${CPPFLAGS} ${CFLAGS} -g0 -w -c {} -o {}.o'
 ar rcs libdecode.a *.o

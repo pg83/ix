@@ -9,15 +9,9 @@ lib/c
 
 {% block patch %}
 {{super()}}
-# <future> is used for the parallel tiles alone, which are off; without
-# threads the header itself does not compile
 sed -e 's|^#include <future>$|#if ENABLE_PARALLEL_TILE_DECODING\n#include <future>\n#endif|' \
     -i libheif/context.cc libheif/image-items/grid.cc
 grep -q "ENABLE_PARALLEL_TILE_DECODING" libheif/context.cc
-# no files on the sandbox: the sandbox's libc++ has no fstream and its
-# libc no mkstemp. A file is read from memory; reading one by its name
-# and writing one are errors, and the encoder's temporary file is never
-# made.
 sed -e '/^Error HeifFile::read_from_file(const char\* input_filename)$/,/^}$/c\
 Error HeifFile::read_from_file(const char* input_filename)\
 {\

@@ -25,8 +25,6 @@ cat << 'EOF' > magic.c
 {{ix.load_file('magic.c')}}
 EOF
 
-# the database as data of the module, octal escapes so no byte runs into
-# the next one; writable, as the library swaps bytes in place if it must
 python3 - "${MAGIC_DATA}" << 'EOF'
 import sys
 
@@ -39,10 +37,6 @@ with open("magic_mgc.c", "w") as out:
     out.write(";\nunsigned int magic_mgc_len = %d;\n" % len(data))
 EOF
 
-# no entry: the host just calls the exports. magic_mime runs the static
-# constructors once per instance, on an instance's first call; because the
-# module references __wasm_call_ctors itself, wasm-ld does not wrap the
-# exports with a ctors/dtors pair per call.
 ${CC} ${CPPFLAGS} ${CFLAGS} -c magic.c -o magic.o
 ${CC} ${CPPFLAGS} ${CFLAGS} -c magic_mgc.c -o magic_mgc.o
 ${CC} magic.o magic_mgc.o -o magic.wasm -lmagic ${LDFLAGS} \
@@ -52,18 +46,12 @@ ${CC} magic.o magic_mgc.o -o magic.wasm -lmagic ${LDFLAGS} \
     -Wl,-z,stack-size=8388608 \
     --no-wasm-opt
 
-# binaryen's optimizer on the linked module: whole-program passes wasm-ld
-# has no equivalent of. clang would run wasm-opt -O2 by itself when it
-# finds one in PATH; --no-wasm-opt above keeps this the only pass.
 ls -la magic.wasm | awk '{print "linked:", $5}'
 wasm-opt -O3 magic.wasm -o magic.wasm
 ls -la magic.wasm | awk '{print "wasm-opt -O3:", $5}'
 
 wasm-imports --none magic.wasm
 
-# files of known types, by their first bytes, and what the module must
-# say of each: what file 5.48 itself says of them (random bytes it is
-# happy to call ISO-8859 text, so the noise has control bytes in it)
 python3 - << 'EOF'
 samples = {
     "png": (b"\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\0\x10\0\0\0\x10\x08\x06\0\0\0" + b"\0" * 64, "image/png"),

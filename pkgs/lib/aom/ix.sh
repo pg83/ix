@@ -13,8 +13,6 @@ ENABLE_TOOLS=OFF
 ENABLE_EXAMPLES=OFF
 {{super()}}
 {% if wasi %}
-# the sandbox: the AV1 decoder alone, on one thread, generic code with
-# no CPU to detect
 CONFIG_AV1_ENCODER=0
 CONFIG_MULTITHREAD=0
 CONFIG_RUNTIME_CPU_DETECT=0

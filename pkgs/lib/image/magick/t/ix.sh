@@ -47,7 +47,6 @@ bld/fakegit
 sed -e 's|.*operator new.*|#include <new>|' \
     -i Magick++/lib/Magick++/Include.h
 {% if wasi %}
-# no libjxl_threads on wasi: decode on the calling thread
 cat << 'EOF' > coders/ix_jxl_runner.h
 #pragma once
 #include <stddef.h>
@@ -56,7 +55,6 @@ static void *JxlThreadParallelRunnerCreate(const void *mm, size_t n) { (void)mm;
 static void JxlThreadParallelRunnerDestroy(void *r) { (void)r; }
 EOF
 sed -e 's|<jxl/thread_parallel_runner.h>|"ix_jxl_runner.h"|' -i coders/jxl.c
-# no processes and no password database on wasi
 sed -e 's|return(popen(command,type));|return((void) command,(void) type,(FILE *) NULL);|' \
     -i MagickCore/utility-private.h
 sed -e 's|#if defined(MAGICKCORE_POSIX_SUPPORT) \&\& !defined(__OS2__)|#if 0|' \

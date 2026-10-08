@@ -22,11 +22,6 @@ cat << 'EOF' > decode.c
 {{ix.load_file('decode.c')}}
 EOF
 
-# no entry: the host just calls decode. decode runs the static constructors
-# once per instance, on its first call; later calls in the same instance skip
-# that. Because the module references __wasm_call_ctors itself, wasm-ld does
-# not wrap the exports with a ctors/dtors pair per call. 8 MB of stack for
-# the coders.
 ${CC} decode.c -o decode.wasm \
     $(pkg-config --cflags MagickWand-7.Q16HDRI) \
     $(pkg-config --static --libs MagickWand-7.Q16HDRI) \
@@ -37,11 +32,6 @@ ${CC} decode.c -o decode.wasm \
     -Wl,-z,stack-size=8388608 \
     --no-wasm-opt
 
-# binaryen's optimizer on the linked module: whole-program passes wasm-ld
-# has no equivalent of, identical-function folding among them. It reads
-# the module's target_features section and stays inside it. clang would
-# run wasm-opt -O2 by itself when it finds one in PATH; --no-wasm-opt
-# above keeps this the only pass.
 ls -la decode.wasm | awk '{print "linked:", $5}'
 wasm-opt -O3 decode.wasm -o decode.wasm
 ls -la decode.wasm | awk '{print "wasm-opt -O3:", $5}'
@@ -50,8 +40,6 @@ wasm-imports --none decode.wasm
 
 mkdir images refs bad
 
-# the original: shapes with real alpha on a transparent canvas, and an
-# opaque variant on a gradient for the formats without alpha
 magick -size 320x240 xc:none \
     -fill 'rgba(0,200,80,0.6)' -stroke none -draw 'circle 160,120 160,50' \
     -fill 'rgba(255,255,255,0.9)' -stroke black -strokewidth 3 -draw 'rectangle 20,20 120,90' \
@@ -61,7 +49,6 @@ magick -size 320x240 xc:none \
 
 magick -size 320x240 gradient:'#ff8800-#0044ff' images/orig.png -composite images/opaque.png
 
-# name file tolerance
 : > cases.txt
 
 case_() {
@@ -102,10 +89,6 @@ magick images/opaque.png images/plain.sgi;                               case_ s
 magick images/orig.png images/plain.miff;                                case_ miff plain.miff 0
 magick -seed 7 -size 1600x1200 plasma:fractal images/big.png;            case_ png-1600x1200 big.png 0
 
-# references: the host ImageMagick through the pipeline decode() applies.
-# The same ImageMagick build must agree to the bit; a different version or
-# quantum (the system's Q16 against our Q16-HDRI) rounds 16-bit data
-# differently, so then every case allows one step.
 vh="$(pkg-config --variable=includedir MagickWand-7.Q16HDRI)/MagickCore/version.h"
 ours="$(sed -n 's/^#define MagickLibVersionText *"\([^"]*\)".*/\1/p' "${vh}")$(sed -n 's/^#define MagickLibAddendum *"\([^"]*\)".*/\1/p' "${vh}") Q16-HDRI"
 host="$(magick -version | sed -n 's/^Version: ImageMagick \([^ ]*\) \([^ ]*\).*/\1 \2/p')"
@@ -124,7 +107,6 @@ while read name file tol; do
     magick "${src}" -auto-orient -format '%w %h' info: > refs/${name}.dim
 done < cases.txt
 
-# broken inputs: must fail, must not hang or crash the loader
 for f in rgba.png q90.jpg ll.jxl q80.webp lzw.tif plain.jp2 plain.gif q80.avif; do
     n=$(wc -c < images/${f})
     head -c $((n * 6 / 10)) images/${f} > bad/trunc-${f}
@@ -141,9 +123,6 @@ if [ "${floor}" != 0 ]; then
 fi
 
 {% if simd128 %}
-# WAMR's fast JIT has no SIMD, so wasm-decode cannot run a v128 module;
-# the matrix runs through wasm2c in lib/image/magick/wasm/c instead, and
-# the corpus below is installed for it either way
 {% else %}
 while read name file tol; do
     set -- $(cat refs/${name}.dim)
@@ -172,8 +151,6 @@ test ${fail} = 0
 {% block install %}
 mkdir -p ${out}/share/tests
 cp decode.wasm ${out}/share/
-# the test corpus, for the harnesses that consume the module in other ways
-# (lib/image/magick/wasm/c runs the same matrix through wasm2c)
 cp cases.txt ${out}/share/tests/
 cp -R images refs bad ${out}/share/tests/
 ls bad | sed 's|^|bad/|' > ${out}/share/tests/bad.list

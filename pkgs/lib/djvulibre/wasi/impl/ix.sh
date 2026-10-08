@@ -23,9 +23,6 @@ HAVE_PTHREAD=1
 {% endblock %}
 
 {% block patch %}
-# G_TRY, G_CATCH, G_THROW without exceptions: a throw traps, a catch block
-# is never entered but still compiles against its exception's name, by
-# C++17's if with an initializer
 cat << 'EOF' > libdjvu/GExceptionTrap.h
 static inline const GException &g_exception_never(void) {
   static const GException never("never");
@@ -62,7 +59,6 @@ EOF
 sed -e 's|^#ifdef USE_EXCEPTION_EMULATION$|#if defined(DJVU_NO_EXCEPTIONS)\n# include "GExceptionTrap.h"\n#elif defined(USE_EXCEPTION_EMULATION)|' \
     -i libdjvu/GException.h
 grep -q GExceptionTrap.h libdjvu/GException.h
-# the one bare try/catch, around printing an s-expression
 sed -e 's/^  try$/  if (true)/; s/^  catch(\.\.\.)$/  else/' -i libdjvu/miniexp.cpp
 grep -q "if (true)" libdjvu/miniexp.cpp
 {% endblock %}
