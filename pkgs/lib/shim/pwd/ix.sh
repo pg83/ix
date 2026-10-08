@@ -1,7 +1,3 @@
-{# the password and group databases of a sandbox without users: pwd.h and
-   grp.h whose lookups find nobody. A library looks there only to expand ~
-   in a path or to find a home. #}
-
 {% extends '//die/gen.sh' %}
 
 {% block install %}

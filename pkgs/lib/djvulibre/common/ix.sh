@@ -1,8 +1,3 @@
-{# DjVuLibre's library alone: libdjvulibre, the DjVu codec behind the
-   ddjvuapi.h C API and the C++ classes under it. The tools are
-   bin/djvulibre's. The library wants libjpeg and threads, none of the
-   tools' tiff, and none of the desktop files, whose build wants gzip. #}
-
 {% extends '//die/c/autorehell.sh' %}
 
 {% block pkg_name %}
@@ -34,14 +29,10 @@ lib/jpeg
 --disable-desktopfiles
 {% endblock %}
 
-{# the library's directory alone, built and installed: the C API's
-   headers and its pkg-config file are its #}
 {% block make_flags %}
 -C libdjvu
 {% endblock %}
 
-{# the C++ classes go out too, with the config.h they were built with,
-   for a consumer that drives the library below its C API #}
 {% block install %}
 {{super()}}
 cp config.h libdjvu/*.h ${out}/include/libdjvu/

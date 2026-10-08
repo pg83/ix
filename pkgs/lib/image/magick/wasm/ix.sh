@@ -1,15 +1,3 @@
-{# ImageMagick as one pure wasm module with a single decode() export.
-
-   Built for wasm32-none: the module imports nothing, and the build proves
-   it with wasm-imports. The build also runs the module: the host
-   ImageMagick draws an original, writes it in every format the wasm build
-   decodes, and produces the reference pixels for the same pipeline
-   (auto-orient, sRGB, 8-bit RGBA); wasm-decode on WAMR feeds each file to
-   decode() and compares. Lossless formats must match exactly, lossy ones
-   within one step. Broken files must fail without taking the loader
-   down, and every image is decoded twice in one instance, which is how a
-   viewer reuses it. #}
-
 {% extends '//die/c/ix.sh' %}
 
 {% block lib_deps %}
@@ -191,8 +179,6 @@ cp -R images refs bad ${out}/share/tests/
 ls bad | sed 's|^|bad/|' > ${out}/share/tests/bad.list
 {% endblock %}
 
-{# postinstall moves share/ to lib/aux/ for a lib package; the env is
-   written after that, so consumers get the final path #}
 {% block env %}
 export IX_IMAGE_MAGICK_DECODE_WASM="${out}/lib/aux/decode.wasm"
 export IX_IMAGE_MAGICK_DECODE_TESTS="${out}/lib/aux/tests"

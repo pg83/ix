@@ -1,12 +1,3 @@
-{# DjVuLibre as one pure wasm module with the exports of djvu.c: open a
-   file from memory, count and measure its pages, render one to RGBA.
-
-   Built for wasm32-none: the module imports nothing, and the build
-   proves it with wasm-imports. The build also runs the module: wasm-page
-   on WAMR opens a DjVu the host's c44 encoded from a picture, renders
-   its page twice in one instance, which is how a viewer reuses it, and
-   requires ink on the page. #}
-
 {% extends '//die/c/ix.sh' %}
 
 {% block lib_deps %}
@@ -79,8 +70,6 @@ mkdir -p ${out}/share
 cp djvu.wasm ${out}/share/
 {% endblock %}
 
-{# postinstall moves share/ to lib/aux/ for a lib package; the env is
-   written after that, so consumers get the final path #}
 {% block env %}
 export IX_DJVULIBRE_WASM="${out}/lib/aux/djvu.wasm"
 {% endblock %}

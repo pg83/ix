@@ -1,12 +1,3 @@
-{# libmagic as one pure wasm module with the exports of magic.c: the MIME
-   type of bytes in memory, from the compiled magic database built into
-   the module.
-
-   Built for wasm32-none: the module imports nothing, and the build
-   proves it with wasm-imports. The build also runs the module: wasm-mime
-   on WAMR hands it files of known types, twice each in one instance,
-   which is how a host reuses it, and requires the type of each. #}
-
 {% extends '//die/c/ix.sh' %}
 
 {% block lib_deps %}
@@ -21,9 +12,6 @@ bld/wasm/imports
 bld/wasm/mime(jit=1)
 {% endblock %}
 
-{# the compiled database, from the host's build of the same file: its
-   loader checks the version and the record size against its own, which
-   the host and the module share #}
 {% block use_data %}
 aux/magic
 {% endblock %}
@@ -106,8 +94,6 @@ mkdir -p ${out}/share
 cp magic.wasm ${out}/share/
 {% endblock %}
 
-{# postinstall moves share/ to lib/aux/ for a lib package; the env is
-   written after that, so consumers get the final path #}
 {% block env %}
 export IX_MAGIC_WASM="${out}/lib/aux/magic.wasm"
 {% endblock %}

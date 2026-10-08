@@ -1,19 +1,8 @@
-{# the library on the sandbox: single-threaded, the decoder's thread on
-   the caller's through lib/shim/pthread, and without C++ exceptions,
-   G_TRY/G_THROW becoming a trap of the instance, which the host drops;
-   the library throws only on broken data, a sound file in memory never
-   does. The shims stand first: the first library listed is the first on
-   the include path, and theirs are the headers that go ahead of the
-   libc's. #}
-
 {% extends '//lib/djvulibre/common/ix.sh' %}
 
 {% block lib_deps %}
 {% endblock %}
 
-{# pthread.h with the shim's pthread_create; pwd.h and grp.h of a sandbox
-   without users; setjmp.h whose longjmp is a trap, as libjpeg's error
-   exit is a longjmp #}
 {% block bld_libs %}
 lib/shim/pthread
 lib/shim/pwd
@@ -28,8 +17,6 @@ lib/c
 -fno-exceptions
 {% endblock %}
 
-{# the single-threaded libc tells configure it has no pthread.h; GThreads.h
-   reads HAVE_PTHREAD, and the shim answers pthread_create #}
 {% block cpp_defines %}
 DJVU_NO_EXCEPTIONS
 HAVE_PTHREAD=1

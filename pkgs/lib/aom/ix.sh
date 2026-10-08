@@ -1,7 +1,5 @@
 {% extends 't/ix.sh' %}
 
-{# the decoder's error exit is a longjmp; on a single-shot sandbox that
-   is a trap, and the host drops the instance #}
 {% block bld_libs %}
 {{super()}}
 {% if wasi %}

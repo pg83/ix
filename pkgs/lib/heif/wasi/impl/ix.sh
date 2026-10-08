@@ -1,10 +1,3 @@
-{# libheif on the sandbox: AVIF through libaom's decoder alone, no HEVC,
-   no encoders, no threads. The sandbox's libc++ is built without threads
-   and has no std::mutex, while the library locks its tables with one
-   wherever it runs: lib/shim/mutex gives it one of nothing, and stands
-   first here, ahead of libc++'s own <mutex>, as the first library listed
-   is the first on the include path. #}
-
 {% extends '//lib/heif/t/t/ix.sh' %}
 
 {% block bld_libs %}
