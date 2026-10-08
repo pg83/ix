@@ -9,15 +9,30 @@ https://github.com/impulse-desktop/suite
 {% endblock %}
 
 {% block git_commit %}
-1
+2
 {% endblock %}
 
 {% block git_sha %}
-161849ccfa723c52608b1018e8a4506730728395b3eb137e2513d17108cb72d7
+557c96910fe038e3797cd5b6f60e2daf5360bccf4a69da4166f7c32f929ce77d
 {% endblock %}
 
 {% block pybuild_target %}
 im
+{% endblock %}
+
+{% block pybuild_flags %}
+-Ddecode_wasm=${IX_IMAGE_MAGICK_DECODE_WASM}
+-Dpdf_wasm=${IX_PDFIUM_WASM}
+-Ddjvu_wasm=${IX_DJVULIBRE_WASM}
+-Dmagic_wasm=${IX_MAGIC_WASM}
+{% endblock %}
+
+{% block bld_data %}
+lib/image/magick/wasm(target=wasm32-none,kind=lib,simd128=1)
+lib/pdf/ium/wasm(target=wasm32-none,kind=lib)
+lib/djvulibre/wasm(target=wasm32-none,kind=lib)
+lib/magic/wasm(target=wasm32-none,kind=lib)
+{{super()}}
 {% endblock %}
 
 {% block bld_libs %}
@@ -26,6 +41,7 @@ lib/c++
 lib/png
 lib/jxl
 lib/linux/headers
+lib/simd/e
 lib/ffmpeg
 lib/openal
 lib/wayland
