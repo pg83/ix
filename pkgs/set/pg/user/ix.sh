@@ -35,17 +35,13 @@ bin/strace
 bin/ollama
 bin/logcli
 bin/bash/5
-bin/shitty
 bin/glslang
-bin/im/play
 bin/openssl
 bin/iwd/ctl
 bin/swayimg
 bin/tcpdump
-bin/unbound
 bin/git/lfs
 bld/wayland
-bin/rip/grep
 bin/etcd/ctl
 bin/dns/masq
 bin/sing/box
@@ -68,7 +64,6 @@ bin/grep/patched
 bin/grep/scripts
 set/box/gnu/tools
 bin/python/frozen
-bin/brightnessctl
 set/pg/user/scripts
 bin/claude/code/wrap
 bin/minio/client/patched
