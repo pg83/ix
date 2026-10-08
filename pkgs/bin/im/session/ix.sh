@@ -1,7 +1,7 @@
 {% extends '//die/hub.sh' %}
 
 {% block run_deps %}
-bin/im/shell
+bin/im/pulse
 bin/dbus/session
-bin/im/shell/session/scripts
+bin/im/session/scripts
 {% endblock %}
