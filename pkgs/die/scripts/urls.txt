@@ -3736,6 +3736,7 @@ https://github.com/illiliti/libudev-zero/archive/refs/tags/1.0.2.tar.gz
 https://github.com/illiliti/libudev-zero/archive/refs/tags/1.0.3.tar.gz
 https://github.com/illiliti/libudev-zero/archive/refs/tags/1.0.5.tar.gz
 https://github.com/imneme/pcg-cpp/archive/refs/tags/v0.98.1.tar.gz
+https://github.com/impulse-desktop/portal/archive/refs/tags/2.tar.gz
 https://github.com/imsnif/bandwhich/archive/refs/tags/v0.23.1.tar.gz
 https://github.com/inotify-tools/inotify-tools/archive/refs/tags/3.20.11.0.tar.gz
 https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.23.9.0.tar.gz
@@ -5010,6 +5011,7 @@ https://github.com/pkgconf/pkgconf/archive/refs/tags/pkgconf-2.5.0.tar.gz
 https://github.com/pkgconf/pkgconf/archive/refs/tags/pkgconf-2.5.1.tar.gz
 https://github.com/pkgconf/pkgconf/archive/refs/tags/pkgconf-3.0.6.tar.gz
 https://github.com/pkgconf/pkgconf/archive/refs/tags/pkgconf-3.0.7.tar.gz
+https://github.com/pkgconf/pkgconf/archive/refs/tags/pkgconf-3.0.8.tar.gz
 https://github.com/plougher/squashfs-tools/archive/refs/tags/4.6.1.tar.gz
 https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.2.tar.gz
 https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.4.tar.gz
