@@ -30,7 +30,8 @@ bld/qt/6/tools/qml
 
 {% block patch %}
 {{super()}}
-sed -e 's|set(REQUIRED_QT_VERSION 6.9.0)|set(REQUIRED_QT_VERSION 6.7.0)|' -i CMakeLists.txt
+sed -e 's|set(REQUIRED_QT_VERSION 6.10.0)|set(REQUIRED_QT_VERSION 6.7.0)|' -i CMakeLists.txt
+sed -e '/#include <array>/a#include <span>' -i src/lib/util/ksafestringerror.cpp
 {% endblock %}
 
 {% block install %}
