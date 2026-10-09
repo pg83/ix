@@ -48,12 +48,12 @@ bin/pkg/config
 bin/codex/wrap
 bin/fontconfig
 bin/quake/1/vk
+bin/im/session
 bin/grep/patched
 bin/grep/scripts
 set/box/gnu/tools
 set/pg/user/scripts
 bin/claude/code/wrap
-bin/im/pulse/session
 {% endblock %}
 
 {% block run_data %}
