@@ -2893,6 +2893,7 @@ https://github.com/elfmz/far2l/archive/refs/tags/v_2.6.4.tar.gz
 https://github.com/elfmz/far2l/archive/refs/tags/v_2.6.5.tar.gz
 https://github.com/elfmz/far2l/archive/refs/tags/v_2.7.0.tar.gz
 https://github.com/elfmz/far2l/archive/refs/tags/v_2.9.0.tar.gz
+https://github.com/elfmz/far2l/archive/refs/tags/v_2.9.1.tar.gz
 https://github.com/elves/elvish/archive/refs/tags/v0.19.2.tar.gz
 https://github.com/elves/elvish/archive/refs/tags/v0.20.0.tar.gz
 https://github.com/elves/elvish/archive/refs/tags/v0.20.1.tar.gz
