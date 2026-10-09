@@ -1,21 +1,23 @@
 {% extends '//lib/svgren/t/ix.sh' %}
 
 {% block pkg_name %}
-papki
+veg
 {% endblock %}
 
 {% block version %}
-1.0.134
+0.1.14
 {% endblock %}
 
 {% block fetch %}
-https://github.com/cppfw/papki/archive/97395b82577b9ceb458d95c5ea5687e572cb948b.tar.gz
-86d1ea779b9422b040e108a1530b81e2e4e9bbd64f04c202781346e063c4d1cd
+https://github.com/cppfw/veg/archive/refs/tags/{{self.version().strip()}}.tar.gz
+d8ee65d88ed7270d0e16d806fa94dda09c26b07aec4643de5a6cbd06986c93c8
 {% endblock %}
 
 {% block lib_deps %}
 lib/c
-lib/z
 lib/c++
+lib/svgren/r4
+lib/svgren/agg
 lib/svgren/utki
+lib/svgren/rasterimage
 {% endblock %}
