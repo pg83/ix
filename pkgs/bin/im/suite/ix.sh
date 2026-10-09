@@ -4,16 +4,13 @@
 suite
 {% endblock %}
 
-{% block git_repo %}
-https://github.com/impulse-desktop/suite
+{% block version %}
+4
 {% endblock %}
 
-{% block git_commit %}
-3
-{% endblock %}
-
-{% block git_sha %}
-fa59048f10dbfa675382ab0ba109bd7a351b83a60ad18dfb9bc59de62c4b1ec0
+{% block fetch %}
+https://github.com/impulse-desktop/suite/archive/refs/tags/{{self.version().strip()}}.tar.gz
+8b70320f64fa4c80efe89b4909c3c82c51bf68de10790219432b639cfe2cb735
 {% endblock %}
 
 {% block pybuild_target %}
@@ -44,6 +41,7 @@ lib/linux/headers
 lib/simd/e
 lib/ffmpeg
 lib/openal
+lib/lunasvg
 lib/wayland
 lib/xkb/common
 lib/vulkan/loader
