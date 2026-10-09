@@ -30,4 +30,7 @@ bld/gettext
 (base64 -d | patch -p1) <<'EOF'
 {% include 'chrono.patch.base64' %}
 EOF
+(base64 -d | patch -p1) <<'EOF'
+{% include 'charconv.patch.base64' %}
+EOF
 {% endblock %}
