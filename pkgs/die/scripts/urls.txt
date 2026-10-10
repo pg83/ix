@@ -4083,6 +4083,7 @@ https://github.com/landley/toybox/archive/refs/tags/0.8.11.tar.gz
 https://github.com/landley/toybox/archive/refs/tags/0.8.12.tar.gz
 https://github.com/landley/toybox/archive/refs/tags/0.8.13.tar.gz
 https://github.com/landley/toybox/archive/refs/tags/0.8.14.tar.gz
+https://github.com/landley/toybox/archive/refs/tags/0.8.15.tar.gz
 https://github.com/lapce/lapce/archive/refs/tags/v0.4.1.tar.gz
 https://github.com/lapce/lapce/archive/refs/tags/v0.4.2.tar.gz
 https://github.com/lapce/lapce/archive/refs/tags/v0.4.5.tar.gz
