@@ -7,7 +7,7 @@ libpng-apng
 {% block fetch %}
 {{super()}}
 https://downloads.sourceforge.net/project/libpng-apng/libpng16/{{self.version().strip()}}/libpng-{{self.version().strip()}}-apng.patch.gz
-687ddc0c7cb128a3ea58e159b5129252537c27ede0c32a93f11f03127f0c0165
+29693a9c9953ca1e88e25401ee500ed959e73f93dc98163fa967df71d3e7a990
 {% endblock %}
 
 {% block unpack %}
