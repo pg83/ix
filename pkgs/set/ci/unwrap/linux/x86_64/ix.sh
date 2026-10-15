@@ -80,7 +80,9 @@ bin/vulkan/tools
 bin/meson/1/8
 bin/libtool/next
 bin/gcc/15
+bin/gcc/16
 bin/meson/1/7
+bin/dropbear/2026
 bin/dropbear/2025
 bin/dropbear/2024
 bin/dropbear/2022
@@ -106,6 +108,7 @@ bin/im/pulse
 bin/shitty
 bin/solo
 bin/gdb/16
+bin/gdb/18
 bin/ddc/util
 bin/ya/final
 bin/ya
@@ -145,6 +148,7 @@ bin/sing/box
 bin/agrep
 bin/tun2socks
 bin/postgresql/17
+bin/postgresql/18
 bin/actkbd
 bld/git
 bin/dcraw
@@ -597,6 +601,7 @@ bin/auto/conf/archive
 bin/auto/conf/xorg
 bin/auto/conf/2/69
 bin/auto/conf/2/71
+bin/auto/conf/2/73
 bin/auto/make/1/16/1
 bin/auto/make/1/16/3
 bin/auto/make/1/16/5
