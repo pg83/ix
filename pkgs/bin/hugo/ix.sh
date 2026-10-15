@@ -5,7 +5,7 @@ hugo
 {% endblock %}
 
 {% block version %}
-0.152.2
+0.168.0
 {% endblock %}
 
 {% block go_url %}
@@ -13,11 +13,18 @@ https://github.com/gohugoio/hugo/archive/refs/tags/v{{self.version().strip()}}.t
 {% endblock %}
 
 {% block go_sha %}
-aa6eb1e52c5a51db67d8b225b40ca09c1a0eefa6ccbf401b4fac276abb4eb72d
+f63770d84bc76b7e906d6eb2e6ed7201a2d44c2d72f05ff6b5ea7c49fe177202
+{% endblock %}
+
+{% block go_refine %}
+# internal/warpc/genwebp carries an empty go.mod to keep its C sources out
+# of the main module; aux/go/v3 runs go mod tidy on every go.mod and an
+# empty one has no module declaration. The directory holds no Go code.
+find . -name go.mod -empty -delete
 {% endblock %}
 
 {% block go_tool %}
-bin/go/lang/24
+bin/go/lang/27
 {% endblock %}
 
 {% block go_bins %}

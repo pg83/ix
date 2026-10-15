@@ -5,7 +5,7 @@ cli
 {% endblock %}
 
 {% block version %}
-2.100.0
+2.102.0
 {% endblock %}
 
 {% block go_url %}
@@ -13,7 +13,7 @@ https://github.com/cli/cli/archive/refs/tags/v{{self.version().strip()}}.tar.gz
 {% endblock %}
 
 {% block go_sha %}
-ce321e397e322c0ebf2a3f49dc85cbf7011fae848864092af0ee83dc2b3ced55
+a9ea0f147c38eaa620fe0135e526b85f3ae6c82e65c8cd992559312afe4dc4e0
 {% endblock %}
 
 {% block unpack %}
@@ -26,5 +26,5 @@ gh
 {% endblock %}
 
 {% block go_tool %}
-bin/go/lang/26
+bin/go/lang/27
 {% endblock %}
