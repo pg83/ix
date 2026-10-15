@@ -5,12 +5,12 @@ fast_float
 {% endblock %}
 
 {% block version %}
-8.3.0
+8.3.2
 {% endblock %}
 
 {% block fetch %}
 https://github.com/fastfloat/fast_float/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-90485994d0fed61d0693e8dba32c464b0e8adf7f2e7c2efbf5bff0df5ef5b13f
+71bb9e865b888df01351558db5a39586d13ea97ada162156b3a07784d8c1b26b
 {% endblock %}
 
 {% block lib_deps %}
