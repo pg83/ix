@@ -33,7 +33,8 @@ lib/freetype
 lib/execinfo
 lib/xkb/common
 lib/drivers/3d
-lib/wlroots/17
+lib/wlroots/20
+lib/json/yy
 lib/json/nlohmann
 # {{opengl | defined('opengl')}}
 {% endblock %}
