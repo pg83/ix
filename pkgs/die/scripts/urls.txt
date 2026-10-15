@@ -6450,6 +6450,7 @@ https://github.com/yquake2/yquake2/archive/refs/tags/QUAKE2_8_40.tar.gz
 https://github.com/yquake2/yquake2/archive/refs/tags/QUAKE2_8_50.tar.gz
 https://github.com/yquake2/yquake2/archive/refs/tags/QUAKE2_8_51.tar.gz
 https://github.com/yquake2/yquake2/archive/refs/tags/QUAKE2_8_60.tar.gz
+https://github.com/yquake2/yquake2/archive/refs/tags/QUAKE2_8_70.tar.gz
 https://github.com/yrutschle/sslh/archive/refs/tags/v2.0.0.tar.gz
 https://github.com/yrutschle/sslh/archive/refs/tags/v2.0.1.tar.gz
 https://github.com/yrutschle/sslh/archive/refs/tags/v2.1.0.tar.gz
