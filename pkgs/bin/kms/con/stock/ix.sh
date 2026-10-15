@@ -5,12 +5,12 @@ kmscon
 {% endblock %}
 
 {% block version %}
-9.1.0
+10.0.4
 {% endblock %}
 
 {% block fetch %}
-https://github.com/Aetf/kmscon/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-56427c29cb581db22f7ebf76bc8678dc8948700cce39b60be001a88d1d297beb
+https://github.com/kmscon/kmscon/archive/refs/tags/v{{self.version().strip()}}.tar.gz
+6918c748c26e9c8cfe81783400be3732792a73e532d6235f40c4b332ca4fde0b
 {% endblock %}
 
 {% block bld_libs %}
@@ -25,6 +25,18 @@ lib/drivers/3d
 {% endif %}
 {% endblock %}
 
+{% block modules %}
+psf
+pango
+unifont
+freetype
+{% endblock %}
+
 {% block meson_flags %}
 tests=false
+video_drm3d=disabled
+renderer_gltex=disabled
+{% for m in self.modules() | parse_list %}
+font_{{m}}=enabled
+{% endfor %}
 {% endblock %}
