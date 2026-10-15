@@ -5,7 +5,7 @@ nfs-ganesha
 {% endblock %}
 
 {% block version %}
-15.5
+15.8
 {% endblock %}
 
 {% block git_repo %}
@@ -17,7 +17,7 @@ V{{self.version().strip()}}
 {% endblock %}
 
 {% block git_sha %}
-5bee6e6405847c2ebc1c44a2b85913a478eeba89073b0a06088c061159eec38d
+1a09570cf612b7b7eb3773b5632c0d469fc15e2bb8eeb9ff25ebd0b0d5943959
 {% endblock %}
 
 {% block bld_libs %}
