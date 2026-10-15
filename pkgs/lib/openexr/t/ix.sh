@@ -5,12 +5,12 @@ openexr
 {% endblock %}
 
 {% block version %}
-3.5.1
+3.5.2
 {% endblock %}
 
 {% block fetch %}
 https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-61559d6d0657f228f8dd5e3165ed6b74437b95e81849ad41c6d3493c0c144c1d
+85a291b9b8563fabef1aa3f6e912d744ce1d4b9fd5a8f978eda194cd51b15ae9
 {% endblock %}
 
 {% block lib_deps %}
