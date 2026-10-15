@@ -5,12 +5,12 @@ simdutf
 {% endblock %}
 
 {% block version %}
-9.2.1
+9.3.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/simdutf/simdutf/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-582f9d0dcf578f6d4766fa29ea12a7f2f02bd3c6ad9e0cf35a8e0ec8478eba4b
+f05b3549465f1bb3c5033a05395c372c0982ed1d166608185b3cc8c5c7e98071
 {% endblock %}
 
 {% block lib_deps %}
