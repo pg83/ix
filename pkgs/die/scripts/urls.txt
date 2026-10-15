@@ -3776,6 +3776,7 @@ https://github.com/impulse-desktop/suite/archive/refs/tags/4.tar.gz
 https://github.com/impulse-desktop/svg/releases/download/1/svg-1.tar.gz
 https://github.com/impulse-desktop/svg/releases/download/2/svg-2.tar.gz
 https://github.com/impulse-desktop/svg/releases/download/3/svg-3.tar.gz
+https://github.com/impulse-desktop/svg/releases/download/4/svg-4.tar.gz
 https://github.com/imsnif/bandwhich/archive/refs/tags/v0.23.1.tar.gz
 https://github.com/inotify-tools/inotify-tools/archive/refs/tags/3.20.11.0.tar.gz
 https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.23.9.0.tar.gz
@@ -4192,6 +4193,7 @@ https://github.com/libexpat/libexpat/archive/refs/tags/R_2_7_3.tar.gz
 https://github.com/libexpat/libexpat/archive/refs/tags/R_2_7_4.tar.gz
 https://github.com/libexpat/libexpat/archive/refs/tags/R_2_8_4.tar.gz
 https://github.com/libexpat/libexpat/archive/refs/tags/R_2_8_5.tar.gz
+https://github.com/libexpat/libexpat/archive/refs/tags/R_2_9_0.tar.gz
 https://github.com/libffi/libffi/archive/refs/tags/v3.4.4.tar.gz
 https://github.com/libffi/libffi/archive/refs/tags/v3.4.5.tar.gz
 https://github.com/libffi/libffi/archive/refs/tags/v3.4.6.tar.gz
