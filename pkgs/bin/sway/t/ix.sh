@@ -5,12 +5,12 @@ sway
 {% endblock %}
 
 {% block version %}
-1.11
+1.12
 {% endblock %}
 
 {% block fetch %}
 https://github.com/swaywm/sway/archive/refs/tags/{{self.version().strip()}}.tar.gz
-034ec4519326d6af5275814700dde46e852c5174614109affe4c86b2fbee062a
+29ca7caac960d13e02d8213418d91a5422c7c23102a283ceab944c57c5e1efcf
 {% endblock %}
 
 {% block bld_libs %}
