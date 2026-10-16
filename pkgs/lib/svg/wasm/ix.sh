@@ -5,7 +5,9 @@
    proves it with wasm-imports. The build also runs the module: wasm-page
    on WAMR opens a small drawing through it, renders it twice in one
    instance, which is how a viewer reuses it, and the pixels are checked:
-   the drawing is transparent, so wasm-page's count of ink says nothing. #}
+   the drawing is transparent, so wasm-page's count of ink says nothing.
+   Under simd128 the module has v128, which WAMR's fast JIT lacks, so the
+   run is skipped there, as for the ImageMagick module. #}
 
 {% extends '//die/c/ix.sh' %}
 
@@ -52,6 +54,8 @@ cat << 'EOF' > hello.svg
 {{ix.load_file('hello.svg')}}
 EOF
 
+{% if simd128 %}
+{% else %}
 # 40 by 20 CSS pixels at twice the size: the red square on the left, the
 # half-transparent blue dot on the right, nothing between them
 wasm-page svg.wasm svg hello.svg 0 80 40 out.rgba
@@ -69,6 +73,7 @@ r, g, b, a = at(60, 20)
 assert (r, g, b) == (0, 0, 255) and 120 <= a <= 135, (r, g, b, a)
 print("pixels as drawn")
 EOF
+{% endif %}
 {% endblock %}
 
 {% block install %}
