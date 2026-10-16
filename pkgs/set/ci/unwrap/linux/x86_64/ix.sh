@@ -3,7 +3,6 @@
 {# broken or too heavy
 #bin/re2g
 #bin/lldb
-#bin/minibrowser
 #bin/icontool
 #bin/porto
 #bin/putty
@@ -12,10 +11,6 @@
 #bin/star
 #bin/rofi
 #bin/cog
-#bin/webview
-#bin/telegram/web/z
-#bin/telegram/web/old
-#bin/telegram/web/k
 #bin/vlc
 #bin/uftrace
 #bin/catboost
@@ -155,8 +150,6 @@ bin/dcraw
 bin/e2tools
 bin/httping
 bin/cast/text
-#bin/mrustc
-#bin/mrustc/boot
 bin/curl/ngtcp2
 bin/evdev
 bin/bloaty
