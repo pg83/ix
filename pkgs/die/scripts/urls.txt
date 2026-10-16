@@ -4823,6 +4823,7 @@ https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v3.0.0.tar.gz
 https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v3.0.1.tar.gz
 https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v4.0.0.tar.gz
 https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v4.1.0.tar.gz
+https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v4.2.0.tar.gz
 https://github.com/neovim/unibilium/archive/refs/tags/v2.1.2.tar.gz
 https://github.com/neovim/unibilium/archive/refs/tags/v2.1.4.tar.gz
 https://github.com/netblue30/firejail/archive/refs/tags/0.9.74.tar.gz
