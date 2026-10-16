@@ -2720,6 +2720,7 @@ https://github.com/chmouel/gosmee/archive/refs/tags/v0.28.2.tar.gz
 https://github.com/chmouel/gosmee/archive/refs/tags/v0.28.3.tar.gz
 https://github.com/chmouel/gosmee/archive/refs/tags/v0.29.0.tar.gz
 https://github.com/chmouel/gosmee/archive/refs/tags/v0.32.0.tar.gz
+https://github.com/chmouel/gosmee/archive/refs/tags/v0.32.1.tar.gz
 https://github.com/chriskohlhoff/asio/archive/refs/tags/asio-1-32-0.tar.gz
 https://github.com/chromium/pdfium/archive/a84323421e94f484faca52dd9d027934eba42ab8.tar.gz
 https://github.com/cilium/pwru/archive/refs/tags/v1.0.4.tar.gz
