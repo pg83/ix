@@ -53,6 +53,7 @@ bin/llama/cpp/vulkan
 bin/ojph
 bin/curl/aws
 bin/python/14
+bin/python/15
 bin/dsvpn
 bin/sudo
 bin/wlogout
