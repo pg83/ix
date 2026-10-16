@@ -373,6 +373,7 @@ https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.2.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.3.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.9.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.tar.xz
+https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.1.13.tar.xz
 https://cdn.openbsd.org/pub/OpenBSD/OpenNTPD/openntpd-6.8p1.tar.gz
 https://cdn.openbsd.org/pub/OpenBSD/OpenNTPD/openntpd-7.9p1.tar.gz
 https://cmocka.org/files/1.1/cmocka-1.1.7.tar.xz
@@ -540,6 +541,7 @@ https://distfiles.gentoo.org/distfiles/79/libmetalink-0.1.3.tar.bz2
 https://distfiles.macports.org/bsdiff/bsdiff-4.3.tar.gz
 https://distfiles.macports.org/chmlib/chmlib-0.40.tar.bz2
 https://distfiles.macports.org/libmpeg2/libmpeg2-0.5.1.tar.gz
+https://dl.grafana.com/oss/release/grafana-13.0.1.linux-amd64.tar.gz
 https://dl.suckless.org/tools/9base-6.tar.gz
 https://dl.xpdfreader.com/old/xpdf-4.05.tar.gz
 https://dl.xpdfreader.com/xpdf-4.04.tar.gz
@@ -2298,6 +2300,7 @@ https://github.com/abseil/abseil-cpp/archive/refs/tags/20250127.1.tar.gz
 https://github.com/abseil/abseil-cpp/archive/refs/tags/20250512.0.tar.gz
 https://github.com/abseil/abseil-cpp/archive/refs/tags/20250512.1.tar.gz
 https://github.com/abseil/abseil-cpp/archive/refs/tags/20250814.0.tar.gz
+https://github.com/abseil/abseil-cpp/archive/refs/tags/20260817.0.tar.gz
 https://github.com/acpica/acpica/archive/refs/tags/20250807.tar.gz
 https://github.com/acpica/acpica/archive/refs/tags/20251212.tar.gz
 https://github.com/acpica/acpica/archive/refs/tags/20260408.tar.gz
@@ -2938,6 +2941,7 @@ https://github.com/elementary/files/archive/refs/tags/7.1.5.tar.gz
 https://github.com/elementary/files/archive/refs/tags/7.1.6.tar.gz
 https://github.com/elementary/files/archive/refs/tags/7.2.0.tar.gz
 https://github.com/elementary/files/archive/refs/tags/7.3.2.tar.gz
+https://github.com/elementary/files/archive/refs/tags/7.3.3.tar.gz
 https://github.com/elementary/granite/archive/refs/tags/6.2.0.tar.gz
 https://github.com/elementary/granite/archive/refs/tags/7.5.0.tar.gz
 https://github.com/elementary/granite/archive/refs/tags/7.6.0.tar.gz
@@ -3314,6 +3318,7 @@ https://github.com/gflags/gflags/archive/refs/tags/v2.3.1.tar.gz
 https://github.com/ggml-org/llama.cpp/archive/refs/tags/b7086.tar.gz
 https://github.com/ggreer/the_silver_searcher/archive/refs/tags/2.2.0.tar.gz
 https://github.com/ginuerzh/gost/archive/refs/tags/v2.12.0.tar.gz
+https://github.com/git-lfs/git-lfs/archive/refs/tags/v3.6.1.tar.gz
 https://github.com/git/git/archive/refs/tags/v2.42.0.tar.gz
 https://github.com/git/git/archive/refs/tags/v2.42.1.tar.gz
 https://github.com/git/git/archive/refs/tags/v2.43.0.tar.gz
@@ -3511,6 +3516,7 @@ https://github.com/google/snappy/archive/refs/tags/1.1.9.tar.gz
 https://github.com/google/snappy/archive/refs/tags/1.2.2.tar.gz
 https://github.com/google/snappy/archive/refs/tags/1.3.1.tar.gz
 https://github.com/google/tcmalloc/archive/432d115adab8935b0a937d659c345aa8f82add57.tar.gz
+https://github.com/google/tcmalloc/archive/876c092e7982a5585bb8bb01196d5c9ed99a4a6a.tar.gz
 https://github.com/google/woff2/archive/refs/tags/v1.0.2.tar.gz
 https://github.com/googlefonts/noto-fonts/archive/refs/tags/v20201206-phase3.tar.gz
 https://github.com/gopasspw/gopass/archive/refs/tags/v1.14.3.tar.gz
@@ -3535,6 +3541,8 @@ https://github.com/gperftools/gperftools/releases/download/gperftools-2.17.2/gpe
 https://github.com/gperftools/gperftools/releases/download/gperftools-2.18.1/gperftools-2.18.1.tar.gz
 https://github.com/gperftools/gperftools/releases/download/gperftools-2.18/gperftools-2.18.tar.gz
 https://github.com/gphoto/libgphoto2/archive/refs/tags/v2.5.30.tar.gz
+https://github.com/grafana/grafana/archive/refs/tags/v13.0.1.tar.gz
+https://github.com/grafana/loki/archive/refs/tags/v3.3.2.tar.gz
 https://github.com/greshake/i3status-rust/archive/refs/tags/v0.33.0.tar.gz
 https://github.com/greshake/i3status-rust/archive/refs/tags/v0.33.2.tar.gz
 https://github.com/greshake/i3status-rust/archive/refs/tags/v0.34.0.tar.gz
@@ -5021,6 +5029,7 @@ https://github.com/pciutils/pciutils/archive/refs/tags/v3.10.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.13.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.14.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.15.0.tar.gz
+https://github.com/perses/perses/archive/refs/tags/v0.53.1.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/11.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/2.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/3.tar.gz
