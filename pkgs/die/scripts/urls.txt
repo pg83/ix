@@ -6072,6 +6072,7 @@ https://github.com/tukaani-project/xz/releases/download/v5.8.1/xz-5.8.1.tar.gz
 https://github.com/tukaani-project/xz/releases/download/v5.8.3/xz-5.8.3.tar.gz
 https://github.com/tukaani-project/xz/releases/download/v5.8.4/xz-5.8.4.tar.gz
 https://github.com/tulir/gomuks/archive/refs/tags/v0.2608.0.tar.gz
+https://github.com/tulir/gomuks/archive/refs/tags/v0.2609.0.tar.gz
 https://github.com/tulir/gomuks/archive/refs/tags/v0.3.0.tar.gz
 https://github.com/tulir/gomuks/archive/refs/tags/v0.3.1.tar.gz
 https://github.com/tvrzna/emptty/archive/refs/tags/v0.10.0.tar.gz
