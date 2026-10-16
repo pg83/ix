@@ -5,7 +5,7 @@ python
 {% endblock %}
 
 {% block version %}
-3.14.0
+3.14.8
 {% endblock %}
 
 {% block conf_ver %}
@@ -14,7 +14,7 @@ python
 
 {% block fetch %}
 https://www.python.org/ftp/python/{{self.version().strip()}}/Python-{{self.version().strip()}}.tar.xz
-2299dae542d395ce3883aca00d3c910307cd68e0b2f7336098c8e7b7eee9f3e9
+c2215904f02b175596dc49351585104f4bc20341e1c47378b26a2c274360ce73
 {% endblock %}
 
 {% block cpp_defines %}
