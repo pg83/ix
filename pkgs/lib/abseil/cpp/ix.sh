@@ -39,6 +39,13 @@ cat << EOF > absl/base/options.h
 EOF
 sed -e 's|APPLE AND CMAKE|APPLE_XXX AND CMAKE|' \
     -i absl/copts/AbseilConfigureCopts.cmake
+# MinGW does not provide O_NONBLOCK. Match upstream's fallback for platforms
+# where the flag is unavailable; regular files are unaffected by its absence.
+sed -e '/#ifndef O_CLOEXEC/i\
+#ifndef O_NONBLOCK\
+#define O_NONBLOCK 0\
+#endif' \
+    -i absl/time/internal/cctz/src/time_zone_info.cc
 # The absl::Nonnull/Nullable/NullabilityUnknown alias templates were dropped
 # for the absl_nonnull macros; webrtc (lib/tg/owt) and whatever includes its
 # headers still spell them the old way. Same meaning, minus the annotation.
