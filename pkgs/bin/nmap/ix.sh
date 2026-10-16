@@ -5,12 +5,12 @@ nmap
 {% endblock %}
 
 {% block version %}
-7.991
+7.992
 {% endblock %}
 
 {% block fetch %}
 https://nmap.org/dist/nmap-{{self.version().strip()}}.tar.bz2
-a5d507f29437bef3bedd4771ff9aaa8fc1c2a109ddba1f5b1cf12027456929be
+0c12660eddbf7eabeff6996cb0c044a4eadf2bb0c6fbcb340d6cf72b1caee402
 {% endblock %}
 
 {% block bld_libs %}
