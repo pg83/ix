@@ -9,8 +9,8 @@ gdb
 {% endblock %}
 
 {% block fetch %}
-https://ftp.gnu.org/gnu/gdb/gdb-{{self.version().strip()}}.tar.xz
-1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c
+https://ftp.gnu.org/gnu/gdb/gdb-{{self.version().strip()}}.tar.gz
+cb891b9a9f554cac972eea5368176b240640ae90b681aae84bf873a9501f0063
 {% endblock %}
 
 {% block host_libs %}
