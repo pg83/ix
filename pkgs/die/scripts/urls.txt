@@ -7946,6 +7946,7 @@ https://www.lua.org/ftp/lua-5.4.6.tar.gz
 https://www.lua.org/ftp/lua-5.4.7.tar.gz
 https://www.lua.org/ftp/lua-5.4.8.tar.gz
 https://www.lua.org/ftp/lua-5.5.0.tar.gz
+https://www.lua.org/ftp/lua-5.5.1.tar.gz
 https://www.mpg123.org/download/mpg123-1.31.3.tar.bz2
 https://www.mpg123.org/download/mpg123-1.32.1.tar.bz2
 https://www.mpg123.org/download/mpg123-1.32.2.tar.bz2
