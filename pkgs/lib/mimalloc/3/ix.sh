@@ -5,12 +5,12 @@ mimalloc
 {% endblock %}
 
 {% block version %}
-3.0.1
+3.5.4
 {% endblock %}
 
 {% block fetch %}
 https://github.com/microsoft/mimalloc/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-6a514ae31254b43e06e2a89fe1cbc9c447fdbf26edc6f794f3eb722f36e28261
+36e9b5bf1bb703567a0347491721ce2098000db8284dc55cd53d211452723cdb
 {% endblock %}
 
 {% block env %}
