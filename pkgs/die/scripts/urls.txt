@@ -1508,6 +1508,7 @@ https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz
 https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.7.tar.gz
 https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.9.tar.gz
 https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n4.4.2.tar.gz
+https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n4.4.8.tar.gz
 https://github.com/FedoraQt/adwaita-qt/archive/refs/tags/1.4.1.tar.gz
 https://github.com/FiloSottile/age/archive/refs/tags/v1.3.1.tar.gz
 https://github.com/FiloSottile/age/archive/refs/tags/v1.3.2.tar.gz
