@@ -1063,4 +1063,6 @@ bin/gdb/17
 bin/go/lang/13
 bin/kernel/6/17
 bin/kernel/6/18
+bin/meson/1/5
+bin/ragel/7
 {% endblock %}
