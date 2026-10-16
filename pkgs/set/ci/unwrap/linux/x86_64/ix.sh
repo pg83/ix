@@ -4,17 +4,11 @@
 #bin/re2g
 #bin/lldb
 #bin/icontool
-#bin/porto
 #bin/putty
 #bin/surfer
-#bin/freeglut
 #bin/star
 #bin/rofi
 #bin/cog
-#bin/vlc
-#bin/uftrace
-#bin/catboost
-#bin/ispc
 #bin/mutter
 #bin/code/blocks
 #bin/pcsx2
@@ -34,7 +28,6 @@
 #bin/code/lite
 #bin/openttd
 #bin/poedit
-#bin/wf/recorder
 #bin/port/forwarder/rs
 #bin/qemu/8/1
 #bin/qemu/8/2
