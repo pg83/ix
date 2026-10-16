@@ -1040,4 +1040,20 @@ bld/blueprint/compiler
 bin/openvpn/yandex
 set/pg/yandex/vpn
 bin/fusermount/sud
+bin/cloudflared
+bin/gorn
+bin/molot
+bin/ogorod
+bin/s3/manager
+bin/s3/sftp/proxy
+bin/s3/store
+bin/samogon
+bin/solod
+bin/loki
+bin/promtail
+bin/perses
+bin/grafana
+bin/minio/client/patched
+bin/nitter/pg83
+bin/gofra/2
 {% endblock %}
