@@ -4318,6 +4318,7 @@ https://github.com/libproxy/libproxy/archive/refs/tags/0.5.5.tar.gz
 https://github.com/libproxy/libproxy/archive/refs/tags/0.5.6.tar.gz
 https://github.com/libproxy/libproxy/archive/refs/tags/0.5.7.tar.gz
 https://github.com/libproxy/libproxy/archive/refs/tags/0.5.9.tar.gz
+https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.5/libpwquality-1.4.5.tar.bz2
 https://github.com/librsync/librsync/releases/download/v2.3.4/librsync-2.3.4.tar.gz
 https://github.com/libsdl-org/SDL/archive/refs/tags/release-2.30.0.tar.gz
 https://github.com/libsdl-org/SDL/archive/refs/tags/release-2.30.1.tar.gz
@@ -7651,6 +7652,7 @@ https://webkitgtk.org/releases/webkitgtk-2.46.4.tar.xz
 https://webkitgtk.org/releases/webkitgtk-2.46.5.tar.xz
 https://webkitgtk.org/releases/webkitgtk-2.48.1.tar.xz
 https://webkitgtk.org/releases/webkitgtk-2.48.3.tar.xz
+https://webkitgtk.org/releases/webkitgtk-2.54.1.tar.xz
 https://wpewebkit.org/releases/wpewebkit-2.36.2.tar.xz
 https://wpitchoune.net/psensor/files/psensor-1.2.1.tar.gz
 https://www.7-zip.org/a/7z2405-src.tar.xz

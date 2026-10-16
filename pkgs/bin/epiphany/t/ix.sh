@@ -25,6 +25,7 @@ lib/portal
 lib/soup/3
 lib/nettle
 lib/secret
+lib/pwquality
 lib/archive
 lib/sqlite/3
 lib/gtk/deps
@@ -38,6 +39,21 @@ lib/{{allocator}}/trim(delay=5,bytes=10000000)
 
 {% block use_data %}
 aux/iso/codes
+{% endblock %}
+
+{% block bld_data %}
+lib/glib/gir
+lib/adwaita/vapi
+lib/pango/gir
+lib/graphene/gir
+lib/harfbuzz/gir
+lib/gdk/pixbuf/gir
+lib/gi/repository/gir
+lib/gtk/4/gir
+{% endblock %}
+
+{% block bld_tool %}
+bld/blueprint/compiler
 {% endblock %}
 
 {% block meson_flags %}
