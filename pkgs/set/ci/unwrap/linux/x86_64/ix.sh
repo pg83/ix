@@ -1050,4 +1050,10 @@ bin/kernel/6/18
 bin/meson/1/5
 bin/ragel/7
 bin/claude/code
+bin/dns/masq/lite
+bin/git/lfs
+bin/kernel/7/0
+bin/kernel/7/1
+bin/logcli
+bin/logovo
 {% endblock %}
