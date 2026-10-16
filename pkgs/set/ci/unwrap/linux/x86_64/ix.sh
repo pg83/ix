@@ -4,7 +4,6 @@
 #bin/re2g
 #bin/lldb
 #bin/icontool
-#bin/putty
 #bin/surfer
 #bin/star
 #bin/rofi
