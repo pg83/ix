@@ -1058,4 +1058,5 @@ bin/logcli
 bin/logovo
 bin/clang/22
 bin/clang/23
+bin/llvm/spirv/22
 {% endblock %}

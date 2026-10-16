@@ -11,7 +11,7 @@ lib/clc
 lib/kernel
 lib/llvm/22
 lib/spirv/tools
-lib/spirv/llvm/translator/21
+lib/spirv/llvm/translator/22
 {% endblock %}
 
 {% block bld_tool %}

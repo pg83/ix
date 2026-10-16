@@ -11,5 +11,5 @@ lib/llvm/22
 
 {% block bld_tool %}
 {{super()}}
-bin/llvm/spirv/21
+bin/llvm/spirv/22
 {% endblock %}
