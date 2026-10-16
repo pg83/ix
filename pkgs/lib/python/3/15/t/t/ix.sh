@@ -38,3 +38,14 @@ SQLITE_OMIT_LOAD_EXTENSION=1
 {{super()}}
 bld/wrap/cc/plugins/dedup
 {% endblock %}
+
+{% block ensure_static_build %}
+{{super()}}
+sed -e 's|.*_remote_debugging.*||' \
+    -e 's|^xxlimited.*||' \
+    -i Modules/Setup.local
+cat Modules/Setup.stdlib.in \
+    | grep '_remote_debugging' \
+    | sed -e 's|.*@||' \
+    >> Modules/Setup.local
+{% endblock %}
