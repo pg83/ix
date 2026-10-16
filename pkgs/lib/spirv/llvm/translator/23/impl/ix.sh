@@ -16,7 +16,7 @@ b657254b5e0a2dda7914a8cb1eace467f22847d75d877b83829026c1452f827a
 {% block lib_deps %}
 lib/c
 lib/c++
-lib/llvm/22
+lib/llvm/23
 lib/spirv/tools
 {% endblock %}
 
