@@ -16,7 +16,7 @@ https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v{{self.
 {% block lib_deps %}
 lib/c
 lib/c++
-lib/llvm/21
+lib/llvm/22
 lib/spirv/tools
 {% endblock %}
 
