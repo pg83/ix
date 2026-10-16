@@ -1057,4 +1057,5 @@ bin/kernel/7/1
 bin/logcli
 bin/logovo
 bin/clang/22
+bin/clang/23
 {% endblock %}
