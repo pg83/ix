@@ -61,6 +61,7 @@ lib/compiler_rt/sanitize/address/bin(kind=bin,sanitize=address)
 bin/oras
 bin/rss/guard
 bin/auto/make/1/18
+bin/auto/make/1/19
 bin/huggingface/cli
 bin/bfs
 bin/perl/latest
