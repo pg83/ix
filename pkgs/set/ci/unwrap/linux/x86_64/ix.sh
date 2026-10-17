@@ -1047,6 +1047,7 @@ bin/coreutils/9/2
 bin/coreutils/9/3
 bin/coreutils/9/9
 bin/coreutils/9/10
+bin/coreutils/9/11
 bin/gdb/17
 bin/go/lang/13
 bin/kernel/6/17
