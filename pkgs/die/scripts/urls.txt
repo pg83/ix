@@ -1142,6 +1142,10 @@ https://ftp.gnu.org/gnu/readline/readline-8.2-patches/readline82-008
 https://ftp.gnu.org/gnu/readline/readline-8.2-patches/readline82-009
 https://ftp.gnu.org/gnu/readline/readline-8.2-patches/readline82-010
 https://ftp.gnu.org/gnu/readline/readline-8.2.tar.gz
+https://ftp.gnu.org/gnu/readline/readline-8.3-patches/readline83-001
+https://ftp.gnu.org/gnu/readline/readline-8.3-patches/readline83-002
+https://ftp.gnu.org/gnu/readline/readline-8.3-patches/readline83-003
+https://ftp.gnu.org/gnu/readline/readline-8.3.tar.gz
 https://ftp.gnu.org/gnu/screen/screen-5.0.1.tar.gz
 https://ftp.gnu.org/gnu/screen/screen-5.0.2.tar.gz
 https://ftp.gnu.org/gnu/sed/sed-4.10.tar.xz
