@@ -2588,6 +2588,7 @@ https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-b2
 https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-b2-nodocs.tar.xz
 https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-b2-nodocs.tar.xz
 https://github.com/boostorg/boost/releases/download/boost-1.89.0/boost-1.89.0-b2-nodocs.tar.xz
+https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-b2-nodocs.tar.xz
 https://github.com/bootandy/dust/archive/refs/tags/v1.2.4.tar.gz
 https://github.com/bootandy/dust/archive/refs/tags/v1.2.5.tar.gz
 https://github.com/bpftrace/bpftrace/archive/refs/tags/v0.21.2.tar.gz
