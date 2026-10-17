@@ -832,6 +832,7 @@ bin/bind
 bin/lisgd
 bin/mariadb/10
 bin/mariadb/11
+bin/mariadb/12
 bin/nvtop
 bin/postgresql/15
 bin/postgresql/16
