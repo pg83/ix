@@ -1071,4 +1071,5 @@ bin/meson/1/10
 bin/meson/1/11
 bin/meson/1/12
 bin/wine
+bld/java/27
 {% endblock %}
