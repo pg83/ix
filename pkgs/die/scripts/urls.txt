@@ -543,6 +543,7 @@ https://distfiles.macports.org/chmlib/chmlib-0.40.tar.bz2
 https://distfiles.macports.org/libmpeg2/libmpeg2-0.5.1.tar.gz
 https://dl.grafana.com/oss/release/grafana-13.0.1.linux-amd64.tar.gz
 https://dl.suckless.org/tools/9base-6.tar.gz
+https://dl.winehq.org/wine/source/11.x/wine-11.20.tar.xz
 https://dl.xpdfreader.com/old/xpdf-4.05.tar.gz
 https://dl.xpdfreader.com/xpdf-4.04.tar.gz
 https://dl.xpdfreader.com/xpdf-4.05.tar.gz
@@ -1109,6 +1110,7 @@ https://ftp.gnu.org/gnu/libunistring/libunistring-1.3.tar.xz
 https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.1.tar.xz
 https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.xz
 https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.tar.xz
+https://ftp.gnu.org/gnu/libunistring/libunistring-1.5.tar.xz
 https://ftp.gnu.org/gnu/m4/m4-1.4.18.tar.xz
 https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz
 https://ftp.gnu.org/gnu/m4/m4-1.4.20.tar.xz
