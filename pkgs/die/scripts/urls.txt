@@ -2535,6 +2535,7 @@ https://github.com/artemsen/swayimg/archive/refs/tags/v5.6.tar.gz
 https://github.com/arvidn/libtorrent/releases/download/v2.0.10/libtorrent-rasterbar-2.0.10.tar.gz
 https://github.com/arvidn/libtorrent/releases/download/v2.0.11/libtorrent-rasterbar-2.0.11.tar.gz
 https://github.com/arvidn/libtorrent/releases/download/v2.0.9/libtorrent-rasterbar-2.0.9.tar.gz
+https://github.com/arvidn/libtorrent/releases/download/v2.1.2/libtorrent-rasterbar-2.1.2.tar.gz
 https://github.com/ascent12/drm_info/archive/refs/tags/v2.3.0.tar.gz
 https://github.com/astral-sh/ruff/archive/refs/tags/0.11.0.tar.gz
 https://github.com/astral-sh/ruff/archive/refs/tags/0.11.10.tar.gz
@@ -7941,6 +7942,7 @@ https://www.ibiblio.org/pub/Linux/libs/graphics/t1lib-5.1.2.tar.gz
 https://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.1.0.tar.gz
 https://www.iozone.org/src/current/iozone3_494.tgz
 https://www.iozone.org/src/current/iozone3_507.tgz
+https://www.iozone.org/src/current/iozone3_511.tgz
 https://www.ivarch.com/programs/sources/pv-1.10.0.tar.gz
 https://www.ivarch.com/programs/sources/pv-1.10.1.tar.gz
 https://www.ivarch.com/programs/sources/pv-1.10.2.tar.gz

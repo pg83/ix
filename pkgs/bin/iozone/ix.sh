@@ -2,7 +2,7 @@
 
 {# repology reads the release number NNN as 3.NNN #}
 {% block version %}
-3.507
+3.511
 {% endblock %}
 
 {% block pkg_name %}
@@ -11,7 +11,7 @@ iozone3
 
 {% block fetch %}
 https://www.iozone.org/src/current/iozone3_{{self.version().strip() | field(1)}}.tgz
-dd03eccd3768e8400816d67ae0e47f4646cb5834cfc2fc09927fe7b87a6fca7a
+1aa00bc3cd627ec46ca17aa78c8fabd143d32025155c741f49392b1bdd776298
 {% endblock %}
 
 {% block bld_libs %}
