@@ -5,7 +5,7 @@ oras
 {% endblock %}
 
 {% block version %}
-1.3.4
+1.3.5
 {% endblock %}
 
 {% block go_url %}
@@ -13,7 +13,7 @@ https://github.com/oras-project/oras/archive/refs/tags/v{{self.version().strip()
 {% endblock %}
 
 {% block go_sha %}
-699de1a267d2b63b04ccc2798c99f8a9abdeda4eeb148315dc12502be844c032
+b691e8390ce21816c5908e78e069dad6da174493e5ffa5eb52ed9027e4831521
 {% endblock %}
 
 {% block unpack %}
@@ -26,5 +26,5 @@ oras
 {% endblock %}
 
 {% block go_tool %}
-bin/go/lang/26
+bin/go/lang/27
 {% endblock %}

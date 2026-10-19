@@ -5103,6 +5103,7 @@ https://github.com/optozorax/car_drift/archive/8fbfd0f82f614d9d32bbf78176b77e98a
 https://github.com/oras-project/oras/archive/refs/tags/v1.2.3.tar.gz
 https://github.com/oras-project/oras/archive/refs/tags/v1.3.0.tar.gz
 https://github.com/oras-project/oras/archive/refs/tags/v1.3.4.tar.gz
+https://github.com/oras-project/oras/archive/refs/tags/v1.3.5.tar.gz
 https://github.com/p-gen/smenu/archive/refs/tags/v1.3.0.tar.gz
 https://github.com/p-gen/smenu/archive/refs/tags/v1.4.0.tar.gz
 https://github.com/p-gen/smenu/archive/refs/tags/v1.5.0.tar.gz
