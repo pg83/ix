@@ -374,6 +374,7 @@ https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.3.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.9.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.tar.xz
 https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.1.13.tar.xz
+https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.11.tar.xz
 https://cdn.openbsd.org/pub/OpenBSD/OpenNTPD/openntpd-6.8p1.tar.gz
 https://cdn.openbsd.org/pub/OpenBSD/OpenNTPD/openntpd-7.9p1.tar.gz
 https://cmocka.org/files/1.1/cmocka-1.1.7.tar.xz
@@ -896,6 +897,7 @@ https://ffmpeg.org/releases/ffmpeg-7.0.tar.xz
 https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz
 https://ffmpeg.org/releases/ffmpeg-7.1.5.tar.xz
 https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz
+https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz
 https://files.pythonhosted.org/packages/03/3b/68690a035ba7347860f1b8c0cde853230ba69ff41df5884ea7d89fe68cd3/Mako-1.2.4-py3-none-any.whl
 https://files.pythonhosted.org/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl
 https://files.pythonhosted.org/packages/08/f4/ffa743f860f34a5e8c60abaaa686f82c9ac7a2b50e5a1c3b1eb564d59159/PyYAML-6.0-cp39-cp39-win_amd64.whl
@@ -2721,6 +2723,7 @@ https://github.com/ccache/ccache/archive/refs/tags/v4.12.2.tar.gz
 https://github.com/ccache/ccache/archive/refs/tags/v4.12.3.tar.gz
 https://github.com/ccache/ccache/archive/refs/tags/v4.12.tar.gz
 https://github.com/ccache/ccache/archive/refs/tags/v4.14.1.tar.gz
+https://github.com/ccache/ccache/archive/refs/tags/v4.14.2.tar.gz
 https://github.com/ccache/ccache/archive/refs/tags/v4.14.tar.gz
 https://github.com/ccache/ccache/releases/download/v4.8.3/ccache-4.8.3.tar.xz
 https://github.com/ccache/ccache/releases/download/v4.9.1/ccache-4.9.1.tar.xz
@@ -3293,6 +3296,7 @@ https://github.com/fmtlib/fmt/archive/refs/tags/11.1.4.tar.gz
 https://github.com/fmtlib/fmt/archive/refs/tags/11.2.0.tar.gz
 https://github.com/fmtlib/fmt/archive/refs/tags/12.0.0.tar.gz
 https://github.com/fmtlib/fmt/archive/refs/tags/12.1.0.tar.gz
+https://github.com/fmtlib/fmt/archive/refs/tags/12.2.0.tar.gz
 https://github.com/fmtlib/fmt/archive/refs/tags/9.1.0.tar.gz
 https://github.com/folkertvanheusden/HTTPing/archive/refs/tags/v4.1.0.tar.gz
 https://github.com/folkertvanheusden/HTTPing/archive/refs/tags/v4.2.0.tar.gz
@@ -4719,6 +4723,7 @@ https://github.com/microsoft/mimalloc/archive/refs/tags/v2.1.6.tar.gz
 https://github.com/microsoft/mimalloc/archive/refs/tags/v2.1.7.tar.gz
 https://github.com/microsoft/mimalloc/archive/refs/tags/v2.1.8.tar.gz
 https://github.com/microsoft/mimalloc/archive/refs/tags/v3.0.1.tar.gz
+https://github.com/microsoft/mimalloc/archive/refs/tags/v3.5.4.tar.gz
 https://github.com/microsoft/msquic/archive/refs/tags/v2.2.2.tar.gz
 https://github.com/microsoft/msquic/archive/refs/tags/v2.2.3.tar.gz
 https://github.com/microsoft/msquic/archive/refs/tags/v2.2.4.tar.gz
@@ -5051,6 +5056,7 @@ https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.32.1-ga.tar.gz
 https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.20.1-ga.tar.gz
 https://github.com/openjdk/jdk21u/archive/refs/tags/jdk-21.0.12.1-ga.tar.gz
 https://github.com/openjdk/jdk25u/archive/refs/tags/jdk-25.0.4.1-ga.tar.gz
+https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u504-ga.tar.gz
 https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20230911.tar.gz
 https://github.com/openssh/openssh-portable/archive/refs/tags/V_10_0_P1.tar.gz
 https://github.com/openssh/openssh-portable/archive/refs/tags/V_10_0_P2.tar.gz
@@ -5073,6 +5079,7 @@ https://github.com/openssl/openssl/archive/refs/tags/openssl-3.5.2.tar.gz
 https://github.com/openssl/openssl/archive/refs/tags/openssl-3.5.3.tar.gz
 https://github.com/openssl/openssl/archive/refs/tags/openssl-3.6.0.tar.gz
 https://github.com/openssl/openssl/archive/refs/tags/openssl-3.6.5.tar.gz
+https://github.com/openssl/openssl/archive/refs/tags/openssl-4.0.3.tar.gz
 https://github.com/opsengine/cpulimit/archive/refs/tags/v0.2.tar.gz
 https://github.com/optozorax/car_drift/archive/8fbfd0f82f614d9d32bbf78176b77e98affdadcb.zip
 https://github.com/oras-project/oras/archive/refs/tags/v1.2.3.tar.gz
@@ -5842,6 +5849,7 @@ https://github.com/stephenberry/glaze/archive/refs/tags/v6.1.0.tar.gz
 https://github.com/stephenberry/glaze/archive/refs/tags/v6.4.0.tar.gz
 https://github.com/stephenberry/glaze/archive/refs/tags/v7.0.2.tar.gz
 https://github.com/stephenberry/glaze/archive/refs/tags/v7.9.1.tar.gz
+https://github.com/stephenberry/glaze/archive/refs/tags/v9.0.0.tar.gz
 https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v0.8.3.tar.gz
 https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v0.8.4.tar.gz
 https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v0.8.5.tar.gz
