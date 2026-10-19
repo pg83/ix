@@ -5118,6 +5118,7 @@ https://github.com/pciutils/pciutils/archive/refs/tags/v3.13.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.14.0.tar.gz
 https://github.com/pciutils/pciutils/archive/refs/tags/v3.15.0.tar.gz
 https://github.com/perses/perses/archive/refs/tags/v0.53.1.tar.gz
+https://github.com/perses/perses/archive/refs/tags/v0.54.0.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/11.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/2.tar.gz
 https://github.com/pg83/assemble/archive/refs/tags/3.tar.gz
