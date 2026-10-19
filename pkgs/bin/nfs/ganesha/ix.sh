@@ -52,6 +52,9 @@ NTIRPC_LIBRARY_DIR=${NTIRPC_PREFIX}/lib
 {% endblock %}
 
 {% block patch %}
+patch -p1 <<'EOF'
+{% include 'clang-23.patch' %}
+EOF
 sed -e 's|typedef.*_t;||' -i include/nlm4.h include/cqos.h
 sed -e 's|__gid_t|gid_t|g' -i idmapper/pwnam_wrappers.c
 sed -e 's|add_executable(sm_notify.ganesha |add_executable(sm_notify.ganesha EXCLUDE_FROM_ALL |' -i CMakeLists.txt
