@@ -28,7 +28,7 @@ lib/c
 {% endblock %}
 
 {% block patch %}
-sed -e 's|$(NIMC) -o:$@ $<|$(NIMH) -o:$@ $<|' -i Makefile
+sed -e '/chac_cache/s|$(NIMC)|$(NIMH)|' -i Makefile
 {% endblock %}
 
 {% block build %}
