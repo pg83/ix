@@ -1,13 +1,11 @@
 {% extends '//die/go/build.sh' %}
 
-# noauto
-
 {% block pkg_name %}
 croc
 {% endblock %}
 
 {% block version %}
-9.6.9
+11.5.4
 {% endblock %}
 
 {% block go_url %}
@@ -15,7 +13,7 @@ https://github.com/schollz/croc/archive/refs/tags/v{{self.version().strip()}}.ta
 {% endblock %}
 
 {% block go_sha %}
-9fc1e50fdbf50b4bf21741f24ae8896d0530904894beb92a6b8b6c62a23ed570
+cfa41c72a961101637e8f7ad6c55d6e505b9ed71f05b61f6329c3d65be60e990
 {% endblock %}
 
 {% block go_bins %}
@@ -23,5 +21,5 @@ croc
 {% endblock %}
 
 {% block go_tool %}
-bin/go/lang/24
+bin/go/lang/27
 {% endblock %}
