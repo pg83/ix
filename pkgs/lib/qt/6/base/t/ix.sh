@@ -5,12 +5,12 @@ qtbase
 {% endblock %}
 
 {% block version %}
-6.7.2
+6.12.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/qt/qtbase/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-96b96e4fd0fc306502ed8b94a34cfa0bacc8a25d43c2e958dd6772b28f6b0e42
+dff6570582c272cbe744d2e460700318262af505460f4215276459970ae31b46
 {% endblock %}
 
 {% block lib_deps %}

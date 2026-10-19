@@ -1830,6 +1830,7 @@ https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.3.290
 https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.3.296.0.tar.gz
 https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.4.313.0.tar.gz
 https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.4.321.0.tar.gz
+https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz
 https://github.com/KhronosGroup/SPIRV-Headers/archive/29981f65241605e08b0ede4cfeb999fe3b723c6a.tar.gz
 https://github.com/KhronosGroup/SPIRV-Headers/archive/575b6512579ebde466ed3dfc04e413439d14d95d.tar.gz
 https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/sdk-1.3.250.0.tar.gz
@@ -1840,6 +1841,7 @@ https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.3.2
 https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.3.296.0.tar.gz
 https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.313.0.tar.gz
 https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.321.0.tar.gz
+https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz
 https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v18.1.3.tar.gz
 https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v19.1.0.tar.gz
 https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v19.1.7.tar.gz
@@ -1858,6 +1860,7 @@ https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.3.290
 https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.3.296.0.zip
 https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.313.0.zip
 https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.321.0.zip
+https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.357.0.zip
 https://github.com/KhronosGroup/Vulkan-Headers/archive/e3b1eec08173d6b825cd3ac88c885a63b621504a.tar.gz
 https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/sdk-1.3.250.0.tar.gz
 https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/sdk-1.3.261.1.tar.gz
@@ -1867,6 +1870,7 @@ https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-1.3.
 https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-1.3.296.0.tar.gz
 https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-1.4.313.0.tar.gz
 https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-1.4.321.0.tar.gz
+https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz
 https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/sdk-1.3.250.0.tar.gz
 https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/sdk-1.3.261.1.tar.gz
 https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/vulkan-sdk-1.3.268.0.tar.gz
@@ -4414,6 +4418,7 @@ https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.68.tar.
 https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.70.tar.gz
 https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.76.tar.gz
 https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.78.tar.gz
+https://github.com/libsigcplusplus/libsigcplusplus/releases/download/3.6.0/libsigc%2B%2B-3.6.0.tar.xz
 https://github.com/libsixel/libsixel/archive/refs/tags/v1.10.3.tar.gz
 https://github.com/libsixel/libsixel/archive/refs/tags/v1.10.5.tar.gz
 https://github.com/libsndfile/libsamplerate/archive/refs/tags/0.2.2.tar.gz
@@ -5357,6 +5362,7 @@ https://github.com/qpdf/qpdf/archive/refs/tags/v12.1.0.tar.gz
 https://github.com/qpdf/qpdf/archive/refs/tags/v12.2.0.tar.gz
 https://github.com/qpdf/qpdf/archive/refs/tags/v12.4.1.tar.gz
 https://github.com/qpdf/qpdf/archive/refs/tags/v12.4.2.tar.gz
+https://github.com/qt/qt5compat/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qt5compat/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qt5compat/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qt5compat/archive/refs/tags/v6.6.0.tar.gz
@@ -5364,6 +5370,7 @@ https://github.com/qt/qt5compat/archive/refs/tags/v6.6.1.tar.gz
 https://github.com/qt/qt5compat/archive/refs/tags/v6.6.2.tar.gz
 https://github.com/qt/qt5compat/archive/refs/tags/v6.6.3.tar.gz
 https://github.com/qt/qt5compat/archive/refs/tags/v6.7.2.tar.gz
+https://github.com/qt/qtbase/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qtbase/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qtbase/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qtbase/archive/refs/tags/v6.6.0.tar.gz
@@ -5371,6 +5378,7 @@ https://github.com/qt/qtbase/archive/refs/tags/v6.6.1.tar.gz
 https://github.com/qt/qtbase/archive/refs/tags/v6.6.2.tar.gz
 https://github.com/qt/qtbase/archive/refs/tags/v6.6.3.tar.gz
 https://github.com/qt/qtbase/archive/refs/tags/v6.7.2.tar.gz
+https://github.com/qt/qtcharts/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qtcharts/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qtcharts/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qtcharts/archive/refs/tags/v6.6.0.tar.gz
@@ -5378,6 +5386,7 @@ https://github.com/qt/qtcharts/archive/refs/tags/v6.6.1.tar.gz
 https://github.com/qt/qtcharts/archive/refs/tags/v6.6.2.tar.gz
 https://github.com/qt/qtcharts/archive/refs/tags/v6.6.3.tar.gz
 https://github.com/qt/qtcharts/archive/refs/tags/v6.7.2.tar.gz
+https://github.com/qt/qtdeclarative/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qtdeclarative/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qtdeclarative/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qtdeclarative/archive/refs/tags/v6.6.0.tar.gz
@@ -5385,6 +5394,7 @@ https://github.com/qt/qtdeclarative/archive/refs/tags/v6.6.1.tar.gz
 https://github.com/qt/qtdeclarative/archive/refs/tags/v6.6.2.tar.gz
 https://github.com/qt/qtdeclarative/archive/refs/tags/v6.6.3.tar.gz
 https://github.com/qt/qtdeclarative/archive/refs/tags/v6.7.2.tar.gz
+https://github.com/qt/qtimageformats/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qtimageformats/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qtimageformats/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qtimageformats/archive/refs/tags/v6.6.0.tar.gz
@@ -5392,6 +5402,7 @@ https://github.com/qt/qtimageformats/archive/refs/tags/v6.6.1.tar.gz
 https://github.com/qt/qtimageformats/archive/refs/tags/v6.6.2.tar.gz
 https://github.com/qt/qtimageformats/archive/refs/tags/v6.6.3.tar.gz
 https://github.com/qt/qtimageformats/archive/refs/tags/v6.7.2.tar.gz
+https://github.com/qt/qtmultimedia/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qtmultimedia/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qtmultimedia/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qtmultimedia/archive/refs/tags/v6.6.0.tar.gz
@@ -5399,6 +5410,7 @@ https://github.com/qt/qtmultimedia/archive/refs/tags/v6.6.1.tar.gz
 https://github.com/qt/qtmultimedia/archive/refs/tags/v6.6.2.tar.gz
 https://github.com/qt/qtmultimedia/archive/refs/tags/v6.6.3.tar.gz
 https://github.com/qt/qtmultimedia/archive/refs/tags/v6.7.2.tar.gz
+https://github.com/qt/qtshadertools/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qtshadertools/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qtshadertools/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qtshadertools/archive/refs/tags/v6.6.0.tar.gz
@@ -5406,6 +5418,7 @@ https://github.com/qt/qtshadertools/archive/refs/tags/v6.6.1.tar.gz
 https://github.com/qt/qtshadertools/archive/refs/tags/v6.6.2.tar.gz
 https://github.com/qt/qtshadertools/archive/refs/tags/v6.6.3.tar.gz
 https://github.com/qt/qtshadertools/archive/refs/tags/v6.7.2.tar.gz
+https://github.com/qt/qtsvg/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qtsvg/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qtsvg/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qtsvg/archive/refs/tags/v6.6.0.tar.gz
@@ -5416,6 +5429,7 @@ https://github.com/qt/qttools/archive/refs/tags/v6.6.1.tar.gz
 https://github.com/qt/qttools/archive/refs/tags/v6.6.2.tar.gz
 https://github.com/qt/qttools/archive/refs/tags/v6.6.3.tar.gz
 https://github.com/qt/qttools/archive/refs/tags/v6.7.2.tar.gz
+https://github.com/qt/qtwayland/archive/refs/tags/v6.12.0.tar.gz
 https://github.com/qt/qtwayland/archive/refs/tags/v6.5.2.tar.gz
 https://github.com/qt/qtwayland/archive/refs/tags/v6.5.3.tar.gz
 https://github.com/qt/qtwayland/archive/refs/tags/v6.6.0.tar.gz
