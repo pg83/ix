@@ -33,3 +33,8 @@ bld/qt/6/tools
 {% block cmake_flags %}
 QT6=ON
 {% endblock %}
+
+{% block cxx_flags %}
+# Qt 6.12 takes = delete("reason") from clang, and qBittorrent builds with -pedantic-errors
+-Wno-c++26-extensions
+{% endblock %}
