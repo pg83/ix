@@ -29,7 +29,6 @@ lib/qt/6/declarative
 bld/qt/6
 bld/wayland
 bld/qt/6/tools
-bld/qt/6/wayland
 bld/qt/6/tools/qml
 {% endblock %}
 

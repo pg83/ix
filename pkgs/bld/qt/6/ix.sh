@@ -6,6 +6,11 @@ lib/pcre/2
 {{super()}}
 {% endblock %}
 
+{% block bld_tool %}
+{{super()}}
+bld/wayland
+{% endblock %}
+
 {% block qt_codegen %}
 bld/perl
 {% endblock %}

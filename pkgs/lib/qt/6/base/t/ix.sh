@@ -20,6 +20,10 @@ lib/c++
 lib/double/conversion
 {% endblock %}
 
+{% block build_flags %}
+wrap_cc
+{% endblock %}
+
 {% block cmake_flags %}
 {{super()}}
 QT_FEATURE_reduce_relocations=OFF

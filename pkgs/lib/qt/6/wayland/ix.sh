@@ -7,7 +7,6 @@ lib/qt/6/declarative
 
 {% block bld_tool %}
 {{super()}}
-bld/qt/6/wayland
 bld/qt/6/tools/qml
 {% endblock %}
 

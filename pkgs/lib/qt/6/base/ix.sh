@@ -64,7 +64,7 @@ done
 
 {% block patch %}
 {{super()}}
-sed -e 's|"Sans Serif"|"system-ui"|' -i src/gui/platform/unix/qgenericunixthemes.cpp
+sed -e 's|"Sans Serif"|"system-ui"|' -i src/gui/platform/unix/qgenericunixtheme_p.h
 {% endblock %}
 
 {#

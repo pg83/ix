@@ -88,7 +88,6 @@ bld/wayland
 bld/prepend
 bld/pkg/config
 bld/qt/6/tools
-bld/qt/6/wayland
 bld/qt/6/tools/qml
 {% endblock %}
 
