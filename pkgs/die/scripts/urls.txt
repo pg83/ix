@@ -8145,6 +8145,7 @@ https://www.sqlite.org/2025/sqlite-autoconf-3500300.tar.gz
 https://www.sqlite.org/2025/sqlite-autoconf-3500400.tar.gz
 https://www.sqlite.org/2025/sqlite-autoconf-3510000.tar.gz
 https://www.sqlite.org/2026/sqlite-autoconf-3540000.tar.gz
+https://www.sqlite.org/2026/sqlite-autoconf-3540100.tar.gz
 https://www.stunnel.org/downloads/archive/5.x/stunnel-5.82.tar.gz
 https://www.stunnel.org/downloads/stunnel-5.70.tar.gz
 https://www.stunnel.org/downloads/stunnel-5.71.tar.gz
