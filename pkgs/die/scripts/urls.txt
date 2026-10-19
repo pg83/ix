@@ -3366,6 +3366,7 @@ https://github.com/ggml-org/llama.cpp/archive/refs/tags/b7086.tar.gz
 https://github.com/ggreer/the_silver_searcher/archive/refs/tags/2.2.0.tar.gz
 https://github.com/ginuerzh/gost/archive/refs/tags/v2.12.0.tar.gz
 https://github.com/git-lfs/git-lfs/archive/refs/tags/v3.6.1.tar.gz
+https://github.com/git-lfs/git-lfs/archive/refs/tags/v3.8.0.tar.gz
 https://github.com/git/git/archive/refs/tags/v2.42.0.tar.gz
 https://github.com/git/git/archive/refs/tags/v2.42.1.tar.gz
 https://github.com/git/git/archive/refs/tags/v2.43.0.tar.gz
