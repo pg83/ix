@@ -5837,6 +5837,7 @@ https://github.com/stedolan/jq/archive/refs/tags/jq-1.6.tar.gz
 https://github.com/stedolan/jq/archive/refs/tags/jq-1.7.1.tar.gz
 https://github.com/stedolan/jq/archive/refs/tags/jq-1.8.0.tar.gz
 https://github.com/stedolan/jq/archive/refs/tags/jq-1.8.1.tar.gz
+https://github.com/stedolan/jq/archive/refs/tags/jq-1.8.2.tar.gz
 https://github.com/stephenberry/glaze/archive/refs/tags/v4.4.3.tar.gz
 https://github.com/stephenberry/glaze/archive/refs/tags/v5.1.0.tar.gz
 https://github.com/stephenberry/glaze/archive/refs/tags/v5.1.1.tar.gz
