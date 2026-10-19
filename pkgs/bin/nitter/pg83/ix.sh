@@ -52,7 +52,7 @@ EOF
 {{super()}}
 nimhost --dynlibOverrideAll --passL:-lsass --out:${tmp}/gencss tools/gencss.nim
 ${tmp}/gencss
-nimhost -d:usePcreHeader --dynlibOverrideAll --passL:-lpcre \
+nimhost --dynlibOverrideAll --passL:-lpcre \
     --out:${tmp}/rendermd tools/rendermd.nim
 ${tmp}/rendermd
 {% endblock %}
