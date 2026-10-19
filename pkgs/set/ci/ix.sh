@@ -6,9 +6,14 @@ set/ci/tier/1
 set/ci/tier/2
 # for repology
 lib/fmt/11
+lib/fmt/12
 lib/botan/3
 lib/wlroots/19
 lib/json/nlohmann/12
+lib/ffmpeg/9
+lib/openssl/4
+lib/mbedtls/4
+lib/glaze/9
 aux/fonts/adobe/source/code-pro
 aux/fonts/adobe/source/sans
 aux/fonts/adobe/source/serif
