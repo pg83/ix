@@ -32,5 +32,18 @@ bld/bash
 bin/protoc/c
 {% endblock %}
 
+{% block patch %}
+patch -p1 <<'EOF'
+--- a/lib/kru-avx2.c
++++ b/lib/kru-avx2.c
+@@ -25 +25 @@
+-	#if !defined(__AVX2__)
++	#if !defined(__AVX2__) || !defined(__AES__)
+@@ -49 +49 @@
+-	#if !defined(__AVX2__)
++	#if !defined(__AVX2__) || !defined(__AES__)
+EOF
+{% endblock %}
+
 {% block meson_strip_dirs %}
 {% endblock %}
