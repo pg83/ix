@@ -14,6 +14,8 @@ lib/ffmpeg/9
 lib/openssl/4
 lib/mbedtls/4
 lib/glaze/9
+lib/boost/90
+lib/mimalloc/3
 aux/fonts/adobe/source/code-pro
 aux/fonts/adobe/source/sans
 aux/fonts/adobe/source/serif

@@ -1061,6 +1061,7 @@ bin/dns/masq/lite
 bin/git/lfs
 bin/kernel/7/0
 bin/kernel/7/1
+bin/kernel/7/2
 bin/logcli
 bin/logovo
 bin/clang/22
