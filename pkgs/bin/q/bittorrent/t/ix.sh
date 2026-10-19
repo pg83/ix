@@ -21,7 +21,8 @@ lib/boost
 lib/openssl
 lib/sqlite/3
 lib/execinfo
-lib/torrent/rasterbar
+# 2.1 dropped storage_params::mapped_files, qBittorrent still uses it
+lib/torrent/rasterbar/2/0
 {% endblock %}
 
 {% block bld_tool %}
