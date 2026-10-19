@@ -34,6 +34,7 @@ inline=
 {% block c_flags %}
 -Wno-incompatible-pointer-types
 -Wno-incompatible-function-pointer-types
+-Wno-incompatible-pointer-types
 {% endblock %}
 
 {% block install %}
