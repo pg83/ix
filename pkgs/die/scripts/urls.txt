@@ -4037,6 +4037,7 @@ https://github.com/jiixyj/epoll-shim/archive/refs/tags/v0.0.20240608.tar.gz
 https://github.com/jirka-h/haveged/archive/refs/tags/v1.9.18.tar.gz
 https://github.com/jirka-h/haveged/archive/refs/tags/v1.9.19.tar.gz
 https://github.com/jirka-h/haveged/archive/refs/tags/v1.9.26.tar.gz
+https://github.com/jirka-h/haveged/archive/refs/tags/v1.9.27.tar.gz
 https://github.com/jjsullivan5196/wvkbd/archive/refs/tags/v0.12.tar.gz
 https://github.com/jjsullivan5196/wvkbd/archive/refs/tags/v0.14.1.tar.gz
 https://github.com/jjsullivan5196/wvkbd/archive/refs/tags/v0.14.3.tar.gz
