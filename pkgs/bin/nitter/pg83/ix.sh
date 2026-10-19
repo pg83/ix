@@ -1,7 +1,9 @@
 {% extends '//die/nim/build.sh' %}
 
 {% block pkg_name %}nitter{% endblock %}
-{% block version %}1{% endblock %}
+{% block version %}
+1
+{% endblock %}
 
 {% block nim_url %}
 https://github.com/pg83/nitter/archive/refs/tags/1.tar.gz

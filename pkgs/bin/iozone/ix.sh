@@ -1,7 +1,8 @@
 {% extends '//die/c/make.sh' %}
 
+{# repology reads the release number NNN as 3.NNN #}
 {% block version %}
-507
+3.507
 {% endblock %}
 
 {% block pkg_name %}
@@ -9,7 +10,7 @@ iozone3
 {% endblock %}
 
 {% block fetch %}
-https://www.iozone.org/src/current/iozone3_{{self.version().strip()}}.tgz
+https://www.iozone.org/src/current/iozone3_{{self.version().strip() | field(1)}}.tgz
 dd03eccd3768e8400816d67ae0e47f4646cb5834cfc2fc09927fe7b87a6fca7a
 {% endblock %}
 

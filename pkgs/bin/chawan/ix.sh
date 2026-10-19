@@ -1,7 +1,9 @@
 {% extends '//die/nim/base.sh' %}
 
 {% block pkg_name %}chawan{% endblock %}
-{% block version %}0.4.4{% endblock %}
+{% block version %}
+0.4.4
+{% endblock %}
 
 {% block fetch %}
 https://git.sr.ht/~bptato/chawan/archive/v{{self.version().strip()}}.tar.gz
