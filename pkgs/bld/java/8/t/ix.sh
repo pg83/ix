@@ -27,7 +27,9 @@ bin/bash/lite/sh
 bin/zip
 bld/bash
 bin/unzip
+{% block boot_jdk %}
 bld/java/7
+{% endblock %}
 bld/devendor
 # libjsig is compiled and linked in one command; split it, so liblink
 # gets an object to archive

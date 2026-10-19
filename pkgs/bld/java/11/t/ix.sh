@@ -35,7 +35,9 @@ bin/zip
 bin/gzip
 bld/bash
 bin/unzip
+{% block boot_jdk %}
 bld/java/10
+{% endblock %}
 bld/auto
 bld/devendor
 # libjsig is compiled and linked in one command; split it, so liblink
