@@ -16,11 +16,17 @@ lib/shim/iced
 hotspot libs
 {% endblock %}
 
+{# the libraries that keep shared names: the others use the jio_*
+   functions of libjvm #}
+{% block dl_owner_libs %}
+jvm
+{% endblock %}
+
 {# one static link holds them all: the entry points the JDK looks up by
    name in each library become <lib>_<name>, registered back under their
    own names by bin/java/25/unwrap; the helpers several libraries define
-   for themselves become <lib>_<name> too, in all of them but libjvm, so
-   each library keeps its own #}
+   for themselves become <lib>_<name> too, in all of them but the owners,
+   so each library keeps its own #}
 {% block install %}
 mkdir ${out}/lib
 cd ${out}/lib
@@ -36,11 +42,15 @@ for a in *.a; do
     for s in JNI_OnLoad Agent_OnLoad Agent_OnUnload; do
         flags="${flags} --redefine-sym=${s}=${l}_${s}"
     done
-    if test "${l}" != jvm; then
-        for s in $(llvm-nm -g --defined-only ${a} | awk 'NF == 3 { print $3 }' | grep -Fxf dups); do
-            flags="${flags} --redefine-sym=${s}=${l}_${s}"
-        done
-    fi
+    case " {{self.dl_owner_libs() | parse_list | join(' ')}} " in
+        *" ${l} "*)
+            ;;
+        *)
+            for s in $(llvm-nm -g --defined-only ${a} | awk 'NF == 3 { print $3 }' | grep -Fxf dups); do
+                flags="${flags} --redefine-sym=${s}=${l}_${s}"
+            done
+            ;;
+    esac
     llvm-objcopy ${flags} ${a}
 done
 rm dups

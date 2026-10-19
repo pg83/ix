@@ -20,7 +20,7 @@ lib/c++
 --with-build-jdk=${JAVA_HOME}
 {% if not native %}
 # gnu.three names no libc; ix targets musl
---openjdk-target={{target.gnu_arch}}-linux-musl
+--openjdk-target={{target.gnu_arch}}-unknown-linux-musl
 BUILD_CC=${HOST_CC}
 BUILD_CXX=${HOST_CXX}
 {% endif %}
