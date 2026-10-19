@@ -7,12 +7,12 @@ tree-sitter-vimdoc
 {% endblock %}
 
 {% block version %}
-4.2.0
+4.3.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-141834849055dc447cac35b0f7fb53c265f8b93f6003cfbd6394cdafa946e432
+4c46119abf86fcb29bc66878eb9a37666a936589769bea2b76308cd2119dfaf5
 {% endblock %}
 
 {% block bld_libs %}
