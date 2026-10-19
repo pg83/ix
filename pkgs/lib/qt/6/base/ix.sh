@@ -50,6 +50,7 @@ sed -e 's|GLIB2::GLIB2|c|' -i cmake/Qt6Core/Qt6CoreTargets.cmake
 sed -e 's|GLIB2::GOBJECT|c|' -i cmake/Qt6Network/Qt6QGlibNetworkInformationPluginTargets.cmake
 sed -e 's|GLIB2::GIO|c|' -i cmake/Qt6Network/Qt6QGlibNetworkInformationPluginTargets.cmake
 llvm-ar q libqtregister.a $(find -type f -name '*.o')
+llvm-ar d libQt6WaylandClient.a wayland-wayland-protocol.c.o
 {% endblock %}
 
 {% block env %}

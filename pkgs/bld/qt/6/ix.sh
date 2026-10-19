@@ -11,6 +11,12 @@ lib/pcre/2
 bld/wayland
 {% endblock %}
 
+{# Qt6Gui brings the wayland plugins, they need Qt6WaylandScannerTools, and it needs wayland-scanner #}
+{% block run_deps %}
+{{super()}}
+bld/wayland/scanner
+{% endblock %}
+
 {% block qt_codegen %}
 bld/perl
 {% endblock %}
@@ -34,6 +40,7 @@ QT_FEATURE_shared=OFF
 
 {% block env %}
 export QT_HOST_PATH=${out}
+export Qt6WaylandScannerTools_DIR=${out}/lib/cmake/Qt6WaylandScannerTools
 {% endblock %}
 
 {% block patch %}

@@ -57,3 +57,9 @@ QT_FEATURE_systemsemaphore=ON
 #QT_FEATURE_textmarkdownreader
 #QT_FEATURE_xcb
 {% endblock %}
+
+{% block install %}
+{{super()}}
+# do not force find-only tools on what builds on top: bld/qt/6/tools* build them
+sed -e '/QT_FORCE_FIND_TOOLS/d' -i ${out}/lib/cmake/Qt6BuildInternals/QtBuildInternalsExtra.cmake
+{% endblock %}
