@@ -15,3 +15,11 @@ make
 https://ftp.gnu.org/gnu/make/make-{{self.version().strip()}}.tar.gz
 e40b8f018c1da64edd1cc9a6fce5fa63b2e707e404e20cad91fbae337c98a5b7
 {% endblock %}
+
+{% block patch %}
+sed -i \
+    -e 's/^my_realloc (p, n)$/my_realloc (void *p, unsigned int n)/' \
+    -e '/^     char \*p;$/d' \
+    -e '/^     unsigned int n;$/d' \
+    glob/glob.c
+{% endblock %}
