@@ -172,7 +172,6 @@ bin/clapper
 bin/nftables
 bin/bpf/tool
 bin/skia/svg
-bin/ladybird
 bin/cvt
 bin/modetest
 bin/sh/fmt
@@ -940,7 +939,6 @@ bin/rhash
 bin/vis
 bin/w3m
 bin/tea
-bin/ladybird
 bin/shadow
 bin/pdpmake
 bin/premake
