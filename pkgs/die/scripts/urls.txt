@@ -3597,6 +3597,7 @@ https://github.com/gperftools/gperftools/releases/download/gperftools-2.16/gperf
 https://github.com/gperftools/gperftools/releases/download/gperftools-2.17.2/gperftools-2.17.2.tar.gz
 https://github.com/gperftools/gperftools/releases/download/gperftools-2.18.1/gperftools-2.18.1.tar.gz
 https://github.com/gperftools/gperftools/releases/download/gperftools-2.18/gperftools-2.18.tar.gz
+https://github.com/gperftools/gperftools/releases/download/gperftools-2.19/gperftools-2.19.tar.gz
 https://github.com/gphoto/libgphoto2/archive/refs/tags/v2.5.30.tar.gz
 https://github.com/grafana/grafana/archive/refs/tags/v13.0.1.tar.gz
 https://github.com/grafana/grafana/archive/refs/tags/v13.2.4.tar.gz
@@ -5188,6 +5189,7 @@ https://github.com/pg83/s3/archive/refs/tags/26.tar.gz
 https://github.com/pg83/s3/archive/refs/tags/27.tar.gz
 https://github.com/pg83/s3/archive/refs/tags/31.tar.gz
 https://github.com/pg83/s3/archive/refs/tags/32.tar.gz
+https://github.com/pg83/s3/archive/refs/tags/34.tar.gz
 https://github.com/pg83/samogon/archive/refs/tags/7.tar.gz
 https://github.com/pg83/sbase/archive/refs/tags/v1.tar.gz
 https://github.com/pg83/shitty/archive/refs/tags/18.tar.gz
