@@ -30,6 +30,7 @@
 #bin/port/forwarder/rs
 #bin/qemu/8/1
 #bin/qemu/8/2
+bin/qemu/11/1
 #bin/curl/ms
 #bin/fizzy
 #bin/strawberry
