@@ -2668,6 +2668,7 @@ https://github.com/c-ares/c-ares/archive/refs/tags/v1.34.3.tar.gz
 https://github.com/c-ares/c-ares/archive/refs/tags/v1.34.5.tar.gz
 https://github.com/c-ares/c-ares/archive/refs/tags/v1.34.6.tar.gz
 https://github.com/c-ares/c-ares/archive/refs/tags/v1.34.8.tar.gz
+https://github.com/c-ares/c-ares/archive/refs/tags/v1.34.9.tar.gz
 https://github.com/c-util/c-dvar/archive/refs/tags/v1.1.0.tar.gz
 https://github.com/c-util/c-dvar/archive/refs/tags/v1.2.0.tar.gz
 https://github.com/c-util/c-ini/archive/refs/tags/v1.1.0.tar.gz
