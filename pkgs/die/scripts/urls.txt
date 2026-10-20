@@ -7478,6 +7478,7 @@ https://mirrors.edge.kernel.org/pub/software/network/ethtool/ethtool-6.15.tar.xz
 https://mirrors.edge.kernel.org/pub/software/network/ethtool/ethtool-6.2.tar.xz
 https://mirrors.edge.kernel.org/pub/software/network/ethtool/ethtool-6.7.tar.xz
 https://mirrors.edge.kernel.org/pub/software/network/ethtool/ethtool-7.1.tar.xz
+https://mirrors.edge.kernel.org/pub/software/network/ethtool/ethtool-7.2.tar.xz
 https://mirrors.edge.kernel.org/pub/software/utils/pciutils/pciutils-3.11.1.tar.xz
 https://mirrors.edge.kernel.org/pub/software/utils/pciutils/pciutils-3.12.0.tar.xz
 https://mplayerhq.hu/MPlayer/releases/MPlayer-1.5.tar.xz
