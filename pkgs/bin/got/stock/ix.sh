@@ -32,6 +32,9 @@ bld/byacc
 {% block patch %}
 >compat/reallocarray.c
 >compat/getprogname.c
+sed -e 's|set_panel_userptr(view->panel, view)|set_panel_userptr(view->panel, (char *)view)|' \
+    -e 's|view_above = panel_userptr(panel)|view_above = (const struct tog_view *)panel_userptr(panel)|' \
+    -i tog/tog.c
 {% endblock %}
 
 {% block cpp_defines %}
