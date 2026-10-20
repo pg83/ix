@@ -3,10 +3,10 @@ nss
 {% endblock %}
 
 {% block version %}
-3.131
+3.131.1
 {% endblock %}
 
 {% block fetch_impl %}
 https://ftp.mozilla.org/pub/security/nss/releases/NSS_{{self.version().strip().replace('.', '_')}}_RTM/src/nss-{{self.version().strip()}}.tar.gz
-ca0005bc77e9255d9942103e6f9756cfe311a3df72afa99860709e386eb3c167
+b1dbc1d9e7f3f8455dfb6d58ec8f7229d8a8450c629a9e69ef2ef6081f359056
 {% endblock %}
