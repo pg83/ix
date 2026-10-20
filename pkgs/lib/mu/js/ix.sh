@@ -15,12 +15,12 @@ mujs
 {% endblock %}
 
 {% block version %}
-1.3.10
+1.3.11
 {% endblock %}
 
 {% block fetch %}
 https://mujs.com/downloads/mujs-{{self.version().strip()}}.tar.gz
-6e36c15dbb84ff859320297c900852f241b131a7b6ddaea669ac9a65bd75571c
+456a395769daf110a30f9bf6f793044261e261481d5dca33b63cdc8714774ca4
 {% endblock %}
 
 {% block lib_deps %}
