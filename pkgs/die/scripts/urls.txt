@@ -8108,6 +8108,7 @@ https://www.nano-editor.org/dist/v8/nano-8.5.tar.xz
 https://www.nano-editor.org/dist/v8/nano-8.6.tar.xz
 https://www.nano-editor.org/dist/v8/nano-8.7.tar.xz
 https://www.nano-editor.org/dist/v9/nano-9.2.tar.xz
+https://www.nano-editor.org/dist/v9/nano-9.3.tar.xz
 https://www.nasm.us/pub/nasm/releasebuilds/2.16.0.1/nasm-2.16.01.tar.gz
 https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/nasm-2.16.01.tar.gz
 https://www.nasm.us/pub/nasm/releasebuilds/2.16.02/nasm-2.16.02.tar.gz
