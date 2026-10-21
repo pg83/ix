@@ -2957,6 +2957,7 @@ https://github.com/drakkan/sftpgo/archive/refs/tags/v2.6.0.tar.gz
 https://github.com/dubiousjim/dcron/archive/refs/tags/v4.5.tar.gz
 https://github.com/ducaale/xh/archive/refs/tags/v0.25.3.tar.gz
 https://github.com/ducaale/xh/archive/refs/tags/v0.26.2.tar.gz
+https://github.com/ducaale/xh/archive/refs/tags/v0.26.3.tar.gz
 https://github.com/dundee/gdu/archive/refs/tags/v5.28.0.tar.gz
 https://github.com/dundee/gdu/archive/refs/tags/v5.30.1.tar.gz
 https://github.com/dundee/gdu/archive/refs/tags/v5.31.0.tar.gz
