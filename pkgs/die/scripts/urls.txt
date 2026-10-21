@@ -6361,6 +6361,7 @@ https://github.com/vifm/vifm/archive/refs/tags/v0.14.1.tar.gz
 https://github.com/vifm/vifm/archive/refs/tags/v0.14.2.tar.gz
 https://github.com/vifm/vifm/archive/refs/tags/v0.14.3.tar.gz
 https://github.com/vifm/vifm/archive/refs/tags/v0.14.4.tar.gz
+https://github.com/vifm/vifm/archive/refs/tags/v0.14.5.tar.gz
 https://github.com/vifm/vifm/archive/refs/tags/v0.14.tar.gz
 https://github.com/vim/vim/archive/refs/tags/v9.0.0006.tar.gz
 https://github.com/vim/vim/archive/refs/tags/v9.1.1366.tar.gz
