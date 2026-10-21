@@ -5,12 +5,12 @@ python
 {% endblock %}
 
 {% block version %}
-3.13.16
+3.13.17
 {% endblock %}
 
 {% block fetch %}
 https://www.python.org/ftp/python/{{self.version().strip()}}/Python-{{self.version().strip()}}.tar.xz
-f4b1bfb3c79b5bb11b8d228a12504163b4c0dab4d679828d8f5f26b6cb6ab35d
+6020bd10aff3bf4821be16f088ebb1591beb7b811dcd8fab1da8f7c22a7b27e7
 {% endblock %}
 
 {% block configure_flags %}
