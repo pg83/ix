@@ -5,7 +5,7 @@ loki
 {% endblock %}
 
 {% block version %}
-3.7.8
+3.7.9
 {% endblock %}
 
 {% block go_tool %}
@@ -17,5 +17,5 @@ https://github.com/grafana/loki/archive/refs/tags/v{{self.version().strip()}}.ta
 {% endblock %}
 
 {% block go_sha %}
-5a52394307c18867376ef629f190007646c0af4e9ef0e6ef3b9866b58fb630ac
+91bfd498f42c3a8f880e1804152ee40fa732bb0ffde62f090d6598484bdb9adc
 {% endblock %}
