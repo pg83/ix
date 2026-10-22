@@ -2785,6 +2785,7 @@ https://github.com/cisco/openh264/archive/refs/tags/v2.4.0.tar.gz
 https://github.com/cisco/openh264/archive/refs/tags/v2.4.1.tar.gz
 https://github.com/cisco/openh264/archive/refs/tags/v2.5.0.tar.gz
 https://github.com/cisco/openh264/archive/refs/tags/v2.6.0.tar.gz
+https://github.com/cisco/openh264/archive/refs/tags/v2.7.0.tar.gz
 https://github.com/cjlin1/liblinear/archive/v247/liblinear-247.tar.gz
 https://github.com/cjlin1/liblinear/archive/v247/liblinear-248.tar.gz
 https://github.com/cjlin1/liblinear/archive/v247/liblinear-249.tar.gz
