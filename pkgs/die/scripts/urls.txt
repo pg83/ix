@@ -8083,6 +8083,7 @@ https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-016.tar.xz
 https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-017.tar.xz
 https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-018.tar.xz
 https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-019.tar.xz
+https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-020.tar.xz
 https://www.kernel.org/pub/software/network/iw/iw-5.19.tar.xz
 https://www.kernel.org/pub/software/network/iw/iw-6.17.tar.xz
 https://www.kernel.org/pub/software/network/iw/iw-6.7.tar.xz
