@@ -2616,6 +2616,7 @@ https://github.com/bensadeh/tailspin/archive/refs/tags/5.4.5.tar.gz
 https://github.com/bensadeh/tailspin/archive/refs/tags/5.5.0.tar.gz
 https://github.com/bensadeh/tailspin/archive/refs/tags/7.0.0.tar.gz
 https://github.com/berndporr/iir1/archive/refs/tags/1.10.0.tar.gz
+https://github.com/berndporr/iir1/archive/refs/tags/1.11.0.tar.gz
 https://github.com/berndporr/iir1/archive/refs/tags/1.9.4.tar.gz
 https://github.com/berndporr/iir1/archive/refs/tags/1.9.5.tar.gz
 https://github.com/besser82/libxcrypt/archive/refs/tags/v4.4.36.tar.gz
