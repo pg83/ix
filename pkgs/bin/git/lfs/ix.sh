@@ -5,7 +5,7 @@ git-lfs
 {% endblock %}
 
 {% block version %}
-3.8.0
+3.8.1
 {% endblock %}
 
 {% block go_url %}
@@ -13,7 +13,7 @@ https://github.com/git-lfs/git-lfs/archive/refs/tags/v{{self.version().strip()}}
 {% endblock %}
 
 {% block go_sha %}
-07c2dd96145e3ede3df6ef0273d9978ce10d764b8eb3fd940194f6ce62d585cd
+1c222a224eb2ab05d91539861f2cb82afc04b77ea0abef4733320d25a59e19d2
 {% endblock %}
 
 {% block go_bins %}
