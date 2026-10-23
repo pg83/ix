@@ -5139,6 +5139,7 @@ https://github.com/openssl/openssl/archive/refs/tags/openssl-3.5.3.tar.gz
 https://github.com/openssl/openssl/archive/refs/tags/openssl-3.6.0.tar.gz
 https://github.com/openssl/openssl/archive/refs/tags/openssl-3.6.5.tar.gz
 https://github.com/openssl/openssl/archive/refs/tags/openssl-4.0.3.tar.gz
+https://github.com/openssl/openssl/archive/refs/tags/openssl-4.1.0.tar.gz
 https://github.com/opsengine/cpulimit/archive/refs/tags/v0.2.tar.gz
 https://github.com/optozorax/car_drift/archive/8fbfd0f82f614d9d32bbf78176b77e98affdadcb.zip
 https://github.com/oras-project/oras/archive/refs/tags/v1.2.3.tar.gz
