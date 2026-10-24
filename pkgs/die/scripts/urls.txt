@@ -6185,6 +6185,7 @@ https://github.com/transmission/transmission/archive/refs/tags/4.0.5.tar.gz
 https://github.com/transmission/transmission/archive/refs/tags/4.0.6.tar.gz
 https://github.com/transmission/transmission/releases/download/3.00/transmission-3.00.tar.xz
 https://github.com/transmission/transmission/releases/download/4.1.3/transmission-4.1.3.tar.xz
+https://github.com/transmission/transmission/releases/download/4.1.4/transmission-4.1.4.tar.xz
 https://github.com/tree-sitter/tree-sitter-python/archive/refs/tags/v0.21.0.tar.gz
 https://github.com/tree-sitter/tree-sitter-python/archive/refs/tags/v0.23.6.tar.gz
 https://github.com/tree-sitter/tree-sitter-python/archive/refs/tags/v0.25.0.tar.gz
