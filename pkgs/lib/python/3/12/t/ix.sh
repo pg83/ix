@@ -5,12 +5,12 @@ python
 {% endblock %}
 
 {% block version %}
-3.12.15
+3.12.16
 {% endblock %}
 
 {% block fetch %}
 https://github.com/python/cpython/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-c1512aa5fc62be59b733636ecf643085ac3634900cc178fb593b3b934e9b8ca3
+e0fac3812252d674de7d82d206d2205297f6da97702a3db5715d1f91f1217264
 {% endblock %}
 
 {% block conf_ver %}
