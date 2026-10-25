@@ -2527,6 +2527,7 @@ https://github.com/aristocratos/btop/archive/refs/tags/v1.4.4.tar.gz
 https://github.com/aristocratos/btop/archive/refs/tags/v1.4.5.tar.gz
 https://github.com/aristocratos/btop/archive/refs/tags/v1.4.6.tar.gz
 https://github.com/aristocratos/btop/archive/refs/tags/v1.4.7.tar.gz
+https://github.com/aristocratos/btop/archive/refs/tags/v1.4.8.tar.gz
 https://github.com/artemsen/swayimg/archive/refs/tags/v1.12.tar.gz
 https://github.com/artemsen/swayimg/archive/refs/tags/v2.0.tar.gz
 https://github.com/artemsen/swayimg/archive/refs/tags/v2.1.tar.gz
