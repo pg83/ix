@@ -387,6 +387,7 @@ https://code.videolan.org/videolan/libplacebo/-/archive/v7.349.0/libplacebo-v7.3
 https://code.videolan.org/videolan/libplacebo/-/archive/v7.351.0/libplacebo-v7.351.0.tar.bz2
 https://code.videolan.org/videolan/libplacebo/-/archive/v7.360.0/libplacebo-v7.360.0.tar.bz2
 https://code.videolan.org/videolan/libplacebo/-/archive/v7.360.1/libplacebo-v7.360.1.tar.bz2
+https://code.videolan.org/videolan/libplacebo/-/archive/v7.387.0/libplacebo-v7.387.0.tar.bz2
 https://code.videolan.org/videolan/libudfread/-/archive/1.2.0/libudfread-1.2.0.tar.bz2
 https://codeberg.org/adnano/wmenu/archive/0.2.0.tar.gz
 https://codeberg.org/dcantrell/bsdutils/archive/v13.2.tar.gz
