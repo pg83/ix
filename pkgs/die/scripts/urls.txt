@@ -6008,6 +6008,7 @@ https://github.com/swaywm/swaybg/archive/refs/tags/v1.2.1.tar.gz
 https://github.com/swaywm/swaybg/archive/refs/tags/v1.2.2.tar.gz
 https://github.com/swaywm/swayidle/archive/refs/tags/1.8.0.tar.gz
 https://github.com/swaywm/swayidle/archive/refs/tags/v1.9.0.tar.gz
+https://github.com/swaywm/swayidle/archive/refs/tags/v1.9.1.tar.gz
 https://github.com/swaywm/swaylock/archive/refs/tags/v1.7.2.tar.gz
 https://github.com/swaywm/swaylock/archive/refs/tags/v1.8.0.tar.gz
 https://github.com/swaywm/swaylock/archive/refs/tags/v1.8.2.tar.gz
