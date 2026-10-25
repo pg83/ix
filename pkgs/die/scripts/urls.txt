@@ -6287,6 +6287,7 @@ https://github.com/unicode-org/icu/archive/refs/tags/release-77-1.tar.gz
 https://github.com/unicode-org/icu/archive/refs/tags/release-78.1.tar.gz
 https://github.com/unicode-org/icu/archive/refs/tags/release-78.2.tar.gz
 https://github.com/unicode-org/icu/archive/refs/tags/release-78.3.tar.gz
+https://github.com/unicode-org/icu/archive/refs/tags/release-79.1.tar.gz
 https://github.com/upx/upx/releases/download/v4.1.0/upx-4.1.0-src.tar.xz
 https://github.com/upx/upx/releases/download/v4.2.0/upx-4.2.0-src.tar.xz
 https://github.com/upx/upx/releases/download/v4.2.1/upx-4.2.1-src.tar.xz
