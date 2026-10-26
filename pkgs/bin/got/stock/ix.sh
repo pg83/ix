@@ -18,9 +18,9 @@ lib/c
 lib/z
 lib/md
 lib/bsd
-lib/event
+lib/event(libopenssl_ver=fake)
 lib/curses
-lib/openssl
+lib/ressl
 lib/linux/util
 lib/bsd/overlay
 {% endblock %}
