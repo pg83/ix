@@ -2511,6 +2511,7 @@ https://github.com/appneta/tcpreplay/releases/download/v4.4.4/tcpreplay-4.4.4.ta
 https://github.com/appneta/tcpreplay/releases/download/v4.5.1/tcpreplay-4.5.1.tar.xz
 https://github.com/appneta/tcpreplay/releases/download/v4.5.2/tcpreplay-4.5.2.tar.xz
 https://github.com/appneta/tcpreplay/releases/download/v4.6.1/tcpreplay-4.6.1.tar.xz
+https://github.com/appneta/tcpreplay/releases/download/v4.6.2/tcpreplay-4.6.2.tar.xz
 https://github.com/ar-/incron/archive/refs/tags/0.5.12.tar.gz
 https://github.com/archiecobbs/s3backer/archive/refs/tags/2.1.3.tar.gz
 https://github.com/archiecobbs/s3backer/archive/refs/tags/2.1.4.tar.gz
