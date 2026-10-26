@@ -2,12 +2,12 @@
 
 {% block pkg_name %}chawan{% endblock %}
 {% block version %}
-0.5.0
+0.5.1
 {% endblock %}
 
 {% block fetch %}
 https://git.sr.ht/~bptato/chawan/archive/v{{self.version().strip()}}.tar.gz
-031d1ef809e1e94f16815c543a450f62a3577a7b7240ac02160dd8c78512f588
+67a54f10acd2dcda6c62bca825ccaf228f94d04ba9dc85c9369930c58d12ec21
 {% endblock %}
 
 {% block bld_tool %}
