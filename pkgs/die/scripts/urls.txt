@@ -1986,6 +1986,7 @@ https://github.com/LibRaw/LibRaw/archive/refs/tags/0.21.4.tar.gz
 https://github.com/LibRaw/LibRaw/archive/refs/tags/0.21.5.tar.gz
 https://github.com/LibRaw/LibRaw/archive/refs/tags/0.22.0.tar.gz
 https://github.com/LibRaw/LibRaw/archive/refs/tags/0.22.2.tar.gz
+https://github.com/LibRaw/LibRaw/archive/refs/tags/0.22.3.tar.gz
 https://github.com/LouisBrunner/avahi2dns/archive/9349a6495ad4cafcd1d44e089b8ea2215165888e.zip
 https://github.com/LuaJIT/LuaJIT/archive/0bf80b07b0672ce874feedcc777afe1b791ccb5a.tar.gz
 https://github.com/LuaJIT/LuaJIT/archive/refs/tags/v2.0.5.tar.gz
