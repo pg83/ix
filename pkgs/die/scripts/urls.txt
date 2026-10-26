@@ -761,6 +761,7 @@ https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.2/gnuplot-6.0.2.ta
 https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.3/gnuplot-6.0.3.tar.gz
 https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.4/gnuplot-6.0.4.tar.gz
 https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.5/gnuplot-6.0.5.tar.gz
+https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.6/gnuplot-6.0.6.tar.gz
 https://downloads.sourceforge.net/project/gparted/gparted/gparted-1.5.0/gparted-1.5.0.tar.gz
 https://downloads.sourceforge.net/project/gparted/gparted/gparted-1.6.0/gparted-1.6.0.tar.gz
 https://downloads.sourceforge.net/project/gparted/gparted/gparted-1.7.0/gparted-1.7.0.tar.gz
