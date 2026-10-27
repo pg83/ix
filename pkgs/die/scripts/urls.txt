@@ -7666,6 +7666,9 @@ https://raw.githubusercontent.com/Homebrew/patches/d8b2d8c2612fd251ac6de17bf0cc5
 https://raw.githubusercontent.com/macports/macports-ports/edf0ee1e2cf/devel/m4/files/secure_snprintf.patch
 https://raw.githubusercontent.com/orsonteodoro/oiledmachine-overlay/8b1ba379ee536397a77cf12156edce5b36bdeb56/app-admin/keepassxc/files/keepassxc-2.7.6-qt6-support.patch
 https://raw.githubusercontent.com/orsonteodoro/oiledmachine-overlay/master/app-admin/keepassxc/files/keepassxc-2.7.6-qt6-support.patch
+https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-1.4.0.tgz
+https://registry.npmjs.org/@silvia-odwyer/photon-node/-/photon-node-0.3.4.tgz
+https://registry.npmjs.org/jiti/-/jiti-2.7.0.tgz
 https://releases.pagure.org/libaio/libaio-0.3.113.tar.gz
 https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2
 https://s3.amazonaws.com/json-c_releases/releases/json-c-0.17.tar.gz
@@ -8238,6 +8241,7 @@ https://www.rarlab.com/rar/unrarsrc-7.2.1.tar.gz
 https://www.rarlab.com/rar/unrarsrc-7.2.2.tar.gz
 https://www.rarlab.com/rar/unrarsrc-7.2.7.tar.gz
 https://www.rarlab.com/rar/unrarsrc-7.3.1.tar.gz
+https://www.rarlab.com/rar/unrarsrc-7.3.2.tar.gz
 https://www.sqlite.org/2024/sqlite-autoconf-3450000.tar.gz
 https://www.sqlite.org/2024/sqlite-autoconf-3450100.tar.gz
 https://www.sqlite.org/2024/sqlite-autoconf-3450200.tar.gz
