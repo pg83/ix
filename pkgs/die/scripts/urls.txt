@@ -7607,6 +7607,7 @@ https://nmap.org/dist/nmap-7.97.tar.bz2
 https://nmap.org/dist/nmap-7.98.tar.bz2
 https://nmap.org/dist/nmap-7.991.tar.bz2
 https://nmap.org/dist/nmap-7.992.tar.bz2
+https://nmap.org/dist/nmap-7.993.tar.bz2
 https://nodejs.org/dist/v18.16.1/node-v18.16.1.tar.gz
 https://nodejs.org/dist/v23.4.0/node-v23.4.0.tar.gz
 https://nodejs.org/dist/v23.6.0/node-v23.6.0.tar.gz
