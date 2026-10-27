@@ -112,6 +112,7 @@ bin/lzfse
 bin/uncrustify
 bin/hefur
 bin/npm
+bin/pi
 bin/x264
 bin/forge/jo
 bin/git/ea
