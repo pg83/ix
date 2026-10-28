@@ -2848,6 +2848,7 @@ https://github.com/containers/crun/releases/download/1.9/crun-1.9.tar.xz
 https://github.com/contour-terminal/boxed-cpp/archive/refs/tags/v1.4.3.tar.gz
 https://github.com/contour-terminal/contour/archive/refs/tags/v0.6.1.7494.tar.gz
 https://github.com/contour-terminal/contour/archive/refs/tags/v0.7.0.8982.tar.gz
+https://github.com/contour-terminal/contour/archive/refs/tags/v0.8.0.9335.tar.gz
 https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.6.0.tar.gz
 https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.9.3.tar.gz
 https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.9.4.tar.gz
