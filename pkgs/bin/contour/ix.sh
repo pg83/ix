@@ -41,6 +41,7 @@ bld/qt/6/tools/shader
 
 {% block cmake_flags %}
 CONTOUR_WITH_UTEMPTER=OFF
+CONTOUR_WITH_SYSTEMD=OFF
 CONTOUR_BUILD_STATIC=ON
 CONTOUR_USE_CPM=OFF
 {% endblock %}
