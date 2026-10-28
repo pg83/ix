@@ -1,19 +1,36 @@
 {# impulse-desktop/svg as one pure wasm module with the exports of svg.c:
-   the page ABI of the pdf and djvu modules, a drawing's one page.
+   the page ABI of the pdf and djvu modules, a drawing's one page. The
+   host passes it no callbacks, so it carries zlib for SVGZ and libpng,
+   libjpeg, libwebp and giflib for the raster images inside a drawing.
 
    Built for wasm32-none: the module imports nothing, and the build
    proves it with wasm-imports. The build also runs the module: wasm-page
-   on WAMR opens a small drawing through it, renders it twice in one
+   on WAMR opens small drawings through it, renders each twice in one
    instance, which is how a viewer reuses it, and the pixels are checked:
-   the drawing is transparent, so wasm-page's count of ink says nothing.
-   Under simd128 the module has v128, which WAMR's fast JIT lacks, so the
-   run is skipped there, as for the ImageMagick module. #}
+   a drawing is transparent in places, so wasm-page's count of ink says
+   nothing. One drawing holds an image of each format, the same drawing
+   gzipped draws the same pixels, and a drawing with a broken PNG traps
+   with libpng's word for it. Under simd128 the module has v128, which
+   WAMR's fast JIT lacks, so the runs are skipped there, as for the
+   ImageMagick module. #}
 
 {% extends '//die/c/ix.sh' %}
 
 {% block lib_deps %}
 lib/c
 lib/svg
+lib/z
+lib/png
+lib/jpeg
+lib/webp
+lib/gif
+{% endblock %}
+
+{% block bld_libs %}
+{% if wasi %}
+{# libpng's header takes setjmp.h; its errors here trap before a jump #}
+lib/shim/setjmp
+{% endif %}
 {% endblock %}
 
 {% block bld_tool %}
@@ -54,6 +71,14 @@ cat << 'EOF' > hello.svg
 {{ix.load_file('hello.svg')}}
 EOF
 
+cat << 'EOF' > images.svg
+{{ix.load_file('images.svg')}}
+EOF
+
+cat << 'EOF' > broken.svg
+{{ix.load_file('broken.svg')}}
+EOF
+
 {% if simd128 %}
 {% else %}
 # 40 by 20 CSS pixels at twice the size: the red square on the left, the
@@ -73,6 +98,49 @@ r, g, b, a = at(60, 20)
 assert (r, g, b) == (0, 0, 255) and 120 <= a <= 135, (r, g, b, a)
 print("pixels as drawn")
 EOF
+
+# 60 by 10 CSS pixels at twice the size, an image in each 20 by 20 square:
+# a half-transparent red PNG, a green JPEG, a blue WebP, a GIF yellow on
+# its left half and transparent on its right, an animated GIF's magenta
+# first frame and an animated WebP's cyan one; gzipped, the same pixels
+wasm-page svg.wasm svg images.svg 0 120 20 images.rgba
+
+python3 - << 'EOF'
+import gzip
+open("images.svgz", "wb").write(gzip.compress(open("images.svg", "rb").read()))
+EOF
+
+wasm-page svg.wasm svg images.svgz 0 120 20 svgz.rgba
+
+python3 - << 'EOF'
+data = open("images.rgba", "rb").read()
+assert len(data) == 120 * 20 * 4, len(data)
+assert data == open("svgz.rgba", "rb").read()
+
+def at(x, y):
+    return tuple(data[(y * 120 + x) * 4:(y * 120 + x) * 4 + 4])
+
+def near(got, want, slack):
+    assert all(abs(g - w) <= slack for g, w in zip(got, want)), (got, want)
+
+near(at(10, 10), (255, 0, 0, 128), 2)
+near(at(30, 10), (0, 255, 0, 255), 4)
+assert at(50, 10) == (0, 0, 255, 255), at(50, 10)
+assert at(65, 10) == (255, 255, 0, 255), at(65, 10)
+assert at(75, 10)[3] == 0, at(75, 10)
+assert at(90, 10) == (255, 0, 255, 255), at(90, 10)
+assert at(110, 10) == (0, 255, 255, 255), at(110, 10)
+print("images as drawn")
+EOF
+
+# a PNG that does not decode traps, and svg_error says why
+if wasm-page svg.wasm svg broken.svg 0 10 10 broken.rgba 2> broken.txt; then
+    echo "a broken PNG drew" >&2
+    exit 1
+fi
+
+cat broken.txt
+grep -q 'PNG: ' broken.txt
 {% endif %}
 {% endblock %}
 
