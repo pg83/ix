@@ -22,13 +22,8 @@ lib/c
 lib/c++
 {% endblock %}
 
-{# the pixel kernels take SSE4.2 on x86-64; svg.cpp refuses to build
-   without it #}
 {% block cxx_flags %}
 -std=c++17
-{% if x86_64 %}
--msse4.2
-{% endif %}
 {% endblock %}
 
 {% block build %}
