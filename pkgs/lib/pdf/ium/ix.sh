@@ -25,7 +25,7 @@ pdfium
 {% endblock %}
 
 {% block version %}
-8066
+8110
 {% endblock %}
 
 {% block fetch %}
