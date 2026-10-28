@@ -2274,6 +2274,7 @@ https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.3.tar.gz
 https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.4.tar.gz
 https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.5.tar.gz
 https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.8.tar.gz
+https://github.com/VirusTotal/yara/archive/refs/tags/v4.6.0.tar.gz
 https://github.com/WasmEdge/WasmEdge/archive/refs/tags/0.13.3.tar.gz
 https://github.com/WasmEdge/WasmEdge/archive/refs/tags/0.13.5.tar.gz
 https://github.com/WasmEdge/WasmEdge/archive/refs/tags/0.14.1.tar.gz
