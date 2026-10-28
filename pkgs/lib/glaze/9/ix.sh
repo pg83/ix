@@ -3,10 +3,10 @@
 # noauto
 
 {% block version %}
-9.0.0
+9.1.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/stephenberry/glaze/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-dd7b033c5bf6e4308615bb7834c541291d5b20f64121d9a68222a39414635517
+55f8a675397c505f9bee6c160e1c26b0085868f185d04d7a7727531fdbff4bd4
 {% endblock %}
