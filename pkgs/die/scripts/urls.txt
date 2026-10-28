@@ -1284,6 +1284,7 @@ https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/libtracefs-
 https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/libtracefs-1.8.1.tar.gz
 https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/libtracefs-1.8.2.tar.gz
 https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/libtracefs-1.8.3.tar.gz
+https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/libtracefs-1.8.4.tar.gz
 https://git.kernel.org/pub/scm/linux/kernel/git/colyli/bcache-tools.git/snapshot/bcache-tools-1.1.tar.gz
 https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git
 https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot/linux-firmware-20220209.tar.gz
