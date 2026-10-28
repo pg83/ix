@@ -27,6 +27,7 @@ lib/shim/setjmp
 
 {% block lib_deps %}
 lib/c
+lib/z
 {% endblock %}
 
 {% block cmake_flags %}
@@ -34,4 +35,5 @@ lib/c
 REQUIRE_SIMD=ON
 {% endif %}
 ENABLE_SHARED=OFF
+WITH_SYSTEM_ZLIB=ON
 {% endblock %}
