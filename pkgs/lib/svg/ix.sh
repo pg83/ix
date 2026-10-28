@@ -9,12 +9,12 @@ svg
 {% endblock %}
 
 {% block version %}
-4
+5
 {% endblock %}
 
 {% block fetch %}
 https://github.com/impulse-desktop/svg/releases/download/{{self.version().strip()}}/svg-{{self.version().strip()}}.tar.gz
-3e28e2aec6647e14a81dc559a7833e6d8173d1fad35178206430cd926dc8d29a
+829819c5fa796dd9e044ece2adc89912989b08b314d66c6f9e5e74def3fd2f52
 {% endblock %}
 
 {% block lib_deps %}
@@ -22,8 +22,13 @@ lib/c
 lib/c++
 {% endblock %}
 
+{# the pixel kernels take SSE4.2 on x86-64; svg.cpp refuses to build
+   without it #}
 {% block cxx_flags %}
 -std=c++17
+{% if x86_64 %}
+-msse4.2
+{% endif %}
 {% endblock %}
 
 {% block build %}

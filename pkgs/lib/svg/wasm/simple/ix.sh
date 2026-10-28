@@ -82,5 +82,5 @@ cp svg.wasm ${out}/share/
 {% endblock %}
 
 {% block env %}
-export IX_SVG_WASM="${out}/lib/aux/svg.wasm"
+export IX_SVG_SIMPLE_WASM="${out}/lib/aux/svg.wasm"
 {% endblock %}

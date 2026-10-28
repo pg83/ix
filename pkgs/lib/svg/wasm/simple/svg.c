@@ -26,7 +26,8 @@
  * library's fail does not return, and here it is a trap, after which
  * svg_error names the SvgError. The instance is then dead, as any wasm
  * instance. The module has no raster decoder: a document's PNG and JPEG
- * images are left out. The module initializes itself on the first
+ * images are left out. Nor has it a decompressor: an SVGZ file traps
+ * with SVG_DECOMPRESS, a gzipped image inside a drawing is left out. The module initializes itself on the first
  * svg_open of an instance by running the static constructors.
  */
 
@@ -80,8 +81,8 @@ static const char *const names[] = {
     "SVG_XML_END_TAG_CLOSE",
     "SVG_NOT_SVG",
     "SVG_RENDER_SIZE",
-    "SVG_RENDER_SCALE",
     "SVG_XML_INCLUDE_PARSE",
+    "SVG_DECOMPRESS",
 };
 
 static const char *cause = "";
@@ -97,7 +98,7 @@ __attribute__((export_name("svg_open")))
 SvgDocument *svg_open(const uint8_t *data, size_t len) {
     if (!library) {
         __wasm_call_ctors();
-        library = svg_library_create(NULL, fail, NULL);
+        library = svg_library_create(NULL, NULL, fail, NULL);
     }
 
     return svg_library_parse(library, data, len);

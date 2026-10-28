@@ -4,7 +4,7 @@
 {% extends '//die/hub.sh' %}
 
 {# a selector with its own target starts from empty flags: what the module
-   takes from `ix run set/wasm/svg --simd128=1` is passed on by name #}
+   takes from `ix run set/wasm/svg/simple --simd128=1` is passed on by name #}
 {% block run_deps %}
-lib/svg/wasm(target=wasm32-none,kind=lib,simd128={{simd128}})
+lib/svg/wasm/simple(target=wasm32-none,kind=lib,simd128={{simd128}})
 {% endblock %}
