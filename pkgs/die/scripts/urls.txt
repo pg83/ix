@@ -3942,11 +3942,13 @@ https://github.com/impulse-desktop/svg/releases/download/1/svg-1.tar.gz
 https://github.com/impulse-desktop/svg/releases/download/2/svg-2.tar.gz
 https://github.com/impulse-desktop/svg/releases/download/3/svg-3.tar.gz
 https://github.com/impulse-desktop/svg/releases/download/4/svg-4.tar.gz
+https://github.com/impulse-desktop/svg/releases/download/5/svg-5.tar.gz
 https://github.com/imsnif/bandwhich/archive/refs/tags/v0.23.1.tar.gz
 https://github.com/inotify-tools/inotify-tools/archive/refs/tags/3.20.11.0.tar.gz
 https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.23.9.0.tar.gz
 https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.25.9.0.tar.gz
 https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.26.262.tar.gz
+https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.26.270.tar.gz
 https://github.com/intel/intel-one-mono/releases/download/V1.2.1/otf.zip
 https://github.com/intel/intel-one-mono/releases/download/V1.4.0/otf.zip
 https://github.com/intel/libipt/archive/refs/tags/v2.0.6.tar.gz
