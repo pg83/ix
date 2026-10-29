@@ -5,12 +5,12 @@ EternalTerminal
 {% endblock %}
 
 {% block version %}
-7.0.0
+7.1.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/MisterTea/EternalTerminal/archive/refs/tags/et-v{{self.version().strip()}}.tar.gz
-3580962861589c0b69efd6b385ff92ad8fdf688c91d1a0edc1a83278205e28e8
+6c1eacb22f3465af8edcdd814318e5e23a4cf3b8fc2e50a2525d2b2b3bf44016
 {% endblock %}
 
 {% block bld_libs %}
