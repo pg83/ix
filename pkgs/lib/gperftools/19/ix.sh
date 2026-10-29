@@ -1,12 +1,12 @@
 {% extends '//lib/gperftools/16/ix.sh' %}
 
 {% block version %}
-2.19.1
+2.19.2
 {% endblock %}
 
 {% block fetch %}
 https://github.com/gperftools/gperftools/releases/download/gperftools-{{self.version().strip()}}/gperftools-{{self.version().strip()}}.tar.gz
-4b0ac7a3803868685caa0ca4c190100ad8a302af6eb10b3e7482d36367f97309
+48a127fa4cf2cf9f2764dddd9340f158245f53b9fe6ab4fbf007ecaf304d8e1a
 {% endblock %}
 
 {% block lib_deps %}
