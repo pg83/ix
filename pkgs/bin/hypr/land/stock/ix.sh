@@ -24,6 +24,9 @@ lib/glslang
 lib/ei
 lib/lua/puc/5/5
 lib/readline
+lib/canberra
+lib/sd/bus/c++/2
+lib/jthread/polyfill
 lib/pango
 lib/cairo
 lib/input
@@ -47,6 +50,7 @@ bld/prepend
 bld/wayland
 bld/python/13
 bin/hypr/wayland/scanner
+bin/hypr/wayland/protocols
 lib/hypr/wire
 bld/wrap/cc/plugins/rdynamic/fake
 {% endblock %}
@@ -64,6 +68,17 @@ chmod +x scripts/generateVersion.sh
 
 prepend hyprpm/src/helpers/Sys.cpp << EOF
 #include <sstream>
+EOF
+
+sed -i 's|request.subview(i, 2)|std::string_view{request}.substr(i, 2)|' \
+    src/ipc/s1/S1.cpp
+
+prepend src/ipc/s2/S2.cpp << EOF
+#include <algorithm>
+EOF
+
+prepend src/keybinds/Bind.hpp << EOF
+#include <span>
 EOF
 {% endblock %}
 
