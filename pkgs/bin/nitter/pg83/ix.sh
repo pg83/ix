@@ -43,6 +43,7 @@ EOF
 {{super()}}
 --mm:refc
 --dynlibOverrideAll
+-d:useOpenssl3
 --passL:-lpcre
 --passL:-lssl
 --passL:-lcrypto
