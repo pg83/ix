@@ -2017,6 +2017,7 @@ https://github.com/MisterTea/EternalTerminal/archive/refs/tags/et-v6.2.4.tar.gz
 https://github.com/MisterTea/EternalTerminal/archive/refs/tags/et-v6.2.9.tar.gz
 https://github.com/MisterTea/EternalTerminal/archive/refs/tags/et-v7.0.0.tar.gz
 https://github.com/MisterTea/EternalTerminal/archive/refs/tags/et-v7.1.0.tar.gz
+https://github.com/MisterTea/EternalTerminal/archive/refs/tags/et-v7.1.1.tar.gz
 https://github.com/Multicorewareinc/x265/archive/refs/tags/4.3.tar.gz
 https://github.com/NLnetLabs/ldns/archive/refs/tags/1.8.3.tar.gz
 https://github.com/NLnetLabs/ldns/archive/refs/tags/1.8.4.tar.gz
