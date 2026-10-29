@@ -5094,6 +5094,7 @@ https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.1.0.tar.gz
 https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.2.0.tar.gz
 https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.3.0.tar.gz
 https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2023.1.0.tar.gz
+https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2023.2.0.tar.gz
 https://github.com/onetrueawk/awk/archive/refs/tags/20220122.tar.gz
 https://github.com/onetrueawk/awk/archive/refs/tags/20240311.tar.gz
 https://github.com/onetrueawk/awk/archive/refs/tags/20240422.tar.gz
