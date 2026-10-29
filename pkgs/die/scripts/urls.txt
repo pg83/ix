@@ -6342,6 +6342,7 @@ https://github.com/upx/upx/releases/download/v5.0.0/upx-5.0.0-src.tar.xz
 https://github.com/upx/upx/releases/download/v5.0.1/upx-5.0.1-src.tar.xz
 https://github.com/upx/upx/releases/download/v5.0.2/upx-5.0.2-src.tar.xz
 https://github.com/upx/upx/releases/download/v5.2.1/upx-5.2.1-src.tar.xz
+https://github.com/upx/upx/releases/download/v5.3.0/upx-5.3.0-src.tar.xz
 https://github.com/ur0/lolcat/archive/refs/tags/v1.3.1.tar.gz
 https://github.com/uriparser/uriparser/archive/refs/tags/uriparser-0.9.6.tar.gz
 https://github.com/uriparser/uriparser/archive/refs/tags/uriparser-0.9.8.tar.gz
