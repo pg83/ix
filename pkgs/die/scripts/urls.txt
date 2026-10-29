@@ -4109,6 +4109,7 @@ https://github.com/jjsullivan5196/wvkbd/archive/refs/tags/v0.16.tar.gz
 https://github.com/jjsullivan5196/wvkbd/archive/refs/tags/v0.17.tar.gz
 https://github.com/jjsullivan5196/wvkbd/archive/refs/tags/v0.18.tar.gz
 https://github.com/jjsullivan5196/wvkbd/archive/refs/tags/v0.20.tar.gz
+https://github.com/jjsullivan5196/wvkbd/archive/refs/tags/v0.21.tar.gz
 https://github.com/johang/btfs/archive/refs/tags/v2.24.tar.gz
 https://github.com/johang/btfs/archive/refs/tags/v3.1.tar.gz
 https://github.com/johang/btfs/archive/refs/tags/v3.2.tar.gz
