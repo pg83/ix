@@ -5947,6 +5947,7 @@ https://github.com/squid-cache/squid/archive/refs/tags/SQUID_7_1.tar.gz
 https://github.com/squid-cache/squid/archive/refs/tags/SQUID_7_2.tar.gz
 https://github.com/squid-cache/squid/archive/refs/tags/SQUID_7_3.tar.gz
 https://github.com/squid-cache/squid/archive/refs/tags/SQUID_7_7.tar.gz
+https://github.com/squid-cache/squid/archive/refs/tags/SQUID_7_8.tar.gz
 https://github.com/squidowl/halloy/archive/refs/tags/2024.14.tar.gz
 https://github.com/squidowl/halloy/archive/refs/tags/2025.1.tar.gz
 https://github.com/squidowl/halloy/archive/refs/tags/2025.2.tar.gz
