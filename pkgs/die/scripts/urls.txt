@@ -1539,6 +1539,7 @@ https://github.com/ErikReider/SwayNotificationCenter/archive/refs/tags/v0.12.6.t
 https://github.com/Esri/lerc/archive/refs/tags/js_v4.0.4.tar.gz
 https://github.com/Esri/lerc/archive/refs/tags/v4.0.0.tar.gz
 https://github.com/Esri/lerc/archive/refs/tags/v4.2.0.tar.gz
+https://github.com/Esri/lerc/archive/refs/tags/v4.3.0.tar.gz
 https://github.com/Exiv2/exiv2/archive/refs/tags/v0.27.6.tar.gz
 https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.0.tar.gz
 https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.2.tar.gz

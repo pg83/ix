@@ -5,12 +5,12 @@ lerc
 {% endblock %}
 
 {% block version %}
-4.2.0
+4.3.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/Esri/lerc/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-a1fb593ed1fcb5b38800caf3c4454f872745202e961d00d745e53d81447e17c9
+28d74992e0bc0f13ecdda1dd9ca3b40b1a87009369b9ec5a599853f6f311fee7
 {% endblock %}
 
 {% block lib_deps %}
