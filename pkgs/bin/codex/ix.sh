@@ -5,14 +5,14 @@ codex
 {% endblock %}
 
 {% block version %}
-0.165.0
+0.166.0
 {% endblock %}
 
 {% block fetch %}
 https://github.com/openai/codex/releases/download/rust-v{{self.version().strip()}}/codex-x86_64-unknown-linux-musl.tar.gz
-be635d3486a5bd060d0fff582ae6d30160280c31344dd85719707fa920e187f0
+a0bf572d2f93f056c6712a6da348e96078dc84f3885fd7be67807ef389cb3978
 https://github.com/openai/codex/releases/download/rust-v{{self.version().strip()}}/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz
-9577b09b2a546eeb3da8a09807de6d58fbaa207755256390113772ea4f05235e
+7588334fd47bc4003d970b70dfd4d1e4578491b1e9baa72976a4c2d7e97590da
 {% endblock %}
 
 {% block step_unpack %}
