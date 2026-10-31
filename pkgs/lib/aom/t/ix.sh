@@ -5,12 +5,12 @@ libaom
 {% endblock %}
 
 {% block version %}
-3.15.2
+3.15.3
 {% endblock %}
 
 {% block fetch %}
 https://storage.googleapis.com/aom-releases/libaom-{{self.version().strip()}}.tar.gz
-67bb54b245f33ed98600e08269e6139986e48114e14042474ddd8885801dfddc
+12c01dc731ed7b5a999e28120b45bf58a002ba3435a4ba2cfbc1e084a27c9c04
 {% endblock %}
 
 {% block lib_deps %}
