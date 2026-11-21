@@ -1395,6 +1395,7 @@ https://git.sr.ht/~bptato/chawan/archive/v0.4.4.tar.gz
 https://git.sr.ht/~bptato/chawan/archive/v0.5.0.tar.gz
 https://git.sr.ht/~bptato/chawan/archive/v0.5.1.tar.gz
 https://git.sr.ht/~bptato/chawan/archive/v0.5.2.tar.gz
+https://git.sr.ht/~bptato/chawan/archive/v0.5.3.tar.gz
 https://git.sr.ht/~brocellous/wlrctl/archive/v0.2.2.tar.gz
 https://git.sr.ht/~delthas/senpai/archive/v0.3.0.tar.gz
 https://git.sr.ht/~delthas/senpai/archive/v0.4.1.tar.gz
