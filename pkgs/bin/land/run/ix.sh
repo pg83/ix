@@ -5,7 +5,7 @@ landrun
 {% endblock %}
 
 {% block version %}
-0.1.17
+0.2.0
 {% endblock %}
 
 {% block go_url %}
@@ -13,7 +13,7 @@ https://github.com/Zouuup/landrun/archive/refs/tags/v{{self.version().strip()}}.
 {% endblock %}
 
 {% block go_sha %}
-4777dbbc9f622143a9c2bd9c5154c27e136190982eeb85aac6605ba6a51c473c
+e48c28f06f4fb4e7981e54db77c63f52837556fe816181f07e03e6ac19681c31
 {% endblock %}
 
 {% block unpack %}
@@ -26,5 +26,5 @@ landrun
 {% endblock %}
 
 {% block go_tool %}
-bin/go/lang/26
+bin/go/lang/27
 {% endblock %}
