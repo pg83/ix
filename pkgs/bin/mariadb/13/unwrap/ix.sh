@@ -30,6 +30,7 @@ FALLOC_FL_ZERO_RANGE=0x10
 {% endblock %}
 
 {% block patch %}
+sed -i '/# include <fcntl.h>/a # include <linux/falloc.h>' storage/innobase/log/log0log.cc
 cd libmariadb
 find . -type f | while read l; do
     sed -e 's|decimal2string|xxx_decimal2string|' \
