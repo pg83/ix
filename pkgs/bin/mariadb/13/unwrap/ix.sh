@@ -24,6 +24,11 @@ mariadb-{{self.version().strip()}}
 find . -type l -delete
 {% endblock %}
 
+{% block cpp_defines %}
+{{super()}}
+FALLOC_FL_ZERO_RANGE=0x10
+{% endblock %}
+
 {% block patch %}
 cd libmariadb
 find . -type f | while read l; do
