@@ -5,7 +5,7 @@ walk
 {% endblock %}
 
 {% block version %}
-1.13.0
+1.14.0
 {% endblock %}
 
 {% block go_url %}
@@ -13,7 +13,7 @@ https://github.com/antonmedv/walk/archive/refs/tags/v{{self.version().strip()}}.
 {% endblock %}
 
 {% block go_sha %}
-488d50b60dfda1573a61e6d224c2f74296936203b02f6d319cb6718cd5907c7a
+c079f3baa2523269b03c07cdf95e5489f9ef965a315f206caf8128f40664d00f
 {% endblock %}
 
 {% block go_refine %}
@@ -23,4 +23,8 @@ go mod tidy -compat=1.21
 
 {% block go_bins %}
 walk
+{% endblock %}
+
+{% block go_tool %}
+bin/go/lang/27
 {% endblock %}

@@ -2536,6 +2536,7 @@ https://github.com/antonmedv/fx/archive/refs/tags/40.0.2.tar.gz
 https://github.com/antonmedv/llama/archive/refs/tags/v1.4.0.tar.gz
 https://github.com/antonmedv/walk/archive/refs/tags/v1.10.0.tar.gz
 https://github.com/antonmedv/walk/archive/refs/tags/v1.13.0.tar.gz
+https://github.com/antonmedv/walk/archive/refs/tags/v1.14.0.tar.gz
 https://github.com/antonmedv/walk/archive/refs/tags/v1.6.2.tar.gz
 https://github.com/antonmedv/walk/archive/refs/tags/v1.7.0.tar.gz
 https://github.com/aous72/OpenJPH/archive/refs/tags/0.25.2.tar.gz
