@@ -5,12 +5,12 @@ kmscon
 {% endblock %}
 
 {% block version %}
-10.1.1
+10.1.2
 {% endblock %}
 
 {% block fetch %}
 https://github.com/kmscon/kmscon/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-0459d111eb9a12d7b8981492957043b5326a6ee91b7351575f8fd402d745eeb3
+ba683806d517b1dfc9cfbca0e9d5c2653b62d1fbf41918c00fa1d5c837626044
 {% endblock %}
 
 {% block bld_libs %}
