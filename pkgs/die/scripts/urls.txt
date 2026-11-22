@@ -1762,6 +1762,7 @@ https://github.com/GNOME/vte/archive/refs/tags/0.82.0.tar.gz
 https://github.com/GNOME/vte/archive/refs/tags/0.82.1.tar.gz
 https://github.com/GNOME/vte/archive/refs/tags/0.82.2.tar.gz
 https://github.com/GNOME/vte/archive/refs/tags/0.84.1.tar.gz
+https://github.com/GNOME/vte/archive/refs/tags/0.84.2.tar.gz
 https://github.com/GNOME/zenity/archive/refs/tags/4.0.3.tar.gz
 https://github.com/GNOME/zenity/archive/refs/tags/4.0.5.tar.gz
 https://github.com/GNOME/zenity/archive/refs/tags/4.1.90.tar.gz
