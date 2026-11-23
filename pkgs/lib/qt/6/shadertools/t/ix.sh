@@ -5,12 +5,12 @@ qtshadertools
 {% endblock %}
 
 {% block version %}
-6.12.0
+6.12.1
 {% endblock %}
 
 {% block fetch %}
 https://github.com/qt/qtshadertools/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-ced35453e0420193c345019ee8952af018fbab3fe04cf991a778fb8537907e86
+2d6bdf572eb4521dd5603ba04d81b0f8a3e750da9075bb2c2a134d921e5432d4
 {% endblock %}
 
 {% block lib_deps %}

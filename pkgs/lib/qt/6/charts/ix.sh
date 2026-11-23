@@ -5,12 +5,12 @@ qtcharts
 {% endblock %}
 
 {% block version %}
-6.12.0
+6.12.1
 {% endblock %}
 
 {% block fetch %}
 https://github.com/qt/qtcharts/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-b21aaeec3cb7c55bed9ba04cb4a28dc89ff02f4fdb8fcdec91f11e47b91bcb59
+752e3f34b35609239330ff3d803b66906e11dd4537a1f48e34758d6ca3d91893
 {% endblock %}
 
 {% block lib_deps %}

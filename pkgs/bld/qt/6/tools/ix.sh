@@ -5,12 +5,12 @@ qttools
 {% endblock %}
 
 {% block version %}
-6.12.0
+6.12.1
 {% endblock %}
 
 {% block fetch %}
 https://github.com/qt/qttools/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-eff0ab495ca82147052ed7a2e92cc222a6171ae28f7d0a11aa867054139092cf
+7a31bba8823a03e68b4c32a8f56a72b517a03615d9fdfb6c035b311074ab1baa
 {% endblock %}
 
 {% block bld_libs %}

@@ -5,12 +5,12 @@ qtmultimedia
 {% endblock %}
 
 {% block version %}
-6.12.0
+6.12.1
 {% endblock %}
 
 {% block fetch %}
 https://github.com/qt/qtmultimedia/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-896543478b9dcdc1811e2960f74d926572cf5d97ce9ad7a53b6ea335cafe8561
+77086e87a06f358ab37207279e94787750445b9029ff48a9fdf6e8b808a493a4
 {% endblock %}
 
 {% block lib_deps %}

@@ -5,12 +5,12 @@ qtsvg
 {% endblock %}
 
 {% block version %}
-6.12.0
+6.12.1
 {% endblock %}
 
 {% block fetch %}
 https://github.com/qt/qtsvg/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-38d440c4e97c90ce4f5b76c65dcd63d716d2ef4852baa6fb0926fb94bb96ea66
+b038a93f1ec8a1914b56f2aecea407ed048dc6f385461276ae1b0f52a201183c
 {% endblock %}
 
 {% block lib_deps %}
