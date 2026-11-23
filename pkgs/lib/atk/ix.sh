@@ -5,12 +5,12 @@ at-spi2-core
 {% endblock %}
 
 {% block version %}
-2.62.1
+2.62.2
 {% endblock %}
 
 {% block fetch %}
 https://github.com/GNOME/at-spi2-core/archive/refs/tags/{{self.version().strip()}}.tar.gz
-54ac3f44ce3b053b0778e0e6c15357f8c8ff293dad84e1a67d793e02d9f4f4ef
+e395f82e91bce3d928b7e8ac6dc595426263a8f42d17700b25712574be43b523
 {% endblock %}
 
 {% block lib_deps %}
