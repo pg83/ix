@@ -37,6 +37,12 @@ bld/wayland
 bin/hypr/wayland/scanner
 {% endblock %}
 
+{% block patch %}
+sed -e 's/value_or({ 0, 0 })/value_or(Vector2D{0, 0})/' -i \
+    src/element/columnLayout/ColumnLayout.cpp \
+    src/element/rowLayout/RowLayout.cpp
+{% endblock %}
+
 {% block c_rename_symbol %}
 # Upstream builds this shared; isolate its generated protocols for static consumers.
 CCExtSessionLockManagerV1
