@@ -37,6 +37,10 @@ export GOPROXY=https://proxy.golang.org,direct
 )
 {% endblock %}
 
+{% block patch %}
+sed -i '/#include <QFileIconProvider>/a #include <QFileInfo>' src/librssguard/gui/messagesview.cpp
+{% endblock %}
+
 {% block bld_libs %}
 lib/c
 lib/c++
