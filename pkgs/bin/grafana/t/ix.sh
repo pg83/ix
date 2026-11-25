@@ -5,7 +5,7 @@ grafana
 {% endblock %}
 
 {% block version %}
-13.3.1
+13.3.2
 {% endblock %}
 
 {% block go_url %}
@@ -13,7 +13,7 @@ https://github.com/grafana/grafana/archive/refs/tags/v{{self.version().strip()}}
 {% endblock %}
 
 {% block go_sha %}
-572402eb8ef4db076ca9e6a7fbf1ce18324f68c93826c8e1b3543bbad93b5195
+b2030a52efeb71d3dce2a85203975d554ea97f32681fc8cfe74ee210e0c9cc96
 {% endblock %}
 
 {% block go_tool %}
