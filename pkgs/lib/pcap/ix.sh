@@ -5,12 +5,12 @@ libpcap
 {% endblock %}
 
 {% block version %}
-1.11.0
+1.11.1
 {% endblock %}
 
 {% block fetch %}
 https://www.tcpdump.org/release/libpcap-{{self.version().strip()}}.tar.gz
-596389bc8560ea027dff9db8aaf6c173d992366d9aef4baf5d7c6d180b4d49ad
+7985b1d20ff82c1e384115038046e0b15034648c6f45c92e08601d4ee1b369ed
 {% endblock %}
 
 {% block lib_deps %}
