@@ -5,12 +5,12 @@ libyaml
 {% endblock %}
 
 {% block version %}
-0.2.5
+0.2.7
 {% endblock %}
 
 {% block fetch %}
 https://github.com/yaml/libyaml/archive/refs/tags/{{self.version().strip()}}.tar.gz
-fa240dbf262be053f3898006d502d514936c818e422afdcf33921c63bed9bf2e
+7f76964485c67dc4e1537fdfd4ad5c8772bcef501c5451b617e43f831034994e
 {% endblock %}
 
 {% block lib_deps %}
