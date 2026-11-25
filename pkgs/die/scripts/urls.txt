@@ -770,6 +770,7 @@ https://downloads.sourceforge.net/project/fetchmail/branch_6.5/fetchmail-6.5.6.t
 https://downloads.sourceforge.net/project/fetchmail/branch_6.5/fetchmail-6.5.7.tar.xz
 https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.0.tar.xz
 https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.1.tar.xz
+https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.10.tar.xz
 https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.2.tar.xz
 https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.7.tar.xz
 https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.8.tar.xz
