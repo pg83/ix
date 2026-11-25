@@ -16,12 +16,12 @@ claude-code
 {% endblock %}
 
 {% block version %}
-2.1.331
+2.1.332
 {% endblock %}
 
 {% block fetch %}
 https://downloads.claude.ai/claude-code-releases/{{self.version().strip()}}/linux-x64/claude
-4c00839cf46beb2b38ec310105f2d538f7f9321fe46c636299b74bcab94626b1
+a2df1f41bb00250992926420d0063f89b127cb81abdd284dbefb80c50ff1d026
 {% endblock %}
 
 {% block lib_deps %}
