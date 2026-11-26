@@ -5,12 +5,12 @@ tomlplusplus
 {% endblock %}
 
 {% block version %}
-3.5.0
+3.5.1
 {% endblock %}
 
 {% block fetch %}
 https://github.com/marzer/tomlplusplus/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-97ebfe14382ebbae3350d06d785ba71b40f0ed1d3501bfad423b1cce0aee25a9
+4821c769370a6489b6a37814f16f3769eee0f2e733a5c129d5d99e2515a95c2b
 {% endblock %}
 
 {% block lib_deps %}
