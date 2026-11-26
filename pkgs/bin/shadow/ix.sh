@@ -5,12 +5,12 @@ shadow
 {% endblock %}
 
 {% block version %}
-4.20.3
+4.20.4
 {% endblock %}
 
 {% block fetch %}
 https://github.com/shadow-maint/shadow/archive/refs/tags/{{self.version().strip()}}.tar.gz
-17cf141ef01c7f75d0bb42e20d10d7d84dffae538328e067a62575cca4e543af
+7363ef795b6cce52e4fcfbd2a0dc127be94376f82bbb72d59a059b9e3b11aab6
 {% endblock %}
 
 {% block bld_libs %}
