@@ -5,12 +5,12 @@ musl-nscd
 {% endblock %}
 
 {% block version %}
-1.1.1
+1.2.1
 {% endblock %}
 
 {% block fetch %}
 https://github.com/pikhq/musl-nscd/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-ddd5924f0355568a483cb8c83e63c7e3425b8c3f1dce4b9883ca75ed1a276675
+b1ab05fa29488df461258c789d015ee35557046fb761f5c21200ab7229c38519
 {% endblock %}
 
 {% block bld_libs %}
