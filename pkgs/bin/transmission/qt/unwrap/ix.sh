@@ -14,6 +14,7 @@ USE_QT_VERSION=6
 
 {% block patch %}
 {{super()}}
+sed -i '/#include <QEvent>/a #include <QFile>' qt/DetailsDialog.cc
 rm third-party/rpavlik-cmake-modules/FindWayland.cmake
 {% endblock %}
 
