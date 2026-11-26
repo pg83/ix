@@ -5,12 +5,12 @@ tcpreplay
 {% endblock %}
 
 {% block version %}
-4.6.2
+4.6.4
 {% endblock %}
 
 {% block fetch %}
 https://github.com/appneta/tcpreplay/releases/download/v{{self.version().strip()}}/tcpreplay-{{self.version().strip()}}.tar.xz
-83a7ca2f9daa367949926cfe34d30193e756c233c164b38f84f0d6d272a87e66
+7f35bd85c4fa2d3127497d531181c1dab4cb77553f91409f1b2afae26e76e624
 {% endblock %}
 
 {% block bld_libs %}
