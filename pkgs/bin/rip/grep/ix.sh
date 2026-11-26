@@ -5,7 +5,7 @@ ripgrep
 {% endblock %}
 
 {% block version %}
-15.2.0
+16.0.0
 {% endblock %}
 
 {% block cargo_url %}
@@ -13,7 +13,7 @@ https://github.com/BurntSushi/ripgrep/archive/refs/tags/{{self.version().strip()
 {% endblock %}
 
 {% block cargo_sha %}
-1278c0097afec6588636d7e1a08dc8c68365045753fa73798348826424f37a2b
+2dea7b85d63ba26e5a4dcdded23b1f746b6086b58cf25cb5817b733885a08311
 {% endblock %}
 
 {% block patch %}
