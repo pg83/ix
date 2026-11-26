@@ -5,12 +5,12 @@ libffi
 {% endblock %}
 
 {% block version %}
-3.8.1
+3.8.2
 {% endblock %}
 
 {% block fetch %}
 https://github.com/libffi/libffi/archive/refs/tags/v{{self.version().strip()}}.tar.gz
-d20879cd35dae11feb1d6637e37630a65ca1a10c27eeb8236b77762f9ef003d0
+613aa7d9f09d1971d67377389a67f833328d5b2d9d9eed621a328e00e1d37df3
 {% endblock %}
 
 {% block lib_deps %}
