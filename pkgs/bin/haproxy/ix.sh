@@ -5,12 +5,12 @@ haproxy
 {% endblock %}
 
 {% block version %}
-3.4.8
+3.4.9
 {% endblock %}
 
 {% block fetch %}
 https://www.haproxy.org/download/{{self.version().strip() | field(0)}}.{{self.version().strip() | field(1)}}/src/haproxy-{{self.version().strip()}}.tar.gz
-024bd521a6cbbe32b426853147e6bbd6a89b107c5a34144846193fee5b7c6ed1
+896c55b6029ec2a841617e92a327a335f36a8968e7d51a47eada159673c2f320
 {% endblock %}
 
 {% block bld_libs %}
