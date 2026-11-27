@@ -6,6 +6,8 @@ mkdir -p ${out}/include/sys
 cat << EOF > ${out}/include/sys/cdefs.h
 #pragma once
 
+#include <stdlib.h>
+
 #if defined(__cplusplus)
     #define __BEGIN_DECLS extern "C" {
     #define __END_DECLS }
@@ -24,7 +26,7 @@ cat << EOF > ${out}/include/sys/cdefs.h
 #define mtrace()
 #define muntrace()
 #define malloc_info(...) 0
-#define malloc_trim(x)
+#define malloc_trim(x) 0
 #define innetgr(...) 1
 
 #define __S_IFLNK S_IFLNK
