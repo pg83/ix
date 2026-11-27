@@ -17,6 +17,7 @@ https://github.com/nfs-ganesha/ntirpc/archive/refs/tags/v{{self.version().strip(
 lib/c
 lib/urcu
 lib/nsl/naked
+lib/linux/headers
 bin/nfs/ganesha/cdefs
 {% endblock %}
 
