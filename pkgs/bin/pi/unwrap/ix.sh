@@ -11,12 +11,12 @@ pi-coding-agent
 {% endblock %}
 
 {% block version %}
-1.6.0
+1.6.1
 {% endblock %}
 
 {% block fetch %}
 https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-{{self.version().strip()}}.tgz
-85d5de404e019e850c90ee9ac6dc6c16240da122fdce0314895608164030336b
+e3b0eb54b6e1e95b60ec7c4204959bd69adc51fb1f0da3a59430bbc9a593734f
 https://registry.npmjs.org/jiti/-/jiti-2.7.0.tgz
 8dd0d365fb49c0e7cc42d6a00df6fb2da9056fc24492094346fc34ecdbcf28ca
 https://registry.npmjs.org/@silvia-odwyer/photon-node/-/photon-node-0.3.4.tgz
